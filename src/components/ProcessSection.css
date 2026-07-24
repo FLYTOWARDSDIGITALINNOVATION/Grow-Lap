@@ -1,0 +1,126 @@
+.timeline-process-section {
+  background-color: var(--bg-dark);
+  padding: 6rem 0;
+}
+
+.timeline-header {
+  margin-bottom: 4rem;
+}
+
+.timeline-title {
+  font-size: 3.5rem;
+  color: #fff;
+  font-weight: 700;
+}
+
+.timeline-container {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-left: 60px;
+}
+
+.timeline-vertical-line {
+  position: absolute;
+  top: 30px;
+  bottom: 0;
+  left: 20px;
+  width: 2px;
+  background-color: var(--accent-orange);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 3.5rem;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -48px;
+  top: 40px; 
+  width: 16px;
+  height: 16px;
+  background-color: var(--bg-dark);
+  border: 3px solid var(--accent-orange);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255, 107, 0, 0.6), 0 0 20px rgba(255, 107, 0, 0.3);
+  z-index: 2;
+}
+
+.timeline-card {
+  background-color: #0d0d0d;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.timeline-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 107, 0, 0.2);
+}
+
+.timeline-card-header {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.timeline-icon {
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+}
+
+.timeline-card-title {
+  color: #fff;
+  font-size: 1.6rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+.timeline-card-desc {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  max-width: 85%;
+}
+
+.timeline-number {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  font-size: 4rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.04);
+  z-index: 1;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .timeline-container {
+    padding-left: 40px;
+  }
+  .timeline-vertical-line {
+    left: 10px;
+  }
+  .timeline-dot {
+    left: -38px;
+  }
+  .timeline-card-desc {
+    max-width: 100%;
+  }
+}

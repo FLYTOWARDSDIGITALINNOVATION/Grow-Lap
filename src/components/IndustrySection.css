@@ -1,0 +1,107 @@
+.industry-section {
+  background-color: var(--bg-dark);
+}
+
+.industry-img-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+.industry-img-card {
+  background-color: #0c0c0e;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+  height: 100%;
+}
+
+.industry-img-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(255, 94, 0, 0.15);
+}
+
+.industry-card-img {
+  height: 220px;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.5s ease;
+}
+
+.industry-img-card:hover .industry-card-img {
+  transform: scale(1.05);
+}
+
+.industry-card-body {
+  padding: 2rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background-color: #0c0c0e;
+  position: relative;
+  z-index: 2;
+}
+
+.industry-card-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-orange);
+  letter-spacing: 1.5px;
+  margin-bottom: 0.8rem;
+  text-transform: uppercase;
+}
+
+.industry-card-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.industry-card-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: auto;
+}
+
+.industry-pill {
+  font-size: 0.75rem;
+  color: #ccc;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.industry-explore-link {
+  margin-top: 1.8rem;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--accent-orange);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  display: inline-block; /* Required for transform */
+}
+
+.industry-img-card:hover .industry-explore-link {
+  opacity: 1;
+  transform: translateX(8px);
+}
+
+@media (max-width: 992px) {
+  .industry-img-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .industry-img-grid {
+    grid-template-columns: 1fr;
+  }
+}

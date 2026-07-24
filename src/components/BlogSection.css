@@ -1,0 +1,84 @@
+.blog-section {
+  background-color: var(--bg-dark);
+}
+
+.blog-grid {
+  margin-top: 3rem;
+}
+
+.blog-card {
+  background-color: transparent;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.blog-image {
+  position: relative;
+  height: 220px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.blog-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.blog-card:hover .blog-image img {
+  transform: scale(1.05);
+}
+
+.blog-date {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background-color: var(--accent-orange);
+  color: var(--text-main);
+  padding: 0.5rem;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 50px;
+}
+
+.date-num {
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.date-month {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.blog-content h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+  transition: color 0.3s ease;
+}
+
+.blog-card:hover .blog-content h3 {
+  color: var(--accent-orange);
+}
+
+.blog-content p {
+  font-size: 0.9rem;
+  margin-bottom: 1.2rem;
+}
+
+.read-more {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent-orange);
+}
+
+.read-more:hover {
+  color: var(--accent-orange-hover);
+}
