@@ -31,27 +31,33 @@ const processSteps = [
 
 const ProcessSection = () => {
   return (
-    <section id="process" className="timeline-process-section section-padding">
+    <section id="process" className="modern-process-section section-padding">
       <div className="container">
-        <div className="timeline-header text-center">
-          <h2 className="timeline-title">Our <span className="text-accent">Process</span></h2>
+        <div className="process-header text-center" style={{ marginBottom: '4rem' }}>
+          <h4 className="section-subtitle text-accent">How We Work</h4>
+          <h2 className="section-title">Our <span className="text-accent">Process</span></h2>
+          <p className="has-subtitle" style={{ maxWidth: '600px', margin: '0 auto', color: 'var(--text-muted)' }}>
+            A proven, step-by-step approach to turning your vision into measurable digital success.
+          </p>
         </div>
 
-        <div className="timeline-container">
-          {/* Vertical Line */}
-          <div className="timeline-vertical-line"></div>
-
+        <div className="process-grid">
           {processSteps.map((step, index) => (
-            <div key={index} className="timeline-item">
-              <div className="timeline-dot"></div>
-              <div className="timeline-card">
-                <div className="timeline-card-header">
-                  <div className="timeline-icon">{step.icon}</div>
-                  <h3 className="timeline-card-title">{step.title}</h3>
-                </div>
-                <p className="timeline-card-desc">{step.description}</p>
-                <span className="timeline-number">{step.id}</span>
+            <div key={index} className="process-card-modern">
+              <div className="process-step-number">{step.id}</div>
+              <div className="process-icon-modern">
+                {step.icon}
               </div>
+              <h3 className="process-card-title">{step.title}</h3>
+              <p className="process-card-desc">{step.description}</p>
+              
+              {/* Connection arrow between cards except last one */}
+              {index < processSteps.length - 1 && (
+                <div className="process-connector">
+                  <div className="connector-line"></div>
+                  <div className="connector-arrow"></div>
+                </div>
+              )}
             </div>
           ))}
         </div>

@@ -1,0 +1,394 @@
+.has-section {
+  padding: 6rem 0;
+  background-color: var(--bg-dark);
+  color: #fff;
+  overflow: hidden;
+}
+
+.has-header {
+  margin-bottom: 5rem;
+}
+
+.has-title {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+}
+
+.has-subtitle {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Layout Grid */
+.has-layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto 5rem;
+}
+
+.has-col {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  z-index: 2;
+}
+
+.has-col-left, .has-col-right {
+  flex: 1;
+}
+
+.has-col-center {
+  flex: 0 0 auto;
+  z-index: 3;
+}
+
+/* Central Hub */
+.has-hub {
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background-color: var(--bg-dark);
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  animation: pulseHub 3s infinite ease-in-out;
+}
+
+@keyframes pulseHub {
+  0% { transform: scale(1); box-shadow: 0 0 20px rgba(255, 94, 0, 0.2); }
+  50% { transform: scale(1.05); box-shadow: 0 0 40px rgba(255, 94, 0, 0.4); }
+  100% { transform: scale(1); box-shadow: 0 0 20px rgba(255, 94, 0, 0.2); }
+}
+
+/* Spinning Orange Border Effect */
+.has-hub::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, transparent 50%, var(--accent-orange) 100%);
+  animation: spin 2s linear infinite;
+  z-index: 0;
+}
+
+.has-hub::after {
+  content: '';
+  position: absolute;
+  inset: 4px; /* Border thickness */
+  border-radius: 50%;
+  background-color: var(--bg-dark);
+  z-index: 0;
+}
+
+/* The dashed line */
+.has-hub-dashed {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 94, 0, 0.5);
+  animation: spin 20s linear infinite;
+  z-index: 0;
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+.has-hub-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #121215;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  position: relative;
+  z-index: 1; /* Keep it above the spinning border and dashed line */
+}
+
+.has-hub-icon {
+  font-size: 3rem;
+  color: var(--accent-orange);
+  margin-bottom: 1rem;
+}
+
+.has-hub-inner h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+.has-hub-accent {
+  color: var(--accent-orange);
+  font-style: italic;
+  font-weight: 300;
+}
+
+.has-hub-dot {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  background-color: var(--bg-dark);
+  border: 2px solid var(--accent-orange);
+  border-radius: 50%;
+}
+
+/* Spokes (Side Items) */
+.has-spoke {
+  background-color: transparent;
+  border-radius: 50px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  width: 380px;
+  z-index: 1;
+}
+
+.has-spoke:hover {
+  transform: scale(1.05);
+}
+
+/* Animated Border Element */
+.has-spoke-border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+  overflow: hidden;
+  z-index: -1;
+  background-color: #16161a;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: border-color 0.3s ease;
+}
+
+.has-spoke-border::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150%;
+  height: 300%;
+  background: conic-gradient(from 0deg, transparent 70%, var(--accent-orange) 100%);
+  transform: translate(-50%, -50%) rotate(0deg);
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.has-spoke:hover .has-spoke-border::before {
+  opacity: 1;
+  animation: rotateBorder 2s linear infinite;
+}
+
+.has-spoke-border::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  background-color: #16161a;
+  border-radius: 50px;
+  z-index: 1;
+}
+
+.has-spoke:hover .has-spoke-border {
+  border-color: transparent;
+}
+
+@keyframes rotateBorder {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.has-spoke-left {
+  flex-direction: row;
+}
+
+.has-spoke-right {
+  flex-direction: row;
+}
+
+.has-spoke-icon-wrapper {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--bg-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 94, 0, 0.3);
+  position: relative;
+  z-index: 2;
+}
+
+.has-spoke-icon {
+  font-size: 1.5rem;
+  color: var(--text-main);
+}
+
+.has-spoke-content {
+  position: relative;
+  z-index: 2;
+}
+
+.has-spoke-content h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+  color: var(--accent-orange);
+}
+
+.has-spoke-content p {
+  font-size: 0.85rem;
+  color: #aaa;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Connections (Dotted Lines) */
+.has-connection {
+  position: absolute;
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  z-index: 0;
+}
+
+/* Left Connections */
+.has-conn-left-1 {
+  top: 50%;
+  right: -50px;
+  width: 50px;
+  height: 100px;
+  border-left: none;
+  border-bottom: none;
+  border-top-right-radius: 30px;
+}
+.has-conn-left-2 {
+  top: 50%;
+  right: -30px;
+  width: 30px;
+  height: 0;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+}
+.has-conn-left-3 {
+  bottom: 50%;
+  right: -50px;
+  width: 50px;
+  height: 100px;
+  border-left: none;
+  border-top: none;
+  border-bottom-right-radius: 30px;
+}
+
+/* Right Connections */
+.has-conn-right-1 {
+  top: 50%;
+  left: -50px;
+  width: 50px;
+  height: 100px;
+  border-right: none;
+  border-bottom: none;
+  border-top-left-radius: 30px;
+}
+.has-conn-right-2 {
+  top: 50%;
+  left: -30px;
+  width: 30px;
+  height: 0;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+}
+.has-conn-right-3 {
+  bottom: 50%;
+  left: -50px;
+  width: 50px;
+  height: 100px;
+  border-right: none;
+  border-top: none;
+  border-bottom-left-radius: 30px;
+}
+
+
+/* Bottom Metrics Bar */
+.has-metrics-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--accent-orange);
+  box-shadow: 0 0 20px rgba(255, 94, 0, 0.15);
+  border-radius: 50px;
+  padding: 1.5rem 3rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.has-metric {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.has-metric-icon {
+  font-size: 1.5rem;
+  color: var(--text-main);
+}
+
+.has-metric span {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.has-metric-divider {
+  width: 1px;
+  height: 30px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .has-layout {
+    flex-direction: column;
+    gap: 4rem;
+  }
+  .has-col-left, .has-col-right {
+    align-items: center;
+  }
+  .has-connection {
+    display: none; /* Hide complex lines on mobile */
+  }
+  .has-metrics-bar {
+    flex-direction: column;
+    gap: 1.5rem;
+    border-radius: 20px;
+    padding: 2rem;
+  }
+  .has-metric-divider {
+    width: 100%;
+    height: 1px;
+  }
+}

@@ -45,14 +45,16 @@
 .sd-breadcrumb {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 8px;
   color: var(--accent-orange);
+  text-decoration: none;
   font-weight: 600;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+  margin-top: -3rem; /* Moved up */
+  transition: opacity 0.3s ease;
   font-size: 0.95rem;
   text-transform: uppercase;
   letter-spacing: 1px;
-  text-decoration: none;
 }
 
 .sd-hero-title {
@@ -116,11 +118,21 @@
 
 /* Request A Quote Form */
 .sd-quote-form {
-  background-color: #fff;
+  background-color: var(--bg-card);
   padding: 2.5rem;
-  border-radius: 16px;
-  box-shadow: 0 30px 60px rgba(0,0,0,0.5);
-  color: #333;
+  border-radius: 12px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.interactive-form {
+  border: 2px solid var(--accent-orange);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.interactive-form:hover {
+  transform: scale(1.02) translateY(-5px);
+  box-shadow: 0 20px 50px rgba(255, 94, 0, 0.15);
 }
 
 .sd-quote-form h3 {
@@ -360,6 +372,12 @@
   color: #fff;
   margin-bottom: 1rem;
   font-weight: 700;
+}
+
+.sd-quote-form h3 {
+  color: #fff;
+  margin-bottom: 1.5rem;
+  font-size: 1.6rem;
 }
 
 .sd-card-desc {

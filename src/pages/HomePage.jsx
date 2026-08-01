@@ -8,10 +8,11 @@ import ProcessSection from '../components/ProcessSection';
 import WhyDifferentSection from '../components/WhyDifferentSection';
 import BlogSection from '../components/BlogSection';
 import TestimonialsSection from '../components/TestimonialsSection';
+import LetsTalkSection from '../components/LetsTalkSection';
 
 const HomePage = () => {
   return (
-    <>
+    <div className="capitalize-content">
       <HeroSection />
       <StatsSection />
       <ServicesSection limit={6} />
@@ -19,7 +20,8 @@ const HomePage = () => {
       <IndustrySection limit={5} />
       <ProcessSection />
       <TestimonialsSection />
-    </>
+      <LetsTalkSection />
+    </div>
   );
 };
 

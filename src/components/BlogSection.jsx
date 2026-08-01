@@ -1,31 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './BlogSection.css';
 
-const blogs = [
-  {
-    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800',
-    date: '20',
-    month: 'MAY',
-    title: '10 Web Development Trends to Watch in 2024',
-    excerpt: 'Stay ahead with the latest trends in web development and design.'
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&q=80&w=800',
-    date: '15',
-    month: 'MAY',
-    title: 'How Digital Marketing Can Grow Your Business',
-    excerpt: 'Explore powerful digital marketing strategies that actually work.'
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800',
-    date: '10',
-    month: 'MAY',
-    title: 'Why Custom Software Is Important for Businesses',
-    excerpt: 'Understand the benefits of custom software solutions for your business.'
-  }
-];
+import { getBlogs } from '../utils/blogStorage';
 
 const BlogSection = () => {
+  const [blogs, setBlogs] = React.useState([]);
+
+  React.useEffect(() => {
+    setBlogs(getBlogs());
+  }, []);
+
   return (
     <section id="blog" className="blog-section section-padding">
       <div className="container">
@@ -48,7 +33,7 @@ const BlogSection = () => {
               <div className="blog-content">
                 <h3>{blog.title}</h3>
                 <p>{blog.excerpt}</p>
-                <a href="#" className="read-more">Read More &rarr;</a>
+                <Link to={`/blog/${blog.id}`} className="read-more">Read More &rarr;</Link>
               </div>
             </div>
           ))}

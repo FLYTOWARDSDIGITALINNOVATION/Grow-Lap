@@ -1,90 +1,102 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaFacebookF, FaLinkedinIn, FaInstagram, FaYoutube, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaClock } from 'react-icons/fa';
+import { FaFacebookF, FaLinkedinIn, FaInstagram, FaTwitter } from 'react-icons/fa';
+import { servicesData } from '../data/servicesData';
 import './Footer.css';
 
 const Footer = () => {
   return (
-    <footer className="footer">
-      <div className="container">
-        <div className="footer-top grid-4">
-          {/* Company Info */}
-          <div className="footer-col">
-            <Link to="/" className="footer-logo">
-              <div className="logo-icon"></div>
-              <span className="logo-text">Fly Towards <br/><small>Digital Innovation</small></span>
+    <footer className="footer-monoline">
+      {/* SVG Wave */}
+      <div className="footer-wave">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+          {/* Fill the bottom part with footer color */}
+          <path d="M0,120 V60 Q300,120 600,60 T1200,60 V120 Z" fill="#050505" />
+          {/* Draw the orange line exactly on the curve */}
+          <path d="M0,60 Q300,120 600,60 T1200,60" fill="none" stroke="var(--accent-orange)" strokeWidth="4" />
+        </svg>
+      </div>
+
+      <div className="container" style={{ maxWidth: '1400px' }}>
+        <div className="footer-grid-mono">
+          
+          {/* Column 1: Logo & Socials */}
+          <div className="footer-col-mono">
+            <Link to="/" className="footer-brand">
+              Fly Towards
             </Link>
-            <p className="footer-desc">
-              We help businesses grow with creative digital solutions, powerful technology and result-driven strategies.
+            <p className="footer-mono-desc">
+              We help businesses grow with creative digital solutions, powerful technology and result-driven strategies. Fly towards digital innovation with us.
             </p>
-            <div className="social-links">
-              <a href="#"><FaFacebookF /></a>
-              <a href="#"><FaLinkedinIn /></a>
-              <a href="https://www.instagram.com/flytowardsdigitalmarketing?igsh=c3JjbG5zeHczY2hm" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
-              <a href="#"><FaYoutube /></a>
+            <div className="mono-social-links">
+              <a href="#" className="social-fb"><FaFacebookF /></a>
+              <a href="#" className="social-tw"><FaTwitter /></a>
+              <a href="https://www.instagram.com/flytowardsdigitalmarketing?igsh=c3JjbG5zeHczY2hm" target="_blank" rel="noopener noreferrer" className="social-in"><FaInstagram /></a>
+              <a href="#" className="social-li"><FaLinkedinIn /></a>
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div className="footer-col">
-            <h4 className="footer-title">Quick Links</h4>
-            <ul className="footer-links">
-              <li><Link to="/">&gt; Home</Link></li>
-              <li><Link to="/about">&gt; About Us</Link></li>
-              <li><Link to="/services">&gt; Services</Link></li>
-              <li><Link to="/industry">&gt; Industry</Link></li>
-              <li><Link to="/blog">&gt; Blog</Link></li>
-              <li><Link to="/contact">&gt; Contact Us</Link></li>
+          {/* Column 2: Company Info */}
+          <div className="footer-col-mono">
+            <h4 className="mono-title">Company Info</h4>
+            <ul className="mono-links">
+              <li><Link to="/">- Home</Link></li>
+              <li><Link to="/about">- About Us</Link></li>
+              <li><Link to="/services">- Services</Link></li>
+              <li><Link to="/industry">- Industries</Link></li>
+              <li><Link to="/blog">- Blog</Link></li>
+              <li><Link to="/contact">- Contact Us</Link></li>
             </ul>
           </div>
 
-          {/* Our Services */}
-          <div className="footer-col">
-            <h4 className="footer-title">Our Services</h4>
-            <ul className="footer-links">
-              <li><Link to="/services">&gt; Web Development</Link></li>
-              <li><Link to="/services">&gt; Mobile App Development</Link></li>
-              <li><Link to="/services">&gt; Digital Marketing</Link></li>
-              <li><Link to="/services">&gt; SEO & Analytics</Link></li>
-              <li><Link to="/services">&gt; E-Commerce Solutions</Link></li>
-              <li><Link to="/services">&gt; Software Solutions</Link></li>
+          {/* Column 3: Services (Wide) */}
+          <div className="footer-col-mono footer-col-services">
+            <h4 className="mono-title">All Our Services</h4>
+            <ul className="mono-links services-grid">
+              {servicesData.map(category => 
+                category.benefits.map(benefit => (
+                  <li key={benefit.slug}>
+                    <Link to={`/services/${category.slug}/${benefit.slug}`}>- {benefit.title}</Link>
+                  </li>
+                ))
+              )}
             </ul>
           </div>
 
-          {/* Contact Us */}
-          <div className="footer-col">
-            <h4 className="footer-title">Contact Us</h4>
-            <ul className="contact-info">
-              <li>
-                <FaPhoneAlt className="contact-icon text-accent" />
-                <span>+91 76958 83647</span>
-              </li>
-              <li>
-                <FaEnvelope className="contact-icon text-accent" />
-                <span>info@flytowardsdigitalinnovation.com</span>
-              </li>
-              <li>
-                <FaMapMarkerAlt className="contact-icon text-accent" />
-                <span>Sankarankovil, Tamil Nadu, India</span>
-              </li>
-              <li>
-                <FaClock className="contact-icon text-accent" />
-                <span>Mon - Sat: 9.00 AM - 6.00 PM</span>
-              </li>
-            </ul>
+          {/* Column 4: Industries & Contact */}
+          <div className="footer-col-mono">
+            <div style={{ marginBottom: '2.5rem' }}>
+              <h4 className="mono-title">Industries</h4>
+              <ul className="mono-links">
+                <li><Link to="/industry">- Real Estate</Link></li>
+                <li><Link to="/industry">- Clothing Brands</Link></li>
+                <li><Link to="/industry">- Hospitals & Clinics</Link></li>
+                <li><Link to="/industry">- Schools & Colleges</Link></li>
+                <li><Link to="/industry">- Construction</Link></li>
+                <li><Link to="/industry">- Hotels & Showrooms</Link></li>
+                <li><Link to="/industry">- Etc....</Link></li>
+              </ul>
+            </div>
+
+            <div className="footer-contact-block">
+              <h4 className="mono-title">Contact</h4>
+              <form className="mono-subscribe-form" onSubmit={(e) => e.preventDefault()}>
+                <input type="email" placeholder="Email Address" required />
+                <button type="submit" className="mono-btn-subscribe">Contact</button>
+              </form>
+            </div>
           </div>
+
         </div>
 
-        <div className="footer-bottom">
-          <p>&copy; 2024 Fly Towards Digital Innovation. All Rights Reserved.</p>
-          <div className="footer-bottom-links">
-            <a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a>
-          </div>
+        {/* Bottom Bar */}
+        <div className="footer-mono-bottom">
+          <p>© 2026 Fly Towards Digital Innovation. All Rights Reserved.</p>
         </div>
       </div>
       
-      <button onClick={() => window.scrollTo(0, 0)} className="scroll-top">
-        &uarr;
+      <button onClick={() => window.scrollTo(0, 0)} className="mono-scroll-top">
+        ^
       </button>
     </footer>
   );

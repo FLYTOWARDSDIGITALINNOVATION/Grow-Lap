@@ -1,0 +1,276 @@
+.vlog-editing-page-container {
+  background-color: var(--bg-dark);
+  color: #fff;
+  min-height: 100vh;
+  padding-top: 80px;
+}
+
+/* Hero Section */
+.vlog-editing-hero {
+  padding: 8rem 0 5rem;
+  background-color: #0c0c0e;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 94, 0, 0.2);
+}
+
+.vlog-editing-hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: radial-gradient(circle at top right, rgba(255, 94, 0, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.vlog-editing-hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.vlog-editing-hero-title span {
+  color: var(--accent-orange);
+}
+
+.vlog-editing-hero-desc {
+  font-size: 1.2rem;
+  color: #ccc;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  line-height: 1.8;
+}
+
+/* Services Grid */
+.vlog-editing-services-section {
+  padding: 6rem 0;
+  background-color: #0c0c0e;
+}
+
+.vlog-editing-services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.vlog-editing-service-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.vlog-editing-service-card:hover {
+  background: rgba(255, 94, 0, 0.1);
+  border-color: var(--accent-orange);
+  transform: translateY(-5px);
+}
+
+.vlog-editing-service-icon {
+  font-size: 2rem;
+  color: var(--accent-orange);
+}
+
+/* Process Timeline */
+.vlog-editing-process-section {
+  padding: 6rem 0;
+  background-color: var(--bg-dark);
+}
+
+.vlog-editing-process-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 800px;
+  margin: 3rem auto 0;
+  position: relative;
+}
+
+.vlog-editing-process-timeline::before {
+  content: '';
+  position: absolute;
+  left: 30px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(255, 94, 0, 0.2);
+}
+
+.vlog-editing-step-card {
+  display: flex;
+  background: #121215;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 2rem;
+  position: relative;
+  margin-left: 60px;
+  transition: all 0.3s ease;
+}
+
+.vlog-editing-step-card:hover {
+  border-color: rgba(255, 94, 0, 0.5);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.vlog-editing-step-number {
+  position: absolute;
+  left: -50px;
+  top: 30px;
+  width: 40px;
+  height: 40px;
+  background: var(--bg-dark);
+  border: 2px solid var(--accent-orange);
+  color: var(--accent-orange);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  z-index: 2;
+}
+
+.vlog-editing-step-content h3 {
+  color: var(--accent-orange);
+  margin-bottom: 0.5rem;
+}
+
+.vlog-editing-step-content p {
+  color: #aaa;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Industries & Tools */
+.vlog-editing-tools-section {
+  padding: 5rem 0;
+  background-color: #0c0c0e;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.vlog-editing-tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.vlog-editing-tool-tag {
+  background: #1a1a24;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+  color: #ccc;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.vlog-editing-tool-tag:hover {
+  color: #fff;
+  border-color: var(--accent-orange);
+  box-shadow: 0 4px 15px rgba(255, 94, 0, 0.2);
+}
+
+/* FAQ */
+.vlog-editing-faq-section {
+  padding: 6rem 0;
+  background-color: var(--bg-dark);
+}
+
+.vlog-editing-faqs {
+  max-width: 800px;
+  margin: 3rem auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.vlog-editing-faq-item {
+  background: #121215;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.vlog-editing-faq-item summary {
+  font-weight: bold;
+  font-size: 1.2rem;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+}
+
+.vlog-editing-faq-item p {
+  margin-top: 1rem;
+  color: #aaa;
+  line-height: 1.6;
+}
+
+/* CTA */
+.vlog-editing-cta-section {
+  padding: 8rem 0;
+  text-align: center;
+  background: linear-gradient(135deg, var(--accent-orange) 0%, #cc4a00 100%);
+}
+
+.vlog-editing-cta-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.vlog-editing-cta-desc {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  line-height: 1.6;
+}
+
+.vlog-editing-cta-btn {
+  background: #fff;
+  color: var(--accent-orange);
+  padding: 15px 40px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.vlog-editing-cta-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+  .vlog-editing-hero-title {
+    font-size: 2.5rem;
+  }
+  .vlog-editing-process-timeline::before {
+    left: 20px;
+  }
+  .vlog-editing-step-card {
+    margin-left: 40px;
+  }
+  .vlog-editing-step-number {
+    left: -40px;
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+    top: 25px;
+  }
+}
+

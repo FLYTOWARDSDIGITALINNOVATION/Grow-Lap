@@ -1,0 +1,273 @@
+.admin-login-wrapper {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+/* The Background Split Inversion Effect */
+.admin-bg-left {
+  position: absolute;
+  top: 0; left: 0; bottom: 0;
+  width: 50%;
+  background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000');
+  background-size: cover;
+  background-position: left center;
+  z-index: -1;
+}
+
+.admin-bg-left::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--accent-orange);
+  opacity: 0.85;
+}
+
+.admin-bg-right {
+  position: absolute;
+  top: 0; right: 0; bottom: 0;
+  width: 50%;
+  background-color: var(--bg-dark);
+  z-index: -1;
+}
+
+/* The Floating Card */
+.admin-split-card {
+  display: flex;
+  width: 100%;
+  max-width: 900px;
+  background-color: transparent;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+  border: 4px solid var(--accent-orange);
+  z-index: 2;
+}
+
+/* Left Side: Form */
+.admin-form-side {
+  flex: 1;
+  padding: 4rem 3rem;
+  background-color: var(--bg-card);
+}
+
+.admin-login-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.admin-login-header h2 {
+  color: #fff;
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.admin-login-header p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.admin-form-group {
+  margin-bottom: 1.5rem;
+}
+
+.admin-form-group label {
+  display: block;
+  color: #ccc;
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding-left: 1rem;
+}
+
+.admin-error-msg {
+  background-color: rgba(220, 53, 69, 0.1);
+  color: #ff4d4f;
+  padding: 1rem;
+  border-radius: 30px;
+  border: 1px solid rgba(220, 53, 69, 0.2);
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.admin-success-msg {
+  background-color: rgba(40, 167, 69, 0.1);
+  color: #28a745;
+  padding: 1rem;
+  border-radius: 30px;
+  border: 1px solid rgba(40, 167, 69, 0.2);
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.admin-pill-input {
+  width: 100%;
+  background-color: transparent;
+  border: 1px solid #333;
+  padding: 1rem 3.5rem 1rem 1.5rem; /* Extra padding on right for icon */
+  border-radius: 50px; /* Pill shape */
+  color: #fff;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.admin-pill-input:focus {
+  outline: none;
+  border-color: var(--accent-orange);
+  box-shadow: 0 0 0 3px rgba(255, 94, 0, 0.1);
+}
+
+.admin-password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.admin-password-toggle {
+  position: absolute;
+  right: 1.2rem;
+  color: #888;
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease;
+}
+
+.admin-password-toggle:hover {
+  color: var(--accent-orange);
+}
+
+.admin-forgot-link {
+  text-align: right;
+  margin-top: -0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.admin-forgot-link span {
+  color: var(--accent-orange);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.admin-forgot-link span:hover {
+  color: #e65400;
+  text-decoration: underline;
+}
+
+.admin-back-link {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.admin-back-link span {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.admin-back-link span:hover {
+  color: var(--accent-orange);
+  text-decoration: underline;
+}
+
+.admin-submit-wrapper {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.admin-btn-pill {
+  background-color: var(--accent-orange);
+  color: #fff;
+  border: none;
+  padding: 1rem 3rem;
+  border-radius: 50px; /* Pill shape */
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(255, 94, 0, 0.3);
+}
+
+.admin-btn-pill:hover {
+  background-color: #e65400;
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(255, 94, 0, 0.4);
+}
+
+/* Right Side Image Styling */
+.admin-image-side {
+  flex: 1;
+  position: relative;
+  background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  overflow: hidden;
+}
+
+.admin-image-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: var(--accent-orange);
+  opacity: 0.85;
+  z-index: 1;
+}
+
+.admin-brand-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #fff;
+}
+
+.admin-brand-logo {
+  font-size: 3.5rem;
+  font-weight: 900;
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+.admin-brand-slogan {
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  margin-top: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+@media (max-width: 768px) {
+  .admin-bg-left, .admin-bg-right {
+    display: none;
+  }
+  .admin-login-wrapper {
+    background-color: var(--bg-dark);
+  }
+  .admin-split-card {
+    flex-direction: column;
+    margin: 1rem;
+    border: 2px solid var(--accent-orange);
+  }
+  .admin-image-side {
+    display: none;
+  }
+  .admin-form-side {
+    padding: 3rem 2rem;
+  }
+}
