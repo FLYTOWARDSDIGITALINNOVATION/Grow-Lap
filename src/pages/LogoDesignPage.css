@@ -1,4 +1,4 @@
-﻿.logo-design-page-container {
+.logo-design-page-container {
   background-color: var(--bg-dark);
   color: #fff;
   min-height: 100vh;
@@ -145,7 +145,8 @@
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-15px); }
 }
-\n.logo-design-hero-title {
+
+.logo-design-hero-title {
   font-size: 3.5rem;
   font-weight: 800;
   margin-bottom: 1.5rem;
@@ -396,4 +397,25 @@
   }
 }
 
-\n\n@media (max-width: 992px) {\n  .logo-design-hero-grid {\n    grid-template-columns: 1fr;\n    text-align: center;\n  }\n  \n  .logo-design-hero {\n    text-align: center;\n  }\n  \n  .logo-design-hero-image-wrapper {\n    order: -1;\n  }\n}\n\n@media (max-width: 768px) {\n  .logo-design-hero-title {\n    font-size: 2.5rem;\n  }\n}\n
+
+
+@media (max-width: 992px) {
+  .logo-design-hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .logo-design-hero {
+    text-align: center;
+  }
+  
+  .logo-design-hero-image-wrapper {
+    order: -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo-design-hero-title {
+    font-size: 2.5rem;
+  }
+}

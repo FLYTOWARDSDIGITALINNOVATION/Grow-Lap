@@ -1,4 +1,4 @@
-﻿.reels-shoot-page-container {
+.reels-shoot-page-container {
   background-color: var(--bg-dark);
   color: #fff;
   min-height: 100vh;
@@ -145,7 +145,8 @@
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-15px); }
 }
-\n.reels-shoot-hero-title {
+
+.reels-shoot-hero-title {
   font-size: 3.5rem;
   font-weight: 800;
   margin-bottom: 1.5rem;
@@ -396,4 +397,25 @@
   }
 }
 
-\n\n@media (max-width: 992px) {\n  .reels-shoot-hero-grid {\n    grid-template-columns: 1fr;\n    text-align: center;\n  }\n  \n  .reels-shoot-hero {\n    text-align: center;\n  }\n  \n  .reels-shoot-hero-image-wrapper {\n    order: -1;\n  }\n}\n\n@media (max-width: 768px) {\n  .reels-shoot-hero-title {\n    font-size: 2.5rem;\n  }\n}\n
+
+
+@media (max-width: 992px) {
+  .reels-shoot-hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .reels-shoot-hero {
+    text-align: center;
+  }
+  
+  .reels-shoot-hero-image-wrapper {
+    order: -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .reels-shoot-hero-title {
+    font-size: 2.5rem;
+  }
+}

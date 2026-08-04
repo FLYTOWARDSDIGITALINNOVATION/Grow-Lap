@@ -1,9 +1,54 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { FiChevronDown } from 'react-icons/fi';
+import { FiChevronDown, FiHome, FiBriefcase, FiBookOpen } from 'react-icons/fi';
 import { industries } from '../data/industries';
 import { servicesData } from '../data/servicesData';
 import './Navbar.css';
+
+const industryCategories = [
+  {
+    title: 'Property & Retail',
+    icon: <FiHome />,
+    slug: 'property-retail',
+    items: [
+      { name: 'Real Estate', slug: 'real-estate' },
+      { name: 'Construction', slug: 'construction' },
+      { name: 'Villas', slug: 'villas' },
+      { name: 'Furniture Stores', slug: 'furniture' },
+      { name: 'Showrooms', slug: 'showrooms' },
+      { name: 'Retail Shops', slug: 'retail-shops' },
+      { name: 'Cracker Brands', slug: 'crackers' },
+      { name: 'Jewelry', slug: 'jewelry' }
+    ]
+  },
+  {
+    title: 'Business & Corporate',
+    icon: <FiBriefcase />,
+    slug: 'business-corporate',
+    items: [
+      { name: 'Manufacturing', slug: 'manufacturing' },
+      { name: 'Financial Services', slug: 'finance' },
+      { name: 'Taxis & Transport', slug: 'taxis-transport' }
+    ]
+  },
+  {
+    title: 'Education & Lifestyle',
+    icon: <FiBookOpen />,
+    slug: 'education-lifestyle',
+    items: [
+      { name: 'Schools', slug: 'schools' },
+      { name: 'Colleges', slug: 'colleges' },
+      { name: 'Academies', slug: 'academy' },
+      { name: 'Coaching Centres', slug: 'coaching-center' },
+      { name: 'Hotels', slug: 'hotels' },
+      { name: 'Resorts', slug: 'resorts' },
+      { name: 'Restaurants', slug: 'restaurants' },
+      { name: 'Boutiques', slug: 'boutique' },
+      { name: 'Clothing Brands', slug: 'clothing-brands' },
+      { name: 'Spa', slug: 'spa' }
+    ]
+  }
+];
 
 const Navbar = () => {
   const location = useLocation();
@@ -52,56 +97,14 @@ const Navbar = () => {
         </Link>
         
         <ul className="nav-links">
-          <li><Link to="/" className={location.pathname === '/' ? 'active' : ''}>Home</Link></li>
-          <li><Link to="/about" className={location.pathname === '/about' ? 'active' : ''}>About Us</Link></li>
-          
-          <li className="nav-item-dropdown">
-            <Link 
-              to="/services" 
-              className={`nav-dropdown-toggle ${location.pathname.startsWith('/services') ? 'active' : ''}`}
-            >
-              Services <FiChevronDown className="dropdown-icon" />
-            </Link>
-            <div className="dropdown-menu services-dropdown">
-              {servicesData.map((service) => (
-                <Link 
-                  key={service.slug} 
-                  to={`/services/${service.slug}`} 
-                  className="dropdown-item"
-                >
-                  <span className="dropdown-item-icon">{service.icon}</span>
-                  <div className="dropdown-item-content">
-                    <span className="dropdown-item-title">{service.title}</span>
-                    <span className="dropdown-item-desc">{service.description}</span>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </li>
-          
-          <li className="nav-item-dropdown mega-dropdown">
-            <Link 
-              to="/industry" 
-              className={`nav-dropdown-toggle ${location.pathname.startsWith('/industry') ? 'active' : ''}`}
-            >
-              Industry <FiChevronDown className="dropdown-icon" />
-            </Link>
-            <div className="dropdown-menu mega-menu">
-              <div className="mega-menu-grid">
-                {industries.map((ind) => (
-                  <Link 
-                    key={ind.slug} 
-                    to={`/industry/${ind.slug}`} 
-                    className="mega-menu-item"
-                  >
-                    <span className="mega-menu-item-name">{toTitleCase(ind.name)}</span>
-                  </Link>
           <li><Link to="/" className={location.pathname === '/' ? 'active' : ''} onClick={handleLinkClick}>Home</Link></li>
           <li><Link to="/about" className={location.pathname === '/about' ? 'active' : ''} onClick={handleLinkClick}>About Us</Link></li>
           
           <li className={`nav-dropdown ${hideDropdown ? 'hide-dropdown' : ''}`}>
-            <Link to="/services" className={location.pathname.includes('/services') ? 'active' : ''} onClick={handleLinkClick}>Services ▾</Link>
-            <div className="mega-menu">
+            <Link to="/services" className={location.pathname.includes('/services') ? 'active' : ''} onClick={handleLinkClick}>
+              Services <FiChevronDown className="dropdown-icon" />
+            </Link>
+            <div className="mega-menu services-mega-menu">
               <div className="mega-menu-inner">
                 {servicesData.map((category) => (
                   <div key={category.slug} className="mega-menu-column">
@@ -128,10 +131,39 @@ const Navbar = () => {
             </div>
           </li>
           
-
-          <li><Link to="/industry" className={location.pathname === '/industry' ? 'active' : ''}>Industry</Link></li>
-          <li><Link to="/blog" className={location.pathname === '/blog' ? 'active' : ''}>Blog</Link></li>
-          <li><Link to="/contact" className={location.pathname === '/contact' ? 'active' : ''}>Contact Us</Link></li>
+          <li className={`nav-dropdown ${hideDropdown ? 'hide-dropdown' : ''}`}>
+            <Link to="/industry" className={location.pathname.includes('/industry') ? 'active' : ''} onClick={handleLinkClick}>
+              Industry <FiChevronDown className="dropdown-icon" />
+            </Link>
+            <div className="mega-menu industry-mega-menu">
+              <div className="mega-menu-inner">
+                {industryCategories.map((category) => (
+                  <div key={category.slug} className="mega-menu-column">
+                    <h4 className="mega-menu-title">
+                      <span className="mega-icon">{category.icon}</span>
+                      {category.title}
+                    </h4>
+                    <ul className="mega-menu-list">
+                      {category.items.map((ind) => (
+                        <li key={ind.slug}>
+                          <Link 
+                            to={`/industry/${ind.slug}`} 
+                            className="mega-menu-link"
+                            onClick={handleLinkClick}
+                          >
+                            {ind.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </li>
+          
+          <li><Link to="/blog" className={location.pathname === '/blog' ? 'active' : ''} onClick={handleLinkClick}>Blog</Link></li>
+          <li><Link to="/contact" className={location.pathname === '/contact' ? 'active' : ''} onClick={handleLinkClick}>Contact Us</Link></li>
         </ul>
         
         <Link to="/contact" className="btn-primary">GET A AUTHENTICATION</Link>

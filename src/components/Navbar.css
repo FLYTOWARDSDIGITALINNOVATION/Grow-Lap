@@ -1,4 +1,4 @@
-﻿.navbar {
+.navbar {
   position: sticky;
   top: 0;
   width: 100%;
@@ -108,7 +108,8 @@
   transition: transform 0.3s ease;
 }
 
-.nav-item-dropdown:hover .dropdown-icon {
+.nav-item-dropdown:hover .dropdown-icon,
+.nav-dropdown:hover .dropdown-icon {
   transform: rotate(180deg);
 }
 
@@ -313,21 +314,36 @@
   width: fit-content; /* Shrink to fit content so it centers perfectly */
 }
 
-/* Make all columns have internal columns and flow top-to-bottom */
-.mega-menu-column:nth-child(1) .mega-menu-list {
+/* Services Mega Menu List Flow */
+.services-mega-menu .mega-menu-column:nth-child(1) .mega-menu-list {
   grid-template-rows: repeat(6, auto);
   grid-auto-flow: column;
-  column-gap: 1.5rem; /* Slightly reduced to fit in equal columns */
+  column-gap: 1.5rem;
 }
-
-.mega-menu-column:nth-child(2) .mega-menu-list {
+.services-mega-menu .mega-menu-column:nth-child(2) .mega-menu-list {
   grid-template-rows: repeat(5, auto);
   grid-auto-flow: column;
-  column-gap: 1.5rem; /* Slightly reduced to fit in equal columns */
+  column-gap: 1.5rem;
+}
+.services-mega-menu .mega-menu-column:nth-child(3) .mega-menu-list {
+  grid-template-rows: repeat(3, auto);
+  grid-auto-flow: column;
+  column-gap: 1.5rem;
 }
 
-.mega-menu-column:nth-child(3) .mega-menu-list {
+/* Industry Mega Menu List Flow */
+.industry-mega-menu .mega-menu-column:nth-child(1) .mega-menu-list {
+  grid-template-rows: repeat(4, auto);
+  grid-auto-flow: column;
+  column-gap: 1.5rem;
+}
+.industry-mega-menu .mega-menu-column:nth-child(2) .mega-menu-list {
   grid-template-rows: repeat(3, auto);
+  grid-auto-flow: column;
+  column-gap: 1.5rem;
+}
+.industry-mega-menu .mega-menu-column:nth-child(3) .mega-menu-list {
+  grid-template-rows: repeat(5, auto);
   grid-auto-flow: column;
   column-gap: 1.5rem;
 }

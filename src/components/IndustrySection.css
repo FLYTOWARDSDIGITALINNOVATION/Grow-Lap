@@ -1,4 +1,4 @@
-﻿.industry-section {
+.industry-section {
   background-color: var(--bg-dark);
   padding: 6rem 0;
   position: relative;
@@ -131,6 +131,7 @@
   color: #ccc;
   line-height: 1.45;
   transition: transform 0.3s ease, color 0.3s ease;
+}
 .industry-pill {
   font-size: 0.75rem;
   color: #fff;
