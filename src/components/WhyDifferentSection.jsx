@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { FaChartLine, FaEye, FaUserTie, FaCog } from 'react-icons/fa';
 import './WhyDifferentSection.css';
 
@@ -26,12 +26,34 @@ const reasons = [
 ];
 
 const WhyDifferentSection = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) observer.unobserve(sectionRef.current);
+    };
+  }, []);
+
   return (
-    <section className="why-different-section section-padding">
+    <section ref={sectionRef} className="why-different-section section-padding">
       <div className="container">
         <div className="why-different-layout">
           {/* Left Content */}
-          <div className="why-content-side">
+          <div className={`why-content-side ${isVisible ? 'slide-in-left' : 'hidden-left'}`}>
             <p className="section-subtitle text-accent">OUR EDGE</p>
             <h2 className="section-title" style={{ textAlign: 'left', margin: '0 0 1rem 0' }}>Why We Are Different</h2>
             <div className="section-line" style={{ margin: '0 0 2.5rem 0' }}></div>
@@ -57,12 +79,12 @@ const WhyDifferentSection = () => {
           </div>
 
           {/* Right Image */}
-          <div className="why-image-side">
+          <div className={`why-image-side ${isVisible ? 'slide-in-right' : 'hidden-right'}`}>
             <div className="why-image-wrapper">
               <img src="https://picsum.photos/seed/difference/800/900" alt="Why We Are Different" className="why-image" />
               <div className="why-image-overlay">
                 <div className="why-stat">
-                  <h4>10+</h4>
+                  <h4>1+</h4>
                   <p>Years Experience</p>
                 </div>
                 <div className="why-stat">

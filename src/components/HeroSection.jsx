@@ -39,14 +39,18 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Right Graphics */}
+        {/* Right Graphics (Empty for video background layout) */}
         <div className="hero-graphics">
-          <div className="glow-effect"></div>
-          
-          <div className="hero-image-wrapper">
-            <img src="/marketing-hero.png" alt="Digital Marketing Agency" className="hero-main-image" />
-          </div>
+          {/* Removed broken image. Graphics area can be used for other elements or left empty since video is background. */}
         </div>
+      </div>
+      
+      {/* Background Video */}
+      <div className="hero-video-bg-container">
+        <video autoPlay loop muted playsInline className="hero-video">
+          <source src="/Hero.mp4" type="video/mp4" />
+        </video>
+        {/* <div className="video-overlay-dark"></div> */}
       </div>
     </section>
   );

@@ -1,0 +1,216 @@
+﻿.contact-page-wrapper {
+  background-color: var(--bg-dark);
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  padding-top: 3rem;
+}
+
+.contact-bg-accents {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Simple CSS curves simulating the dashed lines */
+.contact-bg-accents::before, .contact-bg-accents::after {
+  content: '';
+  position: absolute;
+  border: 2px dashed rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+}
+
+.contact-bg-accents::before {
+  top: -100px;
+  left: 10%;
+  width: 800px;
+  height: 400px;
+  transform: rotate(-15deg);
+}
+
+.contact-bg-accents::after {
+  bottom: -150px;
+  right: -10%;
+  width: 600px;
+  height: 300px;
+  transform: rotate(25deg);
+}
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  padding: 0 0 2rem;
+}
+
+.contact-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  font-family: 'Outfit', sans-serif;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+}
+
+.contact-title-accent {
+  color: var(--accent-orange);
+}
+
+.contact-title-line {
+  width: 70px;
+  height: 5px;
+  background-color: var(--accent-orange);
+  margin-bottom: 2.5rem;
+  border-radius: 4px;
+}
+
+.contact-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+
+.contact-input, .contact-textarea {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1.2rem 1.5rem;
+  border-radius: 12px;
+  color: #fff;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.05rem;
+  transition: all 0.3s ease;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+.contact-input:focus, .contact-textarea:focus {
+  outline: none;
+  border-color: var(--accent-orange);
+  background-color: rgba(255, 94, 0, 0.05);
+  box-shadow: 0 0 15px rgba(255, 94, 0, 0.1);
+}
+
+.contact-input::placeholder, .contact-textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.contact-textarea {
+  min-height: 160px;
+  resize: vertical;
+  grid-column: 1 / -1;
+}
+
+.contact-checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+}
+
+.contact-checkbox-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent-orange);
+  cursor: pointer;
+}
+
+.contact-checkbox-group label {
+  color: #fff;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.contact-checkbox-group a {
+  color: var(--accent-orange);
+  text-decoration: none;
+}
+
+.contact-checkbox-group a:hover {
+  text-decoration: underline;
+}
+
+.btn-contact-submit {
+  background-color: var(--accent-orange);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 1rem 3.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 94, 0, 0.3);
+}
+
+.btn-contact-submit:hover {
+  background-color: #e65500;
+  transform: translateY(-2px);
+}
+
+.contact-image-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-3d-image {
+  width: 100%;
+  max-width: 120%;
+  height: auto;
+  transform: scale(1.25);
+}
+
+.direct-contact-card {
+  background-color: #121215;
+  padding: 3rem 4rem;
+  border-radius: 20px;
+  border: 1px solid var(--accent-orange);
+  box-shadow: 0 0 30px rgba(255, 94, 0, 0.1);
+  max-width: 1000px;
+  width: 100%;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.direct-contact-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 40px rgba(255, 94, 0, 0.2);
+}
+
+@keyframes floatContact {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+@media (max-width: 992px) {
+  .contact-layout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .contact-image-wrapper {
+    order: -1;
+  }
+}
+
+@media (max-width: 576px) {
+  .contact-form-grid {
+    grid-template-columns: 1fr;
+  }
+  .contact-textarea {
+    grid-column: span 1;
+  }
+}

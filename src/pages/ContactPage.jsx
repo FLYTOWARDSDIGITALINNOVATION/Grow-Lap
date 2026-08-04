@@ -1,52 +1,100 @@
 import React from 'react';
+import './ContactPage.css';
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaClock } from 'react-icons/fa';
 
 const ContactPage = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+
+    fetch('https://formsubmit.co/ajax/udhayabanu2005@gmail.com', {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+      // Refresh the page upon success as requested
+      window.location.reload();
+    })
+    .catch(error => {
+      console.error('Submission failed', error);
+      alert('Failed to send message. Please try again later.');
+    });
+  };
+
   return (
-    <div style={{ paddingTop: '120px', minHeight: '60vh' }} className="container">
-      <div className="section-header text-center">
-        <p className="section-subtitle text-accent">GET IN TOUCH</p>
-        <h2 className="section-title">Contact Us</h2>
-        <div className="section-line"></div>
-      </div>
+    <div className="contact-page-wrapper">
+      <div className="contact-bg-accents"></div>
       
-      <div className="grid-2" style={{ marginTop: '3rem' }}>
-        <div style={{ backgroundColor: 'var(--bg-card)', padding: '2rem', borderRadius: '8px' }}>
-          <h3>Send us a message</h3>
-          <form style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '1.5rem' }}>
-            <input type="text" placeholder="Your Name" style={{ padding: '0.8rem', borderRadius: '4px', border: '1px solid var(--border-color)', backgroundColor: 'var(--bg-dark)', color: 'white' }} />
-            <input type="email" placeholder="Your Email" style={{ padding: '0.8rem', borderRadius: '4px', border: '1px solid var(--border-color)', backgroundColor: 'var(--bg-dark)', color: 'white' }} />
-            <textarea placeholder="Message" rows="5" style={{ padding: '0.8rem', borderRadius: '4px', border: '1px solid var(--border-color)', backgroundColor: 'var(--bg-dark)', color: 'white' }}></textarea>
-            <button type="button" className="btn-primary">Send Message</button>
-          </form>
+      <div className="container">
+        <div className="contact-layout">
+          
+          {/* Left Form Section */}
+          <div className="contact-form-section">
+            <h1 className="contact-title" style={{ textTransform: 'uppercase' }}>LET'S WORK <span className="contact-title-accent">TOGETHER</span></h1>
+            <div className="contact-title-line"></div>
+            
+            <form onSubmit={handleSubmit}>
+              {/* Hidden fields for FormSubmit configuration */}
+              <input type="hidden" name="_subject" value="New Contact Form Submission - Fly Towards" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_template" value="table" />
+              
+              <div className="contact-form-grid">
+                <input type="text" name="Name" className="contact-input full-width" placeholder="Name" required />
+                <input type="email" name="Email" className="contact-input" placeholder="E-mail" required />
+                <input type="tel" name="Phone Number" className="contact-input" placeholder="Phone number" required />
+                <textarea name="Message" className="contact-textarea" placeholder="Message" required></textarea>
+              </div>
+              
+              <div className="contact-checkbox-group">
+                <input type="checkbox" id="terms" name="Agreed_To_Terms" value="Yes" required />
+                <label htmlFor="terms">I agree <a href="#">Privacy Terms and Conditions</a></label>
+              </div>
+              
+              <button type="submit" className="btn-contact-submit">Submit</button>
+            </form>
+          </div>
+
+          {/* Right Image Section */}
+          <div className="contact-image-wrapper">
+            <img src="/contact-illustration.webp" alt="Contact Us 3D Illustration" className="contact-3d-image" />
+          </div>
+
         </div>
         
-        <div style={{ padding: '2rem' }}>
-          <h3>Contact Information</h3>
-          <p style={{ marginBottom: '2rem' }}>Reach out to us for any inquiries or to start a new project. Our team is ready to assist you.</p>
-          <ul className="contact-info" style={{ listStyle: 'none', padding: 0 }}>
-            <li style={{ display: 'flex', gap: '1rem', marginBottom: '1.5rem' }}>
-              <FaPhoneAlt className="contact-icon text-accent" />
-              <span>+91 76958 83647</span>
-            </li>
-            <li style={{ display: 'flex', gap: '1rem', marginBottom: '1.5rem' }}>
-              <FaEnvelope className="contact-icon text-accent" />
-              <span>info@flytowardsdigitalinnovation.com</span>
-            </li>
-            <li style={{ display: 'flex', gap: '1rem', marginBottom: '1.5rem' }}>
-              <FaMapMarkerAlt className="contact-icon text-accent" />
-              <span>Sankarankovil, Tamil Nadu, India</span>
-            </li>
-            <li style={{ display: 'flex', gap: '1rem', marginBottom: '1.5rem' }}>
-              <FaClock className="contact-icon text-accent" />
-              <span>Mon - Sat: 9.00 AM - 6.00 PM</span>
-            </li>
-          </ul>
+        {/* Contact Info Centered Card */}
+        <div style={{ marginTop: '5rem', display: 'flex', justifyContent: 'center' }}>
+          <div className="direct-contact-card">
+            <h3 style={{ marginBottom: '1rem', color: 'var(--accent-orange)', fontSize: '2.2rem' }}>Direct Contact</h3>
+            <p style={{ marginBottom: '2.5rem', color: '#aaa', lineHeight: 1.6, fontSize: '1.1rem' }}>Reach out to us directly for immediate assistance or to start a new project. Our team is ready to assist you.</p>
+            <ul className="contact-info" style={{ listStyle: 'none', padding: 0, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', textAlign: 'left' }}>
+              <li style={{ display: 'flex', gap: '1.2rem', alignItems: 'center', fontSize: '1.15rem', justifyContent: 'center' }}>
+                <FaPhoneAlt className="contact-icon text-accent" style={{ fontSize: '1.4rem' }} />
+                <span>+91 76958 83647</span>
+              </li>
+              <li style={{ display: 'flex', gap: '1.2rem', alignItems: 'center', fontSize: '1.15rem', justifyContent: 'center' }}>
+                <FaEnvelope className="contact-icon text-accent" style={{ fontSize: '1.4rem' }} />
+                <span>info@flytowardsdigitalinnovation.com</span>
+              </li>
+              <li style={{ display: 'flex', gap: '1.2rem', alignItems: 'center', fontSize: '1.15rem', justifyContent: 'center' }}>
+                <FaMapMarkerAlt className="contact-icon text-accent" style={{ fontSize: '1.4rem' }} />
+                <span>Sankarankovil, Tamil Nadu, India</span>
+              </li>
+              <li style={{ display: 'flex', gap: '1.2rem', alignItems: 'center', fontSize: '1.15rem', justifyContent: 'center' }}>
+                <FaClock className="contact-icon text-accent" style={{ fontSize: '1.4rem' }} />
+                <span>Mon - Sat: 9.00 AM - 6.00 PM</span>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
       
       {/* Map Location */}
-      <div style={{ marginTop: '4rem', marginBottom: '2rem' }}>
+      <div style={{ marginTop: '1rem', marginBottom: '4rem' }}>
         <h3 style={{ marginBottom: '1.5rem', textAlign: 'center' }}>Find Us Here</h3>
         <iframe 
           title="Location Map"
@@ -57,6 +105,7 @@ const ContactPage = () => {
           allowFullScreen 
           src="https://maps.google.com/maps?q=Sankarankovil,%20Tamil%20Nadu,%20India&t=&z=13&ie=UTF8&iwloc=&output=embed"
         ></iframe>
+      </div>
       </div>
     </div>
   );

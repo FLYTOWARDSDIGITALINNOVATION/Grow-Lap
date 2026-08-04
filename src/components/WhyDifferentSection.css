@@ -1,4 +1,4 @@
-.why-different-section {
+﻿.why-different-section {
   background-color: var(--bg-dark);
 }
 
@@ -97,6 +97,11 @@
   height: 600px;
   object-fit: cover;
   display: block;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.why-image-wrapper:hover .why-image {
+  transform: scale(1.1);
 }
 
 .why-image-overlay {
@@ -143,4 +148,27 @@
   .why-image {
     height: 400px;
   }
+}
+
+/* Scroll Animations */
+.hidden-left {
+  opacity: 0;
+  transform: translateX(-80px);
+}
+
+.slide-in-left {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.hidden-right {
+  opacity: 0;
+  transform: translateX(80px);
+}
+
+.slide-in-right {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
 }

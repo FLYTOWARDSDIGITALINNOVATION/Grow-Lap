@@ -1,4 +1,4 @@
-.industry-section {
+﻿.industry-section {
   background-color: var(--bg-dark);
   padding: 6rem 0;
   position: relative;
@@ -131,6 +131,14 @@
   color: #ccc;
   line-height: 1.45;
   transition: transform 0.3s ease, color 0.3s ease;
+.industry-pill {
+  font-size: 0.75rem;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  white-space: nowrap;
 }
 
 .industry-img-card:hover .industry-line-item {

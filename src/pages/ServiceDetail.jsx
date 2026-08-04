@@ -2,13 +2,44 @@ import React, { useEffect, useState, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { servicesData } from '../data/servicesData';
 import { FaArrowLeft, FaCheck, FaArrowRight, FaPaperPlane, FaPhoneAlt } from 'react-icons/fa';
-import ProcessSection from '../components/ProcessSection';
 import './ServiceDetail.css';
 
 const ServiceDetail = () => {
   const { categorySlug } = useParams();
   const service = servicesData.find(s => s.slug === categorySlug);
   const [activeFaq, setActiveFaq] = useState(0);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+    
+    // Add a unique timestamp to the subject to prevent email threading in Gmail
+    const timestamp = new Date().toLocaleString();
+    formData.append('_subject', `New Service Inquiry - ${timestamp}`);
+    formData.append('_captcha', 'false');
+    formData.append('_template', 'table');
+
+    fetch('https://formsubmit.co/ajax/udhayabanu2005@gmail.com', {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+      // Clear the form after success and show inline message instead of reloading
+      form.reset();
+      setIsSubmitted(true);
+      setTimeout(() => setIsSubmitted(false), 5000);
+    })
+    .catch(error => {
+      console.error('Submission failed', error);
+      alert('Failed to send message. Please try again later.');
+    });
+  };
 
   // Scroll to top when mounted
   useEffect(() => {
@@ -54,25 +85,32 @@ const ServiceDetail = () => {
           </div>
           
           <div className="sd-hero-form-wrapper">
-            <div className="sd-quote-form">
-              <h3>Request A Quote</h3>
-              <form onSubmit={(e) => e.preventDefault()}>
+            <div className="sd-quote-form interactive-form">
+              <h3>Get Your Free Growth Strategy</h3>
+              <form onSubmit={handleFormSubmit}>
                 <div className="sd-form-group">
-                  <input type="text" placeholder="Name*" required />
+                  <input type="text" name="Name" placeholder="Name*" required />
                 </div>
                 <div className="sd-form-group">
-                  <input type="tel" placeholder="Phone No*" required />
+                  <input type="tel" name="Phone Number" placeholder="Phone No*" required />
                 </div>
                 <div className="sd-form-group">
-                  <input type="email" placeholder="Email*" required />
+                  <input type="email" name="Email" placeholder="Email*" required />
                 </div>
                 <div className="sd-form-group">
-                  <textarea placeholder="Type Your Message*" rows="3" required></textarea>
+                  <textarea name="Message" placeholder="Type Your Message*" rows="3" required></textarea>
                 </div>
 
-                <button type="submit" className="btn-primary w-100" style={{ padding: '14px', borderRadius: '8px' }}>
-                  Submit
-                </button>
+                <div style={{ display: 'flex', justifyContent: 'center', marginTop: '1rem' }}>
+                  <button type="submit" className="btn-primary" style={{ padding: '16px 40px', borderRadius: '12px', fontSize: '1.2rem', fontWeight: 'bold' }}>
+                    Submit
+                  </button>
+                </div>
+                {isSubmitted && (
+                  <div style={{ marginTop: '15px', padding: '10px', backgroundColor: 'rgba(40, 167, 69, 0.1)', color: '#28a745', border: '1px solid #28a745', borderRadius: '8px', textAlign: 'center', fontWeight: 'bold' }}>
+                    Request sent successfully! We'll contact you soon.
+                  </div>
+                )}
               </form>
             </div>
           </div>
@@ -107,10 +145,6 @@ const ServiceDetail = () => {
         </div>
       </section>
 
-      {/* Process Section */}
-      <div style={{ paddingBottom: '3rem' }}>
-        <ProcessSection />
-      </div>
 
       {/* Overview & FAQ Section */}
       <section className="sd-overview-section">
@@ -170,7 +204,7 @@ const ServiceDetail = () => {
             Contact our team today to discuss how we can tailor our {service.title} services to achieve your specific business goals.
           </p>
           <Link to="/contact" className="sd-cta-btn">
-            Get a Free Quote <FaArrowRight />
+            GET A FREE AUDIT <FaArrowRight />
           </Link>
         </div>
       </div>
