@@ -41,6 +41,7 @@ import DroneShootPage from './pages/DroneShootPage';
 import ReelsShootPage from './pages/ReelsShootPage';
 import PodcastShootPage from './pages/PodcastShootPage';
 import IndustryPage from './pages/IndustryPage';
+import IndustryDetail from './pages/IndustryDetail';
 import BlogPage from './pages/BlogPage';
 import BlogDetail from './pages/BlogDetail';
 import ContactPage from './pages/ContactPage';
@@ -89,6 +90,8 @@ function App() {
             <Route path="/services/shoot/podcast-shoot" element={<PodcastShootPage />} />
             <Route path="/services/:categorySlug/:subServiceSlug" element={<SubServiceDetail />} />
             <Route path="/industry" element={<IndustryPage />} />
+            <Route path="/industry/showrooms/:showroomType" element={<IndustryDetail />} />
+            <Route path="/industry/:industrySlug" element={<IndustryDetail />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/blog/:blogId" element={<BlogDetail />} />
             <Route path="/contact" element={<ContactPage />} />

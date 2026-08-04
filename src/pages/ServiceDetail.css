@@ -326,6 +326,19 @@
   gap: 2.5rem;
 }
 
+.id-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+}
+
+@media (max-width: 768px) {
+  .id-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
 .sd-card {
   background-color: #0c0c0e;
   border-radius: 20px;
@@ -393,6 +406,101 @@
   font-weight: 700;
   font-size: 1.05rem;
   display: inline-block;
+}
+
+/* Premium Imageless Card Styles */
+.sd-premium-card {
+  position: relative;
+  background: linear-gradient(145deg, #0c0c0e 0%, #121217 100%);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  min-height: 250px;
+  text-decoration: none;
+}
+
+.sd-premium-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 94, 0, 0.4);
+  background: linear-gradient(145deg, #101014 0%, #16161f 100%);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 40px rgba(255, 94, 0, 0.05);
+}
+
+/* Premium Card with Background Image Styles */
+.sd-premium-card.has-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--card-bg) center/cover no-repeat;
+  opacity: 0.18;
+  transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.6s ease;
+  z-index: 0;
+}
+
+.sd-premium-card.has-bg:hover::before {
+  transform: scale(1.08);
+  opacity: 0.35;
+}
+
+.sd-card-icon-container {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(255, 94, 0, 0.12) 0%, rgba(255, 94, 0, 0.02) 100%);
+  border: 1px solid rgba(255, 94, 0, 0.2);
+  color: var(--accent-orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  transition: all 0.4s ease;
+  z-index: 2;
+  position: relative;
+}
+
+.sd-premium-card:hover .sd-card-icon-container {
+  background: linear-gradient(135deg, var(--accent-orange) 0%, #d44d00 100%);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 10px 20px rgba(255, 94, 0, 0.25);
+  transform: scale(1.05) rotate(5deg);
+}
+
+.sd-card-number {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-size: 5rem;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.015);
+  line-height: 1;
+  font-family: 'Outfit', 'Inter', sans-serif;
+  transition: all 0.4s ease;
+  user-select: none;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.02);
+  z-index: 1;
+}
+
+.sd-premium-card:hover .sd-card-number {
+  color: rgba(255, 94, 0, 0.03);
+  -webkit-text-stroke: 1px rgba(255, 94, 0, 0.06);
+  transform: translateY(-5px);
+}
+
+.sd-premium-card-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 /* CTA */
@@ -491,3 +599,70 @@
     border-radius: 16px;
   }
 }
+
+/* Showroom Parallax Overlap Section */
+.showroom-parallax-section {
+  position: relative;
+  background-color: var(--bg-dark);
+}
+
+.showroom-sticky-header {
+  position: sticky;
+  top: 130px;
+  z-index: 1;
+  padding: 6rem 0 3rem 0;
+  text-align: center;
+}
+
+.showroom-scrolling-content {
+  position: relative;
+  z-index: 2;
+  background-color: #08080a; /* Solid background color matching the website dark theme */
+  padding: 6rem 0 4rem 0;
+  margin-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 -40px 60px rgba(0, 0, 0, 0.9); /* Drop shadow on top edge to cover background smoothly */
+}
+
+/* Showroom Verticals Grid */
+.showroom-verticals-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+@media (max-width: 992px) {
+  .showroom-verticals-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .showroom-sticky-header {
+    top: 100px;
+    padding: 4rem 0 2rem 0;
+  }
+  .showroom-sticky-header h2 {
+    font-size: 2.5rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .showroom-verticals-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .showroom-sticky-header {
+    position: relative;
+    top: 0;
+    padding: 3rem 0 1rem 0;
+  }
+  .showroom-sticky-header h2 {
+    font-size: 2.2rem !important;
+  }
+  .showroom-scrolling-content {
+    margin-top: 0;
+    padding: 2rem 0;
+    box-shadow: none;
+    border-top: none;
+  }
+}
+
+
