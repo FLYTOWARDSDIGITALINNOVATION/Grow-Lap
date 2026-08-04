@@ -82,18 +82,45 @@ const DslrShootPage = () => {
     <div className="dslr-shoot-page-container">
       {/* Hero Section */}
       <section className="dslr-shoot-hero">
-        <div className="container">
-          <p className="section-subtitle text-accent" style={{ marginBottom: '1rem' }}>DSLR SHOOT SERVICES</p>
-          <h1 className="dslr-shoot-hero-title">Capture Every Moment with Stunning <br/><span>DSLR Photography & Videography</span></h1>
-          <p className="dslr-shoot-hero-desc">
-            Create lasting memories and powerful visual content with our Professional DSLR Camera Shoot Services. We provide high-quality DSLR photography and videography for businesses, brands, events, and individuals. Whether you need a corporate shoot, product photography, wedding coverage, promotional videos, or social media content, our experienced team delivers sharp, creative, and professionally edited visuals that make an impact.
-          </p>
-          <p className="dslr-shoot-hero-desc" style={{ marginBottom: '3rem' }}>
-            Using advanced DSLR cameras, professional lighting, and creative composition, we ensure every shot reflects your brand, story, and vision.
-          </p>
-          <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem' }}>
-            Book Your Shoot Today
+        <div className="container" style={{ paddingTop: '2rem' }}>
+          <Link to="/services/shoot" style={{ color: 'var(--accent-orange)', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', textDecoration: 'none', fontWeight: 'bold', fontSize: '1.1rem' }}>
+            <span>←</span> Back to Shoot Services
           </Link>
+        </div>
+        <div className="container dslr-shoot-hero-grid">
+          
+          <div className="dslr-shoot-hero-image-wrapper">
+            <div className="dslr-shoot-orbit-container">
+              <div className="orbit-ring orbit-ring-1"></div>
+              <div className="orbit-ring orbit-ring-2"></div>
+              <div className="orbit-ring orbit-ring-3"></div>
+              <img src="/service_shoots_new.webp" alt="DSLR Shoot Services" className="hero-orbit-image" />
+              <div className="orbit-satellite sat-1">
+                <FaCameraRetro />
+              </div>
+              <div className="orbit-satellite sat-2">
+                <FaVideo />
+              </div>
+              <div className="orbit-satellite sat-3">
+                <FaCamera />
+              </div>
+            </div>
+          </div>
+
+          <div className="dslr-shoot-hero-content">
+            <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>DSLR SHOOT SERVICES</p>
+            <h1 className="dslr-shoot-hero-title">Capture Every Moment with Stunning <br/><span>DSLR Photography & Videography</span></h1>
+            <p className="dslr-shoot-hero-desc">
+              Create lasting memories and powerful visual content with our Professional DSLR Camera Shoot Services. We provide high-quality DSLR photography and videography for businesses, brands, events, and individuals. Whether you need a corporate shoot, product photography, wedding coverage, promotional videos, or social media content, our experienced team delivers sharp, creative, and professionally edited visuals that make an impact.
+            </p>
+            <p className="dslr-shoot-hero-desc" style={{ marginBottom: '3rem' }}>
+              Using advanced DSLR cameras, professional lighting, and creative composition, we ensure every shot reflects your brand, story, and vision.
+            </p>
+            <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem', display: 'inline-block' }}>
+              Book Your Shoot Today
+            </Link>
+          </div>
+
         </div>
       </section>
 

@@ -69,18 +69,45 @@ const PersonalBrandingPage = () => {
     <div className="personal-page-container">
       {/* Hero Section */}
       <section className="personal-hero">
-        <div className="container">
-          <p className="section-subtitle text-accent" style={{ marginBottom: '1rem' }}>PERSONAL BRANDING SERVICES</p>
-          <h1 className="personal-hero-title">Build a Powerful Personal Brand That <br/><span>Sets You Apart</span></h1>
-          <p className="personal-hero-desc">
-            Your personal brand is more than just your online presence—it's how people recognize, trust, and remember you. Our Personal Branding Services help entrepreneurs, business owners, professionals, influencers, coaches, and executives establish a strong digital identity that builds credibility, attracts opportunities, and drives long-term success.
-          </p>
-          <p className="personal-hero-desc" style={{ marginBottom: '3rem' }}>
-            From profile optimization and content creation to social media strategy and personal website development, we create a powerful brand that reflects your expertise and connects with your target audience.
-          </p>
-          <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem' }}>
-            Start Building Your Personal Brand
+        <div className="container" style={{ paddingTop: '2rem' }}>
+          <Link to="/services/digital-marketing" style={{ color: 'var(--accent-orange)', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', textDecoration: 'none', fontWeight: 'bold', fontSize: '1.1rem' }}>
+            <span>←</span> Back to Digital Marketing
           </Link>
+        </div>
+        <div className="container personal-hero-grid">
+          
+          <div className="personal-hero-content">
+            <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>PERSONAL BRANDING SERVICES</p>
+            <h1 className="personal-hero-title">Build a Powerful Personal Brand That <br/><span>Sets You Apart</span></h1>
+            <p className="personal-hero-desc">
+              Your personal brand is more than just your online presence—it's how people recognize, trust, and remember you. Our Personal Branding Services help entrepreneurs, business owners, professionals, influencers, coaches, and executives establish a strong digital identity that builds credibility, attracts opportunities, and drives long-term success.
+            </p>
+            <p className="personal-hero-desc" style={{ marginBottom: '3rem' }}>
+              From profile optimization and content creation to social media strategy and personal website development, we create a powerful brand that reflects your expertise and connects with your target audience.
+            </p>
+            <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem', display: 'inline-block' }}>
+              Start Building Your Personal Brand
+            </Link>
+          </div>
+
+          <div className="personal-hero-image-wrapper">
+            <div className="personal-orbit-container">
+              <div className="orbit-ring orbit-ring-1"></div>
+              <div className="orbit-ring orbit-ring-2"></div>
+              <div className="orbit-ring orbit-ring-3"></div>
+              <img src="/4.webp" alt="Personal Branding Services" className="hero-orbit-image" />
+              <div className="orbit-satellite sat-1">
+                <FaUserTie />
+              </div>
+              <div className="orbit-satellite sat-2">
+                <FaIdBadge />
+              </div>
+              <div className="orbit-satellite sat-3">
+                <FaLightbulb />
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
 

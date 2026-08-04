@@ -69,6 +69,12 @@ const OnlinePromotionPage = () => {
     <div className="online-page-container">
       {/* Hero Section */}
       <section className="online-hero">
+        
+        <div className="container">
+          <Link to="/services/digital-marketing" style={{ color: 'var(--accent-orange)', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', textDecoration: 'none', fontWeight: 'bold', fontSize: '1.1rem' }}>
+            <span>←</span> Back to Digital Marketing
+          </Link>
+        </div>
         <div className="container online-hero-grid">
           
           <div className="online-hero-content">

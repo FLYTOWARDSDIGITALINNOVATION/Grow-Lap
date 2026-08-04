@@ -1,4 +1,4 @@
-.photo-editing-page-container {
+﻿.photo-editing-page-container {
   background-color: var(--bg-dark);
   color: #fff;
   min-height: 100vh;
@@ -23,7 +23,129 @@
   pointer-events: none;
 }
 
-.photo-editing-hero-title {
+
+.photo-editing-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.photo-editing-hero-image-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.photo-editing-orbit-container {
+  width: 100%;
+  max-width: 400px;
+  height: 400px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-orbit-image {
+  width: 75%;
+  height: 75%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 30px rgba(255, 94, 0, 0.4);
+  position: relative;
+  z-index: 10;
+  animation: pulseCore 4s ease-in-out infinite;
+}
+
+.orbit-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1px solid rgba(255, 94, 0, 0.2);
+}
+
+.orbit-ring-1 {
+  width: 85%;
+  height: 85%;
+  border-width: 2px;
+  border-style: dashed;
+  animation: spinRight 20s linear infinite;
+}
+
+.orbit-ring-2 {
+  width: 100%;
+  height: 100%;
+  border-width: 1px;
+  animation: spinLeft 25s linear infinite;
+}
+
+.orbit-ring-3 {
+  width: 115%;
+  height: 115%;
+  border-width: 2px;
+  border-style: dotted;
+  animation: spinRight 30s linear infinite;
+}
+
+.orbit-satellite {
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  background-color: #0c0c0e;
+  border: 2px solid var(--accent-orange);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  color: var(--accent-orange);
+  box-shadow: 0 0 15px rgba(255, 94, 0, 0.4);
+  z-index: 20;
+}
+
+.sat-1 {
+  top: 0%;
+  left: 15%;
+  animation: floatSat 4s ease-in-out infinite 0s;
+}
+
+.sat-2 {
+  bottom: 10%;
+  right: -5%;
+  animation: floatSat 4s ease-in-out infinite 1s;
+}
+
+.sat-3 {
+  bottom: 0%;
+  left: 5%;
+  animation: floatSat 4s ease-in-out infinite 2s;
+}
+
+@keyframes spinRight {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes spinLeft {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(-360deg); }
+}
+
+@keyframes pulseCore {
+  0%, 100% { box-shadow: 0 0 30px rgba(255, 94, 0, 0.3); transform: scale(1); }
+  50% { box-shadow: 0 0 60px rgba(255, 94, 0, 0.6); transform: scale(1.02); }
+}
+
+@keyframes floatSat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+\n.photo-editing-hero-title {
   font-size: 3.5rem;
   font-weight: 800;
   margin-bottom: 1.5rem;
@@ -36,7 +158,7 @@
 
 .photo-editing-hero-desc {
   font-size: 1.2rem;
-  color: #ccc;
+  color: #fff;
   max-width: 800px;
   margin: 0 auto 2rem;
   line-height: 1.8;
@@ -142,7 +264,7 @@
 }
 
 .photo-editing-step-content p {
-  color: #aaa;
+  color: #fff;
   line-height: 1.6;
   margin: 0;
 }
@@ -167,7 +289,7 @@
   border-radius: 8px;
   text-align: center;
   font-weight: 600;
-  color: #ccc;
+  color: #fff;
   border: 1px solid rgba(255, 255, 255, 0.05);
   transition: all 0.3s ease;
 }
@@ -209,7 +331,7 @@
 
 .photo-editing-faq-item p {
   margin-top: 1rem;
-  color: #aaa;
+  color: #fff;
   line-height: 1.6;
 }
 
@@ -274,3 +396,4 @@
   }
 }
 
+\n\n@media (max-width: 992px) {\n  .photo-editing-hero-grid {\n    grid-template-columns: 1fr;\n    text-align: center;\n  }\n  \n  .photo-editing-hero {\n    text-align: center;\n  }\n  \n  .photo-editing-hero-image-wrapper {\n    order: -1;\n  }\n}\n\n@media (max-width: 768px) {\n  .photo-editing-hero-title {\n    font-size: 2.5rem;\n  }\n}\n

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FaArrowRight, FaBullhorn, FaCalendarAlt, FaRocket, FaShareAlt, FaBuilding, FaTags, FaUtensils, FaGraduationCap, FaHeartbeat, FaHome, FaFilm, FaPenNib, FaCheckCircle, FaPlusCircle, FaImage } from 'react-icons/fa';
+import { FaArrowRight, FaBullhorn, FaCalendarAlt, FaRocket, FaShareAlt, FaBuilding, FaTags, FaUtensils, FaGraduationCap, FaHeartbeat, FaHome, FaFilm, FaPenNib, FaCheckCircle, FaPlusCircle, FaImage , FaPalette, FaPrint} from 'react-icons/fa';
 import './PosterDesignPage.css';
 
 const PosterDesignPage = () => {
@@ -81,18 +81,40 @@ const PosterDesignPage = () => {
     <div className="poster-design-page-container">
       {/* Hero Section */}
       <section className="poster-design-hero">
-        <div className="container">
-          <p className="section-subtitle text-accent" style={{ marginBottom: '1rem' }}>POSTER DESIGN SERVICES</p>
-          <h1 className="poster-design-hero-title">Eye-Catching Poster Designs That <br/><span>Elevate Your Brand</span></h1>
-          <p className="poster-design-hero-desc">
+        <div className="container" style={{ paddingTop: '2rem' }}>
+          <Link to="/services/video-editing" style={{ color: 'var(--accent-orange)', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', textDecoration: 'none', fontWeight: 'bold', fontSize: '1.1rem' }}>
+            <span>←</span> Back to Video Editing
+          </Link>
+        </div>
+        <div className="container poster-design-hero-grid">
+          <div className="poster-design-hero-content">
+            <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>POSTER DESIGN SERVICES</p>
+            <h1 className="poster-design-hero-title">Eye-Catching Poster Designs That <br/><span>Elevate Your Brand</span></h1>
+            <p className="poster-design-hero-desc">
             Make a lasting impression with our Professional Poster Design Services. We create visually stunning, creative, and high-impact posters that effectively promote your business, event, product, or campaign. Whether you need posters for print or digital platforms, our custom designs are crafted to capture attention, communicate your message, and inspire action.
           </p>
-          <p className="poster-design-hero-desc" style={{ marginBottom: '3rem' }}>
-            From promotional campaigns and product launches to event marketing and social media advertising, our expert designers deliver professional posters that strengthen your brand and maximize audience engagement.
-          </p>
-          <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem' }}>
+            
+            <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem', display: 'inline-block' }}>
             Get Your Custom Poster Today
           </Link>
+          </div>
+          <div className="poster-design-hero-image-wrapper">
+            <div className="poster-design-orbit-container">
+              <div className="orbit-ring orbit-ring-1"></div>
+              <div className="orbit-ring orbit-ring-2"></div>
+              <div className="orbit-ring orbit-ring-3"></div>
+              <img src="/poster.webp" alt="Hero Image" className="hero-orbit-image" />
+              <div className="orbit-satellite sat-1">
+                <FaImage />
+              </div>
+              <div className="orbit-satellite sat-2">
+                <FaPalette />
+              </div>
+              <div className="orbit-satellite sat-3">
+                <FaPrint />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

@@ -1,4 +1,4 @@
-.has-section {
+﻿.has-section {
   padding: 6rem 0;
   background-color: var(--bg-dark);
   color: #fff;
@@ -261,7 +261,7 @@
 
 .has-spoke-content p {
   font-size: 0.85rem;
-  color: #aaa;
+  color: #fff;
   margin: 0;
   line-height: 1.4;
 }

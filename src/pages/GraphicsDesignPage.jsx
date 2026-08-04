@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FaArrowRight, FaPenNib, FaShareAlt, FaBullhorn, FaMap, FaBookOpen, FaAddressCard, FaImage, FaBoxOpen, FaUtensils, FaEnvelopeOpenText, FaChartPie, FaDesktop, FaYoutube, FaAd, FaLightbulb, FaCheckCircle, FaPlusCircle, FaPalette } from 'react-icons/fa';
+import { FaArrowRight, FaPenNib, FaShareAlt, FaBullhorn, FaMap, FaBookOpen, FaAddressCard, FaImage, FaBoxOpen, FaUtensils, FaEnvelopeOpenText, FaChartPie, FaDesktop, FaYoutube, FaAd, FaLightbulb, FaCheckCircle, FaPlusCircle, FaPalette , FaPaintBrush, FaLaptopCode} from 'react-icons/fa';
 import './GraphicsDesignPage.css';
 
 const GraphicsDesignPage = () => {
@@ -86,18 +86,40 @@ const GraphicsDesignPage = () => {
     <div className="graphics-design-page-container">
       {/* Hero Section */}
       <section className="graphics-design-hero">
-        <div className="container">
-          <p className="section-subtitle text-accent" style={{ marginBottom: '1rem' }}>GRAPHIC DESIGN SERVICES</p>
-          <h1 className="graphics-design-hero-title">Creative Graphic Design Solutions <br/><span>for Your Brand</span></h1>
-          <p className="graphics-design-hero-desc">
+        <div className="container" style={{ paddingTop: '2rem' }}>
+          <Link to="/services/video-editing" style={{ color: 'var(--accent-orange)', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', textDecoration: 'none', fontWeight: 'bold', fontSize: '1.1rem' }}>
+            <span>←</span> Back to Video Editing
+          </Link>
+        </div>
+        <div className="container graphics-design-hero-grid">
+          <div className="graphics-design-hero-content">
+            <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>GRAPHIC DESIGN SERVICES</p>
+            <h1 className="graphics-design-hero-title">Creative Graphic Design Solutions <br/><span>for Your Brand</span></h1>
+            <p className="graphics-design-hero-desc">
             Build a strong and memorable brand with our Professional Graphic Design Services. We create visually compelling designs that help businesses communicate their message, attract customers, and stand out in today's competitive market. From social media creatives and marketing materials to branding assets and print designs, our expert designers deliver creative solutions tailored to your business goals.
           </p>
-          <p className="graphics-design-hero-desc" style={{ marginBottom: '3rem' }}>
-            Whether you're a startup, small business, or established company, we design graphics that enhance your brand identity and leave a lasting impression.
-          </p>
-          <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem' }}>
+            
+            <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem', display: 'inline-block' }}>
             Elevate Your Brand Today
           </Link>
+          </div>
+          <div className="graphics-design-hero-image-wrapper">
+            <div className="graphics-design-orbit-container">
+              <div className="orbit-ring orbit-ring-1"></div>
+              <div className="orbit-ring orbit-ring-2"></div>
+              <div className="orbit-ring orbit-ring-3"></div>
+              <img src="/Graphic Design.webp" alt="Hero Image" className="hero-orbit-image" />
+              <div className="orbit-satellite sat-1">
+                <FaPalette />
+              </div>
+              <div className="orbit-satellite sat-2">
+                <FaPaintBrush />
+              </div>
+              <div className="orbit-satellite sat-3">
+                <FaLaptopCode />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

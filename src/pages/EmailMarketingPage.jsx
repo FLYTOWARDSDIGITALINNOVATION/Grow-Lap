@@ -69,18 +69,45 @@ const EmailMarketingPage = () => {
     <div className="email-page-container">
       {/* Hero Section */}
       <section className="email-hero">
-        <div className="container">
-          <p className="section-subtitle text-accent" style={{ marginBottom: '1rem' }}>EMAIL MARKETING SERVICES</p>
-          <h1 className="email-hero-title">Drive Engagement and Increase Sales with <br/><span>Professional Email Marketing</span></h1>
-          <p className="email-hero-desc">
-            Build stronger customer relationships and grow your business with our Professional Email Marketing Services. We create personalized, data-driven email campaigns that engage your audience, nurture leads, increase conversions, and encourage repeat business.
-          </p>
-          <p className="email-hero-desc" style={{ marginBottom: '3rem' }}>
-            Whether you're promoting products, launching a new service, or keeping customers informed, our email marketing strategies help you deliver the right message to the right audience at the right time.
-          </p>
-          <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem' }}>
-            Start Your Email Marketing Campaign
+        <div className="container" style={{ paddingTop: '2rem' }}>
+          <Link to="/services/digital-marketing" style={{ color: 'var(--accent-orange)', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', textDecoration: 'none', fontWeight: 'bold', fontSize: '1.1rem' }}>
+            <span>←</span> Back to Digital Marketing
           </Link>
+        </div>
+        <div className="container email-hero-grid">
+          
+          <div className="email-hero-content">
+            <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>EMAIL MARKETING SERVICES</p>
+            <h1 className="email-hero-title">Drive Engagement and Increase Sales with <br/><span>Professional Email Marketing</span></h1>
+            <p className="email-hero-desc">
+              Build stronger customer relationships and grow your business with our Professional Email Marketing Services. We create personalized, data-driven email campaigns that engage your audience, nurture leads, increase conversions, and encourage repeat business.
+            </p>
+            <p className="email-hero-desc" style={{ marginBottom: '3rem' }}>
+              Whether you're promoting products, launching a new service, or keeping customers informed, our email marketing strategies help you deliver the right message to the right audience at the right time.
+            </p>
+            <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem', display: 'inline-block' }}>
+              Start Your Email Marketing Campaign
+            </Link>
+          </div>
+
+          <div className="email-hero-image-wrapper">
+            <div className="email-orbit-container">
+              <div className="orbit-ring orbit-ring-1"></div>
+              <div className="orbit-ring orbit-ring-2"></div>
+              <div className="orbit-ring orbit-ring-3"></div>
+              <img src="/email marketing serives.webp" alt="Email Marketing Services" className="hero-orbit-image" />
+              <div className="orbit-satellite sat-1">
+                <FaEnvelopeOpenText />
+              </div>
+              <div className="orbit-satellite sat-2">
+                <FaBullhorn />
+              </div>
+              <div className="orbit-satellite sat-3">
+                <FaUsers />
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
 

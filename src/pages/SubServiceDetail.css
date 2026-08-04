@@ -1,4 +1,4 @@
-.subservice-page-container {
+﻿.subservice-page-container {
   min-height: 100vh;
   background-color: var(--bg-dark);
   color: #fff;
@@ -30,7 +30,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: #aaa;
+  color: #fff;
   text-decoration: none;
   font-size: 0.95rem;
   margin-bottom: 2rem;
@@ -58,7 +58,7 @@
 
 .ssd-hero-desc {
   font-size: 1.25rem;
-  color: #ddd;
+  color: #fff;
   line-height: 1.6;
   max-width: 700px;
   margin: 0 auto;
@@ -84,7 +84,7 @@
 
 .ssd-left-content p {
   font-size: 1.1rem;
-  color: #ccc;
+  color: #fff;
   line-height: 1.8;
   margin-bottom: 1.5rem;
 }
@@ -172,7 +172,7 @@
 .ssd-feature-item p {
   font-size: 0.95rem;
   margin-bottom: 0;
-  color: #aaa;
+  color: #fff;
   line-height: 1.6;
   position: relative;
   z-index: 2;
@@ -207,7 +207,7 @@
 }
 
 .ssd-lead-form p {
-  color: #aaa;
+  color: #fff;
   margin-bottom: 2rem;
   font-size: 0.95rem;
 }
@@ -362,7 +362,7 @@
 }
 
 .ssd-pt-step p {
-  color: #aaa;
+  color: #fff;
   font-size: 1rem;
   line-height: 1.6;
   margin: 0;
@@ -429,7 +429,7 @@
 
 .ssd-faq-item-collapsible p {
   margin-top: 1.5rem;
-  color: #aaa;
+  color: #fff;
   font-size: 1rem;
   line-height: 1.6;
 }
@@ -520,7 +520,7 @@
 
 .ssd-ind-card p {
   font-size: 1rem;
-  color: #aaa;
+  color: #fff;
   margin: 0;
   line-height: 1.6;
   position: relative;
@@ -584,7 +584,7 @@
 }
 
 .ssd-breakdown-card p {
-  color: #aaa;
+  color: #fff;
   font-size: 1rem;
   line-height: 1.6;
   margin: 0;
@@ -725,7 +725,7 @@
 }
 
 .ssd-roadmap-card p {
-  color: #aaa;
+  color: #fff;
   font-size: 1rem;
   line-height: 1.6;
   margin-bottom: 1.5rem;
@@ -738,7 +738,7 @@
 }
 
 .ssd-rm-list li {
-  color: #ccc;
+  color: #fff;
   font-size: 0.95rem;
   margin-bottom: 0.5rem;
   font-weight: 500;
@@ -831,7 +831,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: #888;
+  color: #fff;
   text-decoration: none;
   font-size: 0.9rem;
   margin-bottom: 1rem;
@@ -871,7 +871,7 @@
 
 .ssd-adv-desc {
   font-size: 1.1rem;
-  color: #bbb;
+  color: #fff;
   line-height: 1.6;
   max-width: 700px;
   margin-bottom: 2.5rem;
@@ -890,7 +890,7 @@
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  color: #aaa;
+  color: #fff;
   font-size: 0.95rem;
   font-weight: 500;
 }
@@ -964,7 +964,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: #888;
+  color: #fff;
   font-size: 0.95rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: 1.5rem;
@@ -1052,7 +1052,7 @@
 }
 
 .ssd-tools-header p {
-  color: #bbb;
+  color: #fff;
   font-size: 1.15rem;
   max-width: 600px;
   margin: 0 auto;
@@ -1100,7 +1100,7 @@
 }
 
 .ssd-tech-card p {
-  color: #aaa;
+  color: #fff;
   font-size: 1.05rem;
   line-height: 1.6;
   margin: 0;
@@ -1207,7 +1207,7 @@
 }
 
 .ssd-cta-desc {
-  color: #ccc;
+  color: #fff;
   font-size: 1.15rem;
   max-width: 700px;
   margin: 0 auto 3rem auto;
@@ -1261,7 +1261,7 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  color: #aaa;
+  color: #fff;
   font-size: 0.95rem;
   margin-bottom: 4rem;
 }
@@ -1312,7 +1312,7 @@
 }
 
 .stat-text p {
-  color: #aaa;
+  color: #fff;
   font-size: 0.9rem;
   margin: 0;
 }

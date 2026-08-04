@@ -1,7 +1,7 @@
 .whatsapp-float-btn {
   position: fixed;
-  bottom: 110px; /* Moved up to sit above the Chatbot */
-  right: 30px; /* Moved back to right side */
+  bottom: 170px; /* Moved up to sit above Chatbot and Scroll-to-top */
+  right: 30px;
   background-color: #25D366;
   color: #FFF;
   border-radius: 50%;
@@ -62,15 +62,14 @@
 /* Mobile responsiveness */
 @media (max-width: 768px) {
   .whatsapp-float-btn {
-    width: 50px;
-    height: 50px;
-    bottom: 90px; /* Adjusted for smaller screens above chatbot */
+    width: 55px;
+    height: 55px;
+    bottom: 160px; /* Sit above chatbot on mobile */
     right: 20px;
     font-size: 30px;
   }
 
-  
   .whatsapp-tooltip {
-    display: none; /* Hide tooltip on mobile to avoid clutter */
+    display: none;
   }
 }

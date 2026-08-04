@@ -58,18 +58,45 @@ const VideoEditingPage = () => {
     <div className="video-editing-page-container">
       {/* Hero Section */}
       <section className="video-editing-hero">
-        <div className="container">
-          <p className="section-subtitle text-accent" style={{ marginBottom: '1rem' }}>VIDEO EDITING SERVICES</p>
-          <h1 className="video-editing-hero-title">Transform Your Videos into <br/><span>Engaging Visual Stories</span></h1>
-          <p className="video-editing-hero-desc">
-            Bring your ideas to life with our professional Video Editing Services. We create high-quality, engaging, and visually appealing videos that help businesses, brands, and creators connect with their audience.
-          </p>
-          <p className="video-editing-hero-desc" style={{ marginBottom: '3rem' }}>
-            Whether you need promotional videos, social media reels, YouTube content, corporate videos, or advertisements, our expert editors deliver polished videos that leave a lasting impression. Our editing process includes seamless transitions, color correction, motion graphics, subtitles, background music, sound enhancement, and visual effects to ensure every video looks professional and captures attention.
-          </p>
-          <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem' }}>
-            Create Stunning Videos Today
+        <div className="container" style={{ paddingTop: '2rem' }}>
+          <Link to="/services/video-editing" style={{ color: 'var(--accent-orange)', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', textDecoration: 'none', fontWeight: 'bold', fontSize: '1.1rem' }}>
+            <span>←</span> Back to Video Editing
           </Link>
+        </div>
+        <div className="container video-editing-hero-grid">
+          
+          <div className="video-editing-hero-content">
+            <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>VIDEO EDITING SERVICES</p>
+            <h1 className="video-editing-hero-title">Transform Your Videos into <br/><span>Engaging Visual Stories</span></h1>
+            <p className="video-editing-hero-desc">
+              Bring your ideas to life with our professional Video Editing Services. We create high-quality, engaging, and visually appealing videos that help businesses, brands, and creators connect with their audience.
+            </p>
+            <p className="video-editing-hero-desc" style={{ marginBottom: '3rem' }}>
+              Whether you need promotional videos, social media reels, YouTube content, corporate videos, or advertisements, our expert editors deliver polished videos that leave a lasting impression. Our editing process includes seamless transitions, color correction, motion graphics, subtitles, background music, sound enhancement, and visual effects to ensure every video looks professional and captures attention.
+            </p>
+            <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem', display: 'inline-block' }}>
+              Create Stunning Videos Today
+            </Link>
+          </div>
+
+          <div className="video-editing-hero-image-wrapper">
+            <div className="video-editing-orbit-container">
+              <div className="orbit-ring orbit-ring-1"></div>
+              <div className="orbit-ring orbit-ring-2"></div>
+              <div className="orbit-ring orbit-ring-3"></div>
+              <img src="/photo-1574717024653-61fd2cf4d44d.webp" alt="Video Editing Services" className="hero-orbit-image" />
+              <div className="orbit-satellite sat-1">
+                <FaVideo />
+              </div>
+              <div className="orbit-satellite sat-2">
+                <FaMagic />
+              </div>
+              <div className="orbit-satellite sat-3">
+                <FaPalette />
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
 

@@ -116,9 +116,13 @@ const SeoPage = () => {
     <div className="seo-page-container">
       {/* Hero Section */}
       <section className="seo-hero">
-        <div className="container seo-hero-grid">
-          
-          <div className="seo-hero-image-wrapper">
+        <div className="container">
+          <Link to="/services/digital-marketing" style={{ color: 'var(--accent-orange)', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', textDecoration: 'none', fontWeight: 'bold', fontSize: '1.1rem' }}>
+            <span>←</span> Back to Digital Marketing
+          </Link>
+          <div className="seo-hero-grid">
+            
+            <div className="seo-hero-image-wrapper">
             <img src="/SEO Serives.webp" alt="SEO Services" className="hero-left-image" />
           </div>
 
@@ -138,6 +142,7 @@ const SeoPage = () => {
             </Link>
           </div>
 
+        </div>
         </div>
       </section>
 

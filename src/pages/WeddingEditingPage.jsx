@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FaArrowRight, FaVideo, FaFilm, FaHeart, FaRing, FaGlassCheers, FaCamera, FaPlane, FaUsers, FaInstagram, FaClosedCaptioning, FaCheckCircle, FaPlusCircle } from 'react-icons/fa';
+import { FaArrowRight, FaVideo, FaFilm, FaHeart, FaRing, FaGlassCheers, FaCamera, FaPlane, FaUsers, FaInstagram, FaClosedCaptioning, FaCheckCircle, FaPlusCircle , FaMagic} from 'react-icons/fa';
 import './WeddingEditingPage.css';
 
 const WeddingEditingPage = () => {
@@ -79,18 +79,40 @@ const WeddingEditingPage = () => {
     <div className="wedding-editing-page-container">
       {/* Hero Section */}
       <section className="wedding-editing-hero">
-        <div className="container">
-          <p className="section-subtitle text-accent" style={{ marginBottom: '1rem' }}>WEDDING VIDEO EDITING SERVICES</p>
-          <h1 className="wedding-editing-hero-title">Turn Your Wedding Memories into <br/><span>Timeless Films</span></h1>
-          <p className="wedding-editing-hero-desc">
+        <div className="container" style={{ paddingTop: '2rem' }}>
+          <Link to="/services/video-editing" style={{ color: 'var(--accent-orange)', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', textDecoration: 'none', fontWeight: 'bold', fontSize: '1.1rem' }}>
+            <span>←</span> Back to Video Editing
+          </Link>
+        </div>
+        <div className="container wedding-editing-hero-grid">
+          <div className="wedding-editing-hero-image-wrapper">
+            <div className="wedding-editing-orbit-container">
+              <div className="orbit-ring orbit-ring-1"></div>
+              <div className="orbit-ring orbit-ring-2"></div>
+              <div className="orbit-ring orbit-ring-3"></div>
+              <img src="/Wedding Editing.webp" alt="Hero Image" className="hero-orbit-image" />
+              <div className="orbit-satellite sat-1">
+                <FaHeart />
+              </div>
+              <div className="orbit-satellite sat-2">
+                <FaVideo />
+              </div>
+              <div className="orbit-satellite sat-3">
+                <FaMagic />
+              </div>
+            </div>
+          </div>
+          <div className="wedding-editing-hero-content">
+            <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>WEDDING VIDEO EDITING SERVICES</p>
+            <h1 className="wedding-editing-hero-title">Turn Your Wedding Memories into <br/><span>Timeless Films</span></h1>
+            <p className="wedding-editing-hero-desc">
             Relive your special day with our Professional Wedding Video Editing Services. We transform your raw wedding footage into beautifully crafted cinematic films that capture every emotion, smile, and unforgettable moment.
           </p>
-          <p className="wedding-editing-hero-desc" style={{ marginBottom: '3rem' }}>
-            Whether you're a couple, wedding videographer, or event company, we deliver high-quality wedding videos that tell your unique love story. Our expert editors combine cinematic storytelling, seamless transitions, color grading, audio enhancement, motion graphics, and licensed background music to create elegant wedding films you'll cherish forever.
-          </p>
-          <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem' }}>
+            
+            <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem', display: 'inline-block' }}>
             Create Your Wedding Film Today
           </Link>
+          </div>
         </div>
       </section>
 

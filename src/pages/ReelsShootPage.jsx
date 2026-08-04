@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FaArrowRight, FaVideo, FaMobileAlt, FaBuilding, FaStore, FaTshirt, FaUtensils, FaHome, FaFilm, FaCalendarAlt, FaUserTie, FaShareAlt, FaChartLine, FaCheckCircle, FaPlusCircle, FaCameraRetro } from 'react-icons/fa';
+import { FaArrowRight, FaVideo, FaMobileAlt, FaBuilding, FaStore, FaTshirt, FaUtensils, FaHome, FaFilm, FaCalendarAlt, FaUserTie, FaShareAlt, FaChartLine, FaCheckCircle, FaPlusCircle, FaCameraRetro , FaPlayCircle} from 'react-icons/fa';
 import './ReelsShootPage.css';
 
 const ReelsShootPage = () => {
@@ -87,18 +87,40 @@ const ReelsShootPage = () => {
     <div className="reels-shoot-page-container">
       {/* Hero Section */}
       <section className="reels-shoot-hero">
-        <div className="container">
-          <p className="section-subtitle text-accent" style={{ marginBottom: '1rem' }}>REELS SHOOT SERVICES</p>
-          <h1 className="reels-shoot-hero-title">Create Scroll-Stopping Reels That <br/><span>Grow Your Brand</span></h1>
-          <p className="reels-shoot-hero-desc">
+        <div className="container" style={{ paddingTop: '2rem' }}>
+          <Link to="/services/shoot" style={{ color: 'var(--accent-orange)', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', textDecoration: 'none', fontWeight: 'bold', fontSize: '1.1rem' }}>
+            <span>←</span> Back to Shoot Services
+          </Link>
+        </div>
+        <div className="container reels-shoot-hero-grid">
+          <div className="reels-shoot-hero-image-wrapper">
+            <div className="reels-shoot-orbit-container">
+              <div className="orbit-ring orbit-ring-1"></div>
+              <div className="orbit-ring orbit-ring-2"></div>
+              <div className="orbit-ring orbit-ring-3"></div>
+              <img src="/reels shoot.webp" alt="Hero Image" className="hero-orbit-image" />
+              <div className="orbit-satellite sat-1">
+                <FaFilm />
+              </div>
+              <div className="orbit-satellite sat-2">
+                <FaMobileAlt />
+              </div>
+              <div className="orbit-satellite sat-3">
+                <FaPlayCircle />
+              </div>
+            </div>
+          </div>
+          <div className="reels-shoot-hero-content">
+            <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>REELS SHOOT SERVICES</p>
+            <h1 className="reels-shoot-hero-title">Create Scroll-Stopping Reels That <br/><span>Grow Your Brand</span></h1>
+            <p className="reels-shoot-hero-desc">
             Boost your online presence with our Professional Reels Shoot Services. We create high-quality, engaging, and trend-driven Instagram Reels, Facebook Reels, YouTube Shorts, and TikTok videos that help businesses, brands, and creators attract more views, followers, and customers. Our team combines creative storytelling, professional filming, and expert editing to produce short-form videos that capture attention and inspire action.
           </p>
-          <p className="reels-shoot-hero-desc" style={{ marginBottom: '3rem' }}>
-            Whether you're promoting a product, showcasing your services, or building a personal brand, we create reels that are optimized for maximum engagement across social media platforms.
-          </p>
-          <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem' }}>
+            
+            <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem', display: 'inline-block' }}>
             Book Your Reels Shoot
           </Link>
+          </div>
         </div>
       </section>
 

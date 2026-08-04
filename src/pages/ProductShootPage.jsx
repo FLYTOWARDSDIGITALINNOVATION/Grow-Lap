@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FaArrowRight, FaCamera, FaShoppingBag, FaStore, FaTshirt, FaGem, FaUtensils, FaMobileAlt, FaImage, FaVideo, FaCheckCircle, FaPlusCircle, FaCameraRetro } from 'react-icons/fa';
+import { FaArrowRight, FaCamera, FaShoppingBag, FaStore, FaTshirt, FaGem, FaUtensils, FaMobileAlt, FaImage, FaVideo, FaCheckCircle, FaPlusCircle, FaCameraRetro , FaLightbulb} from 'react-icons/fa';
 import './ProductShootPage.css';
 
 const ProductShootPage = () => {
@@ -83,18 +83,40 @@ const ProductShootPage = () => {
     <div className="product-shoot-page-container">
       {/* Hero Section */}
       <section className="product-shoot-hero">
-        <div className="container">
-          <p className="section-subtitle text-accent" style={{ marginBottom: '1rem' }}>PRODUCT SHOOT SERVICES</p>
-          <h1 className="product-shoot-hero-title">Showcase Your Products with Stunning <br/><span>Professional Photography</span></h1>
-          <p className="product-shoot-hero-desc">
+        <div className="container" style={{ paddingTop: '2rem' }}>
+          <Link to="/services/shoot" style={{ color: 'var(--accent-orange)', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', textDecoration: 'none', fontWeight: 'bold', fontSize: '1.1rem' }}>
+            <span>←</span> Back to Shoot Services
+          </Link>
+        </div>
+        <div className="container product-shoot-hero-grid">
+          <div className="product-shoot-hero-content">
+            <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>PRODUCT SHOOT SERVICES</p>
+            <h1 className="product-shoot-hero-title">Showcase Your Products with Stunning <br/><span>Professional Photography</span></h1>
+            <p className="product-shoot-hero-desc">
             Make your products stand out with our Professional Product Shoot Services. High-quality product images are essential for attracting customers, building trust, and increasing sales. Our experienced photographers create visually appealing product photos and videos that highlight every detail, making your brand look professional across e-commerce platforms, websites, social media, and marketing campaigns.
           </p>
-          <p className="product-shoot-hero-desc" style={{ marginBottom: '3rem' }}>
-            Whether you're launching a new product or updating your online store, we deliver premium product photography tailored to your brand.
-          </p>
-          <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem' }}>
+            
+            <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem', display: 'inline-block' }}>
             Book Your Shoot Today
           </Link>
+          </div>
+          <div className="product-shoot-hero-image-wrapper">
+            <div className="product-shoot-orbit-container">
+              <div className="orbit-ring orbit-ring-1"></div>
+              <div className="orbit-ring orbit-ring-2"></div>
+              <div className="orbit-ring orbit-ring-3"></div>
+              <img src="/product shoot.webp" alt="Hero Image" className="hero-orbit-image" />
+              <div className="orbit-satellite sat-1">
+                <FaCamera />
+              </div>
+              <div className="orbit-satellite sat-2">
+                <FaShoppingBag />
+              </div>
+              <div className="orbit-satellite sat-3">
+                <FaLightbulb />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

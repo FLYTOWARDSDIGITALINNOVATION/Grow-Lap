@@ -69,11 +69,17 @@ const GoogleAdPage = () => {
     <div className="google-page-container">
       {/* Hero Section */}
       <section className="google-hero">
+        
+        <div className="container">
+          <Link to="/services/digital-marketing" style={{ color: 'var(--accent-orange)', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', textDecoration: 'none', fontWeight: 'bold', fontSize: '1.1rem' }}>
+            <span>←</span> Back to Digital Marketing
+          </Link>
+        </div>
         <div className="container google-hero-grid">
           
           <div className="google-hero-blob-wrapper">
             <div className="blob-shape-container">
-              <img src="/unnamed.jpg" alt="Google Ads Services" className="hero-left-image" />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Ads_logo.svg" alt="Google Ads Services" className="hero-left-image" />
             </div>
           </div>
 

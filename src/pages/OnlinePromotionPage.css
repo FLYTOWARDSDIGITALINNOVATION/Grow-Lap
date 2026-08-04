@@ -48,11 +48,13 @@
 }
 
 .hero-right-image {
-  width: 70%;
-  height: 70%;
+  width: 50%;
+  height: auto;
+  max-height: 50%;
   object-fit: contain;
   pointer-events: none;
   mix-blend-mode: multiply;
+  border-radius: 50%;
 }
 
 .blob-shape-container::before {
@@ -203,7 +205,7 @@
 }
 
 .online-step-content p {
-  color: #aaa;
+  color: #fff;
   line-height: 1.6;
   margin: 0;
 }
@@ -228,7 +230,7 @@
   border-radius: 8px;
   text-align: center;
   font-weight: 600;
-  color: #ccc;
+  color: #fff;
   border: 1px solid rgba(255, 255, 255, 0.05);
   transition: all 0.3s ease;
 }
@@ -270,7 +272,7 @@
 
 .online-faq-item p {
   margin-top: 1rem;
-  color: #aaa;
+  color: #fff;
   line-height: 1.6;
 }
 

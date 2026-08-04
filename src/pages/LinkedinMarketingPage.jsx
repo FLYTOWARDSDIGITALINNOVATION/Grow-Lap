@@ -68,18 +68,45 @@ const LinkedinMarketingPage = () => {
     <div className="linkedin-page-container">
       {/* Hero Section */}
       <section className="linkedin-hero">
-        <div className="container">
-          <p className="section-subtitle text-accent" style={{ marginBottom: '1rem' }}>LINKEDIN MARKETING SERVICES</p>
-          <h1 className="linkedin-hero-title">Grow Your Business with Professional <br/><span>LinkedIn Marketing</span></h1>
-          <p className="linkedin-hero-desc">
-            Build a strong professional presence and connect with decision-makers through our LinkedIn Marketing Services. We help businesses, startups, and professionals increase brand visibility, generate high-quality B2B leads, and establish industry authority with strategic LinkedIn marketing.
-          </p>
-          <p className="linkedin-hero-desc" style={{ marginBottom: '3rem' }}>
-            Whether you're looking to promote your business, attract potential clients, recruit top talent, or strengthen your professional network, our customized LinkedIn marketing solutions deliver measurable results.
-          </p>
-          <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem' }}>
-            Grow Your Business on LinkedIn
+        <div className="container" style={{ paddingTop: '2rem' }}>
+          <Link to="/services/digital-marketing" style={{ color: 'var(--accent-orange)', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', textDecoration: 'none', fontWeight: 'bold', fontSize: '1.1rem' }}>
+            <span>←</span> Back to Digital Marketing
           </Link>
+        </div>
+        <div className="container linkedin-hero-grid">
+          
+          <div className="linkedin-hero-content">
+            <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>LINKEDIN MARKETING SERVICES</p>
+            <h1 className="linkedin-hero-title">Grow Your Business with Professional <br/><span>LinkedIn Marketing</span></h1>
+            <p className="linkedin-hero-desc">
+              Build a strong professional presence and connect with decision-makers through our LinkedIn Marketing Services. We help businesses, startups, and professionals increase brand visibility, generate high-quality B2B leads, and establish industry authority with strategic LinkedIn marketing.
+            </p>
+            <p className="linkedin-hero-desc" style={{ marginBottom: '3rem' }}>
+              Whether you're looking to promote your business, attract potential clients, recruit top talent, or strengthen your professional network, our customized LinkedIn marketing solutions deliver measurable results.
+            </p>
+            <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem', display: 'inline-block' }}>
+              Grow Your Business on LinkedIn
+            </Link>
+          </div>
+
+          <div className="linkedin-hero-image-wrapper">
+            <div className="linkedin-orbit-container">
+              <div className="orbit-ring orbit-ring-1"></div>
+              <div className="orbit-ring orbit-ring-2"></div>
+              <div className="orbit-ring orbit-ring-3"></div>
+              <img src="/3.webp" alt="LinkedIn Marketing Services" className="hero-orbit-image" />
+              <div className="orbit-satellite sat-1">
+                <FaLinkedin />
+              </div>
+              <div className="orbit-satellite sat-2">
+                <FaChartLine />
+              </div>
+              <div className="orbit-satellite sat-3">
+                <FaUserTie />
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
 

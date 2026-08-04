@@ -69,6 +69,12 @@ const MetaAdPage = () => {
     <div className="meta-page-container">
       {/* Hero Section */}
       <section className="meta-hero">
+        
+        <div className="container">
+          <Link to="/services/digital-marketing" style={{ color: 'var(--accent-orange)', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', textDecoration: 'none', fontWeight: 'bold', fontSize: '1.1rem' }}>
+            <span>←</span> Back to Digital Marketing
+          </Link>
+        </div>
         <div className="container meta-hero-grid">
           
           <div className="meta-hero-content">
@@ -87,7 +93,7 @@ const MetaAdPage = () => {
 
           <div className="meta-hero-blob-wrapper">
             <div className="blob-shape-container">
-              <img src="/Meta Ad.webp" alt="Meta Ads Services" className="hero-right-image" />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg" alt="Meta Ads Services" className="hero-right-image" />
             </div>
           </div>
 

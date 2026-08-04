@@ -20,7 +20,7 @@ const LetsTalkSection = () => {
           <form className="lets-talk-form" onSubmit={(e) => e.preventDefault()}>
             <div className="form-group">
               <label>Name</label>
-              <input type="text" placeholder="Jane Smith" required />
+              <input type="text" placeholder="Your Name" required />
             </div>
             
             <div className="form-group">

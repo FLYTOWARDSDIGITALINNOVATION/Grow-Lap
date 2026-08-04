@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FaArrowRight, FaYoutube, FaPlane, FaHome, FaHeart, FaUtensils, FaDumbbell, FaBriefcase, FaCalendarAlt, FaGraduationCap, FaMicrophoneAlt, FaCheckCircle, FaVideo, FaPlusCircle } from 'react-icons/fa';
+import { FaArrowRight, FaYoutube, FaPlane, FaHome, FaHeart, FaUtensils, FaDumbbell, FaBriefcase, FaCalendarAlt, FaGraduationCap, FaMicrophoneAlt, FaCheckCircle, FaVideo, FaPlusCircle , FaCamera} from 'react-icons/fa';
 import './VlogEditingPage.css';
 
 const VlogEditingPage = () => {
@@ -83,18 +83,40 @@ const VlogEditingPage = () => {
     <div className="vlog-editing-page-container">
       {/* Hero Section */}
       <section className="vlog-editing-hero">
-        <div className="container">
-          <p className="section-subtitle text-accent" style={{ marginBottom: '1rem' }}>FULL VLOG EDITING SERVICES</p>
-          <h1 className="vlog-editing-hero-title">Turn Your Raw Footage into <br/><span>Engaging Vlogs</span></h1>
-          <p className="vlog-editing-hero-desc">
+        <div className="container" style={{ paddingTop: '2rem' }}>
+          <Link to="/services/video-editing" style={{ color: 'var(--accent-orange)', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', textDecoration: 'none', fontWeight: 'bold', fontSize: '1.1rem' }}>
+            <span>←</span> Back to Video Editing
+          </Link>
+        </div>
+        <div className="container vlog-editing-hero-grid">
+          <div className="vlog-editing-hero-content">
+            <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>FULL VLOG EDITING SERVICES</p>
+            <h1 className="vlog-editing-hero-title">Turn Your Raw Footage into <br/><span>Engaging Vlogs</span></h1>
+            <p className="vlog-editing-hero-desc">
             Create high-quality, engaging, and professional vlogs with our Full Vlog Editing Services. Whether you're a YouTuber, travel creator, lifestyle influencer, business owner, or brand, we transform your raw footage into captivating videos that keep viewers watching from start to finish.
           </p>
-          <p className="vlog-editing-hero-desc" style={{ marginBottom: '3rem' }}>
-            Our expert editors combine storytelling, cinematic transitions, color grading, sound enhancement, motion graphics, and engaging visual effects to produce polished vlogs that reflect your unique style and personality.
-          </p>
-          <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem' }}>
+            
+            <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem', display: 'inline-block' }}>
             Get Your Vlogs Edited Today
           </Link>
+          </div>
+          <div className="vlog-editing-hero-image-wrapper">
+            <div className="vlog-editing-orbit-container">
+              <div className="orbit-ring orbit-ring-1"></div>
+              <div className="orbit-ring orbit-ring-2"></div>
+              <div className="orbit-ring orbit-ring-3"></div>
+              <img src="/Full Vlog Editing.webp" alt="Hero Image" className="hero-orbit-image" />
+              <div className="orbit-satellite sat-1">
+                <FaYoutube />
+              </div>
+              <div className="orbit-satellite sat-2">
+                <FaCamera />
+              </div>
+              <div className="orbit-satellite sat-3">
+                <FaMicrophoneAlt />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

@@ -7,11 +7,11 @@
 
 /* Hero Section */
 .content-hero {
-  padding: 8rem 0 5rem;
+  padding: 4rem 0 5rem;
   background-color: #0c0c0e;
   position: relative;
   overflow: hidden;
-  text-align: center;
+  text-align: left;
   border-bottom: 1px solid rgba(255, 94, 0, 0.2);
 }
 
@@ -19,8 +19,130 @@
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background-image: radial-gradient(circle at top right, rgba(255, 94, 0, 0.1) 0%, transparent 50%);
+  background-image: radial-gradient(circle at top left, rgba(255, 94, 0, 0.1) 0%, transparent 50%);
   pointer-events: none;
+}
+
+.content-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.content-hero-image-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.content-orbit-container {
+  width: 100%;
+  max-width: 400px;
+  height: 400px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-orbit-image {
+  width: 75%;
+  height: 75%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 30px rgba(255, 94, 0, 0.4);
+  position: relative;
+  z-index: 10;
+  animation: pulseCore 4s ease-in-out infinite;
+}
+
+.orbit-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1px solid rgba(255, 94, 0, 0.2);
+}
+
+.orbit-ring-1 {
+  width: 85%;
+  height: 85%;
+  border-width: 2px;
+  border-style: dashed;
+  animation: spinRight 20s linear infinite;
+}
+
+.orbit-ring-2 {
+  width: 100%;
+  height: 100%;
+  border-width: 1px;
+  animation: spinLeft 25s linear infinite;
+}
+
+.orbit-ring-3 {
+  width: 115%;
+  height: 115%;
+  border-width: 2px;
+  border-style: dotted;
+  animation: spinRight 30s linear infinite;
+}
+
+.orbit-satellite {
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  background-color: #0c0c0e;
+  border: 2px solid var(--accent-orange);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  color: var(--accent-orange);
+  box-shadow: 0 0 15px rgba(255, 94, 0, 0.4);
+  z-index: 20;
+}
+
+.sat-1 {
+  top: 0%;
+  left: 15%;
+  animation: floatSat 4s ease-in-out infinite 0s;
+}
+
+.sat-2 {
+  bottom: 10%;
+  right: -5%;
+  animation: floatSat 4s ease-in-out infinite 1s;
+}
+
+.sat-3 {
+  bottom: 0%;
+  left: 5%;
+  animation: floatSat 4s ease-in-out infinite 2s;
+}
+
+@keyframes spinRight {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes spinLeft {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(-360deg); }
+}
+
+@keyframes pulseCore {
+  0%, 100% { box-shadow: 0 0 30px rgba(255, 94, 0, 0.3); transform: scale(1); }
+  50% { box-shadow: 0 0 60px rgba(255, 94, 0, 0.6); transform: scale(1.02); }
+}
+
+@keyframes floatSat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
 }
 
 .content-hero-title {
@@ -36,10 +158,30 @@
 
 .content-hero-desc {
   font-size: 1.2rem;
-  color: #ccc;
-  max-width: 800px;
-  margin: 0 auto 2rem;
+  color: #fff;
+  margin-bottom: 2rem;
   line-height: 1.8;
+}
+
+@media (max-width: 992px) {
+  .content-hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .content-hero {
+    text-align: center;
+  }
+  
+  .content-hero-image-wrapper {
+    order: -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .content-hero-title {
+    font-size: 2.5rem;
+  }
 }
 
 /* Services Grid */
@@ -142,7 +284,7 @@
 }
 
 .content-step-content p {
-  color: #aaa;
+  color: #fff;
   line-height: 1.6;
   margin: 0;
 }
@@ -167,7 +309,7 @@
   border-radius: 8px;
   text-align: center;
   font-weight: 600;
-  color: #ccc;
+  color: #fff;
   border: 1px solid rgba(255, 255, 255, 0.05);
   transition: all 0.3s ease;
 }
@@ -209,7 +351,7 @@
 
 .content-faq-item p {
   margin-top: 1rem;
-  color: #aaa;
+  color: #fff;
   line-height: 1.6;
 }
 

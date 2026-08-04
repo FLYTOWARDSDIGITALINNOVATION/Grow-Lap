@@ -69,18 +69,45 @@ const WhatsappMarketingPage = () => {
     <div className="whatsapp-page-container">
       {/* Hero Section */}
       <section className="whatsapp-hero">
-        <div className="container">
-          <p className="section-subtitle text-accent" style={{ marginBottom: '1rem' }}>WHATSAPP MARKETING SERVICES</p>
-          <h1 className="whatsapp-hero-title">Grow Your Business with Professional <br/><span>WhatsApp Marketing</span></h1>
-          <p className="whatsapp-hero-desc">
-            Connect with your customers instantly through our Professional WhatsApp Marketing Services. We help businesses build stronger customer relationships, generate high-quality leads, promote products and services, and increase sales using personalized WhatsApp campaigns.
-          </p>
-          <p className="whatsapp-hero-desc" style={{ marginBottom: '3rem' }}>
-            With billions of active users worldwide, WhatsApp is one of the most effective communication platforms for engaging customers, sharing updates, and delivering real-time support. Our tailored WhatsApp marketing strategies help your business reach the right audience with higher open rates and faster customer responses.
-          </p>
-          <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem' }}>
-            Start Your WhatsApp Marketing Campaign
+        <div className="container" style={{ paddingTop: '2rem' }}>
+          <Link to="/services/digital-marketing" style={{ color: 'var(--accent-orange)', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', textDecoration: 'none', fontWeight: 'bold', fontSize: '1.1rem' }}>
+            <span>←</span> Back to Digital Marketing
           </Link>
+        </div>
+        <div className="container whatsapp-hero-grid">
+          
+          <div className="whatsapp-hero-image-wrapper">
+            <div className="whatsapp-orbit-container">
+              <div className="orbit-ring orbit-ring-1"></div>
+              <div className="orbit-ring orbit-ring-2"></div>
+              <div className="orbit-ring orbit-ring-3"></div>
+              <img src="/1.webp" alt="WhatsApp Marketing Services" className="hero-orbit-image" />
+              <div className="orbit-satellite sat-1">
+                <FaWhatsapp />
+              </div>
+              <div className="orbit-satellite sat-2">
+                <FaComments />
+              </div>
+              <div className="orbit-satellite sat-3">
+                <FaHeadset />
+              </div>
+            </div>
+          </div>
+
+          <div className="whatsapp-hero-content">
+            <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>WHATSAPP MARKETING SERVICES</p>
+            <h1 className="whatsapp-hero-title">Grow Your Business with Professional <br/><span>WhatsApp Marketing</span></h1>
+            <p className="whatsapp-hero-desc">
+              Connect with your customers instantly through our Professional WhatsApp Marketing Services. We help businesses build stronger customer relationships, generate high-quality leads, promote products and services, and increase sales using personalized WhatsApp campaigns.
+            </p>
+            <p className="whatsapp-hero-desc" style={{ marginBottom: '3rem' }}>
+              With billions of active users worldwide, WhatsApp is one of the most effective communication platforms for engaging customers, sharing updates, and delivering real-time support. Our tailored WhatsApp marketing strategies help your business reach the right audience with higher open rates and faster customer responses.
+            </p>
+            <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem', display: 'inline-block' }}>
+              Start Your WhatsApp Marketing Campaign
+            </Link>
+          </div>
+
         </div>
       </section>
 

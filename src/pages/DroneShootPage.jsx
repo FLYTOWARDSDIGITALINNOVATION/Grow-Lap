@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FaArrowRight, FaHelicopter, FaVideo, FaHome, FaHardHat, FaHotel, FaRing, FaPlane, FaIndustry, FaSeedling, FaBriefcase, FaMapMarkedAlt, FaShareAlt, FaCheckCircle, FaPlusCircle, FaCameraRetro } from 'react-icons/fa';
+import { FaArrowRight, FaHelicopter, FaVideo, FaHome, FaHardHat, FaHotel, FaRing, FaPlane, FaIndustry, FaSeedling, FaBriefcase, FaMapMarkedAlt, FaShareAlt, FaCheckCircle, FaPlusCircle, FaCameraRetro, FaCamera } from 'react-icons/fa';
 import './DroneShootPage.css';
 
 const DroneShootPage = () => {
@@ -82,18 +82,40 @@ const DroneShootPage = () => {
     <div className="drone-shoot-page-container">
       {/* Hero Section */}
       <section className="drone-shoot-hero">
-        <div className="container">
-          <p className="section-subtitle text-accent" style={{ marginBottom: '1rem' }}>DRONE SHOOT SERVICES</p>
-          <h1 className="drone-shoot-hero-title">Capture Stunning Aerial Views with <br/><span>Professional Drone Photography & Videography</span></h1>
-          <p className="drone-shoot-hero-desc">
+        <div className="container" style={{ paddingTop: '2rem' }}>
+          <Link to="/services/shoot" style={{ color: 'var(--accent-orange)', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', textDecoration: 'none', fontWeight: 'bold', fontSize: '1.1rem' }}>
+            <span>←</span> Back to Shoot Services
+          </Link>
+        </div>
+        <div className="container drone-shoot-hero-grid">
+          <div className="drone-shoot-hero-content">
+            <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>DRONE SHOOT SERVICES</p>
+            <h1 className="drone-shoot-hero-title">Capture Stunning Aerial Views with <br/><span>Professional Drone Photography & Videography</span></h1>
+            <p className="drone-shoot-hero-desc">
             Take your visuals to new heights with our Professional Drone Shoot Services. We provide high-quality aerial photography and cinematic drone videography for businesses, events, real estate, construction, tourism, and marketing campaigns. Using advanced drone technology, we capture breathtaking perspectives that help your brand stand out and leave a lasting impression.
           </p>
-          <p className="drone-shoot-hero-desc" style={{ marginBottom: '3rem' }}>
-            Whether you need aerial footage for a commercial project, event coverage, or promotional video, our experienced drone operators deliver stunning visuals with precision and creativity.
-          </p>
-          <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem' }}>
+            
+            <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem', display: 'inline-block' }}>
             Book Your Aerial Shoot
           </Link>
+          </div>
+          <div className="drone-shoot-hero-image-wrapper">
+            <div className="drone-shoot-orbit-container">
+              <div className="orbit-ring orbit-ring-1"></div>
+              <div className="orbit-ring orbit-ring-2"></div>
+              <div className="orbit-ring orbit-ring-3"></div>
+              <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800&q=80" alt="Hero Image" className="hero-orbit-image" />
+              <div className="orbit-satellite sat-1">
+                <FaPlane />
+              </div>
+              <div className="orbit-satellite sat-2">
+                <FaCamera />
+              </div>
+              <div className="orbit-satellite sat-3">
+                <FaVideo />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

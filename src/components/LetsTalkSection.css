@@ -1,4 +1,4 @@
-.lets-talk-section {
+﻿.lets-talk-section {
   background-color: var(--bg-dark, #0c0c0e);
   padding: 5rem 0;
   position: relative;
@@ -75,7 +75,7 @@
 }
 
 .lets-talk-form label {
-  color: #888;
+  color: #fff;
   font-size: 0.85rem;
   font-weight: 600;
 }

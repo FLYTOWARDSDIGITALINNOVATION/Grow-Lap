@@ -1,4 +1,4 @@
-.services-page-container {
+﻿.services-page-container {
   padding-top: 220px; /* Force extra space below navbar */
   min-height: 80vh;
   background-color: var(--bg-dark);
@@ -103,7 +103,7 @@
 .sp-tag {
   background-color: transparent;
   border: 1px solid rgba(255, 255, 255, 0.15);
-  color: #ccc;
+  color: #fff;
   padding: 0.4rem 0.8rem;
   border-radius: 6px;
   font-size: 0.85rem;

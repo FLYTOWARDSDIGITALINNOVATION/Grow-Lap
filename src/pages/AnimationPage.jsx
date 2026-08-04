@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FaArrowRight, FaFilm, FaCube, FaMagic, FaChalkboardTeacher, FaPenNib, FaShoppingCart, FaShareAlt, FaBullhorn, FaUserAlt, FaChartBar, FaDesktop, FaYoutube, FaAd, FaLightbulb, FaCheckCircle, FaPlusCircle, FaVideo } from 'react-icons/fa';
+import { FaArrowRight, FaFilm, FaCube, FaMagic, FaChalkboardTeacher, FaPenNib, FaShoppingCart, FaShareAlt, FaBullhorn, FaUserAlt, FaChartBar, FaDesktop, FaYoutube, FaAd, FaLightbulb, FaCheckCircle, FaPlusCircle, FaVideo , FaPlayCircle} from 'react-icons/fa';
 import './AnimationPage.css';
 
 const AnimationPage = () => {
@@ -87,18 +87,40 @@ const AnimationPage = () => {
     <div className="animation-page-container">
       {/* Hero Section */}
       <section className="animation-hero">
-        <div className="container">
-          <p className="section-subtitle text-accent" style={{ marginBottom: '1rem' }}>ANIMATION SERVICES</p>
-          <h1 className="animation-hero-title">Bring Your Ideas to Life with <br/><span>Creative Animation</span></h1>
-          <p className="animation-hero-desc">
+        <div className="container" style={{ paddingTop: '2rem' }}>
+          <Link to="/services/video-editing" style={{ color: 'var(--accent-orange)', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', textDecoration: 'none', fontWeight: 'bold', fontSize: '1.1rem' }}>
+            <span>←</span> Back to Video Editing
+          </Link>
+        </div>
+        <div className="container animation-hero-grid">
+          <div className="animation-hero-image-wrapper">
+            <div className="animation-orbit-container">
+              <div className="orbit-ring orbit-ring-1"></div>
+              <div className="orbit-ring orbit-ring-2"></div>
+              <div className="orbit-ring orbit-ring-3"></div>
+              <img src="/Animation.webp" alt="Hero Image" className="hero-orbit-image" />
+              <div className="orbit-satellite sat-1">
+                <FaFilm />
+              </div>
+              <div className="orbit-satellite sat-2">
+                <FaMagic />
+              </div>
+              <div className="orbit-satellite sat-3">
+                <FaPlayCircle />
+              </div>
+            </div>
+          </div>
+          <div className="animation-hero-content">
+            <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>ANIMATION SERVICES</p>
+            <h1 className="animation-hero-title">Bring Your Ideas to Life with <br/><span>Creative Animation</span></h1>
+            <p className="animation-hero-desc">
             Capture your audience's attention with our Professional Animation Services. We create engaging, high-quality animations that help businesses communicate complex ideas, promote products, and strengthen their brand identity. Whether you need explainer videos, promotional animations, logo animations, or social media content, our creative team delivers visually compelling animations that leave a lasting impression.
           </p>
-          <p className="animation-hero-desc" style={{ marginBottom: '3rem' }}>
-            From concept development to final production, we combine storytelling, motion design, and creative visuals to produce animations that inspire, educate, and convert.
-          </p>
-          <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem' }}>
+            
+            <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem', display: 'inline-block' }}>
             Bring Your Ideas to Life
           </Link>
+          </div>
         </div>
       </section>
 

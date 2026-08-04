@@ -68,18 +68,45 @@ const ScriptWritingPage = () => {
     <div className="script-page-container">
       {/* Hero Section */}
       <section className="script-hero">
-        <div className="container">
-          <p className="section-subtitle text-accent" style={{ marginBottom: '1rem' }}>SCRIPT WRITING SERVICES</p>
-          <h1 className="script-hero-title">Professional Script Writing Services That <br/><span>Bring Your Ideas to Life</span></h1>
-          <p className="script-hero-desc">
-            Turn your ideas into compelling stories with our Professional Script Writing Services. We create engaging, creative, and audience-focused scripts for businesses, brands, content creators, and marketing campaigns.
-          </p>
-          <p className="script-hero-desc" style={{ marginBottom: '3rem' }}>
-            Whether you need scripts for advertisements, YouTube videos, social media reels, corporate videos, or promotional content, our expert writers craft scripts that capture attention, communicate your message, and inspire action.
-          </p>
-          <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem' }}>
-            Get Your Custom Script Today
+        <div className="container" style={{ paddingTop: '2rem' }}>
+          <Link to="/services/digital-marketing" style={{ color: 'var(--accent-orange)', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', textDecoration: 'none', fontWeight: 'bold', fontSize: '1.1rem' }}>
+            <span>←</span> Back to Digital Marketing
           </Link>
+        </div>
+        <div className="container script-hero-grid">
+          
+          <div className="script-hero-image-wrapper">
+            <div className="script-orbit-container">
+              <div className="orbit-ring orbit-ring-1"></div>
+              <div className="orbit-ring orbit-ring-2"></div>
+              <div className="orbit-ring orbit-ring-3"></div>
+              <img src="/5.webp" alt="Script Writing Services" className="hero-orbit-image" />
+              <div className="orbit-satellite sat-1">
+                <FaPenNib />
+              </div>
+              <div className="orbit-satellite sat-2">
+                <FaMicrophoneAlt />
+              </div>
+              <div className="orbit-satellite sat-3">
+                <FaYoutube />
+              </div>
+            </div>
+          </div>
+
+          <div className="script-hero-content">
+            <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>SCRIPT WRITING SERVICES</p>
+            <h1 className="script-hero-title">Professional Script Writing Services That <br/><span>Bring Your Ideas to Life</span></h1>
+            <p className="script-hero-desc">
+              Turn your ideas into compelling stories with our Professional Script Writing Services. We create engaging, creative, and audience-focused scripts for businesses, brands, content creators, and marketing campaigns.
+            </p>
+            <p className="script-hero-desc" style={{ marginBottom: '3rem' }}>
+              Whether you need scripts for advertisements, YouTube videos, social media reels, corporate videos, or promotional content, our expert writers craft scripts that capture attention, communicate your message, and inspire action.
+            </p>
+            <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem', display: 'inline-block' }}>
+              Get Your Custom Script Today
+            </Link>
+          </div>
+
         </div>
       </section>
 

@@ -1,4 +1,4 @@
-.about-tabs-section {
+﻿.about-tabs-section {
   padding: 6rem 0;
   background-color: #0c0c0e; /* Slightly different dark for contrast */
   color: #fff;
@@ -67,7 +67,7 @@
 
 .about-tab-text p {
   font-size: 0.8rem;
-  color: #888;
+  color: #fff;
   margin: 0;
 }
 
@@ -128,7 +128,7 @@
 
 .about-tabs-details p {
   font-size: 1.1rem;
-  color: #aaa;
+  color: #fff;
   line-height: 1.8;
   margin-bottom: 2rem;
 }
@@ -146,7 +146,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  color: #ccc;
+  color: #fff;
   font-size: 1.05rem;
 }
 

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   FaRocket, FaLightbulb, FaCheckCircle, FaSearch, FaHashtag, FaAd, 
@@ -12,9 +12,31 @@ import './SeoPage.css'; // For SEO FAQ styles
 import '../components/HubAndSpoke.css'; // For the What We Do Hub and Spoke design
 
 const AboutPage = () => {
+  const [isMissionVisible, setIsMissionVisible] = useState(false);
+  const missionRef = useRef(null);
+
   useEffect(() => {
     window.scrollTo(0, 0);
     document.title = "About Us | Fly Towards Digital Innovation";
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsMissionVisible(true);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (missionRef.current) {
+      observer.observe(missionRef.current);
+    }
+
+    return () => {
+      if (missionRef.current) observer.unobserve(missionRef.current);
+    };
   }, []);
 
   const whatWeDo = [
@@ -70,7 +92,7 @@ const AboutPage = () => {
     <div className="capitalize-content" style={{ minHeight: '100vh', backgroundColor: 'var(--bg-dark)' }}>
       
       {/* 1. Hero / Intro Section */}
-      <div className="container" style={{ padding: '6rem 0 4rem', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+      <div className="container" style={{ padding: '6rem 0 4rem' }}>
         <div className="grid-2" style={{ alignItems: 'center', gap: '4rem' }}>
           <div>
             <p className="section-subtitle text-accent" style={{ margin: 0 }}>ABOUT US</p>
@@ -91,9 +113,9 @@ const AboutPage = () => {
       </div>
 
       {/* 2. Who We Are */}
-      <div className="container" style={{ padding: '5rem 0', textAlign: 'center', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+      <div className="container" style={{ padding: '5rem 0', textAlign: 'center' }}>
         <p className="section-subtitle text-accent" style={{ margin: 0 }}>WHO WE ARE</p>
-        <h2 style={{ fontSize: '2.5rem', marginTop: '0.5rem', marginBottom: '2rem' }}>Passionate About Your Growth</h2>
+        <h2 style={{ fontSize: '2.5rem', marginTop: '0.5rem', marginBottom: '2rem', color: 'var(--accent-orange)' }}>Passionate About Your Growth</h2>
         <p style={{ fontSize: '1.15rem', color: '#ffffff', maxWidth: '800px', margin: '0 auto 1.5rem', lineHeight: '1.8', fontWeight: '500', letterSpacing: '0.5px' }}>
           We are passionate about helping businesses thrive in the digital world. By combining creativity, technology, and data-driven marketing, we deliver solutions that strengthen your brand and maximize your return on investment (ROI).
         </p>
@@ -103,19 +125,35 @@ const AboutPage = () => {
       </div>
 
       {/* 3. Mission & Vision */}
-      <div style={{ backgroundColor: '#0c0c0e', padding: '5rem 0' }}>
-        <div className="container grid-2" style={{ gap: '3rem' }}>
-          <div style={{ backgroundColor: '#121215', padding: '3rem', borderRadius: '15px', border: '1px solid rgba(255, 94, 0, 0.2)' }}>
-            <FaRocket style={{ fontSize: '3rem', color: 'var(--accent-orange)', marginBottom: '1.5rem' }} />
-            <h3 style={{ fontSize: '2rem', marginBottom: '1rem' }}>Our Mission</h3>
-            <p style={{ color: '#ccc', fontSize: '1.1rem', lineHeight: '1.6' }}>
+      <div style={{ backgroundColor: 'var(--bg-dark)', padding: '5rem 0' }}>
+        <div ref={missionRef} className="container grid-2" style={{ gap: '3rem', overflow: 'hidden' }}>
+          <div className={`mission-vision-card ${isMissionVisible ? 'about-slide-in-left' : 'about-hidden-left'}`} style={{ 
+            backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.75)), url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800")',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            padding: '3rem', 
+            borderRadius: '15px', 
+            border: '1px solid rgba(255, 94, 0, 0.3)', 
+            boxShadow: '0 10px 30px rgba(0,0,0,0.5)' 
+          }}>
+            <FaRocket style={{ fontSize: '3rem', color: 'var(--accent-orange)', marginBottom: '1.5rem', filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.5))' }} />
+            <h3 style={{ fontSize: '2.2rem', marginBottom: '1rem', color: '#fff', textShadow: '0 2px 10px rgba(0,0,0,0.8)' }}>Our Mission</h3>
+            <p style={{ color: '#ffffff', fontSize: '1.1rem', lineHeight: '1.6', textShadow: '0 2px 4px rgba(0,0,0,0.8)', fontWeight: '500' }}>
               Our mission is to empower businesses with innovative digital marketing and creative services that increase visibility, build customer trust, and drive sustainable business growth.
             </p>
           </div>
-          <div style={{ backgroundColor: '#121215', padding: '3rem', borderRadius: '15px', border: '1px solid rgba(255, 94, 0, 0.2)' }}>
-            <FaLightbulb style={{ fontSize: '3rem', color: 'var(--accent-orange)', marginBottom: '1.5rem' }} />
-            <h3 style={{ fontSize: '2rem', marginBottom: '1rem' }}>Our Vision</h3>
-            <p style={{ color: '#ccc', fontSize: '1.1rem', lineHeight: '1.6' }}>
+          <div className={`mission-vision-card ${isMissionVisible ? 'about-slide-in-right' : 'about-hidden-right'}`} style={{ 
+            backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.75)), url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=800")',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            padding: '3rem', 
+            borderRadius: '15px', 
+            border: '1px solid rgba(255, 94, 0, 0.3)', 
+            boxShadow: '0 10px 30px rgba(0,0,0,0.5)' 
+          }}>
+            <FaLightbulb style={{ fontSize: '3rem', color: 'var(--accent-orange)', marginBottom: '1.5rem', filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.5))' }} />
+            <h3 style={{ fontSize: '2.2rem', marginBottom: '1rem', color: '#fff', textShadow: '0 2px 10px rgba(0,0,0,0.8)' }}>Our Vision</h3>
+            <p style={{ color: '#ffffff', fontSize: '1.1rem', lineHeight: '1.6', textShadow: '0 2px 4px rgba(0,0,0,0.8)', fontWeight: '500' }}>
               To become a leading digital marketing agency recognized for creativity, innovation, customer satisfaction, and measurable marketing success.
             </p>
           </div>
@@ -123,7 +161,7 @@ const AboutPage = () => {
       </div>
 
       {/* 4. What We Do (Hub and Spoke Design) */}
-      <div className="container" style={{ padding: '5rem 0', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+      <div className="container" style={{ padding: '5rem 0' }}>
         <div className="has-header text-center" style={{ marginBottom: '4rem' }}>
           <p className="section-subtitle text-accent" style={{ margin: 0 }}>OUR SERVICES</p>
           <h2 className="has-title" style={{ fontSize: '2.5rem', marginTop: '0.5rem' }}>What We Do</h2>
@@ -226,7 +264,7 @@ const AboutPage = () => {
       </div>
 
       {/* 5. Why Choose Us */}
-      <div style={{ backgroundColor: '#0c0c0e', padding: '5rem 0' }}>
+      <div style={{ backgroundColor: 'var(--bg-dark)', padding: '5rem 0' }}>
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
             <p className="section-subtitle text-accent" style={{ margin: 0 }}>THE FLY TOWARDS DIFFERENCE</p>
@@ -244,20 +282,20 @@ const AboutPage = () => {
       </div>
 
       {/* 6. Our Process */}
-      <div className="container" style={{ padding: '5rem 0', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+      <div className="container" style={{ padding: '5rem 0' }}>
         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
           <p className="section-subtitle text-accent" style={{ margin: 0 }}>HOW WE WORK</p>
           <h2 style={{ fontSize: '2.5rem', marginTop: '0.5rem' }}>Our Process</h2>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', maxWidth: '800px', margin: '0 auto' }}>
           {ourProcess.map((step, idx) => (
-            <div key={idx} style={{ display: 'flex', gap: '2rem', alignItems: 'flex-start', background: 'rgba(255,255,255,0.02)', padding: '2rem', borderRadius: '12px', borderLeft: '4px solid var(--accent-orange)' }}>
+            <div key={idx} className="process-box" style={{ display: 'flex', gap: '2rem', alignItems: 'flex-start', background: 'rgba(255,255,255,0.02)', padding: '2rem', borderRadius: '12px', borderLeft: '4px solid var(--accent-orange)' }}>
               <div style={{ fontSize: '3rem', fontWeight: '900', color: 'rgba(255,94,0,0.2)', lineHeight: '1' }}>
                 0{step.step}
               </div>
               <div>
                 <h3 style={{ fontSize: '1.5rem', marginBottom: '0.5rem', color: 'var(--accent-orange)' }}>{step.title}</h3>
-                <p style={{ color: '#ccc', margin: 0 }}>{step.desc}</p>
+                <p style={{ color: '#ffffff', margin: 0 }}>{step.desc}</p>
               </div>
             </div>
           ))}
@@ -265,7 +303,7 @@ const AboutPage = () => {
       </div>
 
       {/* 7. Industries We Serve */}
-      <div style={{ backgroundColor: '#0c0c0e', padding: '5rem 0' }}>
+      <div style={{ backgroundColor: 'var(--bg-dark)', padding: '5rem 0' }}>
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
             <p className="section-subtitle text-accent" style={{ margin: 0 }}>WHO WE HELP</p>
@@ -274,7 +312,7 @@ const AboutPage = () => {
           </div>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'center', maxWidth: '900px', margin: '0 auto' }}>
             {industries.map((industry, idx) => (
-              <span key={idx} style={{ padding: '0.8rem 1.5rem', background: '#1a1a24', borderRadius: '50px', border: '1px solid rgba(255,255,255,0.1)', fontWeight: 'bold' }}>
+              <span key={idx} className="industry-pill">
                 {industry}
               </span>
             ))}
@@ -283,15 +321,31 @@ const AboutPage = () => {
       </div>
 
       {/* 8. Why Digital Marketing Matters */}
-      <div className="container" style={{ padding: '5rem 0', textAlign: 'center', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-        <h2 style={{ fontSize: '2.5rem', marginBottom: '1.5rem' }}>Why Digital Marketing Matters</h2>
-        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', maxWidth: '800px', margin: '0 auto', lineHeight: '1.8' }}>
-          Digital marketing helps businesses reach the right audience, build brand awareness, generate qualified leads, and increase revenue. With the right strategy, your business can stay ahead of the competition and achieve long-term online success.
-        </p>
+      {/* 8. Why Digital Marketing Matters */}
+      <div style={{ backgroundColor: 'var(--accent-orange)', padding: '6rem 0', position: 'relative', overflow: 'hidden' }}>
+        <div className="container why-marketing-grid">
+          {/* Left Image */}
+          <div className="why-marketing-img-container" style={{ display: 'flex', justifyContent: 'flex-end' }}>
+             <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=400" alt="Digital Marketing Graph" className="why-marketing-image" style={{ transform: 'rotate(-5deg)' }} />
+          </div>
+
+          {/* Center Content */}
+          <div style={{ textAlign: 'center' }}>
+            <h2 style={{ fontSize: '2.2rem', marginBottom: '1.5rem', color: '#fff', fontFamily: '"Outfit", sans-serif', fontWeight: '800', whiteSpace: 'nowrap' }}>Why Digital Marketing Matters</h2>
+            <p style={{ fontSize: '1.25rem', color: '#fff', margin: '0 auto', lineHeight: '1.9', fontWeight: '500', fontStyle: 'italic', letterSpacing: '0.5px' }}>
+              "Digital marketing helps businesses reach the right audience, build brand awareness, generate qualified leads, and increase revenue. With the right strategy, your business can stay ahead of the competition and achieve long-term online success."
+            </p>
+          </div>
+
+          {/* Right Image */}
+          <div className="why-marketing-img-container" style={{ display: 'flex', justifyContent: 'flex-start' }}>
+             <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=400" alt="Data Analytics" className="why-marketing-image" style={{ transform: 'rotate(5deg)' }} />
+          </div>
+        </div>
       </div>
 
       {/* 9. FAQ Section */}
-      <div style={{ backgroundColor: '#0c0c0e', padding: '5rem 0' }}>
+      <div style={{ backgroundColor: 'var(--bg-dark)', padding: '5rem 0' }}>
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
             <h2 style={{ fontSize: '2.5rem' }}>Frequently Asked Questions</h2>

@@ -1,4 +1,4 @@
-.admin-dashboard-wrapper {
+﻿.admin-dashboard-wrapper {
   min-height: 100vh;
   background-color: var(--bg-dark);
   padding: 4rem 2rem;
@@ -121,7 +121,7 @@
 }
 
 .studio-subtitle {
-  color: #888;
+  color: #fff;
   font-size: 1.1rem;
 }
 
@@ -194,7 +194,7 @@
 }
 
 .toolbar-dropdown {
-  color: #ccc;
+  color: #fff;
   font-size: 0.9rem;
   cursor: pointer;
   display: flex;
@@ -222,7 +222,7 @@
 .toolbar-icon {
   background: none;
   border: none;
-  color: #888;
+  color: #fff;
   padding: 0.5rem;
   cursor: pointer;
   font-size: 1rem;
@@ -341,7 +341,7 @@
 .studio-content-textarea {
   background: transparent;
   border: none;
-  color: #ccc;
+  color: #fff;
   font-size: 1.2rem;
   font-family: inherit;
   min-height: 400px;
@@ -372,7 +372,7 @@
   border-left: 4px solid var(--accent-orange);
   padding-left: 1rem;
   margin-left: 0;
-  color: #999;
+  color: #fff;
   font-style: italic;
 }
 
@@ -409,7 +409,7 @@
   border: 1px solid rgba(255, 255, 255, 0.05);
   overflow-x: auto;
   font-family: monospace;
-  color: #ddd;
+  color: #fff;
 }
 
 /* Manage View */
@@ -463,7 +463,7 @@
 
 .manage-item-info p {
   margin: 0;
-  color: #888;
+  color: #fff;
   font-size: 0.9rem;
 }
 
@@ -475,7 +475,7 @@
 .action-btn {
   background: rgba(255, 255, 255, 0.05);
   border: none;
-  color: #ccc;
+  color: #fff;
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -565,7 +565,7 @@
 
 .modal-btn-cancel {
   background-color: transparent;
-  color: #ccc;
+  color: #fff;
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -633,7 +633,7 @@
 .crop-close-btn {
   background: none;
   border: none;
-  color: #888;
+  color: #fff;
   font-size: 1.5rem;
   cursor: pointer;
 }

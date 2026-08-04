@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FaArrowRight, FaInstagram, FaYoutube, FaTiktok, FaFacebook, FaLinkedin, FaMicrophoneAlt, FaUserTie, FaBullhorn, FaShoppingCart, FaCameraRetro, FaClosedCaptioning, FaMagic, FaCheckCircle, FaVideo } from 'react-icons/fa';
+import { FaArrowRight, FaInstagram, FaYoutube, FaTiktok, FaFacebook, FaLinkedin, FaMicrophoneAlt, FaUserTie, FaBullhorn, FaShoppingCart, FaCameraRetro, FaClosedCaptioning, FaMagic, FaCheckCircle, FaVideo , FaFilm, FaPlayCircle} from 'react-icons/fa';
 import './ReelsEditingPage.css';
 
 const ReelsEditingPage = () => {
@@ -69,18 +69,40 @@ const ReelsEditingPage = () => {
     <div className="reels-editing-page-container">
       {/* Hero Section */}
       <section className="reels-editing-hero">
-        <div className="container">
-          <p className="section-subtitle text-accent" style={{ marginBottom: '1rem' }}>REELS EDITING SERVICES</p>
-          <h1 className="reels-editing-hero-title">Create Scroll-Stopping Reels That <br/><span>Grow Your Brand</span></h1>
-          <p className="reels-editing-hero-desc">
+        <div className="container" style={{ paddingTop: '2rem' }}>
+          <Link to="/services/video-editing" style={{ color: 'var(--accent-orange)', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', textDecoration: 'none', fontWeight: 'bold', fontSize: '1.1rem' }}>
+            <span>←</span> Back to Video Editing
+          </Link>
+        </div>
+        <div className="container reels-editing-hero-grid">
+          <div className="reels-editing-hero-image-wrapper">
+            <div className="reels-editing-orbit-container">
+              <div className="orbit-ring orbit-ring-1"></div>
+              <div className="orbit-ring orbit-ring-2"></div>
+              <div className="orbit-ring orbit-ring-3"></div>
+              <img src="/Reels Editing.webp" alt="Hero Image" className="hero-orbit-image" />
+              <div className="orbit-satellite sat-1">
+                <FaFilm />
+              </div>
+              <div className="orbit-satellite sat-2">
+                <FaPlayCircle />
+              </div>
+              <div className="orbit-satellite sat-3">
+                <FaMagic />
+              </div>
+            </div>
+          </div>
+          <div className="reels-editing-hero-content">
+            <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>REELS EDITING SERVICES</p>
+            <h1 className="reels-editing-hero-title">Create Scroll-Stopping Reels That <br/><span>Grow Your Brand</span></h1>
+            <p className="reels-editing-hero-desc">
             Capture attention in seconds with our Professional Reels Editing Services. We transform your raw footage into engaging, high-quality short-form videos designed to increase views, engagement, and conversions across Instagram, Facebook, TikTok, YouTube Shorts, and LinkedIn.
           </p>
-          <p className="reels-editing-hero-desc" style={{ marginBottom: '3rem' }}>
-            Our creative editing combines smooth transitions, dynamic captions, trending effects, background music, color grading, and motion graphics to create reels that keep your audience watching and interacting with your content.
-          </p>
-          <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem' }}>
+            
+            <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem', display: 'inline-block' }}>
             Get Your Reels Edited Today
           </Link>
+          </div>
         </div>
       </section>
 

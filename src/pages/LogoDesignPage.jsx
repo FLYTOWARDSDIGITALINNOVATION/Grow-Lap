@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FaArrowRight, FaPenNib, FaBuilding, FaRocket, FaBriefcase, FaGem, FaClock, FaCat, FaFont, FaBold, FaIcons, FaSyncAlt, FaCheckCircle, FaPlusCircle, FaPalette } from 'react-icons/fa';
+import { FaArrowRight, FaPenNib, FaBuilding, FaRocket, FaBriefcase, FaGem, FaClock, FaCat, FaFont, FaBold, FaIcons, FaSyncAlt, FaCheckCircle, FaPlusCircle, FaPalette , FaLightbulb} from 'react-icons/fa';
 import './LogoDesignPage.css';
 
 const LogoDesignPage = () => {
@@ -82,18 +82,40 @@ const LogoDesignPage = () => {
     <div className="logo-design-page-container">
       {/* Hero Section */}
       <section className="logo-design-hero">
-        <div className="container">
-          <p className="section-subtitle text-accent" style={{ marginBottom: '1rem' }}>LOGO DESIGN SERVICES</p>
-          <h1 className="logo-design-hero-title">Create a Unique Logo That <br/><span>Defines Your Brand</span></h1>
-          <p className="logo-design-hero-desc">
+        <div className="container" style={{ paddingTop: '2rem' }}>
+          <Link to="/services/video-editing" style={{ color: 'var(--accent-orange)', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', textDecoration: 'none', fontWeight: 'bold', fontSize: '1.1rem' }}>
+            <span>←</span> Back to Video Editing
+          </Link>
+        </div>
+        <div className="container logo-design-hero-grid">
+          <div className="logo-design-hero-image-wrapper">
+            <div className="logo-design-orbit-container">
+              <div className="orbit-ring orbit-ring-1"></div>
+              <div className="orbit-ring orbit-ring-2"></div>
+              <div className="orbit-ring orbit-ring-3"></div>
+              <img src="/logo.webp" alt="Hero Image" className="hero-orbit-image" />
+              <div className="orbit-satellite sat-1">
+                <FaPenNib />
+              </div>
+              <div className="orbit-satellite sat-2">
+                <FaPalette />
+              </div>
+              <div className="orbit-satellite sat-3">
+                <FaLightbulb />
+              </div>
+            </div>
+          </div>
+          <div className="logo-design-hero-content">
+            <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>LOGO DESIGN SERVICES</p>
+            <h1 className="logo-design-hero-title">Create a Unique Logo That <br/><span>Defines Your Brand</span></h1>
+            <p className="logo-design-hero-desc">
             Your logo is the face of your business and the foundation of your brand identity. Our Professional Logo Design Services help businesses create memorable, modern, and impactful logos that leave a lasting impression. Whether you're launching a startup, rebranding an existing business, or building a personal brand, we design custom logos that reflect your vision and connect with your target audience.
           </p>
-          <p className="logo-design-hero-desc" style={{ marginBottom: '3rem' }}>
-            Our creative designers focus on originality, simplicity, and brand consistency to deliver logos that work seamlessly across websites, social media, business cards, packaging, and marketing materials.
-          </p>
-          <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem' }}>
+            
+            <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem', display: 'inline-block' }}>
             Get Your Custom Logo Today
           </Link>
+          </div>
         </div>
       </section>
 

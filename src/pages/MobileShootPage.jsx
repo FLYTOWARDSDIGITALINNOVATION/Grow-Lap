@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FaArrowRight, FaMobileAlt, FaVideo, FaShoppingBag, FaStore, FaUtensils, FaTshirt, FaBriefcase, FaCalendarAlt, FaUserTie, FaHome, FaFilm, FaCheckCircle, FaPlusCircle, FaCameraRetro } from 'react-icons/fa';
+import { FaArrowRight, FaMobileAlt, FaVideo, FaShoppingBag, FaStore, FaUtensils, FaTshirt, FaBriefcase, FaCalendarAlt, FaUserTie, FaHome, FaFilm, FaCheckCircle, FaPlusCircle, FaCameraRetro , FaHashtag} from 'react-icons/fa';
 import './MobileShootPage.css';
 
 const MobileShootPage = () => {
@@ -83,18 +83,40 @@ const MobileShootPage = () => {
     <div className="mobile-shoot-page-container">
       {/* Hero Section */}
       <section className="mobile-shoot-hero">
-        <div className="container">
-          <p className="section-subtitle text-accent" style={{ marginBottom: '1rem' }}>MOBILE SHOOT SERVICES</p>
-          <h1 className="mobile-shoot-hero-title">High-Quality Mobile Photography & Videography <br/><span>for Modern Brands</span></h1>
-          <p className="mobile-shoot-hero-desc">
+        <div className="container" style={{ paddingTop: '2rem' }}>
+          <Link to="/services/shoot" style={{ color: 'var(--accent-orange)', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', textDecoration: 'none', fontWeight: 'bold', fontSize: '1.1rem' }}>
+            <span>←</span> Back to Shoot Services
+          </Link>
+        </div>
+        <div className="container mobile-shoot-hero-grid">
+          <div className="mobile-shoot-hero-image-wrapper">
+            <div className="mobile-shoot-orbit-container">
+              <div className="orbit-ring orbit-ring-1"></div>
+              <div className="orbit-ring orbit-ring-2"></div>
+              <div className="orbit-ring orbit-ring-3"></div>
+              <img src="/Mobile Shoot.webp" alt="Hero Image" className="hero-orbit-image" />
+              <div className="orbit-satellite sat-1">
+                <FaMobileAlt />
+              </div>
+              <div className="orbit-satellite sat-2">
+                <FaVideo />
+              </div>
+              <div className="orbit-satellite sat-3">
+                <FaHashtag />
+              </div>
+            </div>
+          </div>
+          <div className="mobile-shoot-hero-content">
+            <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>MOBILE SHOOT SERVICES</p>
+            <h1 className="mobile-shoot-hero-title">High-Quality Mobile Photography & Videography <br/><span>for Modern Brands</span></h1>
+            <p className="mobile-shoot-hero-desc">
             Create engaging visual content with our Professional Mobile Shoot Services. We specialize in capturing high-quality photos and videos using advanced smartphone cameras, delivering content that is perfect for social media, websites, digital marketing campaigns, and online promotions. Whether you're a business owner, influencer, content creator, or startup, our mobile shoots help your brand connect with today's digital audience.
           </p>
-          <p className="mobile-shoot-hero-desc" style={{ marginBottom: '3rem' }}>
-            Using the latest mobile photography techniques, professional lighting, stabilization tools, and creative editing, we produce stunning visuals that look polished, authentic, and ready to publish.
-          </p>
-          <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem' }}>
+            
+            <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem', display: 'inline-block' }}>
             Book Your Shoot Today
           </Link>
+          </div>
         </div>
       </section>
 

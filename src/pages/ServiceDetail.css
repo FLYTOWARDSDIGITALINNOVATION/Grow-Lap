@@ -1,4 +1,4 @@
-.service-detail-container {
+﻿.service-detail-container {
   background-color: var(--bg-dark);
   min-height: 100vh;
   color: #fff;
@@ -211,7 +211,7 @@
 
 .rc-logo span {
   font-size: 0.65rem;
-  color: #999;
+  color: #fff;
   margin-top: 2px;
 }
 
@@ -242,7 +242,7 @@
 .sd-overview-text {
   font-size: 1.15rem;
   line-height: 1.9;
-  color: #ccc;
+  color: #fff;
 }
 
 /* FAQ Styles */
@@ -382,7 +382,7 @@
 
 .sd-card-desc {
   font-size: 1rem;
-  color: #ccc;
+  color: #fff;
   line-height: 1.6;
   margin-bottom: 2rem;
   flex-grow: 1;

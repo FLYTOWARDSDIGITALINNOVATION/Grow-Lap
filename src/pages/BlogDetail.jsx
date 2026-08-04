@@ -22,19 +22,20 @@ const BlogDetail = () => {
 
   return (
     <div className="blog-detail-page">
-      <div className="blog-detail-hero" style={{ backgroundImage: `linear-gradient(to bottom, rgba(10,10,10,0.4), rgba(10,10,10,0.9)), url(${blog.image})` }}>
-        <div className="container">
-          <Link to="/blog" className="back-link">&larr; Back to Blogs</Link>
-          <div className="blog-detail-header">
-            <div className="blog-meta">
-              <span className="blog-date-badge">{blog.date} {blog.month} {new Date().getFullYear()}</span>
-            </div>
-            <h1 className="blog-detail-title">{blog.title}</h1>
+      <div className="container blog-detail-container">
+        <Link to="/blog" className="back-link">&larr; Back to Blogs</Link>
+        
+        <div className="blog-detail-header">
+          <div className="blog-meta">
+            <span className="blog-date-badge">{blog.date} {blog.month} {new Date().getFullYear()}</span>
           </div>
+          <h1 className="blog-detail-title">{blog.title}</h1>
         </div>
-      </div>
 
-      <div className="container">
+        <div className="blog-detail-image-box">
+          <img src={blog.image} alt={blog.title} className="blog-detail-image" />
+        </div>
+
         <div className="blog-detail-content-wrapper">
           <div 
             className="blog-detail-body" 

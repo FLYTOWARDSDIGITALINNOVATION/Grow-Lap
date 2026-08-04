@@ -1,0 +1,100 @@
+.curtain-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999999;
+  display: flex;
+  pointer-events: all;
+  overflow: hidden;
+}
+
+.curtain-container.open {
+  pointer-events: none;
+}
+
+.curtain-panel {
+  width: 50%;
+  height: 100%;
+  background-color: #080808;
+  position: relative;
+  transition: transform 2s cubic-bezier(0.77, 0, 0.175, 1);
+  box-shadow: inset 0 0 50px rgba(0,0,0,0.8);
+  background-image: url('/grand%20opeing.avif');
+  background-size: 200% 100%; /* 200% of 50vw = 100vw */
+  background-repeat: no-repeat;
+}
+
+.curtain-left {
+  transform-origin: left;
+  background-position: left top;
+  box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
+  border-right: 1px solid #111;
+}
+
+.curtain-right {
+  transform-origin: right;
+  background-position: right top;
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+  border-left: 1px solid #111;
+}
+
+.curtain-container.open .curtain-left {
+  transform: translateX(-100%);
+}
+
+.curtain-container.open .curtain-right {
+  transform: translateX(100%);
+}
+
+.curtain-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000000;
+  text-align: center;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.curtain-content.fade-out {
+  opacity: 0;
+  transform: translate(-50%, -60%);
+}
+
+.grand-title {
+  font-family: 'Playfair Display', 'Cinzel', 'Georgia', serif;
+  font-size: 5rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  line-height: 1.2;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 0, 0, 0.6);
+  text-transform: uppercase;
+}
+
+.grand-title .text-white {
+  color: #ffffff;
+  font-size: 3rem;
+  letter-spacing: 5px;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.9);
+}
+
+.grand-title .text-orange {
+  color: #ffb700; /* gold-ish orange for premium look */
+  font-size: 2.2rem;
+  letter-spacing: 12px;
+  display: block;
+  margin-top: 15px;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.9);
+}
+
+@media (max-width: 768px) {
+  .grand-title {
+    font-size: 2.5rem;
+  }
+  .grand-title .text-orange {
+    font-size: 1.2rem;
+    letter-spacing: 4px;
+  }
+}

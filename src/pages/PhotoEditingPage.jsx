@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FaArrowRight, FaCamera, FaShoppingCart, FaStore, FaMagic, FaPalette, FaUser, FaHeart, FaHome, FaImages, FaWrench, FaShareAlt, FaCopy, FaCheckCircle, FaPlusCircle, FaImage } from 'react-icons/fa';
+import { FaArrowRight, FaCamera, FaShoppingCart, FaStore, FaMagic, FaPalette, FaUser, FaHeart, FaHome, FaImages, FaWrench, FaShareAlt, FaCopy, FaCheckCircle, FaPlusCircle, FaImage , FaCameraRetro} from 'react-icons/fa';
 import './PhotoEditingPage.css';
 
 const PhotoEditingPage = () => {
@@ -82,18 +82,40 @@ const PhotoEditingPage = () => {
     <div className="photo-editing-page-container">
       {/* Hero Section */}
       <section className="photo-editing-hero">
-        <div className="container">
-          <p className="section-subtitle text-accent" style={{ marginBottom: '1rem' }}>PHOTO EDITING SERVICES</p>
-          <h1 className="photo-editing-hero-title">Enhance Every Image with <br/><span>Professional Photo Editing</span></h1>
-          <p className="photo-editing-hero-desc">
+        <div className="container" style={{ paddingTop: '2rem' }}>
+          <Link to="/services/video-editing" style={{ color: 'var(--accent-orange)', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', textDecoration: 'none', fontWeight: 'bold', fontSize: '1.1rem' }}>
+            <span>←</span> Back to Video Editing
+          </Link>
+        </div>
+        <div className="container photo-editing-hero-grid">
+          <div className="photo-editing-hero-content">
+            <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>PHOTO EDITING SERVICES</p>
+            <h1 className="photo-editing-hero-title">Enhance Every Image with <br/><span>Professional Photo Editing</span></h1>
+            <p className="photo-editing-hero-desc">
             Transform your photos into stunning, high-quality visuals with our Professional Photo Editing Services. Whether you're a business, photographer, e-commerce brand, real estate agency, or content creator, we deliver expertly edited images that capture attention and leave a lasting impression.
           </p>
-          <p className="photo-editing-hero-desc" style={{ marginBottom: '3rem' }}>
-            Our skilled editors use advanced editing techniques to enhance colors, improve lighting, remove imperfections, and create polished images that align with your brand's style and purpose.
-          </p>
-          <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem' }}>
+            
+            <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem', display: 'inline-block' }}>
             Transform Your Photos Today
           </Link>
+          </div>
+          <div className="photo-editing-hero-image-wrapper">
+            <div className="photo-editing-orbit-container">
+              <div className="orbit-ring orbit-ring-1"></div>
+              <div className="orbit-ring orbit-ring-2"></div>
+              <div className="orbit-ring orbit-ring-3"></div>
+              <img src="/photo editing.webp" alt="Hero Image" className="hero-orbit-image" />
+              <div className="orbit-satellite sat-1">
+                <FaImage />
+              </div>
+              <div className="orbit-satellite sat-2">
+                <FaPalette />
+              </div>
+              <div className="orbit-satellite sat-3">
+                <FaCameraRetro />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

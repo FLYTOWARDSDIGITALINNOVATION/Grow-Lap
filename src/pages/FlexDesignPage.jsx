@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FaArrowRight, FaBullhorn, FaStore, FaCalendarAlt, FaRocket, FaTags, FaBuilding, FaMap, FaVoteYea, FaGraduationCap, FaGift, FaUtensils, FaHome, FaCheckCircle, FaPlusCircle, FaImage } from 'react-icons/fa';
+import { FaArrowRight, FaBullhorn, FaStore, FaCalendarAlt, FaRocket, FaTags, FaBuilding, FaMap, FaVoteYea, FaGraduationCap, FaGift, FaUtensils, FaHome, FaCheckCircle, FaPlusCircle, FaImage , FaExpand, FaPaintBrush, FaPrint} from 'react-icons/fa';
 import './FlexDesignPage.css';
 
 const FlexDesignPage = () => {
@@ -81,18 +81,40 @@ const FlexDesignPage = () => {
     <div className="flex-design-page-container">
       {/* Hero Section */}
       <section className="flex-design-hero">
-        <div className="container">
-          <p className="section-subtitle text-accent" style={{ marginBottom: '1rem' }}>FLEX BANNER DESIGN SERVICES</p>
-          <h1 className="flex-design-hero-title">Create Impactful Flex Banner Designs <br/><span>for Your Business</span></h1>
-          <p className="flex-design-hero-desc">
+        <div className="container" style={{ paddingTop: '2rem' }}>
+          <Link to="/services/video-editing" style={{ color: 'var(--accent-orange)', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', textDecoration: 'none', fontWeight: 'bold', fontSize: '1.1rem' }}>
+            <span>←</span> Back to Video Editing
+          </Link>
+        </div>
+        <div className="container flex-design-hero-grid">
+          <div className="flex-design-hero-image-wrapper">
+            <div className="flex-design-orbit-container">
+              <div className="orbit-ring orbit-ring-1"></div>
+              <div className="orbit-ring orbit-ring-2"></div>
+              <div className="orbit-ring orbit-ring-3"></div>
+              <img src="/flex.webp" alt="Hero Image" className="hero-orbit-image" />
+              <div className="orbit-satellite sat-1">
+                <FaExpand />
+              </div>
+              <div className="orbit-satellite sat-2">
+                <FaPaintBrush />
+              </div>
+              <div className="orbit-satellite sat-3">
+                <FaPrint />
+              </div>
+            </div>
+          </div>
+          <div className="flex-design-hero-content">
+            <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>FLEX BANNER DESIGN SERVICES</p>
+            <h1 className="flex-design-hero-title">Create Impactful Flex Banner Designs <br/><span>for Your Business</span></h1>
+            <p className="flex-design-hero-desc">
             Promote your business with Professional Flex Banner Design Services that capture attention and communicate your message effectively. We design creative, high-resolution flex banners for businesses, events, exhibitions, retail stores, political campaigns, and promotional activities.
           </p>
-          <p className="flex-design-hero-desc" style={{ marginBottom: '3rem' }}>
-            Our custom designs combine eye-catching visuals, compelling typography, and strong branding to help you stand out and attract more customers. Whether you need a large outdoor banner or a compact promotional display, we deliver print-ready designs that leave a lasting impression.
-          </p>
-          <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem' }}>
+            
+            <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem', display: 'inline-block' }}>
             Get Your Banner Designed
           </Link>
+          </div>
         </div>
       </section>
 

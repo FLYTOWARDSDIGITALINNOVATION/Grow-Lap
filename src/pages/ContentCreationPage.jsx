@@ -69,18 +69,45 @@ const ContentCreationPage = () => {
     <div className="content-page-container">
       {/* Hero Section */}
       <section className="content-hero">
-        <div className="container">
-          <p className="section-subtitle text-accent" style={{ marginBottom: '1rem' }}>CONTENT CREATION SERVICES</p>
-          <h1 className="content-hero-title">Create Engaging Content That <br/><span>Connects, Converts, and Grows Your Brand</span></h1>
-          <p className="content-hero-desc">
-            Capture your audience's attention with our Professional Content Creation Services. We create high-quality, engaging, and SEO-friendly content that helps businesses build brand awareness, increase customer engagement, generate leads, and drive conversions.
-          </p>
-          <p className="content-hero-desc" style={{ marginBottom: '3rem' }}>
-            Whether you need content for your website, social media, blogs, email campaigns, or digital advertising, our creative team delivers compelling content tailored to your brand voice and marketing goals.
-          </p>
-          <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem' }}>
-            Start Creating Powerful Content Today
+        <div className="container" style={{ paddingTop: '2rem' }}>
+          <Link to="/services/digital-marketing" style={{ color: 'var(--accent-orange)', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', textDecoration: 'none', fontWeight: 'bold', fontSize: '1.1rem' }}>
+            <span>←</span> Back to Digital Marketing
           </Link>
+        </div>
+        <div className="container content-hero-grid">
+          
+          <div className="content-hero-image-wrapper">
+            <div className="content-orbit-container">
+              <div className="orbit-ring orbit-ring-1"></div>
+              <div className="orbit-ring orbit-ring-2"></div>
+              <div className="orbit-ring orbit-ring-3"></div>
+              <img src="/2.webp" alt="Content Creation Services" className="hero-orbit-image" />
+              <div className="orbit-satellite sat-1">
+                <FaPenNib />
+              </div>
+              <div className="orbit-satellite sat-2">
+                <FaVideo />
+              </div>
+              <div className="orbit-satellite sat-3">
+                <FaChartPie />
+              </div>
+            </div>
+          </div>
+
+          <div className="content-hero-content">
+            <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>CONTENT CREATION SERVICES</p>
+            <h1 className="content-hero-title">Create Engaging Content That <br/><span>Connects, Converts, and Grows Your Brand</span></h1>
+            <p className="content-hero-desc">
+              Capture your audience's attention with our Professional Content Creation Services. We create high-quality, engaging, and SEO-friendly content that helps businesses build brand awareness, increase customer engagement, generate leads, and drive conversions.
+            </p>
+            <p className="content-hero-desc" style={{ marginBottom: '3rem' }}>
+              Whether you need content for your website, social media, blogs, email campaigns, or digital advertising, our creative team delivers compelling content tailored to your brand voice and marketing goals.
+            </p>
+            <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem', display: 'inline-block' }}>
+              Start Creating Powerful Content Today
+            </Link>
+          </div>
+
         </div>
       </section>
 

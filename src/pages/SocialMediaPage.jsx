@@ -69,18 +69,45 @@ const SocialMediaPage = () => {
     <div className="smm-page-container">
       {/* Hero Section */}
       <section className="smm-hero">
-        <div className="container">
-          <p className="section-subtitle text-accent" style={{ marginBottom: '1rem' }}>SOCIAL MEDIA MARKETING SERVICES</p>
-          <h1 className="smm-hero-title">Grow Your Brand with <br/><span>Professional Social Media Marketing</span></h1>
-          <p className="smm-hero-desc">
-            Build a strong online presence and connect with your audience through our Social Media Marketing (SMM) Services. We create result-driven social media strategies that increase brand awareness, engage your audience, generate quality leads, and drive business growth across the world's leading social platforms.
-          </p>
-          <p className="smm-hero-desc" style={{ marginBottom: '3rem' }}>
-            Whether you're a startup, local business, e-commerce brand, or enterprise, our social media experts develop customized campaigns that help you stand out and achieve measurable results.
-          </p>
-          <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem' }}>
-            Grow Your Business with Social Media
+        <div className="container" style={{ paddingTop: '2rem' }}>
+          <Link to="/services/digital-marketing" style={{ color: 'var(--accent-orange)', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', textDecoration: 'none', fontWeight: 'bold', fontSize: '1.1rem' }}>
+            <span>←</span> Back to Digital Marketing
           </Link>
+        </div>
+        <div className="container smm-hero-grid">
+          
+          <div className="smm-hero-image-wrapper">
+            <div className="smm-orbit-container">
+              <div className="orbit-ring orbit-ring-1"></div>
+              <div className="orbit-ring orbit-ring-2"></div>
+              <div className="orbit-ring orbit-ring-3"></div>
+              <img src="/SOCIAL MEDIA MARKETING SERVICES.webp" alt="Social Media Marketing Services" className="hero-orbit-image" />
+              <div className="orbit-satellite sat-1">
+                <FaFacebook />
+              </div>
+              <div className="orbit-satellite sat-2">
+                <FaInstagram />
+              </div>
+              <div className="orbit-satellite sat-3">
+                <FaTwitter />
+              </div>
+            </div>
+          </div>
+
+          <div className="smm-hero-content">
+            <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>SOCIAL MEDIA MARKETING SERVICES</p>
+            <h1 className="smm-hero-title">Grow Your Brand with <br/><span>Professional Social Media Marketing</span></h1>
+            <p className="smm-hero-desc">
+              Build a strong online presence and connect with your audience through our Social Media Marketing (SMM) Services. We create result-driven social media strategies that increase brand awareness, engage your audience, generate quality leads, and drive business growth across the world's leading social platforms.
+            </p>
+            <p className="smm-hero-desc" style={{ marginBottom: '3rem' }}>
+              Whether you're a startup, local business, e-commerce brand, or enterprise, our social media experts develop customized campaigns that help you stand out and achieve measurable results.
+            </p>
+            <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem', display: 'inline-block' }}>
+              Grow Your Business with Social Media
+            </Link>
+          </div>
+
         </div>
       </section>
 

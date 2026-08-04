@@ -64,11 +64,11 @@ export const servicesData = [
       { slug: 'vlog-editing', title: 'Full Vlog Editing', desc: 'Engaging, well-paced vlog editing with sound design and B-roll.', image: '/Full Vlog Editing.webp' },
       { slug: 'wedding-editing', title: 'Wedding Editing', desc: 'Beautifully crafted highlight reels and full-length edits.', image: '/Wedding Editing.webp' },
       { slug: 'photo-editing', title: 'Photo Editing', desc: 'Flawless photo editing, background removal, and high-end retouching.', image: '/photo editing.webp' },
-      { slug: 'logo-design', title: 'Logo Design', desc: 'Creative logo designs that establish a memorable brand identity.', image: '/OIP (2).webp' },
-      { slug: 'poster-design', title: 'Poster Design', desc: 'Eye-catching poster designs for events and marketing.', image: 'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=800&q=80' },
-      { slug: 'flex-design', title: 'Flex Design', desc: 'High-quality flex banner designs for offline promotions.', image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80' },
-      { slug: 'graphics-design', title: 'Graphics Design', desc: 'Comprehensive graphics design for all your visual needs.', image: 'https://images.unsplash.com/photo-1626785774625-ddcddc3445e9?w=800&q=80' },
-      { slug: 'animation', title: 'Animation', desc: 'Custom animations to make your message unforgettable.', image: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&q=80' }
+      { slug: 'logo-design', title: 'Logo Design', desc: 'Creative logo designs that establish a memorable brand identity.', image: '/logo.webp' },
+      { slug: 'poster-design', title: 'Poster Design', desc: 'Eye-catching poster designs for events and marketing.', image: '/poster.webp' },
+      { slug: 'flex-design', title: 'Flex Design', desc: 'High-quality flex banner designs for offline promotions.', image: '/flex.webp' },
+      { slug: 'graphics-design', title: 'Graphics Design', desc: 'Comprehensive graphics design for all your visual needs.', image: '/Graphic Design.webp' },
+      { slug: 'animation', title: 'Animation', desc: 'Custom animations to make your message unforgettable.', image: '/Animation.webp' }
     ],
     faqs: [
       { question: 'Can you edit videos for Instagram Reels?', answer: 'Yes, we specialize in short-form editing optimized for algorithms.' },
@@ -84,11 +84,11 @@ export const servicesData = [
     longDescription: 'Visual storytelling is at the heart of modern marketing. Our production team provides everything from product and DSLR shoots to cinematic drone and podcast recording.',
     benefits: [
       { slug: 'dslr-shoot', title: 'DSLR Camera Shoot', desc: 'High-resolution photography and videography using advanced DSLR equipment.', image: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&q=80' },
-      { slug: 'product-shoot', title: 'Product Shoot', desc: 'Showcase your products with stunning photography that drives sales.', image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&q=80' },
-      { slug: 'mobile-shoot', title: 'Mobile Shoot', desc: 'Quick and trendy mobile shoots optimized for fast social media content.', image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&q=80' },
+      { slug: 'product-shoot', title: 'Product Shoot', desc: 'Showcase your products with stunning photography that drives sales.', image: '/product shoot.webp' },
+      { slug: 'mobile-shoot', title: 'Mobile Shoot', desc: 'Quick and trendy mobile shoots optimized for fast social media content.', image: '/Mobile Shoot.webp' },
       { slug: 'drone-shoot', title: 'Drone Shoot', desc: 'Capture breathtaking perspectives and aerial views.', image: 'https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800&q=80' },
-      { slug: 'reels-shoot', title: 'Reels Shoot', desc: 'On-location shoots specifically planned and directed for short-form reels.', image: 'https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?w=800&q=80' },
-      { slug: 'podcast-shoot', title: 'Podcast Shoot', desc: 'Professional audio and multi-camera setups for podcast recordings.', image: 'https://images.unsplash.com/photo-1588591795084-1770cb3be374?w=800&q=80' }
+      { slug: 'reels-shoot', title: 'Reels Shoot', desc: 'On-location shoots specifically planned and directed for short-form reels.', image: '/reels shoot.webp' },
+      { slug: 'podcast-shoot', title: 'Podcast Shoot', desc: 'Professional audio and multi-camera setups for podcast recordings.', image: '/Podcast.webp' }
     ],
     faqs: [
       { question: 'Do you provide on-location shoots?', answer: 'Yes! We offer on-location shoots using advanced DSLR and Drone equipment.' },

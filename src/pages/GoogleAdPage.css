@@ -36,7 +36,7 @@
   width: 100%;
   max-width: 420px;
   height: 420px;
-  background-color: #fff;
+  background-color: #1a1a24;
   border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
   animation: googleMorph 8s ease-in-out infinite;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
@@ -48,11 +48,12 @@
 }
 
 .hero-left-image {
-  width: 70%;
-  height: 70%;
+  width: 50%;
+  height: auto;
+  max-height: 50%;
   object-fit: contain;
   pointer-events: none;
-  mix-blend-mode: multiply;
+  filter: drop-shadow(0 10px 15px rgba(0,0,0,0.5));
 }
 
 .blob-shape-container::before {
@@ -203,7 +204,7 @@
 }
 
 .google-step-content p {
-  color: #aaa;
+  color: #fff;
   line-height: 1.6;
   margin: 0;
 }
@@ -228,7 +229,7 @@
   border-radius: 8px;
   text-align: center;
   font-weight: 600;
-  color: #ccc;
+  color: #fff;
   border: 1px solid rgba(255, 255, 255, 0.05);
   transition: all 0.3s ease;
 }
@@ -270,7 +271,7 @@
 
 .google-faq-item p {
   margin-top: 1rem;
-  color: #aaa;
+  color: #fff;
   line-height: 1.6;
 }
 

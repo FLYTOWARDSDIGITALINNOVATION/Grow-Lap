@@ -85,18 +85,40 @@ const PodcastShootPage = () => {
     <div className="podcast-shoot-page-container">
       {/* Hero Section */}
       <section className="podcast-shoot-hero">
-        <div className="container">
-          <p className="section-subtitle text-accent" style={{ marginBottom: '1rem' }}>PODCAST SHOOT SERVICES</p>
-          <h1 className="podcast-shoot-hero-title">High-Quality Podcast Production That <br/><span>Engages Your Audience</span></h1>
-          <p className="podcast-shoot-hero-desc">
+        <div className="container" style={{ paddingTop: '2rem' }}>
+          <Link to="/services/shoot" style={{ color: 'var(--accent-orange)', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', textDecoration: 'none', fontWeight: 'bold', fontSize: '1.1rem' }}>
+            <span>←</span> Back to Shoot Services
+          </Link>
+        </div>
+        <div className="container podcast-shoot-hero-grid">
+          <div className="podcast-shoot-hero-content">
+            <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>PODCAST SHOOT SERVICES</p>
+            <h1 className="podcast-shoot-hero-title">High-Quality Podcast Production That <br/><span>Engages Your Audience</span></h1>
+            <p className="podcast-shoot-hero-desc">
             Create professional, engaging, and visually appealing podcasts with our Professional Podcast Shoot Services. Whether you're a business, entrepreneur, educator, influencer, or content creator, we provide complete podcast production solutions that help you share your ideas with confidence. From multi-camera video recording to crystal-clear audio and professional editing, we ensure every episode reflects your brand and keeps your audience engaged.
           </p>
-          <p className="podcast-shoot-hero-desc" style={{ marginBottom: '3rem' }}>
-            Our team combines high-quality cameras, professional lighting, premium microphones, and expert editing to produce podcasts ready for YouTube, Spotify, Apple Podcasts, social media, and your website.
-          </p>
-          <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem' }}>
+            
+            <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem', display: 'inline-block' }}>
             Launch Your Podcast Today
           </Link>
+          </div>
+          <div className="podcast-shoot-hero-image-wrapper">
+            <div className="podcast-shoot-orbit-container">
+              <div className="orbit-ring orbit-ring-1"></div>
+              <div className="orbit-ring orbit-ring-2"></div>
+              <div className="orbit-ring orbit-ring-3"></div>
+              <img src="/Podcast.webp" alt="Hero Image" className="hero-orbit-image" />
+              <div className="orbit-satellite sat-1">
+                <FaMicrophoneAlt />
+              </div>
+              <div className="orbit-satellite sat-2">
+                <FaHeadphones />
+              </div>
+              <div className="orbit-satellite sat-3">
+                <FaVideo />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

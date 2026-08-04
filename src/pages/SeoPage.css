@@ -40,6 +40,7 @@
   display: block;
   transform: scale(1.8) translateX(-20px);
   animation: gentleShake 4s ease-in-out infinite;
+  mix-blend-mode: screen;
 }
 
 @keyframes gentleShake {
@@ -170,7 +171,7 @@
 
 .seo-grid-badge {
   font-size: 0.8rem;
-  color: #888;
+  color: #fff;
   padding: 4px 10px;
   border-radius: 4px;
   background: rgba(255, 255, 255, 0.03);
@@ -266,7 +267,7 @@
 }
 
 .seo-step-content p {
-  color: #aaa;
+  color: #fff;
   line-height: 1.6;
   margin: 0;
 }
@@ -291,7 +292,7 @@
   border-radius: 8px;
   text-align: center;
   font-weight: 600;
-  color: #ccc;
+  color: #fff;
   border: 1px solid rgba(255, 255, 255, 0.05);
   transition: all 0.3s ease;
 }
@@ -339,7 +340,7 @@
 
 .seo-faq-item p {
   margin-top: 1rem;
-  color: #aaa;
+  color: #fff;
   line-height: 1.6;
 }
 
