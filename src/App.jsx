@@ -11,6 +11,7 @@ import ServicesPage from './pages/ServicesPage';
 import ServiceDetail from './pages/ServiceDetail';
 import SubServiceDetail from './pages/SubServiceDetail';
 import IndustryPage from './pages/IndustryPage';
+import IndustryDetail from './pages/IndustryDetail';
 import BlogPage from './pages/BlogPage';
 import ContactPage from './pages/ContactPage';
 
@@ -28,6 +29,8 @@ function App() {
             <Route path="/services/:categorySlug" element={<ServiceDetail />} />
             <Route path="/services/:categorySlug/:subServiceSlug" element={<SubServiceDetail />} />
             <Route path="/industry" element={<IndustryPage />} />
+            <Route path="/industry/showrooms/:showroomType" element={<IndustryDetail />} />
+            <Route path="/industry/:industrySlug" element={<IndustryDetail />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/contact" element={<ContactPage />} />
           </Routes>
