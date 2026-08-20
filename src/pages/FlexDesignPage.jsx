@@ -5,6 +5,21 @@ import './FlexDesignPage.css';
 
 const FlexDesignPage = () => {
   useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-show');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    const faqItems = document.querySelectorAll('details[class*="-faq-item"]');
+    faqItems.forEach(el => observer.observe(el));
+    
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     window.scrollTo(0, 0);
     document.title = "Professional Flex Banner Design Services | Stand Out";
     
@@ -87,26 +102,9 @@ const FlexDesignPage = () => {
           </Link>
         </div>
         <div className="container flex-design-hero-grid">
-          <div className="flex-design-hero-image-wrapper">
-            <div className="flex-design-orbit-container">
-              <div className="orbit-ring orbit-ring-1"></div>
-              <div className="orbit-ring orbit-ring-2"></div>
-              <div className="orbit-ring orbit-ring-3"></div>
-              <img src="/flex.webp" alt="Hero Image" className="hero-orbit-image" />
-              <div className="orbit-satellite sat-1">
-                <FaExpand />
-              </div>
-              <div className="orbit-satellite sat-2">
-                <FaPaintBrush />
-              </div>
-              <div className="orbit-satellite sat-3">
-                <FaPrint />
-              </div>
-            </div>
-          </div>
-          <div className="flex-design-hero-content">
+<div className="flex-design-hero-content">
             <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>FLEX BANNER DESIGN SERVICES</p>
-            <h1 className="flex-design-hero-title">Create Impactful Flex Banner Designs <br/><span>for Your Business</span></h1>
+            <h1 className="flex-design-hero-title">Create Impactful Flex Banner&nbsp;Designs <br/><span>for Your Business</span></h1>
             <p className="flex-design-hero-desc">
             Promote your business with Professional Flex Banner Design Services that capture attention and communicate your message effectively. We design creative, high-resolution flex banners for businesses, events, exhibitions, retail stores, political campaigns, and promotional activities.
           </p>
@@ -114,6 +112,10 @@ const FlexDesignPage = () => {
             <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem', display: 'inline-block' }}>
             Get Your Banner Designed
           </Link>
+          </div>
+
+          <div className="hero-image-right" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <img src="/flex.webp" alt="Hero Image" style={{ width: '100%', maxWidth: '550px', height: 'auto', borderRadius: '20px', boxShadow: '0 20px 40px rgba(0,0,0,0.4)', filter: 'drop-shadow(0 10px 15px rgba(0,0,0,0.5))' }} />
           </div>
         </div>
       </section>

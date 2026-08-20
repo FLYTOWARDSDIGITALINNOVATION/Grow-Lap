@@ -5,6 +5,21 @@ import './MobileShootPage.css';
 
 const MobileShootPage = () => {
   useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-show');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    const faqItems = document.querySelectorAll('details[class*="-faq-item"]');
+    faqItems.forEach(el => observer.observe(el));
+    
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     window.scrollTo(0, 0);
     document.title = "Professional Mobile Shoot Services | High-Quality Content";
     
@@ -89,26 +104,9 @@ const MobileShootPage = () => {
           </Link>
         </div>
         <div className="container mobile-shoot-hero-grid">
-          <div className="mobile-shoot-hero-image-wrapper">
-            <div className="mobile-shoot-orbit-container">
-              <div className="orbit-ring orbit-ring-1"></div>
-              <div className="orbit-ring orbit-ring-2"></div>
-              <div className="orbit-ring orbit-ring-3"></div>
-              <img src="/Mobile Shoot.webp" alt="Hero Image" className="hero-orbit-image" />
-              <div className="orbit-satellite sat-1">
-                <FaMobileAlt />
-              </div>
-              <div className="orbit-satellite sat-2">
-                <FaVideo />
-              </div>
-              <div className="orbit-satellite sat-3">
-                <FaHashtag />
-              </div>
-            </div>
-          </div>
-          <div className="mobile-shoot-hero-content">
+<div className="mobile-shoot-hero-content">
             <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>MOBILE SHOOT SERVICES</p>
-            <h1 className="mobile-shoot-hero-title">High-Quality Mobile Photography & Videography <br/><span>for Modern Brands</span></h1>
+            <h1 className="mobile-shoot-hero-title">High-Quality Mobile Photography &&nbsp;Videography <br/><span>for Modern Brands</span></h1>
             <p className="mobile-shoot-hero-desc">
             Create engaging visual content with our Professional Mobile Shoot Services. We specialize in capturing high-quality photos and videos using advanced smartphone cameras, delivering content that is perfect for social media, websites, digital marketing campaigns, and online promotions. Whether you're a business owner, influencer, content creator, or startup, our mobile shoots help your brand connect with today's digital audience.
           </p>
@@ -116,6 +114,10 @@ const MobileShootPage = () => {
             <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem', display: 'inline-block' }}>
             Book Your Shoot Today
           </Link>
+          </div>
+
+          <div className="hero-image-right" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <img src="/Mobile Shoot.webp" alt="Hero Image" style={{ width: '100%', maxWidth: '550px', height: 'auto', borderRadius: '20px', boxShadow: '0 20px 40px rgba(0,0,0,0.4)', filter: 'drop-shadow(0 10px 15px rgba(0,0,0,0.5))' }} />
           </div>
         </div>
       </section>

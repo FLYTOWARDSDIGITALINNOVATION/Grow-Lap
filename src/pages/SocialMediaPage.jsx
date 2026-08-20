@@ -5,6 +5,21 @@ import './SocialMediaPage.css';
 
 const SocialMediaPage = () => {
   useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-show');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    const faqItems = document.querySelectorAll('details[class*="-faq-item"]');
+    faqItems.forEach(el => observer.observe(el));
+    
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     window.scrollTo(0, 0);
     document.title = "Social Media Marketing Services | Grow Your Brand & Generate More Leads";
     
@@ -75,28 +90,9 @@ const SocialMediaPage = () => {
           </Link>
         </div>
         <div className="container smm-hero-grid">
-          
-          <div className="smm-hero-image-wrapper">
-            <div className="smm-orbit-container">
-              <div className="orbit-ring orbit-ring-1"></div>
-              <div className="orbit-ring orbit-ring-2"></div>
-              <div className="orbit-ring orbit-ring-3"></div>
-              <img src="/SOCIAL MEDIA MARKETING SERVICES.webp" alt="Social Media Marketing Services" className="hero-orbit-image" />
-              <div className="orbit-satellite sat-1">
-                <FaFacebook />
-              </div>
-              <div className="orbit-satellite sat-2">
-                <FaInstagram />
-              </div>
-              <div className="orbit-satellite sat-3">
-                <FaTwitter />
-              </div>
-            </div>
-          </div>
-
-          <div className="smm-hero-content">
+<div className="smm-hero-content">
             <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>SOCIAL MEDIA MARKETING SERVICES</p>
-            <h1 className="smm-hero-title">Grow Your Brand with <br/><span>Professional Social Media Marketing</span></h1>
+            <h1 className="smm-hero-title" style={{ color: 'white' }}><span style={{ whiteSpace: 'nowrap', color: 'white' }}>Grow Your Brand with</span> <br/>Professional <span style={{ color: 'var(--accent-orange)' }}>Social Media Marketing</span></h1>
             <p className="smm-hero-desc">
               Build a strong online presence and connect with your audience through our Social Media Marketing (SMM) Services. We create result-driven social media strategies that increase brand awareness, engage your audience, generate quality leads, and drive business growth across the world's leading social platforms.
             </p>
@@ -108,6 +104,9 @@ const SocialMediaPage = () => {
             </Link>
           </div>
 
+          <div className="hero-image-right" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <img src="/SOCIAL MEDIA MARKETING SERVICES.webp" alt="Social Media Marketing Services" style={{ width: '100%', maxWidth: '450px', aspectRatio: '1 / 1', objectFit: 'cover', borderRadius: '20px', boxShadow: '0 20px 40px rgba(0,0,0,0.4)' }} />
+          </div>
         </div>
       </section>
 

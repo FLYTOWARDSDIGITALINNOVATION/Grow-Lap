@@ -5,6 +5,21 @@ import './PodcastShootPage.css';
 
 const PodcastShootPage = () => {
   useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-show');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    const faqItems = document.querySelectorAll('details[class*="-faq-item"]');
+    faqItems.forEach(el => observer.observe(el));
+    
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     window.scrollTo(0, 0);
     document.title = "Professional Podcast Shoot Services | Engage Your Audience";
     
@@ -91,9 +106,9 @@ const PodcastShootPage = () => {
           </Link>
         </div>
         <div className="container podcast-shoot-hero-grid">
-          <div className="podcast-shoot-hero-content">
+<div className="podcast-shoot-hero-content">
             <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>PODCAST SHOOT SERVICES</p>
-            <h1 className="podcast-shoot-hero-title">High-Quality Podcast Production That <br/><span>Engages Your Audience</span></h1>
+            <h1 className="podcast-shoot-hero-title">High-Quality Podcast Production&nbsp;That <br/><span>Engages Your Audience</span></h1>
             <p className="podcast-shoot-hero-desc">
             Create professional, engaging, and visually appealing podcasts with our Professional Podcast Shoot Services. Whether you're a business, entrepreneur, educator, influencer, or content creator, we provide complete podcast production solutions that help you share your ideas with confidence. From multi-camera video recording to crystal-clear audio and professional editing, we ensure every episode reflects your brand and keeps your audience engaged.
           </p>
@@ -102,22 +117,9 @@ const PodcastShootPage = () => {
             Launch Your Podcast Today
           </Link>
           </div>
-          <div className="podcast-shoot-hero-image-wrapper">
-            <div className="podcast-shoot-orbit-container">
-              <div className="orbit-ring orbit-ring-1"></div>
-              <div className="orbit-ring orbit-ring-2"></div>
-              <div className="orbit-ring orbit-ring-3"></div>
-              <img src="/Podcast.webp" alt="Hero Image" className="hero-orbit-image" />
-              <div className="orbit-satellite sat-1">
-                <FaMicrophoneAlt />
-              </div>
-              <div className="orbit-satellite sat-2">
-                <FaHeadphones />
-              </div>
-              <div className="orbit-satellite sat-3">
-                <FaVideo />
-              </div>
-            </div>
+
+          <div className="hero-image-right" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <img src="/Podcast.webp" alt="Hero Image" style={{ width: '100%', maxWidth: '550px', height: 'auto', borderRadius: '20px', boxShadow: '0 20px 40px rgba(0,0,0,0.4)', filter: 'drop-shadow(0 10px 15px rgba(0,0,0,0.5))' }} />
           </div>
         </div>
       </section>

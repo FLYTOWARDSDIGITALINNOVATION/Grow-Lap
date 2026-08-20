@@ -5,6 +5,21 @@ import './ReelsEditingPage.css';
 
 const ReelsEditingPage = () => {
   useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-show');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    const faqItems = document.querySelectorAll('details[class*="-faq-item"]');
+    faqItems.forEach(el => observer.observe(el));
+    
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     window.scrollTo(0, 0);
     document.title = "Professional Reels Editing Services | Grow Your Brand";
     
@@ -75,26 +90,9 @@ const ReelsEditingPage = () => {
           </Link>
         </div>
         <div className="container reels-editing-hero-grid">
-          <div className="reels-editing-hero-image-wrapper">
-            <div className="reels-editing-orbit-container">
-              <div className="orbit-ring orbit-ring-1"></div>
-              <div className="orbit-ring orbit-ring-2"></div>
-              <div className="orbit-ring orbit-ring-3"></div>
-              <img src="/Reels Editing.webp" alt="Hero Image" className="hero-orbit-image" />
-              <div className="orbit-satellite sat-1">
-                <FaFilm />
-              </div>
-              <div className="orbit-satellite sat-2">
-                <FaPlayCircle />
-              </div>
-              <div className="orbit-satellite sat-3">
-                <FaMagic />
-              </div>
-            </div>
-          </div>
-          <div className="reels-editing-hero-content">
+<div className="reels-editing-hero-content">
             <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>REELS EDITING SERVICES</p>
-            <h1 className="reels-editing-hero-title">Create Scroll-Stopping Reels That <br/><span>Grow Your Brand</span></h1>
+            <h1 className="reels-editing-hero-title">Create Scroll-Stopping Reels&nbsp;That <br/><span>Grow Your Brand</span></h1>
             <p className="reels-editing-hero-desc">
             Capture attention in seconds with our Professional Reels Editing Services. We transform your raw footage into engaging, high-quality short-form videos designed to increase views, engagement, and conversions across Instagram, Facebook, TikTok, YouTube Shorts, and LinkedIn.
           </p>
@@ -102,6 +100,10 @@ const ReelsEditingPage = () => {
             <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem', display: 'inline-block' }}>
             Get Your Reels Edited Today
           </Link>
+          </div>
+
+          <div className="hero-image-right" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <img src="/Reels Editing.webp" alt="Hero Image" style={{ width: '100%', maxWidth: '550px', height: 'auto', borderRadius: '20px', boxShadow: '0 20px 40px rgba(0,0,0,0.4)', filter: 'drop-shadow(0 10px 15px rgba(0,0,0,0.5))' }} />
           </div>
         </div>
       </section>

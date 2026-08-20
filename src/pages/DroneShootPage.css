@@ -2,16 +2,16 @@
   background-color: var(--bg-dark);
   color: #fff;
   min-height: 100vh;
-  padding-top: 80px;
+  
 }
 
 /* Hero Section */
 .drone-shoot-hero {
-  padding: 8rem 0 5rem;
+  padding: 4rem 0 5rem;
   background-color: #0c0c0e;
   position: relative;
   overflow: hidden;
-  text-align: center;
+  text-align: left;
   border-bottom: 1px solid rgba(255, 94, 0, 0.2);
 }
 
@@ -228,7 +228,7 @@
 .drone-shoot-step-card {
   display: flex;
   background: #121215;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--accent-orange);
   border-radius: 12px;
   padding: 2rem;
   position: relative;
@@ -239,6 +239,7 @@
 .drone-shoot-step-card:hover {
   border-color: rgba(255, 94, 0, 0.5);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transform: scale(1.05);
 }
 
 .drone-shoot-step-number {

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaArrowRight, FaSearch, FaImage, FaShoppingCart, FaChartLine, FaYoutube, FaMobileAlt, FaMapMarkerAlt, FaMousePointer, FaKey, FaPen, FaLaptop, FaCode, FaVial, FaMoneyBillWave, FaChartBar, FaCheckCircle } from 'react-icons/fa';
 import './GoogleAdPage.css';
+import './SubServiceDetail.css'; // Importing for shared FAQ and animation styles
 
 const GoogleAdPage = () => {
   useEffect(() => {
@@ -15,6 +16,26 @@ const GoogleAdPage = () => {
       document.head.appendChild(metaDesc);
     }
     metaDesc.content = "Grow your business with expert Google Ads services. We manage Search, Display, Shopping, YouTube, and Performance Max campaigns to increase traffic, generate leads, and maximize ROI.";
+
+    // Intersection Observer for Slide-in Animations
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('slide-in-active');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+    );
+
+    const animatedElements = document.querySelectorAll('.ssd-slide-in-target');
+    animatedElements.forEach((el) => observer.observe(el));
+
+    return () => {
+      observer.disconnect();
+    };
   }, []);
 
   const googleServices = [
@@ -77,12 +98,6 @@ const GoogleAdPage = () => {
         </div>
         <div className="container google-hero-grid">
           
-          <div className="google-hero-blob-wrapper">
-            <div className="blob-shape-container">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Ads_logo.svg" alt="Google Ads Services" className="hero-left-image" />
-            </div>
-          </div>
-
           <div className="google-hero-content">
             <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>GOOGLE ADS SERVICES</p>
             <h1 className="google-hero-title">Drive Instant Traffic and Increase Conversions with <br/><span>Google Ads</span></h1>
@@ -95,6 +110,10 @@ const GoogleAdPage = () => {
             <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem', display: 'inline-block' }}>
               Launch Your Google Ads Campaign Today
             </Link>
+          </div>
+
+          <div className="google-hero-image-right" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <img src="/google ad.webp" alt="Google Ads Services" style={{ width: '100%', maxWidth: '800px', height: 'auto', filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.5))', transform: 'scale(1.1)' }} />
           </div>
 
         </div>
@@ -193,26 +212,27 @@ const GoogleAdPage = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="google-faq-section">
-        <div className="container">
-          <div style={{ textAlign: 'center' }}>
-            <h2>Frequently Asked Questions</h2>
-            <div className="title-underline mx-auto"></div>
+      <section className="ssd-faq-full-section" style={{ padding: '6rem 0', backgroundColor: 'var(--bg-dark)', position: 'relative', overflow: 'hidden' }}>
+        <div className="container" style={{ maxWidth: '800px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
+          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+            <h2 style={{ fontSize: '2.5rem', color: '#fff', marginBottom: '1rem' }}>Frequently Asked Questions</h2>
+            <p style={{ color: '#aaa', fontSize: '1.1rem' }}>Got questions about our Google Ads services? We have answers.</p>
           </div>
-          <div className="google-faqs">
-            <details className="google-faq-item">
+          
+          <div className="ssd-faqs">
+            <details className="ssd-faq-item-collapsible ssd-slide-in-target">
               <summary>What is Google Ads?</summary>
               <p>Google Ads is Google's online advertising platform that allows businesses to display ads on Google Search, YouTube, Google Display Network, and other partner websites to reach potential customers.</p>
             </details>
-            <details className="google-faq-item">
+            <details className="ssd-faq-item-collapsible ssd-slide-in-target">
               <summary>How quickly can I see results?</summary>
               <p>Unlike SEO, Google Ads can generate traffic and leads as soon as your campaigns are approved and launched. Performance improves further through ongoing optimization.</p>
             </details>
-            <details className="google-faq-item">
+            <details className="ssd-faq-item-collapsible ssd-slide-in-target">
               <summary>How much should I spend on Google Ads?</summary>
               <p>Your advertising budget depends on your goals, industry, and competition. We create cost-effective campaigns that maximize your return on investment.</p>
             </details>
-            <details className="google-faq-item">
+            <details className="ssd-faq-item-collapsible ssd-slide-in-target">
               <summary>Do you provide campaign reports?</summary>
               <p>Yes. We provide detailed monthly reports with insights into clicks, impressions, conversions, cost, and recommendations for continuous improvement.</p>
             </details>
@@ -221,14 +241,14 @@ const GoogleAdPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="google-cta-section">
+      <section className="google-cta-section" style={{ padding: '6rem 0', textAlign: 'center', background: 'linear-gradient(135deg, var(--accent-orange) 0%, #cc4a00 100%)' }}>
         <div className="container">
-          <h2 className="google-cta-title">Ready to Grow with Google Ads?</h2>
-          <p className="google-cta-desc">
+          <h2 className="google-cta-title" style={{ fontSize: '2.5rem', color: '#fff', marginBottom: '1rem' }}>Ready to Grow with Google Ads?</h2>
+          <p className="google-cta-desc" style={{ color: 'rgba(255,255,255,0.9)', maxWidth: '700px', margin: '0 auto 2rem', fontSize: '1.2rem', lineHeight: '1.6' }}>
             Generate more leads, increase sales, and reach the right audience with our expert Google Ads management services. From keyword research and campaign setup to optimization and reporting, we help your business achieve measurable growth.
           </p>
-          <Link to="/contact" className="google-cta-btn">
-            Launch Your Google Ads Campaign Today <FaArrowRight />
+          <Link to="/contact" className="btn-primary" style={{ background: '#fff', color: 'var(--accent-orange)', padding: '15px 40px', fontSize: '1.2rem', borderRadius: '8px', textDecoration: 'none', display: 'inline-block', fontWeight: 'bold' }}>
+            Launch Your Google Ads Campaign Today
           </Link>
         </div>
       </section>

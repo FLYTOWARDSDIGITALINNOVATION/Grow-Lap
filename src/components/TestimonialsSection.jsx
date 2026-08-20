@@ -4,7 +4,7 @@ import './TestimonialsSection.css';
 
 const testimonials = [
   {
-    name: 'Udhaya',
+    name: 'Thara',
     role: 'CEO, TechCorp',
     content: 'They completely transformed our digital presence. Our traffic doubled in just 3 months!',
     image: 'https://picsum.photos/seed/user1/100/100'

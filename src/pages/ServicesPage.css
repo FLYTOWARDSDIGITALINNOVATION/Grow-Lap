@@ -1,5 +1,4 @@
-﻿.services-page-container {
-  padding-top: 220px; /* Force extra space below navbar */
+.services-page-container {
   min-height: 80vh;
   background-color: var(--bg-dark);
   padding-bottom: 5rem;

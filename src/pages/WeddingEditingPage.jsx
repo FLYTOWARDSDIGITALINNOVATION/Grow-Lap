@@ -5,6 +5,21 @@ import './WeddingEditingPage.css';
 
 const WeddingEditingPage = () => {
   useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-show');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    const faqItems = document.querySelectorAll('details[class*="-faq-item"]');
+    faqItems.forEach(el => observer.observe(el));
+    
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     window.scrollTo(0, 0);
     document.title = "Professional Wedding Video Editing Services | Timeless Films";
     
@@ -85,26 +100,9 @@ const WeddingEditingPage = () => {
           </Link>
         </div>
         <div className="container wedding-editing-hero-grid">
-          <div className="wedding-editing-hero-image-wrapper">
-            <div className="wedding-editing-orbit-container">
-              <div className="orbit-ring orbit-ring-1"></div>
-              <div className="orbit-ring orbit-ring-2"></div>
-              <div className="orbit-ring orbit-ring-3"></div>
-              <img src="/Wedding Editing.webp" alt="Hero Image" className="hero-orbit-image" />
-              <div className="orbit-satellite sat-1">
-                <FaHeart />
-              </div>
-              <div className="orbit-satellite sat-2">
-                <FaVideo />
-              </div>
-              <div className="orbit-satellite sat-3">
-                <FaMagic />
-              </div>
-            </div>
-          </div>
-          <div className="wedding-editing-hero-content">
+<div className="wedding-editing-hero-content">
             <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>WEDDING VIDEO EDITING SERVICES</p>
-            <h1 className="wedding-editing-hero-title">Turn Your Wedding Memories into <br/><span>Timeless Films</span></h1>
+            <h1 className="wedding-editing-hero-title">Turn Your Wedding Memories&nbsp;into <br/><span>Timeless Films</span></h1>
             <p className="wedding-editing-hero-desc">
             Relive your special day with our Professional Wedding Video Editing Services. We transform your raw wedding footage into beautifully crafted cinematic films that capture every emotion, smile, and unforgettable moment.
           </p>
@@ -112,6 +110,10 @@ const WeddingEditingPage = () => {
             <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem', display: 'inline-block' }}>
             Create Your Wedding Film Today
           </Link>
+          </div>
+
+          <div className="hero-image-right" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <img src="/Wedding Editing.webp" alt="Hero Image" style={{ width: '100%', maxWidth: '550px', height: 'auto', borderRadius: '20px', boxShadow: '0 20px 40px rgba(0,0,0,0.4)', filter: 'drop-shadow(0 10px 15px rgba(0,0,0,0.5))' }} />
           </div>
         </div>
       </section>

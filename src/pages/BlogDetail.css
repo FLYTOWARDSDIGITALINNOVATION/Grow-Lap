@@ -5,10 +5,17 @@
 }
 
 .blog-detail-container {
-  padding-top: 120px; /* Space below navbar */
+  padding-top: 2rem; /* Reduced space below navbar */
   padding-bottom: 8rem;
   max-width: 900px;
   margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .blog-detail-container {
+    padding-top: 1rem;
+    padding-bottom: 4rem;
+  }
 }
 
 .back-link {

@@ -5,6 +5,21 @@ import './ProductShootPage.css';
 
 const ProductShootPage = () => {
   useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-show');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    const faqItems = document.querySelectorAll('details[class*="-faq-item"]');
+    faqItems.forEach(el => observer.observe(el));
+    
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     window.scrollTo(0, 0);
     document.title = "Professional Product Shoot Services | Showcase Your Products";
     
@@ -89,9 +104,9 @@ const ProductShootPage = () => {
           </Link>
         </div>
         <div className="container product-shoot-hero-grid">
-          <div className="product-shoot-hero-content">
+<div className="product-shoot-hero-content">
             <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>PRODUCT SHOOT SERVICES</p>
-            <h1 className="product-shoot-hero-title">Showcase Your Products with Stunning <br/><span>Professional Photography</span></h1>
+            <h1 className="product-shoot-hero-title">Showcase Your Products with&nbsp;Stunning <br/><span>Professional Photography</span></h1>
             <p className="product-shoot-hero-desc">
             Make your products stand out with our Professional Product Shoot Services. High-quality product images are essential for attracting customers, building trust, and increasing sales. Our experienced photographers create visually appealing product photos and videos that highlight every detail, making your brand look professional across e-commerce platforms, websites, social media, and marketing campaigns.
           </p>
@@ -100,22 +115,9 @@ const ProductShootPage = () => {
             Book Your Shoot Today
           </Link>
           </div>
-          <div className="product-shoot-hero-image-wrapper">
-            <div className="product-shoot-orbit-container">
-              <div className="orbit-ring orbit-ring-1"></div>
-              <div className="orbit-ring orbit-ring-2"></div>
-              <div className="orbit-ring orbit-ring-3"></div>
-              <img src="/product shoot.webp" alt="Hero Image" className="hero-orbit-image" />
-              <div className="orbit-satellite sat-1">
-                <FaCamera />
-              </div>
-              <div className="orbit-satellite sat-2">
-                <FaShoppingBag />
-              </div>
-              <div className="orbit-satellite sat-3">
-                <FaLightbulb />
-              </div>
-            </div>
+
+          <div className="hero-image-right" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <img src="/product shoot.webp" alt="Hero Image" style={{ width: '100%', maxWidth: '550px', height: 'auto', borderRadius: '20px', boxShadow: '0 20px 40px rgba(0,0,0,0.4)', filter: 'drop-shadow(0 10px 15px rgba(0,0,0,0.5))' }} />
           </div>
         </div>
       </section>

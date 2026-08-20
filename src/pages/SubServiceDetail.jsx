@@ -23,7 +23,7 @@ const SubServiceDetail = () => {
     formData.append('_captcha', 'false');
     formData.append('_template', 'table');
 
-    fetch('https://formsubmit.co/ajax/udhayabanu2005@gmail.com', {
+    fetch('https://formsubmit.co/ajax/growlapmarketing@gmail.com', {
       method: 'POST',
       body: formData,
       headers: {
@@ -232,7 +232,7 @@ const SubServiceDetail = () => {
                   <input type="text" name="Full Name" placeholder="Full Name*" required />
                 </div>
                 <div className="ssd-form-group">
-                  <input type="email" name="Email" placeholder="Email Address*" required />
+                  <input type="text" name="CompanyName" placeholder="Company Name*" required />
                 </div>
                 <div className="ssd-form-group">
                   <input type="tel" name="Phone Number" placeholder="Phone Number*" required />
@@ -270,55 +270,51 @@ const SubServiceDetail = () => {
             <div className="ssd-tools-divider"></div>
             <p>We leverage industry-leading tools and platforms to deliver unmatched results for your campaigns.</p>
           </div>
-          <div className="ssd-tools-grid-advanced">
-            <div className="ssd-tech-card">
-              <div className="ssd-tech-title">
-                <SiGoogleanalytics className="tech-icon" style={{color: '#F9AB00'}} />
-                <h3>Google Analytics</h3>
+        </div>
+        
+        {/* Infinite Marquee Model */}
+        <div className="ssd-tech-marquee-wrapper">
+          <div className="ssd-tech-marquee">
+            {[1, 2].map((loopIndex) => (
+              <div className="ssd-tech-marquee-track" key={loopIndex}>
+                <div className="ssd-tech-pill">
+                  <div className="ssd-tech-pill-icon" style={{ backgroundColor: 'rgba(249, 171, 0, 0.1)' }}>
+                    <SiGoogleanalytics style={{ color: '#F9AB00' }} />
+                  </div>
+                  <div className="ssd-tech-pill-text">Google Analytics</div>
+                </div>
+                <div className="ssd-tech-pill">
+                  <div className="ssd-tech-pill-icon" style={{ backgroundColor: 'rgba(6, 104, 225, 0.1)' }}>
+                    <SiMeta style={{ color: '#0668E1' }} />
+                  </div>
+                  <div className="ssd-tech-pill-text">Meta Business Suite</div>
+                </div>
+                <div className="ssd-tech-pill">
+                  <div className="ssd-tech-pill-icon" style={{ backgroundColor: 'rgba(255, 74, 0, 0.1)' }}>
+                    <SiSemrush style={{ color: '#FF4A00' }} />
+                  </div>
+                  <div className="ssd-tech-pill-text">SEMrush</div>
+                </div>
+                <div className="ssd-tech-pill">
+                  <div className="ssd-tech-pill-icon" style={{ backgroundColor: 'rgba(255, 122, 89, 0.1)' }}>
+                    <FaHubspot style={{ color: '#FF7A59' }} />
+                  </div>
+                  <div className="ssd-tech-pill-text">HubSpot</div>
+                </div>
+                <div className="ssd-tech-pill">
+                  <div className="ssd-tech-pill-icon" style={{ backgroundColor: 'rgba(255, 152, 0, 0.1)' }}>
+                    <FaChartLine style={{ color: '#FF9800' }} />
+                  </div>
+                  <div className="ssd-tech-pill-text">Ahrefs</div>
+                </div>
+                <div className="ssd-tech-pill">
+                  <div className="ssd-tech-pill-icon" style={{ backgroundColor: 'rgba(255, 224, 27, 0.1)' }}>
+                    <FaMailchimp style={{ color: '#FFE01B' }} />
+                  </div>
+                  <div className="ssd-tech-pill-text">Mailchimp</div>
+                </div>
               </div>
-              <p>Track user behavior and measure performance with powerful insights.</p>
-              <div className="ssd-tech-glow"></div>
-            </div>
-            <div className="ssd-tech-card">
-              <div className="ssd-tech-title">
-                <SiMeta className="tech-icon" style={{color: '#0668E1'}} />
-                <h3>Meta Business Suite</h3>
-              </div>
-              <p>Manage, analyze and optimize your Facebook & Instagram campaigns.</p>
-              <div className="ssd-tech-glow"></div>
-            </div>
-            <div className="ssd-tech-card">
-              <div className="ssd-tech-title">
-                <SiSemrush className="tech-icon" style={{color: '#FF4A00'}} />
-                <h3>SEMrush</h3>
-              </div>
-              <p>All-in-one SEO toolkit for keyword research, auditing & competitor analysis.</p>
-              <div className="ssd-tech-glow"></div>
-            </div>
-            <div className="ssd-tech-card">
-              <div className="ssd-tech-title">
-                <FaHubspot className="tech-icon" style={{color: '#FF7A59'}} />
-                <h3>HubSpot</h3>
-              </div>
-              <p>CRM, marketing automation and customer engagement platform.</p>
-              <div className="ssd-tech-glow"></div>
-            </div>
-            <div className="ssd-tech-card">
-              <div className="ssd-tech-title">
-                <FaChartLine className="tech-icon" style={{color: '#FF9800'}} />
-                <h3>Ahrefs</h3>
-              </div>
-              <p>Powerful SEO tool for backlink analysis, rank tracking & site exploration.</p>
-              <div className="ssd-tech-glow"></div>
-            </div>
-            <div className="ssd-tech-card">
-              <div className="ssd-tech-title">
-                <FaMailchimp className="tech-icon" style={{color: '#FFE01B'}} />
-                <h3>Mailchimp</h3>
-              </div>
-              <p>Email marketing and automation tool to engage and convert your audience.</p>
-              <div className="ssd-tech-glow"></div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -554,7 +550,7 @@ const SubServiceDetail = () => {
           </div>
           
           <h2 className="ssd-cta-title">
-            Ready to Transform Your <br/>
+            Ready to Transform&nbsp;Your <br/>
             <span className="highlight">{subService.title}</span> <span className="highlight">Results?</span>
           </h2>
           

@@ -5,6 +5,21 @@ import './PersonalBrandingPage.css';
 
 const PersonalBrandingPage = () => {
   useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-show');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    const faqItems = document.querySelectorAll('details[class*="-faq-item"]');
+    faqItems.forEach(el => observer.observe(el));
+    
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     window.scrollTo(0, 0);
     document.title = "Personal Branding Services | Build Your Professional Brand & Online Presence";
     
@@ -75,10 +90,9 @@ const PersonalBrandingPage = () => {
           </Link>
         </div>
         <div className="container personal-hero-grid">
-          
-          <div className="personal-hero-content">
+<div className="personal-hero-content">
             <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>PERSONAL BRANDING SERVICES</p>
-            <h1 className="personal-hero-title">Build a Powerful Personal Brand That <br/><span>Sets You Apart</span></h1>
+            <h1 className="personal-hero-title" style={{ color: 'white' }}>Build a Powerful <span style={{ whiteSpace: 'nowrap', color: 'var(--accent-orange)' }}>Personal Brand</span> <br/><span style={{ whiteSpace: 'nowrap', color: 'white' }}>That Sets You Apart</span></h1>
             <p className="personal-hero-desc">
               Your personal brand is more than just your online presence—it's how people recognize, trust, and remember you. Our Personal Branding Services help entrepreneurs, business owners, professionals, influencers, coaches, and executives establish a strong digital identity that builds credibility, attracts opportunities, and drives long-term success.
             </p>
@@ -90,24 +104,9 @@ const PersonalBrandingPage = () => {
             </Link>
           </div>
 
-          <div className="personal-hero-image-wrapper">
-            <div className="personal-orbit-container">
-              <div className="orbit-ring orbit-ring-1"></div>
-              <div className="orbit-ring orbit-ring-2"></div>
-              <div className="orbit-ring orbit-ring-3"></div>
-              <img src="/4.webp" alt="Personal Branding Services" className="hero-orbit-image" />
-              <div className="orbit-satellite sat-1">
-                <FaUserTie />
-              </div>
-              <div className="orbit-satellite sat-2">
-                <FaIdBadge />
-              </div>
-              <div className="orbit-satellite sat-3">
-                <FaLightbulb />
-              </div>
-            </div>
+          <div className="hero-image-right" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <img src="/personal-branding.webp" alt="Personal Branding Services" style={{ width: '100%', maxWidth: '550px', height: 'auto', borderRadius: '20px', boxShadow: '0 20px 40px rgba(0,0,0,0.4)', filter: 'drop-shadow(0 10px 15px rgba(0,0,0,0.5))' }} />
           </div>
-
         </div>
       </section>
 

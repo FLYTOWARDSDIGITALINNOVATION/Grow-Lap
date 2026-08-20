@@ -2,7 +2,7 @@
   background-color: var(--bg-dark);
   color: #fff;
   min-height: 100vh;
-  padding-top: 80px;
+  
 }
 
 /* Hero Section */
@@ -36,7 +36,7 @@
   width: 100%;
   max-width: 420px;
   height: 420px;
-  background-color: #1a1a24;
+  background-color: #ffffff;
   border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
   animation: googleMorph 8s ease-in-out infinite;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
@@ -54,6 +54,7 @@
   object-fit: contain;
   pointer-events: none;
   filter: drop-shadow(0 10px 15px rgba(0,0,0,0.5));
+  mix-blend-mode: multiply;
 }
 
 .blob-shape-container::before {
@@ -167,7 +168,7 @@
 .google-step-card {
   display: flex;
   background: #121215;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--accent-orange);
   border-radius: 12px;
   padding: 2rem;
   position: relative;
@@ -178,6 +179,7 @@
 .google-step-card:hover {
   border-color: rgba(255, 94, 0, 0.5);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transform: scale(1.05);
 }
 
 .google-step-number {

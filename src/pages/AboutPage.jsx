@@ -5,7 +5,7 @@ import {
   FaLaptopCode, FaPaintBrush, FaVideo, FaCamera, FaMicrophone, FaEnvelope, 
   FaWhatsapp, FaTrophy, FaUsers, FaChartLine, FaStore, FaHospital, 
   FaGraduationCap, FaHome, FaUtensils, FaPlane, FaPiggyBank, FaIndustry,
-  FaBullseye, FaAngleDoubleRight, FaArrowRight, FaPenNib
+  FaBullseye, FaAngleDoubleRight, FaArrowRight, FaPenNib, FaBuilding
 } from 'react-icons/fa';
 import './AboutPage.css';
 import './SeoPage.css'; // For SEO FAQ styles
@@ -13,7 +13,11 @@ import '../components/HubAndSpoke.css'; // For the What We Do Hub and Spoke desi
 
 const AboutPage = () => {
   const [isMissionVisible, setIsMissionVisible] = useState(false);
+  const [isWhoWeAreVisible, setIsWhoWeAreVisible] = useState(false);
+  const [isFaqVisible, setIsFaqVisible] = useState(false);
   const missionRef = useRef(null);
+  const whoWeAreRef = useRef(null);
+  const faqRef = useRef(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -21,21 +25,28 @@ const AboutPage = () => {
   }, []);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsMissionVisible(true);
-        }
-      },
-      { threshold: 0.2 }
-    );
+    const observerOptions = { threshold: 0.2, rootMargin: '0px 0px -50px 0px' };
 
-    if (missionRef.current) {
-      observer.observe(missionRef.current);
-    }
+    const missionObserver = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) setIsMissionVisible(true);
+    }, observerOptions);
+
+    const whoWeAreObserver = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) setIsWhoWeAreVisible(true);
+    }, observerOptions);
+
+    const faqObserver = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) setIsFaqVisible(true);
+    }, observerOptions);
+
+    if (missionRef.current) missionObserver.observe(missionRef.current);
+    if (whoWeAreRef.current) whoWeAreObserver.observe(whoWeAreRef.current);
+    if (faqRef.current) faqObserver.observe(faqRef.current);
 
     return () => {
-      if (missionRef.current) observer.unobserve(missionRef.current);
+      missionObserver.disconnect();
+      whoWeAreObserver.disconnect();
+      faqObserver.disconnect();
     };
   }, []);
 
@@ -89,39 +100,67 @@ const AboutPage = () => {
   ];
 
   return (
-    <div className="capitalize-content" style={{ minHeight: '100vh', backgroundColor: 'var(--bg-dark)' }}>
+    <div className="about-page-wrapper" style={{ minHeight: '100vh', backgroundColor: 'var(--bg-dark)' }}>
       
       {/* 1. Hero / Intro Section */}
-      <div className="container" style={{ padding: '6rem 0 4rem' }}>
-        <div className="grid-2" style={{ alignItems: 'center', gap: '4rem' }}>
-          <div>
-            <p className="section-subtitle text-accent" style={{ margin: 0 }}>ABOUT US</p>
-            <h1 style={{ fontSize: '3rem', marginTop: '0.5rem', marginBottom: '1.5rem', lineHeight: '1.2' }}>
-              Your Trusted Digital Marketing & <br/><span className="text-accent">Creative Growth Partner</span>
+      <div className="container" style={{ paddingBottom: '4rem', overflow: 'hidden' }}>
+        <div className="grid-2 about-hero-grid" style={{ alignItems: 'center', gap: '4rem' }}>
+          <div className="about-hero-text">
+            <p className="section-subtitle text-accent" style={{ margin: 0, marginBottom: '1.5rem', fontSize: '1.3rem', textTransform: 'uppercase', letterSpacing: '3px', fontWeight: '800' }}>ABOUT US</p>
+            <h1 className="about-hero-title">
+              Your Trusted Digital Marketing & <br className="hide-mobile" />
+              <span className="text-accent">Creative Growth Partner</span>
             </h1>
-            <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: '1.8' }}>
-              Welcome to <strong>Fly Towards Digital Innovation</strong>, where creativity meets strategy. We are a results-driven <strong>Digital Marketing Agency</strong> dedicated to helping businesses grow their online presence, generate quality leads, and increase sales through innovative marketing solutions.
+            <p className="about-hero-desc">
+              Welcome to <strong>Grow Lap</strong>, where creativity meets strategy. We are a results-driven <strong>Digital Marketing Agency</strong> dedicated to helping businesses grow their online presence, generate quality leads, and increase sales through innovative marketing solutions.
             </p>
-            <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: '1.8' }}>
+            <p className="about-hero-desc">
               Our team of digital marketers, designers, photographers, videographers, and content creators work together to build powerful brand experiences that connect with your audience. Whether you're a startup, small business, or established enterprise, we provide customized digital marketing strategies designed to achieve measurable success.
             </p>
           </div>
-          <div style={{ position: 'relative', textAlign: 'center' }}>
-            <img src="/about-hero-new.png" alt="About Us" style={{ width: '85%', maxWidth: '450px', borderRadius: '20px', position: 'relative', zIndex: 2, mixBlendMode: 'lighten', margin: '0 auto' }} />
+          <div className="about-hero-image-wrapper" style={{ position: 'relative', textAlign: 'center' }}>
+            <img src="/about-hero-new.webp" alt="About Us" className="about-hero-image" style={{ width: '85%', maxWidth: '450px', position: 'relative', zIndex: 2, mixBlendMode: 'lighten', margin: '0 auto' }} />
           </div>
         </div>
       </div>
 
-      {/* 2. Who We Are */}
-      <div className="container" style={{ padding: '5rem 0', textAlign: 'center' }}>
-        <p className="section-subtitle text-accent" style={{ margin: 0 }}>WHO WE ARE</p>
-        <h2 style={{ fontSize: '2.5rem', marginTop: '0.5rem', marginBottom: '2rem', color: 'var(--accent-orange)' }}>Passionate About Your Growth</h2>
-        <p style={{ fontSize: '1.15rem', color: '#ffffff', maxWidth: '800px', margin: '0 auto 1.5rem', lineHeight: '1.8', fontWeight: '500', letterSpacing: '0.5px' }}>
-          We are passionate about helping businesses thrive in the digital world. By combining creativity, technology, and data-driven marketing, we deliver solutions that strengthen your brand and maximize your return on investment (ROI).
-        </p>
-        <p style={{ fontSize: '1.15rem', color: '#ffffff', maxWidth: '800px', margin: '0 auto', lineHeight: '1.8', fontWeight: '500', letterSpacing: '0.5px' }}>
-          From building engaging websites to creating viral social media campaigns, we focus on delivering results that help your business grow faster and smarter.
-        </p>
+      {/* 2. Who We Are - Bento Box Model */}
+      <div className="container" style={{ paddingTop: '6rem', paddingBottom: '6rem' }}>
+        <div className="grid-2" style={{ alignItems: 'center', gap: '5rem', overflow: 'hidden' }}>
+          
+          {/* Text Side (Left) */}
+          <div className="about-who-text">
+            <p className="section-subtitle text-accent" style={{ margin: 0, marginBottom: '1rem', fontSize: '1.1rem', letterSpacing: '2px', fontWeight: '700' }}>WHO WE ARE</p>
+            <h2 style={{ fontSize: '3rem', marginTop: 0, marginBottom: '1.5rem', lineHeight: 1.2 }}>
+              Passionate&nbsp;About <br/><span style={{ color: 'var(--accent-orange)' }}>Your Growth</span>
+            </h2>
+            
+            <div style={{ paddingLeft: '1.5rem', borderLeft: '4px solid var(--accent-orange)', marginBottom: '2rem', background: 'linear-gradient(90deg, rgba(255, 94, 0, 0.05) 0%, transparent 100%)', padding: '1rem 1rem 1rem 1.5rem', borderRadius: '0 8px 8px 0' }}>
+              <p style={{ fontSize: '1.15rem', color: '#fff', margin: 0, lineHeight: '1.6', fontStyle: 'italic', fontWeight: '500' }}>
+                "We don't just execute campaigns; we architect digital growth."
+              </p>
+            </div>
+            
+            <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: '1.8' }}>
+              We are passionate about helping businesses thrive in the digital world. By combining creativity, technology, and data-driven marketing, we deliver solutions that strengthen your brand and maximize your return on investment (ROI).
+            </p>
+            <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', marginBottom: '2.5rem', lineHeight: '1.8' }}>
+              From building engaging websites to creating viral social media campaigns, we focus on delivering results that help your business grow faster and smarter.
+            </p>
+          </div>
+
+          {/* Image Grid Side (Right) */}
+          <div className="about-who-image-grid" style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '1.2rem', position: 'relative' }}>
+             {/* Decorative Background Blob */}
+             <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '300px', height: '300px', background: 'var(--accent-orange)', filter: 'blur(100px)', opacity: 0.15, zIndex: 0 }}></div>
+             <img src="/about-who-we-are.webp" alt="Team" style={{ width: '100%', height: '100%', minHeight: '450px', objectFit: 'cover', borderRadius: '24px', gridRow: 'span 2', position: 'relative', zIndex: 1, boxShadow: '0 15px 35px rgba(0,0,0,0.6)' }} />
+             
+             <img src="/bg-team.webp" alt="Collaboration" style={{ width: '100%', height: '215px', objectFit: 'cover', borderRadius: '24px', position: 'relative', zIndex: 1, boxShadow: '0 10px 30px rgba(0,0,0,0.5)' }} />
+             
+             <img src="/bg-projects.webp" alt="Success" style={{ width: '100%', height: '215px', objectFit: 'cover', borderRadius: '24px', position: 'relative', zIndex: 1, boxShadow: '0 10px 30px rgba(0,0,0,0.5)' }} />
+          </div>
+
+        </div>
       </div>
 
       {/* 3. Mission & Vision */}
@@ -161,7 +200,7 @@ const AboutPage = () => {
       </div>
 
       {/* 4. What We Do (Hub and Spoke Design) */}
-      <div className="container" style={{ padding: '5rem 0' }}>
+      <div className="container" style={{ paddingTop: '5rem', paddingBottom: '5rem' }}>
         <div className="has-header text-center" style={{ marginBottom: '4rem' }}>
           <p className="section-subtitle text-accent" style={{ margin: 0 }}>OUR SERVICES</p>
           <h2 className="has-title" style={{ fontSize: '2.5rem', marginTop: '0.5rem' }}>What We Do</h2>
@@ -263,20 +302,44 @@ const AboutPage = () => {
         </div>
       </div>
 
-      {/* 5. Why Choose Us */}
-      <div style={{ backgroundColor: 'var(--bg-dark)', padding: '5rem 0' }}>
-        <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-            <p className="section-subtitle text-accent" style={{ margin: 0 }}>THE FLY TOWARDS DIFFERENCE</p>
-            <h2 style={{ fontSize: '2.5rem', marginTop: '0.5rem' }}>Why Choose Us?</h2>
-          </div>
-          <div className="grid-3">
-            {whyChooseUs.map((reason, idx) => (
-              <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '1rem', background: '#121215', padding: '1.5rem', borderRadius: '8px', border: '1px solid var(--accent-orange)' }}>
-                <FaCheckCircle style={{ color: 'var(--accent-orange)', flexShrink: 0, fontSize: '1.2rem' }} />
-                <span style={{ fontWeight: 'bold' }}>{reason}</span>
-              </div>
-            ))}
+      {/* 5. Why Choose Us - Sticky List Model (No Image, Original Content) */}
+      <div style={{ backgroundColor: 'var(--bg-dark)', padding: '8rem 0', position: 'relative' }}>
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+          <div className="why-sticky-grid">
+            
+            {/* Sticky Left Column */}
+            <div style={{ position: 'sticky', top: '120px' }}>
+              <p className="section-subtitle text-accent" style={{ margin: 0, letterSpacing: '2px', fontWeight: 'bold' }}>THE FLY TOWARDS DIFFERENCE</p>
+              <h2 style={{ fontSize: '4rem', marginTop: '1rem', marginBottom: '1.5rem', lineHeight: 1.1 }}>Why<br/>Choose Us?</h2>
+              <p style={{ color: 'var(--text-muted)', fontSize: '1.2rem', lineHeight: '1.8', maxWidth: '400px' }}>
+                We combine creativity, technology, and data to deliver exceptional digital experiences that elevate your brand and drive measurable growth.
+              </p>
+            </div>
+
+            {/* Scrolling Right Column (List) */}
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+              {whyChooseUs.map((reason, idx) => (
+                <div key={idx} className="why-row-item" style={{ 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  padding: '2.5rem 0', 
+                  borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+                  transition: 'all 0.3s ease',
+                  cursor: 'default'
+                }}>
+                  <div style={{ fontSize: '1.5rem', fontWeight: '800', color: 'var(--accent-orange)', width: '60px', flexShrink: 0, opacity: 0.8 }}>
+                    0{idx + 1}
+                  </div>
+                  <h4 style={{ margin: 0, fontSize: '1.4rem', fontWeight: '600', color: '#fff', flexGrow: 1, transition: 'color 0.3s ease' }}>
+                    {reason}
+                  </h4>
+                  <div className="why-row-icon" style={{ color: 'var(--accent-orange)', fontSize: '1.5rem', opacity: 0, transform: 'translateX(-20px)', transition: 'all 0.3s ease' }}>
+                    <FaArrowRight />
+                  </div>
+                </div>
+              ))}
+            </div>
+
           </div>
         </div>
       </div>
@@ -302,25 +365,48 @@ const AboutPage = () => {
         </div>
       </div>
 
-      {/* 7. Industries We Serve */}
-      <div style={{ backgroundColor: 'var(--bg-dark)', padding: '5rem 0' }}>
-        <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-            <p className="section-subtitle text-accent" style={{ margin: 0 }}>WHO WE HELP</p>
-            <h2 style={{ fontSize: '2.5rem', marginTop: '0.5rem' }}>Industries We Serve</h2>
-            <p style={{ color: 'var(--text-muted)', maxWidth: '600px', margin: '1rem auto 0' }}>We proudly work with businesses across various industries, including:</p>
+      {/* 7. Industries We Serve - Bento Box Grid Model */}
+      <div style={{ backgroundColor: 'var(--bg-dark)', padding: '8rem 0', position: 'relative' }}>
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+          <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
+            <p className="section-subtitle text-accent" style={{ margin: 0, letterSpacing: '2px', fontWeight: 'bold' }}>WHO WE HELP</p>
+            <h2 style={{ fontSize: '3.5rem', marginTop: '0.5rem', marginBottom: '1rem' }}>Industries We Serve</h2>
+            <p style={{ color: 'var(--text-muted)', maxWidth: '600px', margin: '0 auto', fontSize: '1.1rem' }}>We provide tailored digital marketing strategies that drive growth for businesses across various sectors.</p>
           </div>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'center', maxWidth: '900px', margin: '0 auto' }}>
-            {industries.map((industry, idx) => (
-              <span key={idx} className="industry-pill">
-                {industry}
-              </span>
+          
+          <div className="bento-grid">
+            {[
+              { name: "E-commerce", icon: <FaStore />, type: 'large', img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=600", desc: "Boost online sales and maximize conversions with targeted product campaigns and CRO." },
+              { name: "Healthcare", icon: <FaHospital />, type: '', img: "https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=600", desc: "HIPAA-compliant marketing to build patient trust and grow your practice." },
+              { name: "Education", icon: <FaGraduationCap />, type: '', img: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=600", desc: "Drive student enrollments and enhance your institution's online presence." },
+              { name: "Real Estate", icon: <FaHome />, type: 'tall', img: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=600", desc: "Generate high-quality leads and showcase properties to the right buyers." },
+              { name: "Restaurants", icon: <FaUtensils />, type: '', img: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=600", desc: "Fill your tables and increase online orders with local SEO and social media." },
+              { name: "Fashion", icon: <FaTrophy />, type: 'wide', img: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=600", desc: "Build a highly engaged audience and drive brand loyalty with stunning visual campaigns." },
+              { name: "Technology", icon: <FaLaptopCode />, type: 'large', img: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=600", desc: "Market innovative software and SaaS products to B2B and B2C audiences." },
+              { name: "Manufacturing", icon: <FaIndustry />, type: '', img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=600", desc: "Generate qualified B2B leads and establish industry authority." },
+              { name: "Travel & Tourism", icon: <FaPlane />, type: 'tall', img: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=600", desc: "Attract more tourists and increase bookings with captivating destination marketing." },
+              { name: "Finance", icon: <FaPiggyBank />, type: '', img: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?q=80&w=600", desc: "Build authority and trust with data-driven marketing for financial services." },
+              { name: "Corporate", icon: <FaBuilding />, type: 'wide', img: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=600", desc: "Enhance your corporate identity and streamline your B2B lead generation." },
+              { name: "Startups", icon: <FaRocket />, type: '', img: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=600", desc: "Scale rapidly with growth-hacking strategies tailored for new ventures." }
+            ].map((item, idx) => (
+              <div className={`bento-flip-container ${item.type}`} key={idx}>
+                <div className="bento-flip-inner">
+                  {/* Front Side */}
+                  <div className="bento-flip-front" style={{ backgroundImage: `url(${item.img})` }}>
+                    <div className="bento-icon">{item.icon}</div>
+                    <h4 className="bento-title">{item.name}</h4>
+                  </div>
+                  {/* Back Side */}
+                  <div className="bento-flip-back">
+                    <p>{item.desc}</p>
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
         </div>
       </div>
 
-      {/* 8. Why Digital Marketing Matters */}
       {/* 8. Why Digital Marketing Matters */}
       <div style={{ backgroundColor: 'var(--accent-orange)', padding: '6rem 0', position: 'relative', overflow: 'hidden' }}>
         <div className="container why-marketing-grid">
@@ -345,25 +431,29 @@ const AboutPage = () => {
       </div>
 
       {/* 9. FAQ Section */}
-      <div style={{ backgroundColor: 'var(--bg-dark)', padding: '5rem 0' }}>
+      <div style={{ backgroundColor: 'var(--bg-dark)', padding: '5rem 0' }} ref={faqRef}>
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
             <h2 style={{ fontSize: '2.5rem' }}>Frequently Asked Questions</h2>
           </div>
-          <div className="seo-faqs" style={{ maxWidth: '800px', margin: '0 auto' }}>
-            <details className="seo-faq-item" style={{ opacity: 1 }}>
+          <div className="seo-faqs" style={{ maxWidth: '800px', margin: '0 auto', overflow: 'hidden' }}>
+            {/* Box 1 - Left */}
+            <details className={`seo-faq-item slide-transition ${isFaqVisible ? 'slide-in-active' : 'slide-hidden-left'}`} style={{ transitionDelay: '0.1s' }}>
               <summary>What industries do you work with?</summary>
               <p>We work with startups, local businesses, e-commerce brands, educational institutions, healthcare providers, real estate companies, restaurants, and enterprises across multiple industries.</p>
             </details>
-            <details className="seo-faq-item" style={{ opacity: 1 }}>
+            {/* Box 2 - Right */}
+            <details className={`seo-faq-item slide-transition ${isFaqVisible ? 'slide-in-active' : 'slide-hidden-right'}`} style={{ transitionDelay: '0.2s' }}>
               <summary>Do you offer customized digital marketing packages?</summary>
               <p>Yes. Every business has unique goals, so we create personalized marketing strategies and service packages based on your budget and objectives.</p>
             </details>
-            <details className="seo-faq-item" style={{ opacity: 1 }}>
+            {/* Box 3 - Left */}
+            <details className={`seo-faq-item slide-transition ${isFaqVisible ? 'slide-in-active' : 'slide-hidden-left'}`} style={{ transitionDelay: '0.3s' }}>
               <summary>How long does it take to see results?</summary>
               <p>The timeline depends on the service. SEO typically delivers long-term results, while paid advertising and social media campaigns can generate traffic and leads much more quickly.</p>
             </details>
-            <details className="seo-faq-item" style={{ opacity: 1 }}>
+            {/* Box 4 - Right */}
+            <details className={`seo-faq-item slide-transition ${isFaqVisible ? 'slide-in-active' : 'slide-hidden-right'}`} style={{ transitionDelay: '0.4s' }}>
               <summary>Do you provide creative services along with marketing?</summary>
               <p>Absolutely. We offer graphic design, branding, logo design, video editing, photography, animation, content creation, and other creative services to support your marketing efforts.</p>
             </details>
@@ -371,21 +461,28 @@ const AboutPage = () => {
         </div>
       </div>
 
-      {/* 10. CTA */}
-      <div className="container" style={{ padding: '6rem 0', textAlign: 'center' }}>
-        <h2 style={{ fontSize: '2.5rem', marginBottom: '1.5rem' }}>Let's Grow Your Business Together</h2>
-        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', maxWidth: '800px', margin: '0 auto 1.5rem', lineHeight: '1.8' }}>
-          At <strong>Fly Towards Digital Innovation</strong>, we believe every business deserves a strong digital presence. Our mission is to help you attract more customers, build a trusted brand, and achieve sustainable growth through innovative digital marketing and creative solutions.
-        </p>
-        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', maxWidth: '800px', margin: '0 auto 2.5rem', lineHeight: '1.8' }}>
-          Whether you're looking to improve your search engine rankings, run high-performing advertising campaigns, create engaging content, or build a memorable brand identity, our team is ready to help.
-        </p>
-        <p style={{ fontSize: '1.3rem', fontWeight: 'bold', marginBottom: '2rem' }}>
-          Contact us today and let's transform your ideas into measurable digital success.
-        </p>
-        <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem', display: 'inline-flex', alignItems: 'center', gap: '10px' }}>
-          Get a Free Consultation <FaArrowRight />
-        </Link>
+      {/* 10. CTA Section - Cinematic Parallax Model */}
+      <div className="cta-cinematic-section">
+        <div className="cta-cinematic-overlay"></div>
+        <div className="container" style={{ position: 'relative', zIndex: 2, textAlign: 'center' }}>
+          <h2 className="cta-cinematic-heading" style={{ fontSize: '3.5rem' }}>Let's Grow Your Business Together</h2>
+          
+          <p className="cta-cinematic-paragraph" style={{ fontSize: '1.2rem', marginBottom: '1.5rem', fontWeight: '400', fontFamily: 'Inter, sans-serif' }}>
+            At <strong>Grow Lap</strong>, we believe every business deserves a strong digital presence. Our mission is to help you attract more customers, build a trusted brand, and achieve sustainable growth through innovative digital marketing and creative solutions.
+          </p>
+          
+          <p className="cta-cinematic-paragraph" style={{ fontSize: '1.2rem', marginBottom: '2.5rem', fontWeight: '400', fontFamily: 'Inter, sans-serif' }}>
+            Whether you're looking to improve your search engine rankings, run high-performing advertising campaigns, create engaging content, or build a memorable brand identity, our team is ready to help.
+          </p>
+          
+          <p className="cta-cinematic-paragraph" style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '2.5rem', color: '#fff' }}>
+            Contact us today and let's transform your ideas into measurable digital success.
+          </p>
+          
+          <Link to="/contact" className="btn-primary cta-cinematic-btn" style={{ display: 'inline-flex', alignItems: 'center', gap: '10px' }}>
+            Get a Free Consultation <FaArrowRight />
+          </Link>
+        </div>
       </div>
 
     </div>

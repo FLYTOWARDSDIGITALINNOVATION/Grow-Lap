@@ -5,6 +5,21 @@ import './EmailMarketingPage.css';
 
 const EmailMarketingPage = () => {
   useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-show');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    const faqItems = document.querySelectorAll('details[class*="-faq-item"]');
+    faqItems.forEach(el => observer.observe(el));
+    
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     window.scrollTo(0, 0);
     document.title = "Email Marketing Services | Professional Email Campaign Management";
     
@@ -75,10 +90,9 @@ const EmailMarketingPage = () => {
           </Link>
         </div>
         <div className="container email-hero-grid">
-          
-          <div className="email-hero-content">
+<div className="email-hero-content">
             <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>EMAIL MARKETING SERVICES</p>
-            <h1 className="email-hero-title">Drive Engagement and Increase Sales with <br/><span>Professional Email Marketing</span></h1>
+            <h1 className="email-hero-title">Drive Engagement and Increase Sales&nbsp;with <br/><span>Professional Email Marketing</span></h1>
             <p className="email-hero-desc">
               Build stronger customer relationships and grow your business with our Professional Email Marketing Services. We create personalized, data-driven email campaigns that engage your audience, nurture leads, increase conversions, and encourage repeat business.
             </p>
@@ -90,24 +104,9 @@ const EmailMarketingPage = () => {
             </Link>
           </div>
 
-          <div className="email-hero-image-wrapper">
-            <div className="email-orbit-container">
-              <div className="orbit-ring orbit-ring-1"></div>
-              <div className="orbit-ring orbit-ring-2"></div>
-              <div className="orbit-ring orbit-ring-3"></div>
-              <img src="/email marketing serives.webp" alt="Email Marketing Services" className="hero-orbit-image" />
-              <div className="orbit-satellite sat-1">
-                <FaEnvelopeOpenText />
-              </div>
-              <div className="orbit-satellite sat-2">
-                <FaBullhorn />
-              </div>
-              <div className="orbit-satellite sat-3">
-                <FaUsers />
-              </div>
-            </div>
+          <div className="hero-image-right" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <img src="/email marketing serives.webp" alt="Email Marketing Services" style={{ width: '100%', maxWidth: '450px', aspectRatio: '1 / 1', objectFit: 'cover', borderRadius: '20px', boxShadow: '0 20px 40px rgba(0,0,0,0.4)' }} />
           </div>
-
         </div>
       </section>
 

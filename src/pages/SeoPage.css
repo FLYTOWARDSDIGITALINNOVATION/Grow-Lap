@@ -2,63 +2,71 @@
   background-color: var(--bg-dark);
   color: #fff;
   min-height: 100vh;
-  padding-top: 80px;
+  
 }
 
-/* Hero Section */
 .seo-hero {
-  padding: 2rem 0 5rem;
+  padding: 5rem 0 2rem;
+  min-height: 90vh;
   background-color: var(--bg-dark);
   position: relative;
   overflow: hidden;
+  display: flex;
+  align-items: center;
 }
 
 .seo-hero::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-image: radial-gradient(circle at top right, rgba(255, 94, 0, 0.1) 0%, transparent 50%);
-  pointer-events: none;
+  display: none;
 }
 
 .seo-hero-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  gap: 3rem;
   align-items: center;
 }
 
 .seo-hero-image-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
+  z-index: 0;
   overflow: hidden;
-  border-radius: 16px;
+  pointer-events: none;
 }
 
 .hero-left-image {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: auto;
-  display: block;
-  transform: scale(1.8) translateX(-20px);
-  animation: gentleShake 4s ease-in-out infinite;
-  mix-blend-mode: screen;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 1;
 }
 
-@keyframes gentleShake {
-  0%, 100% { transform: scale(1.8) translateX(-20px) rotate(0deg) translateY(0); }
-  25% { transform: scale(1.8) translateX(-20px) rotate(1deg) translateY(-5px); }
-  75% { transform: scale(1.8) translateX(-20px) rotate(-1deg) translateY(5px); }
-}
+
 
 .seo-hero-content {
   text-align: left;
+  max-width: 100%;
+  margin: 0;
+  position: relative;
+  z-index: 2;
 }
 
 .seo-hero-title {
   font-size: 3.5rem;
-  font-weight: 800;
+  font-weight: 900;
   margin-top: 0;
-  margin-bottom: 1.5rem;
-  line-height: 1.2;
+  margin-bottom: 0.5rem;
+  line-height: 1.1;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: -1px;
 }
 
 .seo-hero-title span {
@@ -66,10 +74,10 @@
 }
 
 .seo-hero-desc {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   color: #fff;
-  margin: 0 0 2rem 0;
-  line-height: 1.8;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.6;
 }
 
 @media (max-width: 992px) {
@@ -121,7 +129,7 @@
 .seo-new-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem 3rem;
+  gap: 1.5rem;
   margin-top: 3rem;
 }
 
@@ -129,60 +137,72 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  background: transparent;
+  padding: 1.5rem 2rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   transition: all 0.3s ease;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Minimal Hover Effect */
 .seo-grid-card:hover {
-  border-bottom-color: var(--accent-orange);
-  transform: translateX(5px);
+  background: var(--accent-orange);
+  transform: translateY(-5px);
+  border-color: var(--accent-orange);
+  box-shadow: 0 10px 25px rgba(255, 94, 0, 0.4);
 }
 
 .seo-grid-card-top {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .seo-grid-icon-wrapper {
   color: var(--accent-orange);
-  font-size: 1.3rem;
+  font-size: 1.8rem;
   display: flex;
   justify-content: center;
   align-items: center;
   transition: all 0.3s ease;
 }
 
+.seo-grid-card:hover .seo-grid-icon-wrapper {
+  color: #000;
+  transform: scale(1.15) rotate(5deg);
+}
+
 .seo-grid-title {
-  margin: 0;
   font-size: 1.1rem;
-  font-weight: 500;
-  color: #eee;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  line-height: 1.3;
   transition: color 0.3s ease;
 }
 
 .seo-grid-card:hover .seo-grid-title {
-  color: #fff;
+  color: #000;
 }
 
 .seo-grid-badge {
-  font-size: 0.8rem;
-  color: #fff;
-  padding: 4px 10px;
+  font-size: 0.75rem;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.08);
   border-radius: 4px;
-  background: rgba(255, 255, 255, 0.03);
-  font-weight: 500;
+  color: #bbb;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
   transition: all 0.3s ease;
   white-space: nowrap;
 }
 
 .seo-grid-card:hover .seo-grid-badge {
-  color: var(--accent-orange);
-  background: rgba(255, 94, 0, 0.08);
+  background: rgba(0, 0, 0, 0.15);
+  color: #000;
 }
 
 @media (max-width: 992px) {
@@ -198,7 +218,7 @@
     gap: 1rem;
   }
   .seo-grid-card {
-    padding: 1.2rem 0;
+    padding: 1.2rem;
   }
 }
 
@@ -230,17 +250,17 @@
 .seo-step-card {
   display: flex;
   background: #121215;
-  border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 12px;
   padding: 2rem;
   position: relative;
   margin-left: 60px;
   transition: all 0.3s ease;
+  border: 1px solid var(--accent-orange);
 }
 
 .seo-step-card:hover {
-  border-color: rgba(255, 94, 0, 0.5);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transform: scale(1.05);
 }
 
 .seo-step-number {
@@ -726,4 +746,109 @@
 
 .seo-faq-item.animate-show:nth-child(even) {
   animation: slideInFromRight 1s cubic-bezier(0.17, 0.55, 0.55, 1) forwards;
+}
+
+/* Why Choose Us Section */
+.seo-benefits-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.seo-benefits-title {
+  font-size: 2.5rem;
+  margin-bottom: 2.5rem;
+  font-weight: 800;
+}
+
+.seo-benefits-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
+}
+
+.seo-benefits-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  font-size: 1.1rem;
+  color: #ddd;
+  transition: all 0.3s ease;
+}
+
+.seo-benefits-item:hover {
+  background: rgba(255, 94, 0, 0.05);
+  border-color: rgba(255, 94, 0, 0.3);
+  transform: translateX(10px);
+  color: #fff;
+}
+
+.seo-benefits-icon {
+  color: var(--accent-orange);
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+}
+
+.seo-value-card {
+  background: 
+    linear-gradient(135deg, rgba(10, 10, 12, 0.92) 0%, rgba(22, 22, 26, 0.85) 100%),
+    url('/why-choose-us.jpg') center/cover no-repeat;
+  padding: 3.5rem;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.seo-value-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, var(--accent-orange), transparent);
+}
+
+.seo-value-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  padding: 1rem;
+  background: rgba(255, 94, 0, 0.1);
+  border-radius: 50%;
+  border: 1px solid rgba(255, 94, 0, 0.2);
+}
+
+.seo-value-title {
+  color: var(--accent-orange);
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.seo-value-desc {
+  color: #aaa;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  margin-bottom: 0;
+}
+
+.seo-value-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 1.5rem 0;
+}
+
+@media (max-width: 992px) {
+  .seo-benefits-grid {
+    grid-template-columns: 1fr;
+  }
+  .seo-value-card {
+    padding: 2.5rem;
+  }
 }

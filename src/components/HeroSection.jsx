@@ -11,9 +11,9 @@ const HeroSection = () => {
         <div className="hero-content">
           <p className="hero-subtitle text-accent">WE BUILD • WE SOLVE • WE GROW</p>
           <h1 className="hero-title">
-            Digital Solutions<br />
-            That Drive Real<br />
-            <span className="text-accent">Business Growth</span>
+            <span style={{ whiteSpace: 'nowrap' }}>Digital Solutions</span><br />
+            <span style={{ whiteSpace: 'nowrap' }}>That Drive Real</span><br />
+            <span className="text-accent" style={{ whiteSpace: 'nowrap' }}>Business Growth</span>
           </h1>
           <p className="hero-description">
             We are a digital innovation agency helping businesses transform ideas into powerful digital products and experiences.
@@ -35,7 +35,7 @@ const HeroSection = () => {
               <div className="avatar"></div>
               <div className="avatar"></div>
             </div>
-            <p><strong>50+</strong> Happy Clients</p>
+            <p><strong>25+</strong> Happy Clients</p>
           </div>
         </div>
 

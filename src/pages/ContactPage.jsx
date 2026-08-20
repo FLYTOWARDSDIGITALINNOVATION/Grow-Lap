@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './ContactPage.css';
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaClock } from 'react-icons/fa';
 
 const ContactPage = () => {
+  const [result, setResult] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setResult("Sending...");
+    
     const form = e.target;
     const formData = new FormData(form);
 
-    fetch('https://formsubmit.co/ajax/udhayabanu2005@gmail.com', {
+    fetch('https://formsubmit.co/ajax/growlapmarketing@gmail.com', {
       method: 'POST',
       body: formData,
       headers: {
@@ -17,12 +23,16 @@ const ContactPage = () => {
     })
     .then(response => response.json())
     .then(data => {
-      // Refresh the page upon success as requested
-      window.location.reload();
+      setResult("Message sent successfully!");
+      form.reset();
+      setIsSubmitting(false);
+      setTimeout(() => setResult(""), 5000);
     })
     .catch(error => {
       console.error('Submission failed', error);
-      alert('Failed to send message. Please try again later.');
+      setResult("Failed to send message. Please try again.");
+      setIsSubmitting(false);
+      setTimeout(() => setResult(""), 5000);
     });
   };
 
@@ -46,7 +56,7 @@ const ContactPage = () => {
               
               <div className="contact-form-grid">
                 <input type="text" name="Name" className="contact-input full-width" placeholder="Name" required />
-                <input type="email" name="Email" className="contact-input" placeholder="E-mail" required />
+                <input type="text" name="Company Name" className="contact-input" placeholder="Company Name" required />
                 <input type="tel" name="Phone Number" className="contact-input" placeholder="Phone number" required />
                 <textarea name="Message" className="contact-textarea" placeholder="Message" required></textarea>
               </div>
@@ -56,7 +66,15 @@ const ContactPage = () => {
                 <label htmlFor="terms">I agree <a href="#">Privacy Terms and Conditions</a></label>
               </div>
               
-              <button type="submit" className="btn-contact-submit">Submit</button>
+              <button type="submit" className="btn-contact-submit" disabled={isSubmitting}>
+                {isSubmitting ? "Sending..." : "Submit"}
+              </button>
+
+              {result && (
+                <p style={{ color: result.includes('successfully') ? '#4caf50' : '#ff9800', marginTop: '1rem', textAlign: 'center' }}>
+                  {result}
+                </p>
+              )}
             </form>
           </div>
 
@@ -68,33 +86,49 @@ const ContactPage = () => {
         </div>
         
         {/* Contact Info Centered Card */}
-        <div style={{ marginTop: '5rem', display: 'flex', justifyContent: 'center' }}>
-          <div className="direct-contact-card">
-            <h3 style={{ marginBottom: '1rem', color: 'var(--accent-orange)', fontSize: '2.2rem' }}>Direct Contact</h3>
-            <p style={{ marginBottom: '2.5rem', color: '#aaa', lineHeight: 1.6, fontSize: '1.1rem' }}>Reach out to us directly for immediate assistance or to start a new project. Our team is ready to assist you.</p>
-            <ul className="contact-info" style={{ listStyle: 'none', padding: 0, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', textAlign: 'left' }}>
-              <li style={{ display: 'flex', gap: '1.2rem', alignItems: 'center', fontSize: '1.15rem', justifyContent: 'center' }}>
-                <FaPhoneAlt className="contact-icon text-accent" style={{ fontSize: '1.4rem' }} />
-                <span>+91 76958 83647</span>
-              </li>
-              <li style={{ display: 'flex', gap: '1.2rem', alignItems: 'center', fontSize: '1.15rem', justifyContent: 'center' }}>
-                <FaEnvelope className="contact-icon text-accent" style={{ fontSize: '1.4rem' }} />
-                <span>info@flytowardsdigitalinnovation.com</span>
-              </li>
-              <li style={{ display: 'flex', gap: '1.2rem', alignItems: 'center', fontSize: '1.15rem', justifyContent: 'center' }}>
-                <FaMapMarkerAlt className="contact-icon text-accent" style={{ fontSize: '1.4rem' }} />
-                <span>Sankarankovil, Tamil Nadu, India</span>
-              </li>
-              <li style={{ display: 'flex', gap: '1.2rem', alignItems: 'center', fontSize: '1.15rem', justifyContent: 'center' }}>
-                <FaClock className="contact-icon text-accent" style={{ fontSize: '1.4rem' }} />
-                <span>Mon - Sat: 9.00 AM - 6.00 PM</span>
-              </li>
-            </ul>
+        <div className="direct-contact-section">
+          <div className="direct-contact-header">
+            <h3>Direct Contact</h3>
+            <p>Reach out to us directly for immediate assistance or to start a new project. Our team is ready to assist you.</p>
+          </div>
+          
+          <div className="contact-cards-grid">
+            <a href="tel:+917695883647" className="contact-info-card" style={{ textDecoration: 'none', display: 'block' }}>
+              <div className="icon-circle">
+                <FaPhoneAlt className="contact-icon text-accent" />
+              </div>
+              <h4>Call Us</h4>
+              <p>+91 76958 83647</p>
+            </a>
+            
+            <a href="mailto:growlapmarketing@gmail.com" className="contact-info-card" style={{ textDecoration: 'none', display: 'block' }}>
+              <div className="icon-circle">
+                <FaEnvelope className="contact-icon text-accent" />
+              </div>
+              <h4>Email Us</h4>
+              <p>growlapmarketing@gmail.com</p>
+            </a>
+            
+            <a href="#map-location" className="contact-info-card" style={{ textDecoration: 'none', display: 'block' }}>
+              <div className="icon-circle">
+                <FaMapMarkerAlt className="contact-icon text-accent" />
+              </div>
+              <h4>Visit Us</h4>
+              <p>Sankarankovil, Tamil Nadu, India</p>
+            </a>
+            
+            <div className="contact-info-card">
+              <div className="icon-circle">
+                <FaClock className="contact-icon text-accent" />
+              </div>
+              <h4>Working Hours</h4>
+              <p>Mon - Sat: 9.00 AM - 6.00 PM</p>
+            </div>
           </div>
         </div>
       
       {/* Map Location */}
-      <div style={{ marginTop: '1rem', marginBottom: '4rem' }}>
+      <div id="map-location" style={{ marginTop: '1rem', marginBottom: '4rem', scrollMarginTop: '100px' }}>
         <h3 style={{ marginBottom: '1.5rem', textAlign: 'center' }}>Find Us Here</h3>
         <iframe 
           title="Location Map"

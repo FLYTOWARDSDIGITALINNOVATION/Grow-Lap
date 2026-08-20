@@ -21,6 +21,7 @@ const AdminDashboard = () => {
   
   const editorRef = useRef(null);
   const fileInputRef = useRef(null);
+  const inlineImageInputRef = useRef(null);
   
   // Manage Posts State
   const [blogsList, setBlogsList] = useState([]);
@@ -71,6 +72,20 @@ const AdminDashboard = () => {
 
   const handleUploadClick = () => {
     fileInputRef.current?.click();
+  };
+
+  const handleInlineImageChange = (e) => {
+    if (e.target.files && e.target.files.length > 0) {
+      Array.from(e.target.files).forEach(file => {
+        const reader = new FileReader();
+        reader.addEventListener('load', () => {
+          document.execCommand('insertImage', false, reader.result);
+        });
+        reader.readAsDataURL(file);
+      });
+      // reset the input
+      if (inlineImageInputRef.current) inlineImageInputRef.current.value = '';
+    }
   };
 
   const handleFileChange = (e) => {
@@ -247,8 +262,7 @@ const AdminDashboard = () => {
                 }} title="Link"><FaLink /></button>
                 <button className="toolbar-icon" onClick={() => document.execCommand('formatBlock', false, 'PRE')} title="Code Block">{"</>"}</button>
                 <button className="toolbar-icon" onClick={() => {
-                  const url = prompt('Enter Image URL:');
-                  if(url) document.execCommand('insertImage', false, url);
+                  inlineImageInputRef.current?.click();
                 }} title="Insert Image"><FaImage /></button>
               </div>
               <div className="toolbar-right">
@@ -265,7 +279,7 @@ const AdminDashboard = () => {
 
             {/* Editor Workspace */}
             <div className="studio-workspace">
-              {/* Hidden File Input */}
+              {/* Hidden File Input for Cover */}
               <input 
                 type="file" 
                 accept="image/*" 
@@ -274,8 +288,18 @@ const AdminDashboard = () => {
                 onChange={handleFileChange} 
               />
               
+              {/* Hidden File Input for Inline Editor Images (Multiple) */}
+              <input 
+                type="file" 
+                multiple
+                accept="image/*" 
+                ref={inlineImageInputRef} 
+                style={{ display: 'none' }} 
+                onChange={handleInlineImageChange} 
+              />
+              
               {/* Cover Image Upload Area */}
-              <div className="studio-cover-upload" style={coverImage ? { backgroundImage: `url(${coverImage})`, backgroundSize: 'cover', backgroundPosition: 'center' } : {}}>
+              <div className="studio-cover-upload" style={coverImage ? { backgroundImage: `url(${coverImage})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'center' } : {}}>
                 {!coverImage && (
                   <div className="upload-placeholder">
                     <div className="upload-icon-large"><FaImage /></div>

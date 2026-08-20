@@ -23,8 +23,9 @@
 .blog-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   transition: transform 0.5s ease;
+  background-color: rgba(0,0,0,0.2); /* Slight dark background to handle empty spaces */
 }
 
 .blog-card:hover .blog-image img {

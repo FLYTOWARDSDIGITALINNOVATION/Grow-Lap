@@ -3,13 +3,13 @@ import { FaRegSmile, FaRegFileAlt, FaUsers, FaTrophy } from 'react-icons/fa';
 import './StatsSection.css';
 
 const stats = [
-  { icon: <FaRegSmile />, value: 50, suffix: '+', label: 'Happy Clients' },
+  { icon: <FaRegSmile />, value: 25, suffix: '+', label: 'Happy Clients' },
   { icon: <FaRegFileAlt />, value: 25, suffix: '+', label: 'Projects Completed' },
   { icon: <FaUsers />, value: 10, suffix: '+', label: 'Team Members' },
-  { icon: <FaTrophy />, value: 1, suffix: '+', label: 'Years of Experience' }
+  { icon: <FaTrophy />, value: 'One', suffix: '+', label: 'Years of Experience' }
 ];
 
-const AnimatedCounter = ({ endValue, suffix }) => {
+const AnimatedCounter = ({ endValue }) => {
   const [count, setCount] = useState(0);
   const [hasAnimated, setHasAnimated] = useState(false);
   const counterRef = useRef(null);
@@ -48,21 +48,28 @@ const AnimatedCounter = ({ endValue, suffix }) => {
     return () => observer.disconnect();
   }, [endValue, hasAnimated]);
 
-  return <h3 ref={counterRef}>{count}{suffix}</h3>;
+  return <span ref={counterRef}>{count}</span>;
 };
 
 const StatsSection = () => {
   return (
     <section className="stats-section">
-      <div className="container">
+      <div className="container stats-container">
         <div className="stats-grid">
           {stats.map((stat, index) => (
-            <div key={index} className="stat-item">
-              <div className="stat-icon text-accent">{stat.icon}</div>
-              <div className="stat-info">
-                <AnimatedCounter endValue={stat.value} suffix={stat.suffix} />
-                <p>{stat.label}</p>
+            <div key={index} className="stat-card">
+              <div className="stat-icon-wrapper">
+                {stat.icon}
               </div>
+              <div className="stat-number-wrapper">
+                {typeof stat.value === 'number' ? (
+                  <AnimatedCounter endValue={stat.value} />
+                ) : (
+                  <span>{stat.value}</span>
+                )}
+                <span className="stat-suffix">{stat.suffix}</span>
+              </div>
+              <div className="stat-label">{stat.label}</div>
             </div>
           ))}
         </div>

@@ -1,8 +1,31 @@
+import realEstateImg from '../assets/images/real-estate.webp';
+import clothingBrandImg from '../assets/images/clothing-brand.webp';
+import manufacturingImg from '../assets/images/manufacturing.webp';
+import jewelryImg from '../assets/images/jewlary.webp';
+import hospitalImg from '../assets/images/hospital.webp';
+import hotelImg from '../assets/images/hotel.webp';
+import schoolImg from '../assets/images/school.webp';
+import collegeImg from '../assets/images/college.webp';
+import boutiqueImg from '../assets/images/boutique.webp';
+import spaImg from '../assets/images/spa.webp';
+import financeImg from '../assets/images/finance-service.webp';
+import academiesImg from '../assets/images/academies.webp';
+import coachingImg from '../assets/images/coaching centers.webp';
+import crackersImg from '../assets/images/crackers.webp';
+import restaurantImg from '../assets/images/restaurant.webp';
+import resortsImg from '../assets/images/resorts.webp';
+import villasImg from '../assets/images/villas.webp';
+import retailShopImg from '../assets/images/retail-shop.webp';
+import furnitureImg from '../assets/images/furniture stores.webp';
+import taxisImg from '../assets/images/taxis.webp';
+import constructionImg from '../assets/images/construction.webp';
+import showroomImg from '../assets/images/showroom.webp';
+
 export const industryData = {
   'real-estate': {
     title: 'Digital Marketing for Real Estate',
     subtitle: 'Generate More Property Leads with Expert Real Estate Digital Marketing',
-    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&q=80',
+    image: realEstateImg,
     description: "Grow your real estate business with our results-driven digital marketing services. We help real estate developers, builders, property consultants, brokers, and real estate agencies attract qualified buyers, generate high-quality leads, and increase property sales through powerful digital marketing strategies.",
     stats: [
       { label: 'Property Leads', value: '10k+' },
@@ -76,7 +99,7 @@ export const industryData = {
   'clothing-brands': {
     title: 'Digital Marketing for Clothing Brands',
     subtitle: 'Grow Your Clothing Brand with Result-Driven Digital Marketing',
-    image: 'https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=1200&q=80',
+    image: clothingBrandImg,
     description: "Take your clothing brand to the next level with our professional digital marketing services for fashion and apparel businesses. We help clothing brands, fashion startups, boutiques, online stores, and apparel manufacturers increase brand awareness, drive targeted traffic, and generate more online sales through data-driven marketing strategies.",
     stats: [
       { label: 'Average ROAS', value: '4.5x+' },
@@ -150,7 +173,7 @@ export const industryData = {
   'manufacturing': {
     title: 'Digital Marketing for Manufacturing Companies',
     subtitle: 'Grow Your Manufacturing Business with Strategic Digital Marketing',
-    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&q=80',
+    image: manufacturingImg,
     description: "Expand your manufacturing business and generate high-quality B2B leads with our digital marketing services for manufacturing companies. We help manufacturers, industrial suppliers, OEMs, exporters, wholesalers, and factories increase their online visibility, attract qualified buyers, and drive business growth through data-driven digital marketing strategies.",
     stats: [
       { label: 'B2B Leads', value: '8,500+' },
@@ -224,7 +247,7 @@ export const industryData = {
   'jewelry': {
     title: 'Digital Marketing for Jewelry Brands',
     subtitle: 'Grow Your Jewelry Business with Expert Digital Marketing',
-    image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1200&q=80',
+    image: jewelryImg,
     description: "Increase your jewelry brand's visibility, attract high-intent customers, and boost online sales with our digital marketing services for jewelry businesses. We help jewelry stores, gold and diamond retailers, silver jewelry brands, gemstone dealers, luxury jewelry brands, and online jewelry businesses grow through strategic digital marketing solutions.",
     stats: [
       { label: 'Jewelry Leads', value: '7,500+' },
@@ -298,7 +321,7 @@ export const industryData = {
   'hospitals-clinics': {
     title: 'Digital Marketing for Hospitals & Clinics',
     subtitle: 'Helping Hospitals & Clinics Reach More Patients with Smart Digital Marketing',
-    image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1200&q=80',
+    image: hospitalImg,
     description: "In today's digital world, patients search online before choosing a hospital, clinic, or doctor. We specialize in digital marketing for hospitals, clinics, diagnostic centers, dental clinics, eye hospitals, fertility centers, physiotherapy clinics, and healthcare professionals. Our customized marketing strategies help you increase patient inquiries, build trust, and establish your healthcare brand as a trusted choice in your community.",
     stats: [
       { label: 'Patient Inquiries', value: '12k+' },
@@ -370,7 +393,7 @@ export const industryData = {
   'hotels': {
     title: 'Digital Marketing for Hotels',
     subtitle: 'Increase Hotel Bookings with Result-Driven Digital Marketing',
-    image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200&q=80',
+    image: hotelImg,
     description: "In today's competitive hospitality industry, travelers search online before booking their stay. If your hotel isn't visible on Google or social media, you're losing valuable guests to your competitors. Our digital marketing services for hotels help increase direct bookings, improve online visibility, and build a trusted hospitality brand.",
     stats: [
       { label: 'Direct Bookings', value: '+85%' },
@@ -480,7 +503,7 @@ export const industryData = {
   'schools': {
     title: 'Digital Marketing for Schools',
     subtitle: 'Inspire More Admissions with Strategic Digital Marketing',
-    image: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?w=1200&q=80',
+    image: schoolImg,
     description: "A school's reputation begins online. Parents and students search for trusted educational institutions before making admission decisions. We provide specialized digital marketing services for schools, helping educational institutions increase admissions, strengthen their brand, and engage with parents through innovative digital strategies.",
     stats: [
       { label: 'Admissions Inquiry', value: '4,500+' },
@@ -553,7 +576,7 @@ export const industryData = {
   'colleges': {
     title: 'Digital Marketing for Colleges',
     subtitle: 'Empower Your College with Digital Marketing That Drives Admissions',
-    image: 'https://images.unsplash.com/photo-1498243691581-b145c3f54a5c?w=1200&q=80',
+    image: collegeImg,
     description: "In today's digital-first world, students and parents explore colleges online before making admission decisions. We help colleges stand out with innovative digital marketing strategies that increase visibility, build trust, and attract qualified student inquiries.",
     stats: [
       { label: 'Enrollment Inquiries', value: '8,500+' },
@@ -626,7 +649,7 @@ export const industryData = {
   'boutique': {
     title: 'Digital Marketing for Boutiques',
     subtitle: "Turn Your Boutique into a Fashion Brand Everyone Notices",
-    image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&q=80',
+    image: boutiqueImg,
     description: "Fashion is all about making a lasting impression—and your boutique deserves to stand out online. Whether you own a designer boutique, bridal boutique, ethnic wear store, women's fashion boutique, kids' boutique, men's fashion boutique, or an online fashion store, we help you attract the right customers through creative and result-driven digital marketing.",
     stats: [
       { label: 'Boutique Sales', value: '3x Boost' },
@@ -699,7 +722,7 @@ export const industryData = {
   'spa': {
     title: 'Digital Marketing for Spas',
     subtitle: 'Transform Your Spa into a Relaxation Destination with Digital Marketing',
-    image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1200&q=80',
+    image: spaImg,
     description: "In the wellness industry, first impressions happen online. Before booking a massage, facial, or wellness treatment, customers search Google, browse Instagram, and read reviews. We provide digital marketing services for spas, helping luxury spas, wellness centers, Ayurvedic spas, beauty spas, massage centers, day spas, and wellness retreats attract more clients, increase appointments, and build a premium brand.",
     stats: [
       { label: 'Spa Appointments', value: '4k+' },
@@ -772,7 +795,7 @@ export const industryData = {
   'finance': {
     title: 'Digital Marketing for Financial Services',
     subtitle: 'Build Trust. Generate Qualified Leads. Grow Your Financial Business.',
-    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&q=80',
+    image: financeImg,
     description: "In the financial industry, trust is everything. Before choosing a financial advisor, loan provider, insurance company, investment firm, or tax consultant, people research online, compare services, and read reviews. We provide specialized digital marketing services for financial businesses, helping companies increase brand awareness, generate quality leads, and build long-term customer relationships through ethical and data-driven marketing strategies.",
     stats: [
       { label: 'Financial Leads', value: '4,800+' },
@@ -845,7 +868,7 @@ export const industryData = {
   'academy': {
     title: 'Digital Marketing for Academies',
     subtitle: 'Empower Your Academy to Reach More Students with Digital Marketing',
-    image: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1200&q=80',
+    image: academiesImg,
     description: "Every student begins their learning journey with an online search. Whether they're looking for a coaching center, language institute, skill development program, or competitive exam training, your academy needs a strong digital presence to stand out. We provide digital marketing services for academies that help you attract more student enquiries, increase admissions, build your reputation, and grow your educational brand.",
     stats: [
       { label: 'Student Enquiries', value: '6,200+' },
@@ -918,7 +941,7 @@ export const industryData = {
   'coaching-center': {
     title: 'Digital Marketing for Coaching Centres',
     subtitle: 'Fill Every Batch with High-Quality Student Enquiries',
-    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1200&q=80',
+    image: coachingImg,
     description: "Today's students and parents begin their search for coaching centres online. Whether it's for NEET, JEE, UPSC, TNPSC, SSC, Banking, IELTS, Spoken English, Computer Courses, Tuition, or Skill Development, your coaching centre needs a strong online presence to attract the right students. Our digital marketing services for coaching centres are designed to increase admissions, generate quality leads, and build your institute into a trusted educational brand.",
     stats: [
       { label: 'Course Admissions', value: '+85%' },
@@ -991,7 +1014,7 @@ export const industryData = {
   'crackers': {
     title: 'Digital Marketing for Cracker Brands',
     subtitle: 'Light Up Your Sales with Powerful Digital Marketing',
-    image: 'https://images.unsplash.com/photo-1531266752426-aad472b7bbf4?w=1200&q=80',
+    image: crackersImg,
     description: "The fireworks industry is highly seasonal, making it essential to reach customers before and during festive occasions. Whether you are a cracker manufacturer, wholesale fireworks supplier, retail fireworks store, or online cracker brand, our digital marketing strategies help you increase visibility, attract more customers, and maximize festive season sales. We create result-driven campaigns that help your brand stand out during Diwali, New Year celebrations, weddings, temple festivals, and special events, ensuring your products reach the right audience at the right time.",
     stats: [
       { label: 'Wholesale Inquiries', value: '450+ / season' },
@@ -1064,7 +1087,7 @@ export const industryData = {
   'restaurants': {
     title: 'Digital Marketing for Restaurants',
     subtitle: 'Serve More Customers with Powerful Restaurant Digital Marketing',
-    image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=80',
+    image: restaurantImg,
     description: "Great food deserves great visibility. In today's digital world, customers discover restaurants through Google Search, Google Maps, Instagram, Facebook, and online reviews before deciding where to dine. If your restaurant isn't standing out online, you're losing potential customers every day. Our restaurant digital marketing services help restaurants attract more diners, increase table reservations, boost online food orders, and build a memorable brand that customers love and recommend.",
     stats: [
       { label: 'Table Bookings', value: '+140%' },
@@ -1137,7 +1160,7 @@ export const industryData = {
   'resorts': {
     title: 'Digital Marketing for Resorts',
     subtitle: "Turn Your Resort into Every Traveler's First Choice",
-    image: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1200&q=80',
+    image: resortsImg,
     description: "Travelers don't just book resorts—they book experiences. Before making a reservation, they search online, compare reviews, browse photos, and watch videos. If your resort doesn't create a memorable first impression online, potential guests may choose a competitor. Our Digital Marketing Services for Resorts help luxury resorts, beach resorts, hill resorts, eco-resorts, wellness retreats, adventure resorts, and family vacation destinations attract more guests, increase direct bookings, and build a premium hospitality brand.",
     stats: [
       { label: 'Direct Bookings Boost', value: '+85%' },
@@ -1208,7 +1231,7 @@ export const industryData = {
   'villas': {
     title: 'Digital Marketing for Villas',
     subtitle: 'Sell More Villas with High-Performance Digital Marketing',
-    image: 'https://images.unsplash.com/photo-1613977257363-707ba9348227?w=1200&q=80',
+    image: villasImg,
     description: "Buying a villa is a major investment, and today's buyers begin their journey online. They explore luxury properties, compare locations, view photos and videos, and research developers before making an enquiry. If your villa project isn't visible where buyers are searching, you're missing valuable sales opportunities. Our Digital Marketing Services for Villas help villa developers, gated community projects, luxury villa builders, real estate agencies, and independent villa promoters generate qualified leads, increase site visits, and convert interested buyers into customers.",
     stats: [
       { label: 'Villa Leads Generated', value: '3,800+' },
@@ -1281,7 +1304,7 @@ export const industryData = {
   'retail-shops': {
     title: 'Digital Marketing for Retail Shops',
     subtitle: 'Bring More Customers to Your Store with Smart Digital Marketing',
-    image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&q=80',
+    image: retailShopImg,
     description: "Your retail shop deserves more than foot traffic—it deserves a strong online presence that attracts customers every day. Whether you own a clothing store, supermarket, electronics shop, furniture showroom, gift shop, footwear store, mobile shop, cosmetics store, or lifestyle retail outlet, our digital marketing solutions help you reach more customers and increase sales. We create customized marketing strategies that make your products visible where customers spend most of their time—on Google, Instagram, Facebook, YouTube, and WhatsApp.",
     stats: [
       { label: 'Store Footfall Lift', value: '2.5x Boost' },
@@ -1354,7 +1377,7 @@ export const industryData = {
   'furniture': {
     title: 'Digital Marketing for Furniture Stores',
     subtitle: 'Turn Your Furniture Store into the First Choice for Every Home',
-    image: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=1200&q=80',
+    image: furnitureImg,
     description: "When customers plan to buy furniture, their journey starts online. They compare designs, browse catalogs, read reviews, and search for the best furniture stores before making a purchase. If your business isn't visible online, you're losing potential customers to competitors. Our Digital Marketing Services for Furniture Stores help furniture showrooms, home décor brands, modular furniture manufacturers, office furniture suppliers, and online furniture stores attract more buyers, generate quality enquiries, and increase sales through strategic digital marketing.",
     stats: [
       { label: 'Furniture Sales', value: '3x Growth' },
@@ -1427,7 +1450,7 @@ export const industryData = {
   'taxis-transport': {
     title: 'Digital Marketing for Taxis & Transport Services',
     subtitle: 'Drive More Bookings with Powerful Digital Marketing',
-    image: 'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=1200&q=80',
+    image: taxisImg,
     description: "In today's fast-moving world, customers book taxis and transport services online within minutes. Whether they need an airport transfer, corporate cab, tourist vehicle, school transport, or logistics service, they usually start with a Google search or social media. If your business isn't visible online, you're missing valuable booking opportunities. Our Digital Marketing Services for Taxis & Transport Companies help businesses attract more customers, increase bookings, improve brand recognition, and grow revenue through smart, performance-driven marketing strategies.",
     stats: [
       { label: 'Cab Booking Enquiries', value: '+140%' },
@@ -1500,7 +1523,7 @@ export const industryData = {
   'construction': {
     title: 'Digital Marketing for Construction Companies',
     subtitle: 'Build a Strong Digital Presence That Wins More Projects',
-    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80',
+    image: constructionImg,
     description: "The construction industry has become more competitive than ever. Today, clients, property owners, architects, and businesses search online before selecting a construction company. A professional digital presence helps establish credibility, showcase completed projects, and generate high-quality business enquiries. Our Digital Marketing Services for Construction Companies are designed to help construction firms, civil contractors, builders, infrastructure companies, residential and commercial contractors, interior contractors, and engineering firms attract more clients and grow their business.",
     stats: [
       { label: 'Project Leads', value: '450+ / Yr' },
@@ -1571,7 +1594,7 @@ export const industryData = {
   'showrooms': {
     title: 'Digital Marketing for Showrooms',
     subtitle: 'Turn Walk-In Visitors into Loyal Customers with Smart Digital Marketing',
-    image: 'https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=1200&q=80',
+    image: showroomImg,
     description: "Your showroom is more than a place to display products—it's where customers experience your brand. Today, most buyers search online before visiting a showroom. Whether they're looking for furniture, automobiles, electronics, home appliances, jewelry, or lifestyle products, they compare brands, read reviews, and explore websites before making a purchase. Our Digital Marketing Services for Showrooms help businesses increase showroom visits, generate qualified enquiries, and boost sales through strategic online marketing.",
     stats: [
       { label: 'Showroom Footfall', value: '2.5x Boost' },

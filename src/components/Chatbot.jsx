@@ -5,7 +5,7 @@ import './Chatbot.css';
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { sender: 'bot', text: 'Hi! Welcome to Fly Towards Digital Innovation. How can we help you today?' }
+    { sender: 'bot', text: 'Hi! Welcome to Grow Lap Digital Innovation. How can we help you today?' }
   ]);
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
@@ -62,7 +62,7 @@ const Chatbot = () => {
               <FaRobot />
             </div>
             <div>
-              <h4 style={{ margin: 0, fontSize: '1.1rem', color: '#fff' }}>Fly Support</h4>
+              <h4 style={{ margin: 0, fontSize: '1.1rem', color: '#fff' }}>Grow Lap Support</h4>
               <span style={{ fontSize: '0.8rem', color: '#4ade80' }}>Online</span>
             </div>
           </div>

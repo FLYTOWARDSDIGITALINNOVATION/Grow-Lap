@@ -46,15 +46,6 @@ const SeoPage = () => {
     { title: "Technical SEO", badge: "Backend Fixes", icon: <FaCogs /> },
     { title: "Off-Page SEO & Link Building", badge: "Build Authority", icon: <FaLink /> },
     { title: "Local SEO", badge: "Local Reach", icon: <FaMapMarkerAlt /> },
-    { title: "E-commerce SEO", badge: "Boost Sales", icon: <FaShoppingCart /> },
-    { title: "Content Optimization", badge: "Quality Content", icon: <FaFileAlt /> },
-    { title: "SEO Copywriting", badge: "Engaging Text", icon: <FaPen /> },
-    { title: "Mobile SEO Optimization", badge: "Mobile Friendly", icon: <FaMobileAlt /> },
-    { title: "Website Speed Optimization", badge: "Fast Loading", icon: <FaTachometerAlt /> },
-    { title: "Image SEO", badge: "Visual Ranking", icon: <FaImage /> },
-    { title: "Schema Markup Implementation", badge: "Rich Snippets", icon: <FaCode /> },
-    { title: "SEO Performance Tracking", badge: "Track Growth", icon: <FaChartBar /> },
-    { title: "Monthly SEO Reporting", badge: "Clear Insights", icon: <FaCalendarAlt /> },
   ];
 
   const whyChooseUs = [
@@ -117,31 +108,29 @@ const SeoPage = () => {
       {/* Hero Section */}
       <section className="seo-hero">
         <div className="container">
-          <Link to="/services/digital-marketing" style={{ color: 'var(--accent-orange)', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', textDecoration: 'none', fontWeight: 'bold', fontSize: '1.1rem' }}>
+          <Link to="/services/digital-marketing" style={{ color: 'var(--accent-orange)', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', textDecoration: 'none', fontWeight: 'bold', fontSize: '1.1rem', position: 'relative', zIndex: 2 }}>
             <span>←</span> Back to Digital Marketing
           </Link>
           <div className="seo-hero-grid">
+<div className="seo-hero-content">
+              <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>SEO – SEARCH ENGINE OPTIMIZATION SERVICES</p>
+              <h1 className="seo-hero-title">Grow Your Business&nbsp;with <br/><span>Professional SEO Services</span></h1>
+              
+              <p className="seo-hero-desc">
+                Increase your online visibility and attract high-quality traffic with our SEO (Search Engine Optimization) Services. We help businesses improve their search engine rankings, reach the right audience, and generate more leads through proven, data-driven SEO strategies.
+              </p>
             
-            <div className="seo-hero-image-wrapper">
-            <img src="/SEO Serives.webp" alt="SEO Services" className="hero-left-image" />
-          </div>
+              <p className="seo-hero-desc">
+                Whether you're a startup, local business, or established brand, our SEO experts create customized optimization plans that improve your website's performance on Google and other major search engines.
+              </p>
+              <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem', display: 'inline-block', marginTop: '1rem' }}>
+                Get Your Free SEO Consultation
+              </Link>
+            </div>
 
-          <div className="seo-hero-content">
-            <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>SEO – SEARCH ENGINE OPTIMIZATION SERVICES</p>
-            <h1 className="seo-hero-title">Grow Your Business with <br/><span>Professional SEO Services</span></h1>
-            
-            <p className="seo-hero-desc">
-              Increase your online visibility and attract high-quality traffic with our SEO (Search Engine Optimization) Services. We help businesses improve their search engine rankings, reach the right audience, and generate more leads through proven, data-driven SEO strategies.
-            </p>
-            
-            <p className="seo-hero-desc">
-              Whether you're a startup, local business, or established brand, our SEO experts create customized optimization plans that improve your website's performance on Google and other major search engines.
-            </p>
-            <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem', display: 'inline-block', marginTop: '1rem' }}>
-              Get Your Free SEO Consultation
-            </Link>
+          <div className="hero-image-right" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <img src="/seo-hero-assets.webp" alt="SEO Services Laptop" style={{ width: '100%', maxWidth: '550px', height: 'auto', borderRadius: '20px', boxShadow: '0 20px 40px rgba(0,0,0,0.4)', filter: 'drop-shadow(0 10px 15px rgba(0,0,0,0.5))' }} />
           </div>
-
         </div>
         </div>
       </section>
@@ -173,27 +162,38 @@ const SeoPage = () => {
       </section>
 
       {/* Why Choose Us & Benefits */}
-      <section className="seo-benefits-section" style={{ padding: '6rem 0', backgroundColor: 'var(--bg-dark)' }}>
-        <div className="container">
-          <div className="grid-2" style={{ gap: '4rem', alignItems: 'center' }}>
-            <div>
-              <h2 style={{ fontSize: '2.5rem', marginBottom: '2rem' }}>Why Choose Our SEO Services?</h2>
-              <ul style={{ listStyle: 'none', padding: 0 }}>
+      <section className="seo-benefits-section" style={{ padding: '6rem 0', backgroundColor: 'var(--bg-dark)', position: 'relative', overflow: 'hidden' }}>
+        {/* Ambient glow backgrounds */}
+        <div style={{ position: 'absolute', top: '-10%', left: '-10%', width: '500px', height: '500px', background: 'radial-gradient(circle, rgba(255, 94, 0, 0.08) 0%, transparent 70%)', zIndex: 0 }}></div>
+        <div style={{ position: 'absolute', bottom: '-10%', right: '-10%', width: '500px', height: '500px', background: 'radial-gradient(circle, rgba(255, 94, 0, 0.05) 0%, transparent 70%)', zIndex: 0 }}></div>
+
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+          <div className="seo-benefits-grid">
+            <div className="seo-benefits-left">
+              <h2 className="seo-benefits-title">Why Choose Our SEO Services?</h2>
+              <div className="seo-benefits-list">
                 {whyChooseUs.map((item, idx) => (
-                  <li key={idx} style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '1rem', color: '#ccc', fontSize: '1.1rem' }}>
-                    <FaCheckCircle style={{ color: 'var(--accent-orange)' }} /> {item}
-                  </li>
+                  <div key={idx} className="seo-benefits-item">
+                    <div className="seo-benefits-icon">
+                      <FaCheckCircle />
+                    </div>
+                    <span>{item}</span>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
-            <div style={{ backgroundColor: '#121215', padding: '3rem', borderRadius: '16px', border: '1px solid rgba(255, 255, 255, 0.05)' }}>
-              <h3 style={{ color: 'var(--accent-orange)', marginBottom: '1.5rem', fontSize: '2rem' }}>The True Value of SEO</h3>
-              <p style={{ color: '#aaa', fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '1.5rem' }}>
-                Professional SEO helps your business rank higher in search results, increase organic traffic, improve brand credibility, and generate qualified leads. 
-              </p>
-              <p style={{ color: '#aaa', fontSize: '1.1rem', lineHeight: '1.8' }}>
-                A well-optimized website delivers a better user experience, higher conversion rates, and sustainable long-term growth without relying solely on paid advertising.
-              </p>
+            
+            <div className="seo-benefits-right">
+              <div className="seo-value-card">
+                <h3 className="seo-value-title">The True Value Of SEO</h3>
+                <p className="seo-value-desc">
+                  Professional SEO helps your business rank higher in search results, increase organic traffic, improve brand credibility, and generate qualified leads. 
+                </p>
+                <div className="seo-value-divider"></div>
+                <p className="seo-value-desc">
+                  A well-optimized website delivers a better user experience, higher conversion rates, and sustainable long-term growth without relying solely on paid advertising.
+                </p>
+              </div>
             </div>
           </div>
         </div>

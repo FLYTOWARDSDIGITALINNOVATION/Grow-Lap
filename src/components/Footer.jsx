@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaFacebookF, FaLinkedinIn, FaInstagram, FaTwitter } from 'react-icons/fa';
 import { servicesData } from '../data/servicesData';
+import whatsappQr from '../assets/images/whatsapp-qr.png';
 import './Footer.css';
 
 const Footer = () => {
@@ -23,16 +24,30 @@ const Footer = () => {
           {/* Column 1: Logo & Socials */}
           <div className="footer-col-mono">
             <Link to="/" className="footer-brand">
-              Fly Towards
+              <img src="/Grow Lap.webp" alt="Grow Lap Logo" className="footer-logo-image" />
+              <div className="footer-logo-text">
+                <span className="footer-logo-main">Grow <span style={{ color: 'var(--accent-orange)' }}>Lap</span></span>
+              </div>
             </Link>
             <p className="footer-mono-desc">
-              We help businesses grow with creative digital solutions, powerful technology and result-driven strategies. Fly towards digital innovation with us.
+              We help businesses grow with creative digital solutions, powerful technology and result-driven strategies. Grow with us.
             </p>
             <div className="mono-social-links">
               <a href="#" className="social-fb"><FaFacebookF /></a>
               <a href="#" className="social-tw"><FaTwitter /></a>
-              <a href="https://www.instagram.com/flytowardsdigitalmarketing?igsh=c3JjbG5zeHczY2hm" target="_blank" rel="noopener noreferrer" className="social-in"><FaInstagram /></a>
+              <a href="https://www.instagram.com/growlap_?igsh=c3JjbG5zeHczY2hm" target="_blank" rel="noopener noreferrer" className="social-in"><FaInstagram /></a>
               <a href="#" className="social-li"><FaLinkedinIn /></a>
+            </div>
+            
+            {/* WhatsApp QR Code Section */}
+            <div className="footer-qr-container">
+              <div className="qr-box">
+                <img src={whatsappQr} alt="WhatsApp QR Code" />
+              </div>
+              <div className="qr-text">
+                <strong>Scan to Chat</strong>
+                <span>Connect on WhatsApp</span>
+              </div>
             </div>
           </div>
 
@@ -74,7 +89,7 @@ const Footer = () => {
                 <li><Link to="/industry">- Schools & Colleges</Link></li>
                 <li><Link to="/industry">- Construction</Link></li>
                 <li><Link to="/industry">- Hotels & Showrooms</Link></li>
-                <li><Link to="/industry">- Various Industries</Link></li>
+                <li><Link to="/industry" className="highlight-link">- Various Industries</Link></li>
               </ul>
             </div>
 
@@ -91,7 +106,7 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="footer-mono-bottom">
-          <p>© 2026 Fly Towards Digital Innovation. All Rights Reserved.</p>
+          <p>© 2026 Grow Lap Digital Innovation. All Rights Reserved.</p>
         </div>
       </div>
       

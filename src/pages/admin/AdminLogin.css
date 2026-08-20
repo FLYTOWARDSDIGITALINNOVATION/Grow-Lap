@@ -1,10 +1,11 @@
-﻿.admin-login-wrapper {
+.admin-login-wrapper {
   position: relative;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1;
+  padding-top: 80px;
 }
 
 /* The Background Split Inversion Effect */
@@ -12,7 +13,6 @@
   position: absolute;
   top: 0; left: 0; bottom: 0;
   width: 50%;
-  background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000');
   background-size: cover;
   background-position: left center;
   z-index: -1;
@@ -22,8 +22,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background-color: var(--accent-orange);
-  opacity: 0.85;
+  background-color: transparent;
 }
 
 .admin-bg-right {
@@ -224,8 +223,7 @@
 .admin-image-overlay {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background-color: var(--accent-orange);
-  opacity: 0.85;
+  background-color: rgba(0, 0, 0, 0.5); /* Replaced orange layer with a dark overlay for readability */
   z-index: 1;
 }
 

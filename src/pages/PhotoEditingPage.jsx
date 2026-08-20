@@ -5,6 +5,21 @@ import './PhotoEditingPage.css';
 
 const PhotoEditingPage = () => {
   useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-show');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    const faqItems = document.querySelectorAll('details[class*="-faq-item"]');
+    faqItems.forEach(el => observer.observe(el));
+    
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     window.scrollTo(0, 0);
     document.title = "Professional Photo Editing Services | Enhance Every Image";
     
@@ -88,9 +103,9 @@ const PhotoEditingPage = () => {
           </Link>
         </div>
         <div className="container photo-editing-hero-grid">
-          <div className="photo-editing-hero-content">
+<div className="photo-editing-hero-content">
             <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>PHOTO EDITING SERVICES</p>
-            <h1 className="photo-editing-hero-title">Enhance Every Image with <br/><span>Professional Photo Editing</span></h1>
+            <h1 className="photo-editing-hero-title">Enhance Every Image&nbsp;with <br/><span>Professional Photo Editing</span></h1>
             <p className="photo-editing-hero-desc">
             Transform your photos into stunning, high-quality visuals with our Professional Photo Editing Services. Whether you're a business, photographer, e-commerce brand, real estate agency, or content creator, we deliver expertly edited images that capture attention and leave a lasting impression.
           </p>
@@ -99,22 +114,9 @@ const PhotoEditingPage = () => {
             Transform Your Photos Today
           </Link>
           </div>
-          <div className="photo-editing-hero-image-wrapper">
-            <div className="photo-editing-orbit-container">
-              <div className="orbit-ring orbit-ring-1"></div>
-              <div className="orbit-ring orbit-ring-2"></div>
-              <div className="orbit-ring orbit-ring-3"></div>
-              <img src="/photo editing.webp" alt="Hero Image" className="hero-orbit-image" />
-              <div className="orbit-satellite sat-1">
-                <FaImage />
-              </div>
-              <div className="orbit-satellite sat-2">
-                <FaPalette />
-              </div>
-              <div className="orbit-satellite sat-3">
-                <FaCameraRetro />
-              </div>
-            </div>
+
+          <div className="hero-image-right" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <img src="/photo editing.webp" alt="Hero Image" style={{ width: '100%', maxWidth: '550px', height: 'auto', borderRadius: '20px', boxShadow: '0 20px 40px rgba(0,0,0,0.4)', filter: 'drop-shadow(0 10px 15px rgba(0,0,0,0.5))' }} />
           </div>
         </div>
       </section>

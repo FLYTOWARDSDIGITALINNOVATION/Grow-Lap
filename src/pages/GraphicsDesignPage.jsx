@@ -5,6 +5,21 @@ import './GraphicsDesignPage.css';
 
 const GraphicsDesignPage = () => {
   useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-show');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    const faqItems = document.querySelectorAll('details[class*="-faq-item"]');
+    faqItems.forEach(el => observer.observe(el));
+    
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     window.scrollTo(0, 0);
     document.title = "Professional Graphic Design Services | Creative Solutions";
     
@@ -92,9 +107,9 @@ const GraphicsDesignPage = () => {
           </Link>
         </div>
         <div className="container graphics-design-hero-grid">
-          <div className="graphics-design-hero-content">
+<div className="graphics-design-hero-content">
             <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>GRAPHIC DESIGN SERVICES</p>
-            <h1 className="graphics-design-hero-title">Creative Graphic Design Solutions <br/><span>for Your Brand</span></h1>
+            <h1 className="graphics-design-hero-title">Creative Graphic Design&nbsp;Solutions <br/><span>for Your Brand</span></h1>
             <p className="graphics-design-hero-desc">
             Build a strong and memorable brand with our Professional Graphic Design Services. We create visually compelling designs that help businesses communicate their message, attract customers, and stand out in today's competitive market. From social media creatives and marketing materials to branding assets and print designs, our expert designers deliver creative solutions tailored to your business goals.
           </p>
@@ -103,22 +118,9 @@ const GraphicsDesignPage = () => {
             Elevate Your Brand Today
           </Link>
           </div>
-          <div className="graphics-design-hero-image-wrapper">
-            <div className="graphics-design-orbit-container">
-              <div className="orbit-ring orbit-ring-1"></div>
-              <div className="orbit-ring orbit-ring-2"></div>
-              <div className="orbit-ring orbit-ring-3"></div>
-              <img src="/Graphic Design.webp" alt="Hero Image" className="hero-orbit-image" />
-              <div className="orbit-satellite sat-1">
-                <FaPalette />
-              </div>
-              <div className="orbit-satellite sat-2">
-                <FaPaintBrush />
-              </div>
-              <div className="orbit-satellite sat-3">
-                <FaLaptopCode />
-              </div>
-            </div>
+
+          <div className="hero-image-right" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <img src="/graphic-design.webp" alt="Hero Image" style={{ width: '100%', maxWidth: '550px', height: 'auto', borderRadius: '20px', boxShadow: '0 20px 40px rgba(0,0,0,0.4)', filter: 'drop-shadow(0 10px 15px rgba(0,0,0,0.5))' }} />
           </div>
         </div>
       </section>

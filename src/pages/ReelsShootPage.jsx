@@ -5,6 +5,21 @@ import './ReelsShootPage.css';
 
 const ReelsShootPage = () => {
   useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-show');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    const faqItems = document.querySelectorAll('details[class*="-faq-item"]');
+    faqItems.forEach(el => observer.observe(el));
+    
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     window.scrollTo(0, 0);
     document.title = "Professional Reels Shoot Services | Scroll-Stopping Reels";
     
@@ -93,26 +108,9 @@ const ReelsShootPage = () => {
           </Link>
         </div>
         <div className="container reels-shoot-hero-grid">
-          <div className="reels-shoot-hero-image-wrapper">
-            <div className="reels-shoot-orbit-container">
-              <div className="orbit-ring orbit-ring-1"></div>
-              <div className="orbit-ring orbit-ring-2"></div>
-              <div className="orbit-ring orbit-ring-3"></div>
-              <img src="/reels shoot.webp" alt="Hero Image" className="hero-orbit-image" />
-              <div className="orbit-satellite sat-1">
-                <FaFilm />
-              </div>
-              <div className="orbit-satellite sat-2">
-                <FaMobileAlt />
-              </div>
-              <div className="orbit-satellite sat-3">
-                <FaPlayCircle />
-              </div>
-            </div>
-          </div>
-          <div className="reels-shoot-hero-content">
+<div className="reels-shoot-hero-content">
             <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>REELS SHOOT SERVICES</p>
-            <h1 className="reels-shoot-hero-title">Create Scroll-Stopping Reels That <br/><span>Grow Your Brand</span></h1>
+            <h1 className="reels-shoot-hero-title">Create Scroll-Stopping Reels&nbsp;That <br/><span>Grow Your Brand</span></h1>
             <p className="reels-shoot-hero-desc">
             Boost your online presence with our Professional Reels Shoot Services. We create high-quality, engaging, and trend-driven Instagram Reels, Facebook Reels, YouTube Shorts, and TikTok videos that help businesses, brands, and creators attract more views, followers, and customers. Our team combines creative storytelling, professional filming, and expert editing to produce short-form videos that capture attention and inspire action.
           </p>
@@ -120,6 +118,10 @@ const ReelsShootPage = () => {
             <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem', display: 'inline-block' }}>
             Book Your Reels Shoot
           </Link>
+          </div>
+
+          <div className="hero-image-right" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <img src="/reels shoot.webp" alt="Hero Image" style={{ width: '100%', maxWidth: '550px', height: 'auto', borderRadius: '20px', boxShadow: '0 20px 40px rgba(0,0,0,0.4)', filter: 'drop-shadow(0 10px 15px rgba(0,0,0,0.5))' }} />
           </div>
         </div>
       </section>

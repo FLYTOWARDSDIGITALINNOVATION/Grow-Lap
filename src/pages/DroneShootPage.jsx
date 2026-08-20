@@ -5,6 +5,21 @@ import './DroneShootPage.css';
 
 const DroneShootPage = () => {
   useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-show');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    const faqItems = document.querySelectorAll('details[class*="-faq-item"]');
+    faqItems.forEach(el => observer.observe(el));
+    
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     window.scrollTo(0, 0);
     document.title = "Professional Drone Shoot Services | Stunning Aerial Views";
     
@@ -88,9 +103,9 @@ const DroneShootPage = () => {
           </Link>
         </div>
         <div className="container drone-shoot-hero-grid">
-          <div className="drone-shoot-hero-content">
+<div className="drone-shoot-hero-content">
             <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>DRONE SHOOT SERVICES</p>
-            <h1 className="drone-shoot-hero-title">Capture Stunning Aerial Views with <br/><span>Professional Drone Photography & Videography</span></h1>
+            <h1 className="drone-shoot-hero-title">Capture Stunning Aerial Views&nbsp;with <br/><span>Professional Drone Photography & Videography</span></h1>
             <p className="drone-shoot-hero-desc">
             Take your visuals to new heights with our Professional Drone Shoot Services. We provide high-quality aerial photography and cinematic drone videography for businesses, events, real estate, construction, tourism, and marketing campaigns. Using advanced drone technology, we capture breathtaking perspectives that help your brand stand out and leave a lasting impression.
           </p>
@@ -99,22 +114,9 @@ const DroneShootPage = () => {
             Book Your Aerial Shoot
           </Link>
           </div>
-          <div className="drone-shoot-hero-image-wrapper">
-            <div className="drone-shoot-orbit-container">
-              <div className="orbit-ring orbit-ring-1"></div>
-              <div className="orbit-ring orbit-ring-2"></div>
-              <div className="orbit-ring orbit-ring-3"></div>
-              <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800&q=80" alt="Hero Image" className="hero-orbit-image" />
-              <div className="orbit-satellite sat-1">
-                <FaPlane />
-              </div>
-              <div className="orbit-satellite sat-2">
-                <FaCamera />
-              </div>
-              <div className="orbit-satellite sat-3">
-                <FaVideo />
-              </div>
-            </div>
+
+          <div className="hero-image-right" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800&q=80" alt="Hero Image" style={{ width: '100%', maxWidth: '550px', height: 'auto', borderRadius: '20px', boxShadow: '0 20px 40px rgba(0,0,0,0.4)', filter: 'drop-shadow(0 10px 15px rgba(0,0,0,0.5))' }} />
           </div>
         </div>
       </section>

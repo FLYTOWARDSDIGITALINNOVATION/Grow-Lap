@@ -134,28 +134,19 @@ const IndustryDetail = () => {
             </div>
           </div>
           
-          <div className="sd-hero-form-wrapper">
-            <div className="sd-quote-form">
-              <h3>Get Free Strategy Proposal</h3>
-              <form onSubmit={(e) => e.preventDefault()}>
-                <div className="sd-form-group">
-                  <input type="text" placeholder="Your Name*" required />
-                </div>
-                <div className="sd-form-group">
-                  <input type="tel" placeholder="Phone Number*" required />
-                </div>
-                <div className="sd-form-group">
-                  <input type="email" placeholder="Email Address*" required />
-                </div>
-                <div className="sd-form-group">
-                  <textarea placeholder="Tell us about your business goals*" rows="3" required></textarea>
-                </div>
-
-                <button type="submit" className="btn-primary w-100" style={{ padding: '14px', borderRadius: '8px' }}>
-                  Send Message
-                </button>
-              </form>
-            </div>
+          <div className="sd-hero-form-wrapper" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <img 
+              src={industry.image} 
+              alt={industry.title} 
+              style={{
+                width: '100%',
+                maxHeight: '450px',
+                objectFit: 'cover',
+                borderRadius: '12px',
+                boxShadow: '0 10px 30px rgba(0,0,0,0.5)',
+                border: '1px solid rgba(255, 94, 0, 0.2)'
+              }}
+            />
           </div>
 
         </div>

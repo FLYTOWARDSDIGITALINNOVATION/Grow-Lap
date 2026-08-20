@@ -5,11 +5,26 @@ import './BlogPage.css';
 
 const BlogPage = () => {
   useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-show');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    const faqItems = document.querySelectorAll('details[class*="-faq-item"]');
+    faqItems.forEach(el => observer.observe(el));
+    
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
-    <div style={{ paddingTop: '80px', backgroundColor: 'var(--bg-dark)', minHeight: '100vh' }}>
+    <div className="blog-page-wrapper" style={{ backgroundColor: 'var(--bg-dark)', minHeight: '100vh' }}>
       
       {/* Blog Hero Section */}
       <div className="blog-hero-container">

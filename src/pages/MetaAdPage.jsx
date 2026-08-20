@@ -5,6 +5,21 @@ import './MetaAdPage.css';
 
 const MetaAdPage = () => {
   useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-show');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    const faqItems = document.querySelectorAll('details[class*="-faq-item"]');
+    faqItems.forEach(el => observer.observe(el));
+    
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     window.scrollTo(0, 0);
     document.title = "Meta Ads Services | Facebook & Instagram Advertising for Business Growth";
     
@@ -76,10 +91,9 @@ const MetaAdPage = () => {
           </Link>
         </div>
         <div className="container meta-hero-grid">
-          
-          <div className="meta-hero-content">
+<div className="meta-hero-content">
             <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>META ADS SERVICES</p>
-            <h1 className="meta-hero-title">Grow Your Business with <br/><span>High-Performance Meta Ads</span></h1>
+            <h1 className="meta-hero-title">Grow Your Business&nbsp;with <br/><span>High-Performance Meta Ads</span></h1>
             <p className="meta-hero-desc">
               Reach the right audience and maximize your return on investment with our Professional Meta Ads Services. We create data-driven advertising campaigns on Facebook and Instagram that help businesses increase brand awareness, generate quality leads, drive website traffic, and boost online sales.
             </p>
@@ -91,12 +105,9 @@ const MetaAdPage = () => {
             </Link>
           </div>
 
-          <div className="meta-hero-blob-wrapper">
-            <div className="blob-shape-container">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg" alt="Meta Ads Services" className="hero-right-image" />
-            </div>
+          <div className="hero-image-right" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <img src="/meta-logo.svg" alt="Meta Ads Services" style={{ width: '100%', maxWidth: '450px', height: 'auto' }} />
           </div>
-
         </div>
       </section>
 
@@ -132,9 +143,9 @@ const MetaAdPage = () => {
                 ))}
               </ul>
             </div>
-            <div style={{ backgroundColor: '#121215', padding: '3rem', borderRadius: '16px', border: '1px solid rgba(255, 255, 255, 0.05)' }}>
-              <h3 style={{ color: 'var(--accent-orange)', marginBottom: '1.5rem', fontSize: '2rem' }}>The Power of Meta Ads</h3>
-              <p style={{ color: '#aaa', fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '1.5rem' }}>
+            <div className="meta-power-card">
+              <h3>The Power of Meta Ads</h3>
+              <p>
                 Meta Ads allow businesses to connect with highly targeted audiences across Facebook and Instagram. With advanced targeting options, remarketing capabilities, and real-time optimization, Meta advertising helps increase brand visibility, generate qualified leads, improve customer engagement, and drive measurable business growth.
               </p>
             </div>

@@ -81,11 +81,11 @@ const WhyDifferentSection = () => {
           {/* Right Image */}
           <div className={`why-image-side ${isVisible ? 'slide-in-right' : 'hidden-right'}`}>
             <div className="why-image-wrapper">
-              <img src="https://picsum.photos/seed/difference/800/900" alt="Why We Are Different" className="why-image" />
+              <img src="home page growth.webp" alt="Why We Are Different" className="why-image" />
               <div className="why-image-overlay">
                 <div className="why-stat">
-                  <h4>1+</h4>
-                  <p>Years Experience</p>
+                  <h4>One</h4>
+                  <p>Year Experience</p>
                 </div>
                 <div className="why-stat">
                   <h4>100%</h4>

@@ -5,6 +5,21 @@ import './ScriptWritingPage.css';
 
 const ScriptWritingPage = () => {
   useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-show');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    const faqItems = document.querySelectorAll('details[class*="-faq-item"]');
+    faqItems.forEach(el => observer.observe(el));
+    
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     window.scrollTo(0, 0);
     document.title = "Professional Script Writing Services | Creative Scripts for Marketing & Video Content";
     
@@ -74,28 +89,9 @@ const ScriptWritingPage = () => {
           </Link>
         </div>
         <div className="container script-hero-grid">
-          
-          <div className="script-hero-image-wrapper">
-            <div className="script-orbit-container">
-              <div className="orbit-ring orbit-ring-1"></div>
-              <div className="orbit-ring orbit-ring-2"></div>
-              <div className="orbit-ring orbit-ring-3"></div>
-              <img src="/5.webp" alt="Script Writing Services" className="hero-orbit-image" />
-              <div className="orbit-satellite sat-1">
-                <FaPenNib />
-              </div>
-              <div className="orbit-satellite sat-2">
-                <FaMicrophoneAlt />
-              </div>
-              <div className="orbit-satellite sat-3">
-                <FaYoutube />
-              </div>
-            </div>
-          </div>
-
-          <div className="script-hero-content">
+<div className="script-hero-content">
             <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>SCRIPT WRITING SERVICES</p>
-            <h1 className="script-hero-title">Professional Script Writing Services That <br/><span>Bring Your Ideas to Life</span></h1>
+            <h1 className="script-hero-title" style={{ color: 'white' }}>Professional <span style={{ whiteSpace: 'nowrap', color: 'white' }}><span style={{ color: 'var(--accent-orange)' }}>Script Writing</span> Services</span> <br/><span style={{ whiteSpace: 'nowrap', color: 'white' }}>That Bring Your Ideas to Life</span></h1>
             <p className="script-hero-desc">
               Turn your ideas into compelling stories with our Professional Script Writing Services. We create engaging, creative, and audience-focused scripts for businesses, brands, content creators, and marketing campaigns.
             </p>
@@ -107,6 +103,9 @@ const ScriptWritingPage = () => {
             </Link>
           </div>
 
+          <div className="hero-image-right" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <img src="/5.webp" alt="Script Writing Services" style={{ width: '100%', maxWidth: '550px', height: 'auto', borderRadius: '20px', boxShadow: '0 20px 40px rgba(0,0,0,0.4)', filter: 'drop-shadow(0 10px 15px rgba(0,0,0,0.5))' }} />
+          </div>
         </div>
       </section>
 

@@ -5,6 +5,21 @@ import './WhatsappMarketingPage.css';
 
 const WhatsappMarketingPage = () => {
   useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-show');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    const faqItems = document.querySelectorAll('details[class*="-faq-item"]');
+    faqItems.forEach(el => observer.observe(el));
+    
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     window.scrollTo(0, 0);
     document.title = "WhatsApp Marketing Services | Business Messaging & Lead Generation";
     
@@ -75,28 +90,9 @@ const WhatsappMarketingPage = () => {
           </Link>
         </div>
         <div className="container whatsapp-hero-grid">
-          
-          <div className="whatsapp-hero-image-wrapper">
-            <div className="whatsapp-orbit-container">
-              <div className="orbit-ring orbit-ring-1"></div>
-              <div className="orbit-ring orbit-ring-2"></div>
-              <div className="orbit-ring orbit-ring-3"></div>
-              <img src="/1.webp" alt="WhatsApp Marketing Services" className="hero-orbit-image" />
-              <div className="orbit-satellite sat-1">
-                <FaWhatsapp />
-              </div>
-              <div className="orbit-satellite sat-2">
-                <FaComments />
-              </div>
-              <div className="orbit-satellite sat-3">
-                <FaHeadset />
-              </div>
-            </div>
-          </div>
-
-          <div className="whatsapp-hero-content">
+<div className="whatsapp-hero-content">
             <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>WHATSAPP MARKETING SERVICES</p>
-            <h1 className="whatsapp-hero-title">Grow Your Business with Professional <br/><span>WhatsApp Marketing</span></h1>
+            <h1 className="whatsapp-hero-title">Grow Your Business with&nbsp;Professional <br/><span>WhatsApp&nbsp;Marketing</span></h1>
             <p className="whatsapp-hero-desc">
               Connect with your customers instantly through our Professional WhatsApp Marketing Services. We help businesses build stronger customer relationships, generate high-quality leads, promote products and services, and increase sales using personalized WhatsApp campaigns.
             </p>
@@ -108,6 +104,9 @@ const WhatsappMarketingPage = () => {
             </Link>
           </div>
 
+          <div className="hero-image-right" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <img src="/1.webp" alt="WhatsApp Marketing Services" style={{ width: '100%', maxWidth: '450px', aspectRatio: '1 / 1', objectFit: 'cover', borderRadius: '20px', boxShadow: '0 20px 40px rgba(0,0,0,0.4)' }} />
+          </div>
         </div>
       </section>
 

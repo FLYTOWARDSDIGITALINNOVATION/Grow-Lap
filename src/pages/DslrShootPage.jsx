@@ -5,6 +5,21 @@ import './DslrShootPage.css';
 
 const DslrShootPage = () => {
   useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-show');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    const faqItems = document.querySelectorAll('details[class*="-faq-item"]');
+    faqItems.forEach(el => observer.observe(el));
+    
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     window.scrollTo(0, 0);
     document.title = "Professional DSLR Camera Shoot Services | Capture Every Moment";
     
@@ -88,28 +103,9 @@ const DslrShootPage = () => {
           </Link>
         </div>
         <div className="container dslr-shoot-hero-grid">
-          
-          <div className="dslr-shoot-hero-image-wrapper">
-            <div className="dslr-shoot-orbit-container">
-              <div className="orbit-ring orbit-ring-1"></div>
-              <div className="orbit-ring orbit-ring-2"></div>
-              <div className="orbit-ring orbit-ring-3"></div>
-              <img src="/service_shoots_new.webp" alt="DSLR Shoot Services" className="hero-orbit-image" />
-              <div className="orbit-satellite sat-1">
-                <FaCameraRetro />
-              </div>
-              <div className="orbit-satellite sat-2">
-                <FaVideo />
-              </div>
-              <div className="orbit-satellite sat-3">
-                <FaCamera />
-              </div>
-            </div>
-          </div>
-
-          <div className="dslr-shoot-hero-content">
+<div className="dslr-shoot-hero-content">
             <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>DSLR SHOOT SERVICES</p>
-            <h1 className="dslr-shoot-hero-title">Capture Every Moment with Stunning <br/><span>DSLR Photography & Videography</span></h1>
+            <h1 className="dslr-shoot-hero-title">Capture Every Moment with&nbsp;Stunning <br/><span>DSLR Photography & Videography</span></h1>
             <p className="dslr-shoot-hero-desc">
               Create lasting memories and powerful visual content with our Professional DSLR Camera Shoot Services. We provide high-quality DSLR photography and videography for businesses, brands, events, and individuals. Whether you need a corporate shoot, product photography, wedding coverage, promotional videos, or social media content, our experienced team delivers sharp, creative, and professionally edited visuals that make an impact.
             </p>
@@ -121,6 +117,9 @@ const DslrShootPage = () => {
             </Link>
           </div>
 
+          <div className="hero-image-right" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <img src="/service_shoots_new.webp" alt="DSLR Shoot Services" style={{ width: '100%', maxWidth: '550px', height: 'auto', borderRadius: '20px', boxShadow: '0 20px 40px rgba(0,0,0,0.4)', filter: 'drop-shadow(0 10px 15px rgba(0,0,0,0.5))' }} />
+          </div>
         </div>
       </section>
 

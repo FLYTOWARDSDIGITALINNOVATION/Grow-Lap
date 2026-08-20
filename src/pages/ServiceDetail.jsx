@@ -21,7 +21,7 @@ const ServiceDetail = () => {
     formData.append('_captcha', 'false');
     formData.append('_template', 'table');
 
-    fetch('https://formsubmit.co/ajax/udhayabanu2005@gmail.com', {
+    fetch('https://formsubmit.co/ajax/growlapmarketing@gmail.com', {
       method: 'POST',
       body: formData,
       headers: {
@@ -42,6 +42,21 @@ const ServiceDetail = () => {
   };
 
   // Scroll to top when mounted
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-show');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    const faqItems = document.querySelectorAll('details[class*="-faq-item"]');
+    faqItems.forEach(el => observer.observe(el));
+    
+    return () => observer.disconnect();
+  }, []);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [categorySlug]);
@@ -95,7 +110,7 @@ const ServiceDetail = () => {
                   <input type="tel" name="Phone Number" placeholder="Phone No*" required />
                 </div>
                 <div className="sd-form-group">
-                  <input type="email" name="Email" placeholder="Email*" required />
+                  <input type="text" name="CompanyName" placeholder="Company Name*" required />
                 </div>
                 <div className="sd-form-group">
                   <textarea name="Message" placeholder="Type Your Message*" rows="3" required></textarea>

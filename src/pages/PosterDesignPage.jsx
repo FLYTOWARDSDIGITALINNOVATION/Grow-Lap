@@ -5,6 +5,21 @@ import './PosterDesignPage.css';
 
 const PosterDesignPage = () => {
   useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-show');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    const faqItems = document.querySelectorAll('details[class*="-faq-item"]');
+    faqItems.forEach(el => observer.observe(el));
+    
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     window.scrollTo(0, 0);
     document.title = "Professional Poster Design Services | Elevate Your Brand";
     
@@ -87,9 +102,9 @@ const PosterDesignPage = () => {
           </Link>
         </div>
         <div className="container poster-design-hero-grid">
-          <div className="poster-design-hero-content">
+<div className="poster-design-hero-content">
             <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>POSTER DESIGN SERVICES</p>
-            <h1 className="poster-design-hero-title">Eye-Catching Poster Designs That <br/><span>Elevate Your Brand</span></h1>
+            <h1 className="poster-design-hero-title">Eye-Catching Poster Designs&nbsp;That <br/><span>Elevate Your Brand</span></h1>
             <p className="poster-design-hero-desc">
             Make a lasting impression with our Professional Poster Design Services. We create visually stunning, creative, and high-impact posters that effectively promote your business, event, product, or campaign. Whether you need posters for print or digital platforms, our custom designs are crafted to capture attention, communicate your message, and inspire action.
           </p>
@@ -98,22 +113,9 @@ const PosterDesignPage = () => {
             Get Your Custom Poster Today
           </Link>
           </div>
-          <div className="poster-design-hero-image-wrapper">
-            <div className="poster-design-orbit-container">
-              <div className="orbit-ring orbit-ring-1"></div>
-              <div className="orbit-ring orbit-ring-2"></div>
-              <div className="orbit-ring orbit-ring-3"></div>
-              <img src="/poster.webp" alt="Hero Image" className="hero-orbit-image" />
-              <div className="orbit-satellite sat-1">
-                <FaImage />
-              </div>
-              <div className="orbit-satellite sat-2">
-                <FaPalette />
-              </div>
-              <div className="orbit-satellite sat-3">
-                <FaPrint />
-              </div>
-            </div>
+
+          <div className="hero-image-right" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <img src="/poster-design.webp" alt="Hero Image" style={{ width: 'auto', maxWidth: '100%', maxHeight: '450px', objectFit: 'contain', borderRadius: '20px', boxShadow: '0 20px 40px rgba(0,0,0,0.4)', filter: 'drop-shadow(0 10px 15px rgba(0,0,0,0.5))' }} />
           </div>
         </div>
       </section>

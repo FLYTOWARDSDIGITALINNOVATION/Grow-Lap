@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&display=swap');
 
 :root {
   --bg-dark: #0a0a0a;
@@ -25,12 +26,10 @@ html {
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Outfit', sans-serif;
   background-color: var(--bg-dark);
   color: var(--text-main);
   line-height: 1.6;
-  overflow-x: clip;
-  text-transform: capitalize;
 }
 
 a {
@@ -67,7 +66,7 @@ h1 {
 }
 
 h2 {
-  font-size: 2.5rem;
+  font-size: 2.1rem;
 }
 
 h3 {
@@ -155,21 +154,15 @@ p {
   h1 { font-size: 2.2rem; }
   .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
   .section-padding { padding: 3rem 0; }
+  p, a, span, h1, h2, h3, h4, h5, h6 {
+    word-break: break-word;
+  }
+  .container {
+    padding: 0 1.5rem !important;
+  }
 }
 
-/* Global Fix for Service Pages Spacing */
-[class*="-page-container"] {
-  padding-top: 0 !important;
-}
 
-[class*="-hero"] {
-  padding-top: 2rem !important;
-}
-
-/* Fix global paragraph margin */
-[class*="-hero"] p {
-  margin-bottom: 1rem;
-}
 
 /* Global FAQ Heading Style */
 [class*="-faq-section"] h2 {
@@ -177,4 +170,60 @@ p {
   font-weight: 800;
   color: #fff;
   letter-spacing: 1px;
+}
+
+/* Global Padding Reduction */
+[class*="-services-section"],
+[class*="-process-section"],
+[class*="-benefits-section"],
+[class*="-tools-section"],
+[class*="-faq-section"] {
+  padding: 4rem 0 !important;
+}
+
+main {
+  /* Padding removed because navbar is sticky and already takes up space */
+  overflow-x: clip;
+}
+
+/* Global FAQ Animations */
+[class*="-faq-item"] {
+  opacity: 0;
+}
+
+@keyframes slideInFromLeft {
+  0% { opacity: 0; transform: translateX(-150px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInFromRight {
+  0% { opacity: 0; transform: translateX(150px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+[class*="-faq-item"].animate-show:nth-child(odd) {
+  animation: slideInFromLeft 1s cubic-bezier(0.17, 0.55, 0.55, 1) forwards;
+}
+
+[class*="-faq-item"].animate-show:nth-child(even) {
+  animation: slideInFromRight 1s cubic-bezier(0.17, 0.55, 0.55, 1) forwards;
+}
+
+/* --- GLOBAL NAVBAR CLEARANCE FIX --- */
+/* 1. Add padding to specific wrappers that don't have inner hero sections */
+main > .about-page-wrapper,
+main > .industry-page-wrapper,
+main > .blog-page-wrapper,
+main > .contact-page-wrapper,
+main > .blog-detail-page,
+main > .admin-login-wrapper {
+  padding-top: 140px !important;
+}
+
+/* 2. For service pages, apply padding to the HERO itself so its background reaches the top seamlessly under the translucent navbar */
+main > [class*="-container"] > [class*="-hero"],
+main > [class*="-wrapper"] > [class*="-hero"],
+main > [class*="-container"] > .sp-intro {
+  padding-top: 140px !important;
+  margin-top: 0 !important;
 }

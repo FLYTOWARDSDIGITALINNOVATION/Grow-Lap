@@ -5,6 +5,21 @@ import './LogoDesignPage.css';
 
 const LogoDesignPage = () => {
   useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-show');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    const faqItems = document.querySelectorAll('details[class*="-faq-item"]');
+    faqItems.forEach(el => observer.observe(el));
+    
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     window.scrollTo(0, 0);
     document.title = "Professional Logo Design Services | Define Your Brand";
     
@@ -88,26 +103,9 @@ const LogoDesignPage = () => {
           </Link>
         </div>
         <div className="container logo-design-hero-grid">
-          <div className="logo-design-hero-image-wrapper">
-            <div className="logo-design-orbit-container">
-              <div className="orbit-ring orbit-ring-1"></div>
-              <div className="orbit-ring orbit-ring-2"></div>
-              <div className="orbit-ring orbit-ring-3"></div>
-              <img src="/logo.webp" alt="Hero Image" className="hero-orbit-image" />
-              <div className="orbit-satellite sat-1">
-                <FaPenNib />
-              </div>
-              <div className="orbit-satellite sat-2">
-                <FaPalette />
-              </div>
-              <div className="orbit-satellite sat-3">
-                <FaLightbulb />
-              </div>
-            </div>
-          </div>
-          <div className="logo-design-hero-content">
+<div className="logo-design-hero-content">
             <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>LOGO DESIGN SERVICES</p>
-            <h1 className="logo-design-hero-title">Create a Unique Logo That <br/><span>Defines Your Brand</span></h1>
+            <h1 className="logo-design-hero-title">Create a Unique Logo&nbsp;That <br/><span>Defines Your Brand</span></h1>
             <p className="logo-design-hero-desc">
             Your logo is the face of your business and the foundation of your brand identity. Our Professional Logo Design Services help businesses create memorable, modern, and impactful logos that leave a lasting impression. Whether you're launching a startup, rebranding an existing business, or building a personal brand, we design custom logos that reflect your vision and connect with your target audience.
           </p>
@@ -115,6 +113,10 @@ const LogoDesignPage = () => {
             <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem', display: 'inline-block' }}>
             Get Your Custom Logo Today
           </Link>
+          </div>
+
+          <div className="hero-image-right" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <img src="/logo-design.webp" alt="Hero Image" style={{ width: '100%', maxWidth: '550px', height: 'auto', borderRadius: '20px', boxShadow: '0 20px 40px rgba(0,0,0,0.4)', filter: 'drop-shadow(0 10px 15px rgba(0,0,0,0.5))' }} />
           </div>
         </div>
       </section>

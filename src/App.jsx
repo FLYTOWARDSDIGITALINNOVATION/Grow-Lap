@@ -5,7 +5,6 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
 import Chatbot from './components/Chatbot';
-import CurtainReveal from './components/CurtainReveal';
 
 // Pages
 import HomePage from './pages/HomePage';
@@ -51,7 +50,6 @@ import AdminDashboard from './pages/admin/AdminDashboard';
 function App() {
   return (
     <Router>
-      <CurtainReveal />
       <ScrollToTop />
       <div className="app">
         <Navbar />

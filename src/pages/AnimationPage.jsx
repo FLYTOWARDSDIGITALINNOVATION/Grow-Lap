@@ -5,6 +5,21 @@ import './AnimationPage.css';
 
 const AnimationPage = () => {
   useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-show');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    const faqItems = document.querySelectorAll('details[class*="-faq-item"]');
+    faqItems.forEach(el => observer.observe(el));
+    
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     window.scrollTo(0, 0);
     document.title = "Professional Animation Services | Creative Animation";
     
@@ -93,26 +108,9 @@ const AnimationPage = () => {
           </Link>
         </div>
         <div className="container animation-hero-grid">
-          <div className="animation-hero-image-wrapper">
-            <div className="animation-orbit-container">
-              <div className="orbit-ring orbit-ring-1"></div>
-              <div className="orbit-ring orbit-ring-2"></div>
-              <div className="orbit-ring orbit-ring-3"></div>
-              <img src="/Animation.webp" alt="Hero Image" className="hero-orbit-image" />
-              <div className="orbit-satellite sat-1">
-                <FaFilm />
-              </div>
-              <div className="orbit-satellite sat-2">
-                <FaMagic />
-              </div>
-              <div className="orbit-satellite sat-3">
-                <FaPlayCircle />
-              </div>
-            </div>
-          </div>
-          <div className="animation-hero-content">
+<div className="animation-hero-content">
             <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>ANIMATION SERVICES</p>
-            <h1 className="animation-hero-title">Bring Your Ideas to Life with <br/><span>Creative Animation</span></h1>
+            <h1 className="animation-hero-title">Bring Your Ideas to Life&nbsp;with <br/><span>Creative Animation</span></h1>
             <p className="animation-hero-desc">
             Capture your audience's attention with our Professional Animation Services. We create engaging, high-quality animations that help businesses communicate complex ideas, promote products, and strengthen their brand identity. Whether you need explainer videos, promotional animations, logo animations, or social media content, our creative team delivers visually compelling animations that leave a lasting impression.
           </p>
@@ -120,6 +118,10 @@ const AnimationPage = () => {
             <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem', display: 'inline-block' }}>
             Bring Your Ideas to Life
           </Link>
+          </div>
+
+          <div className="hero-image-right" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <img src="/Animation.webp" alt="Hero Image" style={{ width: '100%', maxWidth: '550px', height: 'auto', borderRadius: '20px', boxShadow: '0 20px 40px rgba(0,0,0,0.4)', filter: 'drop-shadow(0 10px 15px rgba(0,0,0,0.5))' }} />
           </div>
         </div>
       </section>

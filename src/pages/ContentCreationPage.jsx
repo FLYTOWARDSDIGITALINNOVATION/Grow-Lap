@@ -5,6 +5,21 @@ import './ContentCreationPage.css';
 
 const ContentCreationPage = () => {
   useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-show');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    const faqItems = document.querySelectorAll('details[class*="-faq-item"]');
+    faqItems.forEach(el => observer.observe(el));
+    
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     window.scrollTo(0, 0);
     document.title = "Content Creation Services | SEO Content Writing & Digital Content Solutions";
     
@@ -75,28 +90,9 @@ const ContentCreationPage = () => {
           </Link>
         </div>
         <div className="container content-hero-grid">
-          
-          <div className="content-hero-image-wrapper">
-            <div className="content-orbit-container">
-              <div className="orbit-ring orbit-ring-1"></div>
-              <div className="orbit-ring orbit-ring-2"></div>
-              <div className="orbit-ring orbit-ring-3"></div>
-              <img src="/2.webp" alt="Content Creation Services" className="hero-orbit-image" />
-              <div className="orbit-satellite sat-1">
-                <FaPenNib />
-              </div>
-              <div className="orbit-satellite sat-2">
-                <FaVideo />
-              </div>
-              <div className="orbit-satellite sat-3">
-                <FaChartPie />
-              </div>
-            </div>
-          </div>
-
-          <div className="content-hero-content">
+<div className="content-hero-content">
             <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>CONTENT CREATION SERVICES</p>
-            <h1 className="content-hero-title">Create Engaging Content That <br/><span>Connects, Converts, and Grows Your Brand</span></h1>
+            <h1 className="content-hero-title">Create Engaging Content&nbsp;That <br/><span>Connects, Converts, and Grows Your Brand</span></h1>
             <p className="content-hero-desc">
               Capture your audience's attention with our Professional Content Creation Services. We create high-quality, engaging, and SEO-friendly content that helps businesses build brand awareness, increase customer engagement, generate leads, and drive conversions.
             </p>
@@ -108,6 +104,9 @@ const ContentCreationPage = () => {
             </Link>
           </div>
 
+          <div className="hero-image-right" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <img src="/2.webp" alt="Content Creation Services" style={{ width: '100%', maxWidth: '550px', height: 'auto', borderRadius: '20px', boxShadow: '0 20px 40px rgba(0,0,0,0.4)', filter: 'drop-shadow(0 10px 15px rgba(0,0,0,0.5))' }} />
+          </div>
         </div>
       </section>
 

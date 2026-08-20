@@ -31,7 +31,7 @@ const CurtainReveal = () => {
       
       <div className={`curtain-content ${isOpen ? 'fade-out' : ''}`}>
         <h1 className="grand-title">
-          <span className="text-white">Fly Towards</span>
+          <span className="text-white">Grow Lap</span>
           <br/>
           <span className="text-orange">DIGITAL MARKETING</span>
         </h1>

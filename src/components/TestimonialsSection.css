@@ -1,4 +1,4 @@
-﻿.testimonials-process-section {
+.testimonials-process-section {
   background-color: var(--bg-dark);
   overflow: hidden;
 }
@@ -130,5 +130,10 @@
 @media (max-width: 768px) {
   .testimonials-process-grid {
     grid-template-columns: 1fr;
+  }
+  .testimonials-process-line,
+  .testimonials-process-line-diagonal,
+  .testimonials-process-arrow {
+    display: none;
   }
 }

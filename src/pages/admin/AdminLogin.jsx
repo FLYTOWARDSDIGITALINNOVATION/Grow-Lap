@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { FaUserShield, FaLock, FaEnvelope, FaEye, FaEyeSlash } from 'react-icons/fa';
+import loginBg from '../../assets/images/finance-service.webp';
 import './AdminLogin.css';
 
 const AdminLogin = () => {
@@ -28,10 +29,10 @@ const AdminLogin = () => {
     e.preventDefault();
     setError('');
     
-    // Check localStorage for a changed password, default to 'udhaya@123'
-    const savedPassword = localStorage.getItem('fly_admin_password') || 'udhaya@123';
-    
-    if (email === 'udhayabanu2005@gmail.com' && password === savedPassword) {
+    // Check localStorage for a changed password, default to 'growlap@123'
+    const savedPassword = localStorage.getItem('fly_admin_password') || 'growlap@123';
+      
+    if (email === 'growlapmarketing@gmail.com' && password === savedPassword) {
       localStorage.setItem('fly_admin_token', 'true');
       navigate('/admin/dashboard');
     } else {
@@ -63,7 +64,7 @@ const AdminLogin = () => {
     const resetLink = window.location.origin + '/admin?reset=true';
 
     // Actual API call to send email via FormSubmit
-    fetch('https://formsubmit.co/ajax/udhayabanu2005@gmail.com', {
+    fetch('https://formsubmit.co/ajax/growlapmarketing@gmail.com', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -87,7 +88,7 @@ const AdminLogin = () => {
   return (
     <div className="admin-login-wrapper">
       {/* Background Split for Contrast Effect */}
-      <div className="admin-bg-left"></div>
+      <div className="admin-bg-left" style={{ backgroundImage: `url(${loginBg})` }}></div>
       <div className="admin-bg-right"></div>
 
       <div className="admin-split-card">
@@ -205,10 +206,10 @@ const AdminLogin = () => {
         </div>
 
         {/* Right Side: Image/Branding */}
-        <div className="admin-image-side">
+        <div className="admin-image-side" style={{ backgroundImage: `url(${loginBg})` }}>
           <div className="admin-image-overlay"></div>
           <div className="admin-brand-content">
-            <h1 className="admin-brand-logo">FLY TOWARDS</h1>
+            <h1 className="admin-brand-logo">Grow Lap</h1>
             <p className="admin-brand-slogan">Digital Innovation</p>
           </div>
         </div>

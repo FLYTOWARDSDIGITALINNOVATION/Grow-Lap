@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { FiChevronDown, FiHome, FiBriefcase, FiBookOpen } from 'react-icons/fi';
+import { FiChevronDown, FiHome, FiBriefcase, FiBookOpen, FiMenu, FiX } from 'react-icons/fi';
 import { industries } from '../data/industries';
 import { servicesData } from '../data/servicesData';
 import './Navbar.css';
@@ -53,9 +53,12 @@ const industryCategories = [
 const Navbar = () => {
   const location = useLocation();
   const [hideDropdown, setHideDropdown] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeMobileDropdown, setActiveMobileDropdown] = useState(null);
 
   const handleLinkClick = () => {
     setHideDropdown(true);
+    setIsMobileMenuOpen(false);
     setTimeout(() => setHideDropdown(false), 300);
     
     if (document.activeElement instanceof HTMLElement) {
@@ -63,9 +66,20 @@ const Navbar = () => {
     }
   };
 
+  const toggleMobileDropdown = (dropdownName, e) => {
+    e.preventDefault();
+    if (activeMobileDropdown === dropdownName) {
+      setActiveMobileDropdown(null);
+    } else {
+      setActiveMobileDropdown(dropdownName);
+    }
+  };
+
   useEffect(() => {
     // Temporarily hide dropdown on route change (solves the hover issue on touch/click)
     setHideDropdown(true);
+    setIsMobileMenuOpen(false);
+    setActiveMobileDropdown(null);
     const timer = setTimeout(() => setHideDropdown(false), 300);
     return () => clearTimeout(timer);
   }, [location.pathname]);
@@ -90,21 +104,35 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="container navbar-container">
         <Link to="/" className="logo" onClick={handleLinkClick}>
+          <img src="/Grow Lap.webp" alt="Grow Lap Logo" className="logo-image" />
           <div className="logo-text">
-            <span className="logo-main">Fly Towards</span>
-            <span className="logo-sub">Digital Marketing</span>
+            <span className="logo-main">Grow <span style={{ color: 'var(--accent-orange)' }}>Lap</span></span>
           </div>
         </Link>
         
-        <ul className="nav-links">
+        <div className="mobile-menu-icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+          {isMobileMenuOpen ? <FiX /> : <FiMenu />}
+        </div>
+
+        <ul className={`nav-links ${isMobileMenuOpen ? 'nav-links-mobile active' : ''}`}>
           <li><Link to="/" className={location.pathname === '/' ? 'active' : ''} onClick={handleLinkClick}>Home</Link></li>
           <li><Link to="/about" className={location.pathname === '/about' ? 'active' : ''} onClick={handleLinkClick}>About Us</Link></li>
           
-          <li className={`nav-dropdown ${hideDropdown ? 'hide-dropdown' : ''}`}>
-            <Link to="/services" className={location.pathname.includes('/services') ? 'active' : ''} onClick={handleLinkClick}>
+          <li className={`nav-dropdown ${hideDropdown ? 'hide-dropdown' : ''} ${activeMobileDropdown === 'services' ? 'mobile-active' : ''}`}>
+            <Link 
+              to="/services" 
+              className={location.pathname.includes('/services') ? 'active' : ''} 
+              onClick={(e) => {
+                if (isMobileMenuOpen) {
+                  toggleMobileDropdown('services', e);
+                } else {
+                  handleLinkClick();
+                }
+              }}
+            >
               Services <FiChevronDown className="dropdown-icon" />
             </Link>
-            <div className="mega-menu services-mega-menu">
+            <div className={`mega-menu services-mega-menu ${activeMobileDropdown === 'services' ? 'show-mobile' : ''}`}>
               <div className="mega-menu-inner">
                 {servicesData.map((category) => (
                   <div key={category.slug} className="mega-menu-column">
@@ -131,11 +159,21 @@ const Navbar = () => {
             </div>
           </li>
           
-          <li className={`nav-dropdown ${hideDropdown ? 'hide-dropdown' : ''}`}>
-            <Link to="/industry" className={location.pathname.includes('/industry') ? 'active' : ''} onClick={handleLinkClick}>
+          <li className={`nav-dropdown ${hideDropdown ? 'hide-dropdown' : ''} ${activeMobileDropdown === 'industry' ? 'mobile-active' : ''}`}>
+            <Link 
+              to="/industry" 
+              className={location.pathname.includes('/industry') ? 'active' : ''} 
+              onClick={(e) => {
+                if (isMobileMenuOpen) {
+                  toggleMobileDropdown('industry', e);
+                } else {
+                  handleLinkClick();
+                }
+              }}
+            >
               Industry <FiChevronDown className="dropdown-icon" />
             </Link>
-            <div className="mega-menu industry-mega-menu">
+            <div className={`mega-menu industry-mega-menu ${activeMobileDropdown === 'industry' ? 'show-mobile' : ''}`}>
               <div className="mega-menu-inner">
                 {industryCategories.map((category) => (
                   <div key={category.slug} className="mega-menu-column">
@@ -166,7 +204,7 @@ const Navbar = () => {
           <li><Link to="/contact" className={location.pathname === '/contact' ? 'active' : ''} onClick={handleLinkClick}>Contact Us</Link></li>
         </ul>
         
-        <Link to="/contact" className="btn-primary">GET A AUTHENTICATION</Link>
+        <Link to="/contact" className="nav-cta">GET A AUTHENTICATION</Link>
       </div>
     </nav>
   );

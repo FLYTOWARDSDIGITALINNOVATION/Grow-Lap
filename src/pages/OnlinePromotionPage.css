@@ -2,7 +2,7 @@
   background-color: var(--bg-dark);
   color: #fff;
   min-height: 100vh;
-  padding-top: 80px;
+  
 }
 
 /* Hero Section */
@@ -78,7 +78,7 @@
 }
 
 .online-hero-title {
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: 800;
   margin-bottom: 1.5rem;
   line-height: 1.2;
@@ -168,7 +168,7 @@
 .online-step-card {
   display: flex;
   background: #121215;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--accent-orange);
   border-radius: 12px;
   padding: 2rem;
   position: relative;
@@ -179,6 +179,7 @@
 .online-step-card:hover {
   border-color: rgba(255, 94, 0, 0.5);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transform: scale(1.05);
 }
 
 .online-step-number {

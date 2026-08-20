@@ -5,6 +5,21 @@ import './OnlinePromotionPage.css';
 
 const OnlinePromotionPage = () => {
   useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-show');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    const faqItems = document.querySelectorAll('details[class*="-faq-item"]');
+    faqItems.forEach(el => observer.observe(el));
+    
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     window.scrollTo(0, 0);
     document.title = "Online Promotion Services | Digital Marketing Solutions to Grow Your Business";
     
@@ -76,10 +91,9 @@ const OnlinePromotionPage = () => {
           </Link>
         </div>
         <div className="container online-hero-grid">
-          
-          <div className="online-hero-content">
+<div className="online-hero-content">
             <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>ONLINE PROMOTION SERVICES</p>
-            <h1 className="online-hero-title">Grow Your Brand with <br/><span>Powerful Online Promotion</span></h1>
+            <h1 className="online-hero-title" style={{ color: 'white' }}><span style={{ whiteSpace: 'nowrap', color: 'white' }}>Grow Your Brand with</span> <br/>Powerful <span style={{ color: 'var(--accent-orange)', whiteSpace: 'nowrap' }}>Online Promotion</span></h1>
             <p className="online-hero-desc">
               Expand your online presence and connect with your target audience through our Professional Online Promotion Services. We help businesses increase brand awareness, drive website traffic, generate quality leads, and boost sales using effective digital marketing strategies across multiple online platforms.
             </p>
@@ -91,12 +105,9 @@ const OnlinePromotionPage = () => {
             </Link>
           </div>
 
-          <div className="online-hero-blob-wrapper">
-            <div className="blob-shape-container">
-              <img src="/promotion-and-planning-icon-concept-vector.jpg" alt="Online Promotion Services" className="hero-right-image" />
-            </div>
+          <div className="hero-image-right" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <img src="/online--promotion.webp" alt="Online Promotion Services" style={{ width: '100%', maxWidth: '550px', height: 'auto', borderRadius: '20px', boxShadow: '0 20px 40px rgba(0,0,0,0.4)', filter: 'drop-shadow(0 10px 15px rgba(0,0,0,0.5))' }} />
           </div>
-
         </div>
       </section>
 

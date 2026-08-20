@@ -5,6 +5,21 @@ import './LinkedinMarketingPage.css';
 
 const LinkedinMarketingPage = () => {
   useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-show');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    const faqItems = document.querySelectorAll('details[class*="-faq-item"]');
+    faqItems.forEach(el => observer.observe(el));
+    
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     window.scrollTo(0, 0);
     document.title = "LinkedIn Marketing Services | B2B Lead Generation & LinkedIn Ads";
     
@@ -74,10 +89,9 @@ const LinkedinMarketingPage = () => {
           </Link>
         </div>
         <div className="container linkedin-hero-grid">
-          
-          <div className="linkedin-hero-content">
+<div className="linkedin-hero-content">
             <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>LINKEDIN MARKETING SERVICES</p>
-            <h1 className="linkedin-hero-title">Grow Your Business with Professional <br/><span>LinkedIn Marketing</span></h1>
+            <h1 className="linkedin-hero-title">Grow Your Business with&nbsp;Professional <br/><span>LinkedIn Marketing</span></h1>
             <p className="linkedin-hero-desc">
               Build a strong professional presence and connect with decision-makers through our LinkedIn Marketing Services. We help businesses, startups, and professionals increase brand visibility, generate high-quality B2B leads, and establish industry authority with strategic LinkedIn marketing.
             </p>
@@ -89,24 +103,9 @@ const LinkedinMarketingPage = () => {
             </Link>
           </div>
 
-          <div className="linkedin-hero-image-wrapper">
-            <div className="linkedin-orbit-container">
-              <div className="orbit-ring orbit-ring-1"></div>
-              <div className="orbit-ring orbit-ring-2"></div>
-              <div className="orbit-ring orbit-ring-3"></div>
-              <img src="/3.webp" alt="LinkedIn Marketing Services" className="hero-orbit-image" />
-              <div className="orbit-satellite sat-1">
-                <FaLinkedin />
-              </div>
-              <div className="orbit-satellite sat-2">
-                <FaChartLine />
-              </div>
-              <div className="orbit-satellite sat-3">
-                <FaUserTie />
-              </div>
-            </div>
+          <div className="hero-image-right" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <img src="/3.webp" alt="LinkedIn Marketing Services" style={{ width: '100%', maxWidth: '450px', aspectRatio: '1 / 1', objectFit: 'cover', borderRadius: '20px', boxShadow: '0 20px 40px rgba(0,0,0,0.4)' }} />
           </div>
-
         </div>
       </section>
 

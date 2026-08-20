@@ -5,6 +5,21 @@ import './VlogEditingPage.css';
 
 const VlogEditingPage = () => {
   useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-show');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    const faqItems = document.querySelectorAll('details[class*="-faq-item"]');
+    faqItems.forEach(el => observer.observe(el));
+    
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     window.scrollTo(0, 0);
     document.title = "Professional Full Vlog Editing Services | Engage Your Audience";
     
@@ -89,9 +104,9 @@ const VlogEditingPage = () => {
           </Link>
         </div>
         <div className="container vlog-editing-hero-grid">
-          <div className="vlog-editing-hero-content">
+<div className="vlog-editing-hero-content">
             <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>FULL VLOG EDITING SERVICES</p>
-            <h1 className="vlog-editing-hero-title">Turn Your Raw Footage into <br/><span>Engaging Vlogs</span></h1>
+            <h1 className="vlog-editing-hero-title">Turn Your Raw Footage&nbsp;into <br/><span>Engaging Vlogs</span></h1>
             <p className="vlog-editing-hero-desc">
             Create high-quality, engaging, and professional vlogs with our Full Vlog Editing Services. Whether you're a YouTuber, travel creator, lifestyle influencer, business owner, or brand, we transform your raw footage into captivating videos that keep viewers watching from start to finish.
           </p>
@@ -100,22 +115,9 @@ const VlogEditingPage = () => {
             Get Your Vlogs Edited Today
           </Link>
           </div>
-          <div className="vlog-editing-hero-image-wrapper">
-            <div className="vlog-editing-orbit-container">
-              <div className="orbit-ring orbit-ring-1"></div>
-              <div className="orbit-ring orbit-ring-2"></div>
-              <div className="orbit-ring orbit-ring-3"></div>
-              <img src="/Full Vlog Editing.webp" alt="Hero Image" className="hero-orbit-image" />
-              <div className="orbit-satellite sat-1">
-                <FaYoutube />
-              </div>
-              <div className="orbit-satellite sat-2">
-                <FaCamera />
-              </div>
-              <div className="orbit-satellite sat-3">
-                <FaMicrophoneAlt />
-              </div>
-            </div>
+
+          <div className="hero-image-right" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <img src="/Full Vlog Editing.webp" alt="Hero Image" style={{ width: '100%', maxWidth: '550px', height: 'auto', borderRadius: '20px', boxShadow: '0 20px 40px rgba(0,0,0,0.4)', filter: 'drop-shadow(0 10px 15px rgba(0,0,0,0.5))' }} />
           </div>
         </div>
       </section>

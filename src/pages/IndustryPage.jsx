@@ -3,7 +3,7 @@ import IndustrySection from '../components/IndustrySection';
 
 const IndustryPage = () => {
   return (
-    <div style={{ paddingTop: '100px', minHeight: '80vh' }}>
+    <div className="industry-page-wrapper" style={{ minHeight: '80vh' }}>
       {/* Intro Content */}
       <div className="container" style={{ marginBottom: '3rem' }}>
         <div className="text-center" style={{ maxWidth: '800px', margin: '0 auto' }}>
