@@ -336,6 +336,20 @@
   .services-grid {
     grid-template-columns: 1fr;
   }
+
+  .services-grid a {
+    white-space: normal;
+  }
+
+  .footer-qr-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .qr-text {
+    text-align: center;
+  }
 }
 
 .footer-monoline { z-index: 10; }

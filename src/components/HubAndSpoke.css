@@ -1,4 +1,4 @@
-﻿.has-section {
+.has-section {
   padding: 6rem 0;
   background-color: var(--bg-dark);
   color: #fff;
@@ -160,7 +160,8 @@
   gap: 1.5rem;
   position: relative;
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  width: 380px;
+  width: 100%;
+  max-width: 380px;
   z-index: 1;
 }
 
@@ -390,5 +391,18 @@
   .has-metric-divider {
     width: 100%;
     height: 1px;
+  }
+}
+
+@media (max-width: 480px) {
+  .has-hub {
+    width: 260px;
+    height: 260px;
+  }
+  .has-hub-inner h3 {
+    font-size: 1.2rem;
+  }
+  .has-title {
+    font-size: 2rem;
   }
 }

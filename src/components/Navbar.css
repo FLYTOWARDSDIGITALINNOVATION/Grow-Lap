@@ -475,3 +475,22 @@
     display: block;
   }
 }
+
+@media (max-width: 768px) {
+  .nav-cta {
+    padding: 0.5rem 0.9rem;
+    font-size: 0.72rem;
+  }
+  .logo-image {
+    height: 36px;
+  }
+  .logo-main {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-cta {
+    display: none;
+  }
+}
