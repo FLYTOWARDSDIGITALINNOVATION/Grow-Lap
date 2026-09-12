@@ -91,7 +91,7 @@ const LinkedinMarketingPage = () => {
         <div className="container linkedin-hero-grid">
 <div className="linkedin-hero-content">
             <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>LINKEDIN MARKETING SERVICES</p>
-            <h1 className="linkedin-hero-title">Grow Your Business with&nbsp;Professional <br/><span>LinkedIn Marketing</span></h1>
+            <h1 className="linkedin-hero-title">Grow Your Business with Professional <br/><span>LinkedIn Marketing</span></h1>
             <p className="linkedin-hero-desc">
               Build a strong professional presence and connect with decision-makers through our LinkedIn Marketing Services. We help businesses, startups, and professionals increase brand visibility, generate high-quality B2B leads, and establish industry authority with strategic LinkedIn marketing.
             </p>

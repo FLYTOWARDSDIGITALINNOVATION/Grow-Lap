@@ -92,7 +92,7 @@ const EmailMarketingPage = () => {
         <div className="container email-hero-grid">
 <div className="email-hero-content">
             <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>EMAIL MARKETING SERVICES</p>
-            <h1 className="email-hero-title">Drive Engagement and Increase Sales&nbsp;with <br/><span>Professional Email Marketing</span></h1>
+            <h1 className="email-hero-title">Drive Engagement and Increase Sales with <br/><span>Professional Email Marketing</span></h1>
             <p className="email-hero-desc">
               Build stronger customer relationships and grow your business with our Professional Email Marketing Services. We create personalized, data-driven email campaigns that engage your audience, nurture leads, increase conversions, and encourage repeat business.
             </p>

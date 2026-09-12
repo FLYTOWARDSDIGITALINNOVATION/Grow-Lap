@@ -58,20 +58,78 @@
 }
 
 .sd-hero-title {
-  font-size: 3.5rem;
+  font-size: clamp(1.4rem, 5.2vw, 3.5rem);
   font-weight: 800;
-  line-height: 1.15;
+  line-height: 1.2;
   margin-bottom: 1.5rem;
   color: #fff;
-  letter-spacing: -1px;
+  letter-spacing: -0.5px;
+  word-break: normal;
+  overflow-wrap: break-word;
+  max-width: 100%;
 }
 
 .sd-hero-desc {
   font-size: 1.15rem;
   color: var(--text-muted);
   line-height: 1.8;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   max-width: 90%;
+}
+
+/* Custom Metrics/Stats Row */
+.sd-stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+}
+
+.sd-stat-val {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--accent-orange);
+}
+
+.sd-stat-lbl {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 0.3rem;
+}
+
+@media (max-width: 768px) {
+  .sd-stats-row {
+    gap: 0.75rem;
+    padding: 1rem 0.6rem;
+  }
+  .sd-stat-val {
+    font-size: 1.2rem;
+  }
+  .sd-stat-lbl {
+    font-size: 0.65rem;
+    letter-spacing: 0.5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sd-stats-row {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.4rem;
+    padding: 0.8rem 0.4rem;
+    text-align: center;
+  }
+  .sd-stat-val {
+    font-size: 1.1rem;
+  }
+  .sd-stat-lbl {
+    font-size: 0.6rem;
+  }
 }
 
 .sd-hero-buttons {
@@ -633,7 +691,41 @@
   gap: 2.5rem;
 }
 
+@media (max-width: 1200px) {
+  .sd-hero-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+  .sd-overview-grid {
+    gap: 2.5rem;
+  }
+  .sd-hero-title {
+    font-size: clamp(2rem, 3.8vw, 3rem);
+  }
+  .showroom-verticals-grid {
+    gap: 2rem;
+  }
+}
+
 @media (max-width: 992px) {
+  .sd-hero {
+    padding: clamp(80px, 10vw, 110px) 0 60px;
+  }
+  .sd-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .sd-hero-desc {
+    max-width: 100%;
+  }
+  .sd-overview-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .sd-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
   .showroom-verticals-grid {
     grid-template-columns: repeat(2, 1fr);
   }

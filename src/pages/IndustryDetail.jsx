@@ -106,19 +106,11 @@ const IndustryDetail = () => {
             </p>
             
             {/* Custom Metrics/Stats Row */}
-            <div style={{ 
-              display: 'flex', 
-              gap: '2.5rem', 
-              margin: '2.5rem 0',
-              padding: '1.5rem',
-              backgroundColor: 'rgba(255, 255, 255, 0.02)',
-              border: '1px solid rgba(255, 255, 255, 0.05)',
-              borderRadius: '12px'
-            }}>
+            <div className="sd-stats-row">
               {industry.stats.map((stat, i) => (
-                <div key={i}>
-                  <div style={{ fontSize: '1.8rem', fontWeight: '800', color: 'var(--accent-orange)' }}>{stat.value}</div>
-                  <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '1px', marginTop: '0.3rem' }}>{stat.label}</div>
+                <div key={i} className="sd-stat-box">
+                  <div className="sd-stat-val">{stat.value}</div>
+                  <div className="sd-stat-lbl">{stat.label}</div>
                 </div>
               ))}
             </div>

@@ -92,7 +92,10 @@ const SocialMediaPage = () => {
         <div className="container smm-hero-grid">
 <div className="smm-hero-content">
             <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>SOCIAL MEDIA MARKETING SERVICES</p>
-            <h1 className="smm-hero-title" style={{ color: 'white' }}><span style={{ whiteSpace: 'nowrap', color: 'white' }}>Grow Your Brand with</span> <br/>Professional <span style={{ color: 'var(--accent-orange)' }}>Social Media Marketing</span></h1>
+            <h1 className="smm-hero-title">
+              Grow Your Brand with <br />
+              Professional <span>Social Media Marketing</span>
+            </h1>
             <p className="smm-hero-desc">
               Build a strong online presence and connect with your audience through our Social Media Marketing (SMM) Services. We create result-driven social media strategies that increase brand awareness, engage your audience, generate quality leads, and drive business growth across the world's leading social platforms.
             </p>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaFacebookF, FaLinkedinIn, FaInstagram, FaTwitter } from 'react-icons/fa';
+import { FaInstagram } from 'react-icons/fa';
 import { servicesData } from '../data/servicesData';
 import whatsappQr from '../assets/images/whatsapp-qr.png';
 import './Footer.css';
@@ -33,10 +33,15 @@ const Footer = () => {
               We help businesses grow with creative digital solutions, powerful technology and result-driven strategies. Grow with us.
             </p>
             <div className="mono-social-links">
-              <a href="#" className="social-fb"><FaFacebookF /></a>
-              <a href="#" className="social-tw"><FaTwitter /></a>
-              <a href="https://www.instagram.com/growlap_?igsh=c3JjbG5zeHczY2hm" target="_blank" rel="noopener noreferrer" className="social-in"><FaInstagram /></a>
-              <a href="#" className="social-li"><FaLinkedinIn /></a>
+              <a 
+                href="https://www.instagram.com/growlap_?igsh=c3JjbG5zeHczY2hm" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="instagram-badge-link"
+              >
+                <div className="social-in"><FaInstagram /></div>
+                <span className="instagram-handle">@growlap_</span>
+              </a>
             </div>
             
             {/* WhatsApp QR Code Section */}

@@ -62,14 +62,24 @@
 /* Mobile responsiveness */
 @media (max-width: 768px) {
   .whatsapp-float-btn {
-    width: 55px;
-    height: 55px;
-    bottom: 160px; /* Sit above chatbot on mobile */
-    right: 20px;
-    font-size: 30px;
+    width: 44px;
+    height: 44px;
+    bottom: 118px;
+    right: 15px;
+    font-size: 24px;
   }
 
   .whatsapp-tooltip {
     display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .whatsapp-float-btn {
+    width: 36px;
+    height: 36px;
+    bottom: 92px;
+    right: 10px;
+    font-size: 19px;
   }
 }

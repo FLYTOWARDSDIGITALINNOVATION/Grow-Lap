@@ -95,30 +95,46 @@
 
 .mono-social-links {
   display: flex;
-  gap: 0.8rem;
   justify-content: center;
+  margin-top: 0.5rem;
 }
 
-.mono-social-links a {
+.instagram-badge-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  background: rgba(225, 48, 108, 0.08);
+  border: 1px solid rgba(225, 48, 108, 0.3);
+  padding: 6px 16px 6px 6px;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+}
+
+.instagram-badge-link:hover {
+  background: rgba(225, 48, 108, 0.18);
+  border-color: rgba(225, 48, 108, 0.6);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(225, 48, 108, 0.25);
+}
+
+.social-in {
   width: 36px;
   height: 36px;
   border-radius: 50%;
   color: #fff;
+  background-color: #e1306c;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-decoration: none;
-  transition: all 0.3s ease;
+  font-size: 1.1rem;
 }
 
-.social-fb { background-color: #3b5998; }
-.social-tw { background-color: #1da1f2; }
-.social-in { background-color: #e1306c; }
-.social-li { background-color: #0077b5; }
-
-.mono-social-links a:hover {
-  filter: brightness(1.2);
-  transform: translateY(-3px);
+.instagram-handle {
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
 /* WhatsApp QR Code Section */
@@ -315,11 +331,22 @@
   }
   
   .mono-scroll-top {
-    bottom: 20px;
-    right: 20px;
+    bottom: 15px;
+    right: 15px;
     width: 40px;
     height: 40px;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    z-index: 999;
+  }
+}
+
+@media (max-width: 480px) {
+  .mono-scroll-top {
+    bottom: 10px;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
   }
 }
 

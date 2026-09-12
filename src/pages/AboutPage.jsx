@@ -11,6 +11,21 @@ import './AboutPage.css';
 import './SeoPage.css'; // For SEO FAQ styles
 import '../components/HubAndSpoke.css'; // For the What We Do Hub and Spoke design
 
+// Local Image Imports for Bento Box Grid
+import schoolImg from '../assets/images/school.webp';
+import hospitalImg from '../assets/images/hospital.webp';
+import realEstateImg from '../assets/images/real-estate.webp';
+import restaurantImg from '../assets/images/restaurant.webp';
+import boutiqueImg from '../assets/images/boutique.webp';
+import manufacturingImg from '../assets/images/manufacturing.webp';
+import financeImg from '../assets/images/finance-service.webp';
+import retailImg from '../assets/images/retail-shop.webp';
+import resortsImg from '../assets/images/resorts.webp';
+import card1Img from '../assets/images/card1.webp';
+import card2Img from '../assets/images/card2.webp';
+import card3Img from '../assets/images/card3.webp';
+import card4Img from '../assets/images/card4.webp';
+
 const AboutPage = () => {
   const [isMissionVisible, setIsMissionVisible] = useState(false);
   const [isWhoWeAreVisible, setIsWhoWeAreVisible] = useState(false);
@@ -103,10 +118,10 @@ const AboutPage = () => {
     <div className="about-page-wrapper" style={{ minHeight: '100vh', backgroundColor: 'var(--bg-dark)' }}>
       
       {/* 1. Hero / Intro Section */}
-      <div className="container" style={{ paddingBottom: '4rem', overflow: 'hidden' }}>
-        <div className="grid-2 about-hero-grid" style={{ alignItems: 'center', gap: '4rem' }}>
+      <div className="container" style={{ paddingBottom: '3rem' }}>
+        <div className="grid-2 about-hero-grid" style={{ alignItems: 'center', gap: '2rem' }}>
           <div className="about-hero-text">
-            <p className="section-subtitle text-accent" style={{ margin: 0, marginBottom: '1.5rem', fontSize: '1.3rem', textTransform: 'uppercase', letterSpacing: '3px', fontWeight: '800' }}>ABOUT US</p>
+            <p className="section-subtitle text-accent" style={{ margin: 0, marginBottom: '1rem', fontSize: '1.1rem', textTransform: 'uppercase', letterSpacing: '2px', fontWeight: '800' }}>ABOUT US</p>
             <h1 className="about-hero-title">
               Your Trusted Digital Marketing & <br className="hide-mobile" />
               <span className="text-accent">Creative Growth Partner</span>
@@ -125,39 +140,37 @@ const AboutPage = () => {
       </div>
 
       {/* 2. Who We Are - Bento Box Model */}
-      <div className="container" style={{ paddingTop: '6rem', paddingBottom: '6rem' }}>
-        <div className="grid-2" style={{ alignItems: 'center', gap: '5rem', overflow: 'hidden' }}>
+      <div className="container" style={{ paddingTop: '3rem', paddingBottom: '3rem' }}>
+        <div className="grid-2" style={{ alignItems: 'center', gap: '3rem' }}>
           
           {/* Text Side (Left) */}
           <div className="about-who-text">
             <p className="section-subtitle text-accent" style={{ margin: 0, marginBottom: '1rem', fontSize: '1.1rem', letterSpacing: '2px', fontWeight: '700' }}>WHO WE ARE</p>
-            <h2 style={{ fontSize: '3rem', marginTop: 0, marginBottom: '1.5rem', lineHeight: 1.2 }}>
+            <h2 className="about-who-title" style={{ marginTop: 0, marginBottom: '1.5rem', lineHeight: 1.2 }}>
               Passionate&nbsp;About <br/><span style={{ color: 'var(--accent-orange)' }}>Your Growth</span>
             </h2>
             
-            <div style={{ paddingLeft: '1.5rem', borderLeft: '4px solid var(--accent-orange)', marginBottom: '2rem', background: 'linear-gradient(90deg, rgba(255, 94, 0, 0.05) 0%, transparent 100%)', padding: '1rem 1rem 1rem 1.5rem', borderRadius: '0 8px 8px 0' }}>
-              <p style={{ fontSize: '1.15rem', color: '#fff', margin: 0, lineHeight: '1.6', fontStyle: 'italic', fontWeight: '500' }}>
+            <div style={{ paddingLeft: '1rem', borderLeft: '4px solid var(--accent-orange)', marginBottom: '1.5rem', background: 'linear-gradient(90deg, rgba(255, 94, 0, 0.05) 0%, transparent 100%)', padding: '1rem 1rem 1rem 1.2rem', borderRadius: '0 8px 8px 0' }}>
+              <p style={{ fontSize: '1.05rem', color: '#fff', margin: 0, lineHeight: '1.6', fontStyle: 'italic', fontWeight: '500' }}>
                 "We don't just execute campaigns; we architect digital growth."
               </p>
             </div>
             
-            <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: '1.8' }}>
+            <p style={{ fontSize: '1rem', color: 'var(--text-muted)', marginBottom: '1.2rem', lineHeight: '1.7' }}>
               We are passionate about helping businesses thrive in the digital world. By combining creativity, technology, and data-driven marketing, we deliver solutions that strengthen your brand and maximize your return on investment (ROI).
             </p>
-            <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', marginBottom: '2.5rem', lineHeight: '1.8' }}>
+            <p style={{ fontSize: '1rem', color: 'var(--text-muted)', marginBottom: '2rem', lineHeight: '1.7' }}>
               From building engaging websites to creating viral social media campaigns, we focus on delivering results that help your business grow faster and smarter.
             </p>
           </div>
 
           {/* Image Grid Side (Right) */}
-          <div className="about-who-image-grid" style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '1.2rem', position: 'relative' }}>
+          <div className="about-who-image-grid">
              {/* Decorative Background Blob */}
              <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '300px', height: '300px', background: 'var(--accent-orange)', filter: 'blur(100px)', opacity: 0.15, zIndex: 0 }}></div>
-             <img src="/about-who-we-are.webp" alt="Team" style={{ width: '100%', height: '100%', minHeight: '450px', objectFit: 'cover', borderRadius: '24px', gridRow: 'span 2', position: 'relative', zIndex: 1, boxShadow: '0 15px 35px rgba(0,0,0,0.6)' }} />
-             
-             <img src="/bg-team.webp" alt="Collaboration" style={{ width: '100%', height: '215px', objectFit: 'cover', borderRadius: '24px', position: 'relative', zIndex: 1, boxShadow: '0 10px 30px rgba(0,0,0,0.5)' }} />
-             
-             <img src="/bg-projects.webp" alt="Success" style={{ width: '100%', height: '215px', objectFit: 'cover', borderRadius: '24px', position: 'relative', zIndex: 1, boxShadow: '0 10px 30px rgba(0,0,0,0.5)' }} />
+             <img src="/about-who-we-are.webp" alt="Team" className="about-who-img-main" />
+             <img src="/bg-team.webp" alt="Collaboration" className="about-who-img-sub" />
+             <img src="/bg-projects.webp" alt="Success" className="about-who-img-sub" />
           </div>
 
         </div>
@@ -376,18 +389,18 @@ const AboutPage = () => {
           
           <div className="bento-grid">
             {[
-              { name: "E-commerce", icon: <FaStore />, type: 'large', img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=600", desc: "Boost online sales and maximize conversions with targeted product campaigns and CRO." },
-              { name: "Healthcare", icon: <FaHospital />, type: '', img: "https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=600", desc: "HIPAA-compliant marketing to build patient trust and grow your practice." },
-              { name: "Education", icon: <FaGraduationCap />, type: '', img: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=600", desc: "Drive student enrollments and enhance your institution's online presence." },
-              { name: "Real Estate", icon: <FaHome />, type: 'tall', img: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=600", desc: "Generate high-quality leads and showcase properties to the right buyers." },
-              { name: "Restaurants", icon: <FaUtensils />, type: '', img: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=600", desc: "Fill your tables and increase online orders with local SEO and social media." },
-              { name: "Fashion", icon: <FaTrophy />, type: 'wide', img: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=600", desc: "Build a highly engaged audience and drive brand loyalty with stunning visual campaigns." },
-              { name: "Technology", icon: <FaLaptopCode />, type: 'large', img: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=600", desc: "Market innovative software and SaaS products to B2B and B2C audiences." },
-              { name: "Manufacturing", icon: <FaIndustry />, type: '', img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=600", desc: "Generate qualified B2B leads and establish industry authority." },
-              { name: "Travel & Tourism", icon: <FaPlane />, type: 'tall', img: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=600", desc: "Attract more tourists and increase bookings with captivating destination marketing." },
-              { name: "Finance", icon: <FaPiggyBank />, type: '', img: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?q=80&w=600", desc: "Build authority and trust with data-driven marketing for financial services." },
-              { name: "Corporate", icon: <FaBuilding />, type: 'wide', img: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=600", desc: "Enhance your corporate identity and streamline your B2B lead generation." },
-              { name: "Startups", icon: <FaRocket />, type: '', img: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=600", desc: "Scale rapidly with growth-hacking strategies tailored for new ventures." }
+              { name: "E-commerce", icon: <FaStore />, type: 'large', img: retailImg, desc: "Boost online sales and maximize conversions with targeted product campaigns and CRO." },
+              { name: "Healthcare", icon: <FaHospital />, type: '', img: hospitalImg, desc: "HIPAA-compliant marketing to build patient trust and grow your practice." },
+              { name: "Education", icon: <FaGraduationCap />, type: '', img: schoolImg, desc: "Drive student enrollments and enhance your institution's online presence." },
+              { name: "Real Estate", icon: <FaHome />, type: 'tall', img: realEstateImg, desc: "Generate high-quality leads and showcase properties to the right buyers." },
+              { name: "Restaurants", icon: <FaUtensils />, type: '', img: restaurantImg, desc: "Fill your tables and increase online orders with local SEO and social media." },
+              { name: "Fashion", icon: <FaTrophy />, type: 'wide', img: boutiqueImg, desc: "Build a highly engaged audience and drive brand loyalty with stunning visual campaigns." },
+              { name: "Technology", icon: <FaLaptopCode />, type: 'large', img: card2Img, desc: "Market innovative software and SaaS products to B2B and B2C audiences." },
+              { name: "Manufacturing", icon: <FaIndustry />, type: '', img: manufacturingImg, desc: "Generate qualified B2B leads and establish industry authority." },
+              { name: "Travel & Tourism", icon: <FaPlane />, type: 'tall', img: resortsImg, desc: "Attract more tourists and increase bookings with captivating destination marketing." },
+              { name: "Finance", icon: <FaPiggyBank />, type: '', img: financeImg, desc: "Build authority and trust with data-driven marketing for financial services." },
+              { name: "Corporate", icon: <FaBuilding />, type: 'wide', img: card3Img, desc: "Enhance your corporate identity and streamline your B2B lead generation." },
+              { name: "Startups", icon: <FaRocket />, type: '', img: card4Img, desc: "Scale rapidly with growth-hacking strategies tailored for new ventures." }
             ].map((item, idx) => (
               <div className={`bento-flip-container ${item.type}`} key={idx}>
                 <div className="bento-flip-inner">
@@ -417,8 +430,8 @@ const AboutPage = () => {
 
           {/* Center Content */}
           <div style={{ textAlign: 'center' }}>
-            <h2 style={{ fontSize: '2.2rem', marginBottom: '1.5rem', color: '#fff', fontFamily: '"Outfit", sans-serif', fontWeight: '800', whiteSpace: 'nowrap' }}>Why Digital Marketing Matters</h2>
-            <p style={{ fontSize: '1.25rem', color: '#fff', margin: '0 auto', lineHeight: '1.9', fontWeight: '500', fontStyle: 'italic', letterSpacing: '0.5px' }}>
+            <h2 style={{ fontSize: 'clamp(1.5rem, 5vw, 2.2rem)', marginBottom: '1.5rem', color: '#fff', fontFamily: '"Outfit", sans-serif', fontWeight: '800' }}>Why Digital Marketing Matters</h2>
+            <p style={{ fontSize: 'clamp(0.95rem, 3.5vw, 1.25rem)', color: '#fff', margin: '0 auto', lineHeight: '1.7', fontWeight: '500', fontStyle: 'italic' }}>
               "Digital marketing helps businesses reach the right audience, build brand awareness, generate qualified leads, and increase revenue. With the right strategy, your business can stay ahead of the competition and achieve long-term online success."
             </p>
           </div>

@@ -204,7 +204,7 @@ const Navbar = () => {
           <li><Link to="/contact" className={location.pathname === '/contact' ? 'active' : ''} onClick={handleLinkClick}>Contact Us</Link></li>
         </ul>
         
-        <Link to="/contact" className="nav-cta">GET A AUTHENTICATION</Link>
+        <Link to="/contact" className="nav-cta">GET FREE CONSULTATION</Link>
       </div>
     </nav>
   );

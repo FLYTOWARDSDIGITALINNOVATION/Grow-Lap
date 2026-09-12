@@ -48,16 +48,16 @@
 }
 
 .ssd-hero-title {
-  font-size: 3.5rem;
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
   font-weight: 800;
   margin: 0 auto 1.5rem auto;
   text-align: center;
-  line-height: 1.1;
+  line-height: 1.15;
   max-width: 800px;
 }
 
 .ssd-hero-desc {
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 2vw, 1.25rem);
   color: #fff;
   line-height: 1.6;
   max-width: 700px;
@@ -1353,13 +1353,28 @@
 }
 
 @media (max-width: 1200px) {
-  .ssd-cta-title { font-size: 3.5rem; }
+  .ssd-grid-layout {
+    grid-template-columns: 1fr 340px;
+    gap: 2.5rem;
+  }
+  .ssd-cta-title { font-size: 3rem; }
   .ssd-cta-stats-box { padding: 2rem; }
   .stat-item { gap: 1rem; }
   .stat-text h4 { font-size: 1.5rem; }
 }
 
 @media (max-width: 992px) {
+  .ssd-hero {
+    padding: clamp(80px, 10vw, 120px) 0 50px 0;
+  }
+  .ssd-grid-layout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .ssd-sticky-sidebar {
+    position: relative;
+    top: 0;
+  }
   .ssd-cta-stats-box {
     flex-wrap: wrap;
     gap: 2.5rem;
@@ -1368,10 +1383,22 @@
   .stat-item { width: 45%; }
 }
 
+@media (max-width: 768px) {
+  .ssd-features {
+    grid-template-columns: 1fr;
+  }
+  .ssd-feature-item:nth-child(1) {
+    grid-column: span 1;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+
 @media (max-width: 576px) {
   .stat-item { width: 100%; justify-content: flex-start; }
   .ssd-cta-actions { flex-direction: column; }
   .ssd-cta-actions button { width: 100%; }
-  .ssd-cta-title { font-size: 2.5rem; }
+  .ssd-cta-title { font-size: 2.2rem; }
   .ssd-cta-trust { flex-direction: column; gap: 8px; }
 }

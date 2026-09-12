@@ -41,7 +41,7 @@ const BlogPage = () => {
         </p>
       </div>
 
-      <div style={{ marginTop: '-4rem' }}>
+      <div style={{ marginTop: '1rem' }}>
         <BlogSection />
       </div>
     </div>

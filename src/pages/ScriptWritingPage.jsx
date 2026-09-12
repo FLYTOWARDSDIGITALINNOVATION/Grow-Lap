@@ -91,7 +91,10 @@ const ScriptWritingPage = () => {
         <div className="container script-hero-grid">
 <div className="script-hero-content">
             <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>SCRIPT WRITING SERVICES</p>
-            <h1 className="script-hero-title" style={{ color: 'white' }}>Professional <span style={{ whiteSpace: 'nowrap', color: 'white' }}><span style={{ color: 'var(--accent-orange)' }}>Script Writing</span> Services</span> <br/><span style={{ whiteSpace: 'nowrap', color: 'white' }}>That Bring Your Ideas to Life</span></h1>
+            <h1 className="script-hero-title">
+              Professional <span>Script Writing</span> Services <br />
+              That Bring Your Ideas to Life
+            </h1>
             <p className="script-hero-desc">
               Turn your ideas into compelling stories with our Professional Script Writing Services. We create engaging, creative, and audience-focused scripts for businesses, brands, content creators, and marketing campaigns.
             </p>

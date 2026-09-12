@@ -158,14 +158,22 @@ p {
 }
 
 @media (max-width: 768px) {
-  h1 { font-size: 2.2rem; }
+  h1 { font-size: clamp(1.6rem, 6.5vw, 2.2rem); }
+  h2 { font-size: clamp(1.3rem, 5vw, 1.8rem); }
   .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
   .section-padding { padding: 3rem 0; }
   p, a, span, h1, h2, h3, h4, h5, h6 {
-    word-break: break-word;
+    overflow-wrap: break-word;
+    word-break: normal;
   }
   .container {
-    padding: 0 1.5rem !important;
+    padding: 0 1.25rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1rem !important;
   }
 }
 
@@ -217,20 +225,167 @@ main {
 }
 
 /* --- GLOBAL NAVBAR CLEARANCE FIX --- */
-/* 1. Add padding to specific wrappers that don't have inner hero sections */
+/* 1. Base padding for page wrappers under fixed navbar */
 main > .about-page-wrapper,
 main > .industry-page-wrapper,
 main > .blog-page-wrapper,
 main > .contact-page-wrapper,
 main > .blog-detail-page,
 main > .admin-login-wrapper {
-  padding-top: 140px !important;
+  padding-top: clamp(125px, 10vw, 145px) !important;
 }
 
-/* 2. For service pages, apply padding to the HERO itself so its background reaches the top seamlessly under the translucent navbar */
-main > [class*="-container"] > [class*="-hero"],
-main > [class*="-wrapper"] > [class*="-hero"],
-main > [class*="-container"] > .sp-intro {
-  padding-top: 140px !important;
+/* Exempt inner hero containers inside already-padded page wrappers from double padding */
+main > .blog-page-wrapper > .blog-hero-container,
+main > .blog-detail-page > .blog-detail-container,
+main > .about-page-wrapper > .about-hero-container {
+  padding-top: 0.5rem !important;
   margin-top: 0 !important;
+}
+
+/* 2. For hero components on pages without padded parent wrappers */
+main > [class*="-container"] > [class*="-hero"],
+main > [class*="-container"] > .sp-intro,
+.hero-section {
+  padding-top: clamp(125px, 10vw, 145px) !important;
+  margin-top: 0 !important;
+}
+
+@media (max-width: 992px) {
+  main > .about-page-wrapper,
+  main > .industry-page-wrapper,
+  main > .blog-page-wrapper,
+  main > .contact-page-wrapper,
+  main > .blog-detail-page,
+  main > .admin-login-wrapper {
+    padding-top: 105px !important;
+  }
+
+  main > [class*="-container"] > [class*="-hero"],
+  main > [class*="-container"] > .sp-intro,
+  .hero-section {
+    padding-top: 105px !important;
+    margin-top: 0 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  main > .about-page-wrapper,
+  main > .industry-page-wrapper,
+  main > .blog-page-wrapper,
+  main > .contact-page-wrapper,
+  main > .blog-detail-page,
+  main > .admin-login-wrapper {
+    padding-top: 90px !important;
+  }
+
+  main > [class*="-container"] > [class*="-hero"],
+  main > [class*="-container"] > .sp-intro,
+  .hero-section {
+    padding-top: 90px !important;
+    margin-top: 0 !important;
+  }
+}
+
+/* =========================================================================
+   GLOBAL MOBILE RESPONSIVENESS & HERO TITLE FIXES
+   ========================================================================= */
+
+[class*="-hero-title"],
+.hero-title,
+.sp-title,
+.about-hero-title,
+.contact-hero-title,
+h1 {
+  font-size: clamp(1.4rem, 5.2vw, 3.5rem);
+  line-height: 1.25;
+  word-break: normal;
+  overflow-wrap: break-word;
+  max-width: 100%;
+}
+
+[class*="-hero-title"] span,
+h1 span {
+  display: inline;
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  [class*="-hero-title"],
+  .hero-title,
+  .sp-title,
+  .about-hero-title,
+  .contact-hero-title,
+  h1 {
+    font-size: clamp(1.2rem, 5.5vw, 1.8rem) !important;
+    text-align: center !important;
+    line-height: 1.3 !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  [class*="-hero-content"],
+  .hero-content {
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    max-width: 100% !important;
+  }
+
+  [class*="-hero-desc"],
+  .hero-desc {
+    text-align: center !important;
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+  }
+
+  [class*="-hero-grid"],
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+    text-align: center !important;
+  }
+
+  [class*="-hero-content"] .btn-primary,
+  [class*="-hero-content"] a.btn-primary,
+  .seo-hero-cta-btn {
+    max-width: 100% !important;
+    padding: 12px 20px !important;
+    font-size: 0.95rem !important;
+    text-align: center !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+  }
+}
+
+@media (max-width: 480px) {
+  [class*="-hero-title"],
+  h1 {
+    font-size: clamp(1.15rem, 5.8vw, 1.5rem) !important;
+  }
+}
+
+/* Tablet & Laptop Screen Breakpoints */
+@media (max-width: 1199px) and (min-width: 993px) {
+  .container {
+    max-width: 960px;
+    padding: 0 1.5rem;
+  }
+  .grid-4 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 992px) and (min-width: 769px) {
+  .container {
+    max-width: 720px;
+    padding: 0 1.25rem;
+  }
+  .grid-4, .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .section-padding {
+    padding: 3.5rem 0;
+  }
 }

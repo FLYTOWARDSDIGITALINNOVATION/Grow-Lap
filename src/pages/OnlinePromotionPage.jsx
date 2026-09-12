@@ -93,7 +93,10 @@ const OnlinePromotionPage = () => {
         <div className="container online-hero-grid">
 <div className="online-hero-content">
             <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>ONLINE PROMOTION SERVICES</p>
-            <h1 className="online-hero-title" style={{ color: 'white' }}><span style={{ whiteSpace: 'nowrap', color: 'white' }}>Grow Your Brand with</span> <br/>Powerful <span style={{ color: 'var(--accent-orange)', whiteSpace: 'nowrap' }}>Online Promotion</span></h1>
+            <h1 className="online-hero-title">
+              Grow Your Brand with <br />
+              Powerful <span>Online Promotion</span>
+            </h1>
             <p className="online-hero-desc">
               Expand your online presence and connect with your target audience through our Professional Online Promotion Services. We help businesses increase brand awareness, drive website traffic, generate quality leads, and boost sales using effective digital marketing strategies across multiple online platforms.
             </p>

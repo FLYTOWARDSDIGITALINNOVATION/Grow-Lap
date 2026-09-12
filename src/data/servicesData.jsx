@@ -64,10 +64,10 @@ export const servicesData = [
       { slug: 'vlog-editing', title: 'Full Vlog Editing', desc: 'Engaging, well-paced vlog editing with sound design and B-roll.', image: '/Full Vlog Editing.webp' },
       { slug: 'wedding-editing', title: 'Wedding Editing', desc: 'Beautifully crafted highlight reels and full-length edits.', image: '/Wedding Editing.webp' },
       { slug: 'photo-editing', title: 'Photo Editing', desc: 'Flawless photo editing, background removal, and high-end retouching.', image: '/photo editing.webp' },
-      { slug: 'logo-design', title: 'Logo Design', desc: 'Creative logo designs that establish a memorable brand identity.', image: '/logo.webp' },
+      { slug: 'logo-design', title: 'Logo Design', desc: 'Creative logo designs that establish a memorable brand identity.', image: '/logo-design.webp' },
       { slug: 'poster-design', title: 'Poster Design', desc: 'Eye-catching poster designs for events and marketing.', image: '/poster.webp' },
       { slug: 'flex-design', title: 'Flex Design', desc: 'High-quality flex banner designs for offline promotions.', image: '/flex.webp' },
-      { slug: 'graphics-design', title: 'Graphics Design', desc: 'Comprehensive graphics design for all your visual needs.', image: '/Graphic Design.webp' },
+      { slug: 'graphics-design', title: 'Graphics Design', desc: 'Comprehensive graphics design for all your visual needs.', image: '/graphic-design.webp' },
       { slug: 'animation', title: 'Animation', desc: 'Custom animations to make your message unforgettable.', image: '/Animation.webp' }
     ],
     faqs: [

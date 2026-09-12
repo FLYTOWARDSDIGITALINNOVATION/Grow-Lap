@@ -93,7 +93,7 @@ const MetaAdPage = () => {
         <div className="container meta-hero-grid">
 <div className="meta-hero-content">
             <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>META ADS SERVICES</p>
-            <h1 className="meta-hero-title">Grow Your Business&nbsp;with <br/><span>High-Performance Meta Ads</span></h1>
+            <h1 className="meta-hero-title">Grow Your Business with <br/><span>High-Performance Meta Ads</span></h1>
             <p className="meta-hero-desc">
               Reach the right audience and maximize your return on investment with our Professional Meta Ads Services. We create data-driven advertising campaigns on Facebook and Instagram that help businesses increase brand awareness, generate quality leads, drive website traffic, and boost online sales.
             </p>

@@ -3,7 +3,8 @@
   min-height: 100vh;
   position: relative;
   overflow: clip;
-  padding-top: 10rem;
+  padding-top: 0;
+  padding-bottom: 4rem;
 }
 
 .contact-bg-accents {
@@ -51,11 +52,12 @@
 }
 
 .contact-title {
-  font-size: 3.5rem;
+  font-size: clamp(2.2rem, 4.2vw, 3.5rem);
   font-weight: 800;
   font-family: 'Outfit', sans-serif;
   margin-bottom: 0.5rem;
   letter-spacing: 1px;
+  line-height: 1.2;
 }
 
 .contact-title-accent {
@@ -167,9 +169,10 @@
 
 .contact-3d-image {
   width: 100%;
-  max-width: 120%;
+  max-width: 100%;
   height: auto;
-  transform: scale(1.25);
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
 }
 
 .direct-contact-section {
@@ -298,21 +301,21 @@
 
 .contact-info-card p {
   color: #fff;
-  font-size: clamp(0.75rem, 0.9vw, 1.05rem);
+  font-size: clamp(0.8rem, 1vw, 1.05rem);
   margin-bottom: 0;
-  white-space: nowrap;
+  word-break: break-word;
 }
 
 @media (max-width: 1200px) {
-  .contact-cards-grid {
-    gap: 1.5rem;
+  .contact-layout {
+    gap: 2.5rem;
   }
-}
-
-@media (max-width: 1024px) {
   .contact-cards-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
+  }
+  .contact-info-card {
+    padding: 2rem 1rem;
   }
 }
 
@@ -324,26 +327,35 @@
   
   .contact-image-wrapper {
     order: -1;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .contact-3d-image {
+    transform: scale(1);
+  }
+
+  .contact-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .direct-contact-section {
+    margin-top: 3.5rem;
   }
 }
 
 @media (max-width: 768px) {
-  .contact-cards-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  
-  .contact-info-card p {
-    white-space: normal;
-    word-break: break-word;
-  }
-  
   .direct-contact-header h3 {
     font-size: 2rem;
   }
 }
 
 @media (max-width: 576px) {
+  .contact-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
   .contact-form-grid {
     grid-template-columns: 1fr;
   }

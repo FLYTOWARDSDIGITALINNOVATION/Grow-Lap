@@ -92,7 +92,10 @@ const PersonalBrandingPage = () => {
         <div className="container personal-hero-grid">
 <div className="personal-hero-content">
             <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>PERSONAL BRANDING SERVICES</p>
-            <h1 className="personal-hero-title" style={{ color: 'white' }}>Build a Powerful <span style={{ whiteSpace: 'nowrap', color: 'var(--accent-orange)' }}>Personal Brand</span> <br/><span style={{ whiteSpace: 'nowrap', color: 'white' }}>That Sets You Apart</span></h1>
+            <h1 className="personal-hero-title">
+              Build a Powerful <span>Personal Brand</span> <br />
+              That Sets You Apart
+            </h1>
             <p className="personal-hero-desc">
               Your personal brand is more than just your online presence—it's how people recognize, trust, and remember you. Our Personal Branding Services help entrepreneurs, business owners, professionals, influencers, coaches, and executives establish a strong digital identity that builds credibility, attracts opportunities, and drives long-term success.
             </p>

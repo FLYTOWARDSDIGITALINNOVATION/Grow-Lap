@@ -114,7 +114,11 @@ const SeoPage = () => {
           <div className="seo-hero-grid">
 <div className="seo-hero-content">
               <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>SEO – SEARCH ENGINE OPTIMIZATION SERVICES</p>
-              <h1 className="seo-hero-title">Grow Your Business&nbsp;with <br/><span>Professional SEO Services</span></h1>
+              <h1 className="seo-hero-title">
+                Grow Your Business <br />
+                with <br />
+                <span>Professional SEO Services</span>
+              </h1>
               
               <p className="seo-hero-desc">
                 Increase your online visibility and attract high-quality traffic with our SEO (Search Engine Optimization) Services. We help businesses improve their search engine rankings, reach the right audience, and generate more leads through proven, data-driven SEO strategies.
@@ -123,7 +127,7 @@ const SeoPage = () => {
               <p className="seo-hero-desc">
                 Whether you're a startup, local business, or established brand, our SEO experts create customized optimization plans that improve your website's performance on Google and other major search engines.
               </p>
-              <Link to="/contact" className="btn-primary" style={{ padding: '15px 40px', fontSize: '1.2rem', display: 'inline-block', marginTop: '1rem' }}>
+              <Link to="/contact" className="btn-primary seo-hero-cta-btn">
                 Get Your Free SEO Consultation
               </Link>
             </div>

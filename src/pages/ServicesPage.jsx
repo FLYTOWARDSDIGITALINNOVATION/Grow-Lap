@@ -15,13 +15,13 @@ const ServicesPage = () => {
   return (
     <div className="services-page-container">
       {/* Intro Content */}
-      <div className="container sp-intro" style={{ marginTop: '120px', marginBottom: '4rem', textAlign: 'center' }}>
+      <div className="container sp-intro">
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
           <p className="section-subtitle text-accent">OUR EXPERTISE</p>
-          <h1 style={{ fontSize: '2.5rem', marginBottom: '1.5rem' }}>
+          <h1 className="sp-intro-title">
             Elevate Your Brand with Our <span className="text-accent">Digital Marketing</span> Services
           </h1>
-          <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: '1.8' }}>
+          <p className="sp-intro-desc">
             At Fly Towards Digital Innovation, we don't just provide services; we deliver growth. 
             The categories listed below highlight our core areas of expertise, but our true strength lies in offering a massive, fully customized range of 360-degree digital solutions. 
             From advanced SEO and complex ad campaigns to high-end professional shoots and complete brand identity, we provide absolutely everything your brand needs to dominate the digital landscape.

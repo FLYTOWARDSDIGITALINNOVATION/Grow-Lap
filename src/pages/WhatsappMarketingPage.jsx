@@ -92,7 +92,10 @@ const WhatsappMarketingPage = () => {
         <div className="container whatsapp-hero-grid">
 <div className="whatsapp-hero-content">
             <p className="section-subtitle text-accent" style={{ marginBottom: '1rem', fontWeight: 'bold' }}>WHATSAPP MARKETING SERVICES</p>
-            <h1 className="whatsapp-hero-title">Grow Your Business with&nbsp;Professional <br/><span>WhatsApp&nbsp;Marketing</span></h1>
+            <h1 className="whatsapp-hero-title">
+              Grow Your Business with <br />
+              Professional <span>WhatsApp Marketing</span>
+            </h1>
             <p className="whatsapp-hero-desc">
               Connect with your customers instantly through our Professional WhatsApp Marketing Services. We help businesses build stronger customer relationships, generate high-quality leads, promote products and services, and increase sales using personalized WhatsApp campaigns.
             </p>

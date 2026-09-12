@@ -1,7 +1,7 @@
 .blog-hero-container {
   max-width: 800px;
   margin: 0 auto;
-  padding: 0 2rem 0 2rem;
+  padding: 1rem 2rem 0.5rem 2rem;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -17,15 +17,15 @@
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
 }
 
 .blog-hero-title {
-  font-size: 3.5rem;
+  font-size: clamp(2rem, 4vw, 3.2rem);
   font-weight: 800;
   color: #ffffff;
   line-height: 1.2;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
 }
 
 .text-gradient-orange {
@@ -35,22 +35,30 @@
 
 .blog-hero-subtitle {
   color: #ffffff;
-  font-size: 1.2rem;
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
   line-height: 1.6;
-  max-width: 600px;
+  max-width: 650px;
   margin: 0 auto;
+}
+
+@media (max-width: 992px) {
+  .blog-hero-container {
+    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+  }
 }
 
 @media (max-width: 768px) {
   .blog-hero-title {
-    font-size: 2.5rem;
+    font-size: clamp(1.6rem, 5.5vw, 2.2rem);
+    margin-bottom: 1rem;
   }
   
   .blog-hero-container {
-    padding: 4rem 1.5rem 2rem 1.5rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
   }
   
-  .blog-hero-subtitle {
-    font-size: 1rem;
+  .blog-hero-badge {
+    margin-bottom: 0.8rem;
+    font-size: 0.8rem;
   }
 }
