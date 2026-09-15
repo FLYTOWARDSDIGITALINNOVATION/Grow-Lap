@@ -40,12 +40,23 @@ const ContactPage = () => {
     <div className="contact-page-wrapper">
       <div className="contact-bg-accents"></div>
       
+      {/* Top Banner Section */}
+      <div className="contact-hero-banner" style={{ paddingTop: '2.5rem', paddingBottom: '1.5rem', textAlign: 'center' }}>
+        <div className="container">
+          <p className="contact-hero-badge text-accent" style={{ fontSize: '0.85rem', fontWeight: 700, letterSpacing: '2px', marginBottom: '0.5rem' }}>CONTACT US</p>
+          <h1 className="contact-hero-title" style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)', fontWeight: 800, color: '#fff', marginBottom: '0.8rem', fontFamily: 'Outfit, sans-serif' }}>Get In Touch With <span className="text-gradient-orange">Grow Lap</span></h1>
+          <p className="contact-hero-subtitle" style={{ fontSize: 'clamp(0.95rem, 1.8vw, 1.15rem)', color: '#aaa', maxWidth: '650px', margin: '0 auto', lineHeight: '1.6' }}>Have questions or ready to launch your next digital marketing campaign? We are here to help you scale.</p>
+        </div>
+      </div>
+
       <div className="container">
         <div className="contact-layout">
           
           {/* Left Form Section */}
           <div className="contact-form-section">
+            <p className="contact-subtitle text-accent" style={{ fontSize: '0.9rem', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '0.4rem' }}>GET IN TOUCH</p>
             <h1 className="contact-title" style={{ textTransform: 'uppercase' }}>LET'S WORK <span className="contact-title-accent">TOGETHER</span></h1>
+            <p className="contact-desc" style={{ fontSize: '1rem', color: '#ccc', marginBottom: '0.8rem', lineHeight: '1.5' }}>Ready to grow your business? Let's build your brand strategy together.</p>
             <div className="contact-title-line"></div>
             
             <form onSubmit={handleSubmit}>

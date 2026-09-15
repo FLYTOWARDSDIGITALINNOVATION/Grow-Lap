@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaSignOutAlt, FaNewspaper, FaPencilAlt, FaList, FaBold, FaItalic, FaListUl, FaListOl, FaQuoteRight, FaCode, FaLink, FaImage, FaUpload, FaTrash, FaEdit } from 'react-icons/fa';
 import './AdminDashboard.css';
-import { addBlog, getBlogs, deleteBlog, updateBlog } from '../../utils/blogStorage';
+import { addBlog, getBlogs, getBlogsAsync, deleteBlog, updateBlog } from '../../utils/blogStorage';
 import ImageCropperModal from './ImageCropperModal';
 
 const AdminDashboard = () => {
@@ -46,8 +46,12 @@ const AdminDashboard = () => {
       navigate('/admin');
     }
     
-    // Load blogs for manage view
-    setBlogsList(getBlogs());
+    // Load blogs for manage view from MongoDB / Storage
+    const fetchBlogs = async () => {
+      const data = await getBlogsAsync();
+      setBlogsList(data);
+    };
+    fetchBlogs();
   }, [navigate]);
 
   // Sync editor content safely to prevent cursor jumping
@@ -105,7 +109,9 @@ const AdminDashboard = () => {
     if(fileInputRef.current) fileInputRef.current.value = '';
   };
 
-  const handlePublish = () => {
+  const [isPublishing, setIsPublishing] = useState(false);
+
+  const handlePublish = async () => {
     if (!title.trim() || !content.trim()) {
       setModal({
         isOpen: true,
@@ -116,54 +122,67 @@ const AdminDashboard = () => {
       return;
     }
     
-    if (editId) {
-      // Update existing
-      updateBlog(editId, {
-        title: title,
-        content: content,
-        excerpt: content.substring(0, 100).replace(/<[^>]+>/g, '') + '...', // Strip HTML tags for excerpt
-        image: coverImage || 'https://images.unsplash.com/photo-1432821596592-e2c18b78144f?auto=format&fit=crop&q=80&w=800'
-      });
-      
-      setModal({
-        isOpen: true,
-        type: 'alert',
-        message: 'Blog updated successfully!',
-        onConfirm: closeCustomModal
-      });
-    } else {
-      // Create new blog object
-      const currentDate = new Date();
-      const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
-      
-      const newBlog = {
-        image: coverImage || 'https://images.unsplash.com/photo-1432821596592-e2c18b78144f?auto=format&fit=crop&q=80&w=800',
-        date: currentDate.getDate().toString(),
-        month: months[currentDate.getMonth()],
-        title: title,
-        category: 'Digital Marketing',
-        author: 'Admin',
-        comments: '0',
-        excerpt: content.substring(0, 100).replace(/<[^>]+>/g, '') + '...',
-        content: content
-      };
+    setIsPublishing(true);
+    let updatedBlogs = [];
+    try {
+      if (editId) {
+        // Update existing in MongoDB
+        updatedBlogs = await updateBlog(editId, {
+          title: title,
+          content: content,
+          excerpt: content.substring(0, 150).replace(/<[^>]+>/g, '').replace(/&nbsp;/g, ' ').trim() + '...', // Strip HTML tags & entities for excerpt
+          image: coverImage || 'https://images.unsplash.com/photo-1432821596592-e2c18b78144f?auto=format&fit=crop&q=80&w=800'
+        });
+        
+        setModal({
+          isOpen: true,
+          type: 'alert',
+          message: 'Blog updated successfully in MongoDB database!',
+          onConfirm: closeCustomModal
+        });
+      } else {
+        // Create new blog object in MongoDB
+        const currentDate = new Date();
+        const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+        
+        const newBlog = {
+          image: coverImage || 'https://images.unsplash.com/photo-1432821596592-e2c18b78144f?auto=format&fit=crop&q=80&w=800',
+          date: currentDate.getDate().toString(),
+          month: months[currentDate.getMonth()],
+          title: title,
+          category: 'Digital Marketing',
+          author: 'Admin',
+          comments: '0',
+          excerpt: content.substring(0, 150).replace(/<[^>]+>/g, '').replace(/&nbsp;/g, ' ').trim() + '...',
+          content: content
+        };
 
-      addBlog(newBlog);
+        updatedBlogs = await addBlog(newBlog);
+        
+        setModal({
+          isOpen: true,
+          type: 'alert',
+          message: 'Blog published successfully to MongoDB database!',
+          onConfirm: closeCustomModal
+        });
+      }
       
+      // Reset form
+      handleCancelEdit();
+      
+      // Update list
+      setBlogsList(updatedBlogs || getBlogs());
+      setActiveTab('manage');
+    } catch (err) {
       setModal({
         isOpen: true,
         type: 'alert',
-        message: 'Blog published successfully!',
+        message: 'Database error: ' + (err.message || 'Could not save to MongoDB'),
         onConfirm: closeCustomModal
       });
+    } finally {
+      setIsPublishing(false);
     }
-    
-    // Reset form
-    handleCancelEdit();
-    
-    // Update list
-    setBlogsList(getBlogs());
-    setActiveTab('manage');
   };
 
   const handleCancelEdit = () => {
@@ -186,9 +205,9 @@ const AdminDashboard = () => {
       isOpen: true,
       type: 'confirm',
       message: 'Are you sure you want to delete this blog?',
-      onConfirm: () => {
-        deleteBlog(id);
-        setBlogsList(getBlogs());
+      onConfirm: async () => {
+        const updated = await deleteBlog(id);
+        setBlogsList(updated || getBlogs());
         closeCustomModal();
       }
     });
@@ -211,7 +230,7 @@ const AdminDashboard = () => {
         <div className="studio-header">
           <span className="studio-badge">ADMIN PANEL</span>
           <h1 className="studio-title">
-            FlyDigital <span className="text-accent">Blog Studio</span>
+            Grow Lap <span className="text-accent">Blog Studio</span>
           </h1>
           <p className="studio-subtitle">Design, publish, and manage your strategic articles in real-time.</p>
         </div>
@@ -271,8 +290,8 @@ const AdminDashboard = () => {
                 ) : (
                   <button className="toolbar-btn-draft">Save draft</button>
                 )}
-                <button className="toolbar-btn-publish" onClick={handlePublish}>
-                  {editId ? 'Update' : 'Publish'}
+                <button className="toolbar-btn-publish" onClick={handlePublish} disabled={isPublishing}>
+                  {isPublishing ? (editId ? 'Updating...' : 'Publishing...') : (editId ? 'Update' : 'Publish')}
                 </button>
               </div>
             </div>

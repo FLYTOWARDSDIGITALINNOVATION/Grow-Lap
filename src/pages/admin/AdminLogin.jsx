@@ -210,7 +210,6 @@ const AdminLogin = () => {
           <div className="admin-image-overlay"></div>
           <div className="admin-brand-content">
             <h1 className="admin-brand-logo">Grow Lap</h1>
-            <p className="admin-brand-slogan">Digital Innovation</p>
           </div>
         </div>
 

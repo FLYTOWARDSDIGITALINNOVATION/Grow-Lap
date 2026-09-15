@@ -1,32 +1,66 @@
 import React, { useState, useRef } from 'react';
-import ReactCrop from 'react-image-crop';
+import ReactCrop, { centerCrop, makeAspectCrop } from 'react-image-crop';
 import 'react-image-crop/dist/ReactCrop.css';
 import { getCroppedImg } from '../../utils/cropImage';
 
 const ImageCropperModal = ({ imageSrc, onCancel, onSave, onUploadOriginal }) => {
-  const [crop, setCrop] = useState();
+  const [crop, setCrop] = useState({
+    unit: '%',
+    width: 90,
+    height: 90,
+    x: 5,
+    y: 5
+  });
   const [completedCrop, setCompletedCrop] = useState(null);
   const imgRef = useRef(null);
 
+  const onImageLoad = (e) => {
+    const { width, height } = e.currentTarget;
+    const initialCrop = {
+      unit: '%',
+      width: 90,
+      height: 90,
+      x: 5,
+      y: 5
+    };
+    setCrop(initialCrop);
+    setCompletedCrop({
+      unit: 'px',
+      x: width * 0.05,
+      y: height * 0.05,
+      width: width * 0.9,
+      height: height * 0.9
+    });
+  };
+
   const handleCropAndSave = async () => {
-    if (!completedCrop || !completedCrop.width || !completedCrop.height) {
-      // If no crop region was drawn, just upload the original
+    const img = imgRef.current;
+    if (!img) {
       onUploadOriginal(imageSrc);
       return;
     }
-    
-    const img = imgRef.current;
-    if (!img) return;
+
+    const targetCrop = completedCrop || {
+      x: img.width * 0.05,
+      y: img.height * 0.05,
+      width: img.width * 0.9,
+      height: img.height * 0.9
+    };
+
+    if (!targetCrop.width || !targetCrop.height) {
+      onUploadOriginal(imageSrc);
+      return;
+    }
 
     // Calculate actual pixels based on the natural image size vs displayed size
     const scaleX = img.naturalWidth / img.width;
     const scaleY = img.naturalHeight / img.height;
 
     const actualPixelCrop = {
-      x: completedCrop.x * scaleX,
-      y: completedCrop.y * scaleY,
-      width: completedCrop.width * scaleX,
-      height: completedCrop.height * scaleY,
+      x: (targetCrop.x || 0) * scaleX,
+      y: (targetCrop.y || 0) * scaleY,
+      width: targetCrop.width * scaleX,
+      height: targetCrop.height * scaleY
     };
 
     try {
@@ -34,28 +68,35 @@ const ImageCropperModal = ({ imageSrc, onCancel, onSave, onUploadOriginal }) => 
         imageSrc,
         actualPixelCrop
       );
-      onSave(croppedImage);
+      onSave(croppedImage || imageSrc);
     } catch (e) {
-      console.error(e);
-      alert('Failed to crop image');
+      console.error('Cropping error:', e);
+      // Fallback to uploading original image smoothly
+      onUploadOriginal(imageSrc);
     }
   };
 
   return (
     <div className="custom-modal-overlay">
-      <div className="crop-modal-container" style={{ maxWidth: '800px' }}>
+      <div className="crop-modal-container" style={{ maxWidth: '850px', width: '90%' }}>
         <div className="crop-modal-header">
           <h2>Crop Image (Free Form)</h2>
           <button className="crop-close-btn" onClick={onCancel}>✕</button>
         </div>
         
-        <div className="crop-workspace" style={{ padding: '20px', maxHeight: '60vh', overflow: 'auto', display: 'flex', justifyContent: 'center' }}>
+        <div className="crop-workspace" style={{ padding: '20px', maxHeight: '65vh', overflow: 'auto', display: 'flex', justifyContent: 'center' }}>
           <ReactCrop 
             crop={crop} 
-            onChange={c => setCrop(c)} 
-            onComplete={c => setCompletedCrop(c)}
+            onChange={(c) => setCrop(c)} 
+            onComplete={(pixelCrop) => setCompletedCrop(pixelCrop)}
           >
-            <img ref={imgRef} src={imageSrc} alt="Crop" style={{ maxWidth: '100%', maxHeight: '55vh', objectFit: 'contain' }} />
+            <img 
+              ref={imgRef} 
+              src={imageSrc} 
+              alt="Crop Workspace" 
+              onLoad={onImageLoad}
+              style={{ maxWidth: '100%', maxHeight: '55vh', objectFit: 'contain' }} 
+            />
           </ReactCrop>
         </div>
         

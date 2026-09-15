@@ -5,7 +5,7 @@ import './Chatbot.css';
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { sender: 'bot', text: 'Hi! Welcome to Grow Lap Digital Innovation. How can we help you today?' }
+    { sender: 'bot', text: 'Hi! Welcome to Grow Lap. How can we help you today?' }
   ]);
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);

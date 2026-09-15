@@ -1,24 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { getBlogs } from '../utils/blogStorage';
+import { getBlogs, getBlogsAsync } from '../utils/blogStorage';
 import './BlogDetail.css';
 
 const BlogDetail = () => {
   const { blogId } = useParams();
   const navigate = useNavigate();
-  const [blog, setBlog] = useState(null);
+
+  // Instant synchronous initial state lookup to eliminate "Loading..." screen completely
+  const [blog, setBlog] = useState(() => {
+    const localBlogs = getBlogs();
+    return localBlogs.find(b => b.id.toString() === blogId || (b._id && b._id.toString() === blogId)) || null;
+  });
 
   useEffect(() => {
-    const blogs = getBlogs();
-    const foundBlog = blogs.find(b => b.id.toString() === blogId);
-    if (foundBlog) {
-      setBlog(foundBlog);
-    } else {
-      navigate('/blog');
-    }
+    const fetchBlog = async () => {
+      const blogs = await getBlogsAsync();
+      const foundBlog = blogs.find(b => b.id.toString() === blogId || (b._id && b._id.toString() === blogId));
+      if (foundBlog) {
+        setBlog(foundBlog);
+      } else if (!blog) {
+        navigate('/blog');
+      }
+    };
+    fetchBlog();
   }, [blogId, navigate]);
 
-  if (!blog) return <div className="loading-state">Loading...</div>;
+  if (!blog) return null;
 
   return (
     <div className="blog-detail-page">

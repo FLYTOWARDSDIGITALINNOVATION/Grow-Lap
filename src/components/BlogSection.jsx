@@ -2,13 +2,19 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './BlogSection.css';
 
-import { getBlogs } from '../utils/blogStorage';
+import { getBlogs, getBlogsAsync } from '../utils/blogStorage';
 
 const BlogSection = () => {
-  const [blogs, setBlogs] = React.useState([]);
+  const [blogs, setBlogs] = React.useState(getBlogs());
 
   React.useEffect(() => {
-    setBlogs(getBlogs());
+    const fetchBlogs = async () => {
+      const dbBlogs = await getBlogsAsync();
+      if (dbBlogs && dbBlogs.length > 0) {
+        setBlogs(dbBlogs);
+      }
+    };
+    fetchBlogs();
   }, []);
 
   return (
@@ -32,7 +38,7 @@ const BlogSection = () => {
               </div>
               <div className="blog-content">
                 <h3>{blog.title}</h3>
-                <p>{blog.excerpt}</p>
+                <p>{blog.excerpt ? blog.excerpt.replace(/&nbsp;/g, ' ').replace(/<[^>]+>/g, '') : ''}</p>
                 <Link to={`/blog/${blog.id}`} className="read-more">Read More &rarr;</Link>
               </div>
             </div>
