@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { servicesData } from '../data/servicesData';
+import { servicesData } from '../../data/servicesData';
 import { FaArrowLeft, FaPaperPlane, FaPhoneAlt, FaCheckCircle, FaBuilding, FaHeartbeat, FaShoppingCart, FaGraduationCap, FaLaptopCode, FaUtensils, FaChartLine, FaCar, FaSearch, FaChartBar, FaCogs, FaLink, FaMapMarkerAlt, FaFileAlt, FaStar, FaRocket, FaArrowRight, FaHubspot, FaMailchimp, FaUsers, FaBriefcase, FaTrophy } from 'react-icons/fa';
 import { SiGoogleanalytics, SiMeta, SiSemrush } from 'react-icons/si';
+import SEO from '../../components/SEO';
 import './SubServiceDetail.css';
 
 const SubServiceDetail = () => {
@@ -76,6 +77,11 @@ const SubServiceDetail = () => {
 
   return (
     <div className="subservice-page-container">
+      <SEO 
+        title={`${subService.title} | ${parentService.title} - Grow Lap`}
+        description={subService.desc || `High performance ${subService.title} solutions provided by Grow Lap to help scale your business.`}
+        keywords={`${subService.title}, ${parentService.title}, digital marketing, Grow Lap`}
+      />
       {/* Hero Section */}
       <section 
         className={subService.advancedHero ? "ssd-hero-advanced" : "ssd-hero"} 
@@ -252,8 +258,8 @@ const SubServiceDetail = () => {
               
               <div className="ssd-or-call">
                 <p>Or speak directly to an expert:</p>
-                <a href="tel:+917695883647" className="ssd-call-btn">
-                  <FaPhoneAlt /> +91 76958 83647
+                <a href="tel:+916383246378" className="ssd-call-btn">
+                  <FaPhoneAlt /> +91 63832 46378
                 </a>
               </div>
             </div>

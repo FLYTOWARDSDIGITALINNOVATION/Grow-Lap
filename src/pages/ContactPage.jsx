@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './ContactPage.css';
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaClock } from 'react-icons/fa';
+import SEO from '../components/SEO';
 
 const ContactPage = () => {
   const [result, setResult] = useState("");
@@ -38,6 +39,11 @@ const ContactPage = () => {
 
   return (
     <div className="contact-page-wrapper">
+      <SEO 
+        title="Contact Us | Grow Lap - Digital Marketing Agency"
+        description="Get in touch with Grow Lap for expert digital marketing, SEO, social media ads, and branding consultations. Let's scale your business."
+        keywords="contact grow lap, digital marketing agency contact, SEO consultation, grow lap address"
+      />
       <div className="contact-bg-accents"></div>
       
       {/* Top Banner Section */}
@@ -61,7 +67,7 @@ const ContactPage = () => {
             
             <form onSubmit={handleSubmit}>
               {/* Hidden fields for FormSubmit configuration */}
-              <input type="hidden" name="_subject" value="New Contact Form Submission - Fly Towards" />
+              <input type="hidden" name="_subject" value="New Contact Form Submission - Grow Lap" />
               <input type="hidden" name="_captcha" value="false" />
               <input type="hidden" name="_template" value="table" />
               
@@ -104,12 +110,12 @@ const ContactPage = () => {
           </div>
           
           <div className="contact-cards-grid">
-            <a href="tel:+917695883647" className="contact-info-card" style={{ textDecoration: 'none', display: 'block' }}>
+            <a href="tel:+916383246378" className="contact-info-card" style={{ textDecoration: 'none', display: 'block' }}>
               <div className="icon-circle">
                 <FaPhoneAlt className="contact-icon text-accent" />
               </div>
               <h4>Call Us</h4>
-              <p>+91 76958 83647</p>
+              <p>+91 63832 46378</p>
             </a>
             
             <a href="mailto:growlapmarketing@gmail.com" className="contact-info-card" style={{ textDecoration: 'none', display: 'block' }}>

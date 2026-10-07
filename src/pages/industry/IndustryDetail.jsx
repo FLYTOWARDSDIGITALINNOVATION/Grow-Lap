@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { industryData } from '../data/industryData';
+import { industryData } from '../../data/industryData';
 import { 
   FaArrowLeft, 
   FaCheckCircle, 
@@ -24,14 +24,14 @@ import {
   FaAd,
   FaCamera
 } from 'react-icons/fa';
-import ProcessSection from '../components/ProcessSection';
-import './ServiceDetail.css';
+import SEO from '../../components/SEO';
+import '../services/ServiceDetail.css';
 
 // Import card background images
-import card1 from '../assets/images/card1.webp';
-import card2 from '../assets/images/card2.webp';
-import card3 from '../assets/images/card3.webp';
-import card4 from '../assets/images/card4.webp';
+import card1 from '../../assets/images/card1.webp';
+import card2 from '../../assets/images/card2.webp';
+import card3 from '../../assets/images/card3.webp';
+import card4 from '../../assets/images/card4.webp';
 
 const cardBgImages = [card1, card2, card3, card4];
 
@@ -75,6 +75,11 @@ const IndustryDetail = () => {
 
   return (
     <div className="service-detail-container">
+      <SEO 
+        title={`${industry.title} | Industry Solutions - Grow Lap`}
+        description={industry.subtitle || `${industry.title} digital marketing solutions provided by Grow Lap.`}
+        keywords={`${industry.title}, industry digital marketing, Grow Lap`}
+      />
       
       {/* Modern Lead Gen Hero Section */}
       <section className="sd-hero">
@@ -351,8 +356,7 @@ const IndustryDetail = () => {
       )}
 
       {/* Process Section */}
-      <div style={{ paddingBottom: '3rem' }}>
-        <ProcessSection />
+      <div style={{ paddingBottom: '1rem' }}>
       </div>
 
       {/* FAQ Accordion Section */}
@@ -361,7 +365,7 @@ const IndustryDetail = () => {
           
           <div className="sd-overview-left">
             <h2 className="sd-overview-title" style={{ lineHeight: '1.2' }}>
-              Why Choose Fly Towards <br/><span style={{ color: 'var(--accent-orange)' }}>For {industry.title.split(' & ')[0]}</span>?
+              Why Choose Grow Lap <br/><span style={{ color: 'var(--accent-orange)' }}>For {industry.title.split(' & ')[0]}</span>?
             </h2>
             
             {industry.benefits ? (

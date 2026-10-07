@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { servicesData } from '../data/servicesData';
+import { servicesData } from '../../data/servicesData';
 import { FaArrowLeft, FaCheck, FaArrowRight, FaPaperPlane, FaPhoneAlt } from 'react-icons/fa';
+import SEO from '../../components/SEO';
 import './ServiceDetail.css';
 
 const ServiceDetail = () => {
@@ -72,6 +73,11 @@ const ServiceDetail = () => {
 
   return (
     <div className="service-detail-container">
+      <SEO 
+        title={`${service.title} | Grow Lap`}
+        description={service.subtitle || `${service.title} services by Grow Lap. Professional solutions designed to boost your digital ROI and business growth.`}
+        keywords={`${service.title}, digital marketing, Grow Lap`}
+      />
       
       {/* Modern Lead Gen Hero Section */}
       <section className="sd-hero">
@@ -93,7 +99,7 @@ const ServiceDetail = () => {
                 <FaPaperPlane /> Contact Us
               </Link>
               <div className="sd-btn-or">OR</div>
-              <a href="tel:+917695883647" className="btn-secondary sd-btn" style={{ padding: '12px 24px' }}>
+              <a href="tel:+916383246378" className="btn-secondary sd-btn" style={{ padding: '12px 24px' }}>
                 <FaPhoneAlt /> Call Now
               </a>
             </div>
@@ -172,7 +178,7 @@ const ServiceDetail = () => {
             </h2>
             
             <p className="sd-overview-text" style={{ marginTop: '2rem' }}>
-              Fly Towards Digital Innovation is your trusted partner that drives measurable ROI. {service.longDescription}
+              Grow Lap is your trusted partner that drives measurable ROI. {service.longDescription}
             </p>
             
             <p className="sd-overview-text" style={{ marginTop: '1.5rem' }}>
@@ -180,7 +186,7 @@ const ServiceDetail = () => {
             </p>
             
             <p style={{ marginTop: '2.5rem', fontSize: '1.2rem', fontWeight: 'bold' }}>
-              Call us at <span style={{ color: 'var(--accent-orange)' }}>+91 76958 83647</span> and get a free SEO audit report!
+              Call us at <span style={{ color: 'var(--accent-orange)' }}>+91 63832 46378</span> and get a free SEO audit report!
             </p>
           </div>
 

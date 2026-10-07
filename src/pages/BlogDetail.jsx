@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { getBlogs, getBlogsAsync } from '../utils/blogStorage';
+import SEO from '../components/SEO';
 import './BlogDetail.css';
 
 const BlogDetail = () => {
@@ -28,8 +29,31 @@ const BlogDetail = () => {
 
   if (!blog) return null;
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": blog.title,
+    "description": blog.excerpt || blog.description || blog.title,
+    "image": blog.image,
+    "publisher": {
+      "@type": "Organization",
+      "name": "Grow Lap",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://growlap.com/Grow%20Lap.webp"
+      }
+    }
+  };
+
   return (
     <div className="blog-detail-page">
+      <SEO 
+        title={`${blog.title} | Grow Lap Blog`}
+        description={blog.excerpt || blog.description || `${blog.title} - Read expert insights from Grow Lap.`}
+        keywords={`${blog.title.toLowerCase()}, digital marketing blog, grow lap articles`}
+        ogImage={blog.image}
+        schema={articleSchema}
+      />
       <div className="container blog-detail-container">
         <Link to="/blog" className="back-link">&larr; Back to Blogs</Link>
         

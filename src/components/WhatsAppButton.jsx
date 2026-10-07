@@ -4,7 +4,7 @@ import './WhatsAppButton.css';
 
 const WhatsAppButton = () => {
   // Use the phone number found elsewhere in the site
-  const phoneNumber = "917695883647"; 
+  const phoneNumber = "916383246378"; 
   const message = "Hello! I would like to know more about your services.";
   
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;

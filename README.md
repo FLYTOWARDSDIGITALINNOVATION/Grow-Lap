@@ -1,17 +1,80 @@
-# React + Vite
+# Grow Lap - Digital Marketing & Creative Agency
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Grow Lap is a high-performance, modern digital marketing and creative agency website built with **React**, **Vite**, and **React Router**. It features complete SEO optimization, responsive modular architecture, dynamic blog management, and dedicated industry & service pages.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Features
 
-## React Compiler
+- **Consolidated Clean Architecture**: Page-specific `.jsx` and `.css` files are cleanly organized (Self-contained pages for Home, About, Blog, Contact, Services, and Industry).
+- **Comprehensive SEO**: Dynamic OpenGraph, Twitter Cards, Canonical URLs, and JSON-LD structured schema dynamically updated across pages.
+- **Dedicated Service & Industry Folders**:
+  - `src/pages/services/` - Contains 30+ service, shoot, design, and marketing detail pages.
+  - `src/pages/industry/` - Tailored pages for various business sectors (Healthcare, Real Estate, Retail, Automobile, etc.).
+  - `src/pages/admin/` - Admin portal for dynamic blog content management.
+- **Interactive UI Components**:
+  - Global Floating WhatsApp Click-to-Chat Widget.
+  - AI Assistant Chatbot widget.
+  - Custom Animated Counters & Interactive Tabs.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the Oxlint configuration
+## 📂 Project Structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
-    
+```
+Grow-Lap/
+├── public/                  # Static assets (images, favicon, robots.txt, sitemap.xml)
+├── src/
+│   ├── assets/              # WebP optimized images and design media
+│   ├── components/          # Reusable global components (Navbar, Footer, SEO, Chatbot, etc.)
+│   ├── data/                # Data structures (servicesData.jsx, industries.jsx)
+│   ├── pages/
+│   │   ├── HomePage.jsx & HomePage.css
+│   │   ├── AboutPage.jsx & AboutPage.css
+│   │   ├── BlogPage.jsx & BlogPage.css
+│   │   ├── ContactPage.jsx & ContactPage.css
+│   │   ├── services/       # All service detail pages & styles
+│   │   ├── industry/       # Sector-specific pages & styles
+│   │   └── admin/          # Admin login and dashboard
+│   ├── utils/               # Utilities & storage helpers
+│   ├── App.jsx              # Main router & routes definition
+│   └── main.jsx             # React DOM entry point
+├── package.json
+└── README.md
+```
+
+---
+
+## 🛠️ Getting Started
+
+### Prerequisites
+
+Make sure you have Node.js (v18+ recommended) installed on your system.
+
+### Installation
+
+1. Clone the repository or navigate to the project directory:
+   ```bash
+   cd Grow-Lap
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+4. Build for production:
+   ```bash
+   npm run build
+   ```
+
+---
+
+## 📄 License
+
+© Grow Lap. All rights reserved.

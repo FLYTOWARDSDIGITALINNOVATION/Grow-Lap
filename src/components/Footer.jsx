@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaInstagram } from 'react-icons/fa';
 import { servicesData } from '../data/servicesData';
-import whatsappQr from '../assets/images/whatsapp-qr.png';
 import './Footer.css';
 
 const Footer = () => {
@@ -43,17 +42,6 @@ const Footer = () => {
                 <span className="instagram-handle">@growlap_</span>
               </a>
             </div>
-            
-            {/* WhatsApp QR Code Section */}
-            <div className="footer-qr-container">
-              <div className="qr-box">
-                <img src={whatsappQr} alt="WhatsApp QR Code" />
-              </div>
-              <div className="qr-text">
-                <strong>Scan to Chat</strong>
-                <span>Connect on WhatsApp</span>
-              </div>
-            </div>
           </div>
 
           {/* Column 2: Company Info */}
@@ -69,42 +57,49 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Column 3: Services (Wide) */}
-          <div className="footer-col-mono footer-col-services">
-            <h4 className="mono-title">All Our Services</h4>
-            <ul className="mono-links services-grid">
-              {servicesData.map(category => 
-                category.benefits.map(benefit => (
-                  <li key={benefit.slug}>
-                    <Link to={`/services/${category.slug}/${benefit.slug}`}>- {benefit.title}</Link>
-                  </li>
-                ))
-              )}
+          {/* Column 3: Main Services */}
+          <div className="footer-col-mono">
+            <h4 className="mono-title">Services</h4>
+            <ul className="mono-links">
+              <li><Link to="/services/digital-marketing/seo">- SEO (Search Engine Optimization)</Link></li>
+              <li><Link to="/services/digital-marketing/meta-ad">- Meta Ads</Link></li>
+              <li><Link to="/services/digital-marketing/google-ad">- Google Ads</Link></li>
+              <li><Link to="/services/video-editing/editing">- Professional Video Editing</Link></li>
+              <li><Link to="/services/video-editing/logo-design">- Logo & Graphic Design</Link></li>
+              <li><Link to="/services/shoot/product-shoot">- Product & DSLR Shoots</Link></li>
+              <li><Link to="/services" className="highlight-link">- View All Services</Link></li>
             </ul>
           </div>
 
-          {/* Column 4: Industries & Contact */}
+          {/* Column 4: Industries */}
           <div className="footer-col-mono">
-            <div style={{ marginBottom: '2.5rem' }}>
-              <h4 className="mono-title">Industries</h4>
-              <ul className="mono-links">
-                <li><Link to="/industry">- Real Estate</Link></li>
-                <li><Link to="/industry">- Clothing Brands</Link></li>
-                <li><Link to="/industry">- Hospitals & Clinics</Link></li>
-                <li><Link to="/industry">- Schools & Colleges</Link></li>
-                <li><Link to="/industry">- Construction</Link></li>
-                <li><Link to="/industry">- Hotels & Showrooms</Link></li>
-                <li><Link to="/industry" className="highlight-link">- Various Industries</Link></li>
-              </ul>
-            </div>
+            <h4 className="mono-title">Industries</h4>
+            <ul className="mono-links">
+              <li><Link to="/industry">- Real Estate</Link></li>
+              <li><Link to="/industry">- Clothing Brands</Link></li>
+              <li><Link to="/industry">- Hospitals & Clinics</Link></li>
+              <li><Link to="/industry">- Schools & Colleges</Link></li>
+              <li><Link to="/industry">- Construction</Link></li>
+              <li><Link to="/industry">- Hotels & Showrooms</Link></li>
+              <li><Link to="/industry" className="highlight-link">- Various Industries</Link></li>
+            </ul>
+          </div>
 
-            <div className="footer-contact-block">
-              <h4 className="mono-title">Contact</h4>
-              <form className="mono-subscribe-form" onSubmit={(e) => e.preventDefault()}>
-                <input type="email" placeholder="Email Address" required />
-                <button type="submit" className="mono-btn-subscribe">Contact</button>
-              </form>
-            </div>
+          {/* Column 5: Contact */}
+          <div className="footer-col-mono">
+            <h4 className="mono-title">Contact Us</h4>
+            <ul className="mono-links">
+              <li>
+                <a href="tel:+916383246378" style={{ color: '#fff' }}>
+                  📞 +91 63832 46378
+                </a>
+              </li>
+              <li style={{ marginTop: '0.8rem' }}>
+                <a href="mailto:growlapmarketing@gmail.com" style={{ color: '#fff', wordBreak: 'break-all', fontSize: '0.85rem' }}>
+                  ✉️ growlapmarketing@gmail.com
+                </a>
+              </li>
+            </ul>
           </div>
 
         </div>

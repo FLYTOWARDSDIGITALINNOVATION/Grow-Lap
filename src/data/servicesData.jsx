@@ -5,7 +5,7 @@ export const servicesData = [
   { 
     slug: 'digital-marketing',
     icon: <FiTrendingUp />, 
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80', 
+    image: '/pexels-markus-winkler-1430818-4604639.webp', 
     title: 'Digital Marketing', 
     description: 'Comprehensive digital strategies to grow your business online.',
     longDescription: 'Our growth-oriented digital marketing solutions are designed to elevate your brand. We combine SEO, Meta Ads, Google Ads, and targeted online promotions into a cohesive strategy that brings consistent leads and revenue.',
@@ -54,12 +54,12 @@ export const servicesData = [
   { 
     slug: 'video-editing',
     icon: <FiVideo />, 
-    image: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=1200&q=80', 
+    image: '/photo-1574717024653-61fd2cf4d44d.webp', 
     title: 'Editing', 
     description: 'Professional editing for videos, photos, and creative designs.',
     longDescription: 'Our post-production experts take your raw footage and turn it into masterpieces. From snappy Instagram Reels and engaging YouTube vlogs to cinematic wedding films and flawless photo retouching.',
     benefits: [
-      { slug: 'editing', title: 'Video Editing', desc: 'Professional video editing for all types of content.', image: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&q=80' },
+      { slug: 'editing', title: 'Video Editing', desc: 'Professional video editing for all types of content.', image: '/photo-1574717024653-61fd2cf4d44d.webp' },
       { slug: 'reels-editing', title: 'Reels Editing', desc: 'Trendy, fast-paced edits with captions designed to go viral.', image: '/Reels Editing.webp' },
       { slug: 'vlog-editing', title: 'Full Vlog Editing', desc: 'Engaging, well-paced vlog editing with sound design and B-roll.', image: '/Full Vlog Editing.webp' },
       { slug: 'wedding-editing', title: 'Wedding Editing', desc: 'Beautifully crafted highlight reels and full-length edits.', image: '/Wedding Editing.webp' },
@@ -83,10 +83,10 @@ export const servicesData = [
     description: 'High-quality photography and videography production.',
     longDescription: 'Visual storytelling is at the heart of modern marketing. Our production team provides everything from product and DSLR shoots to cinematic drone and podcast recording.',
     benefits: [
-      { slug: 'dslr-shoot', title: 'DSLR Camera Shoot', desc: 'High-resolution photography and videography using advanced DSLR equipment.', image: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&q=80' },
+      { slug: 'dslr-shoot', title: 'DSLR Camera Shoot', desc: 'High-resolution photography and videography using advanced DSLR equipment.', image: '/photo editing.webp' },
       { slug: 'product-shoot', title: 'Product Shoot', desc: 'Showcase your products with stunning photography that drives sales.', image: '/product shoot.webp' },
       { slug: 'mobile-shoot', title: 'Mobile Shoot', desc: 'Quick and trendy mobile shoots optimized for fast social media content.', image: '/Mobile Shoot.webp' },
-      { slug: 'drone-shoot', title: 'Drone Shoot', desc: 'Capture breathtaking perspectives and aerial views.', image: 'https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800&q=80' },
+      { slug: 'drone-shoot', title: 'Drone Shoot', desc: 'Capture breathtaking perspectives and aerial views.', image: '/service_shoots_new.webp' },
       { slug: 'reels-shoot', title: 'Reels Shoot', desc: 'On-location shoots specifically planned and directed for short-form reels.', image: '/reels shoot.webp' },
       { slug: 'podcast-shoot', title: 'Podcast Shoot', desc: 'Professional audio and multi-camera setups for podcast recordings.', image: '/Podcast.webp' }
     ],

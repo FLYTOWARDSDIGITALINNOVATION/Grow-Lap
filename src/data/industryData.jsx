@@ -9,7 +9,7 @@ import collegeImg from '../assets/images/college.webp';
 import boutiqueImg from '../assets/images/boutique.webp';
 import spaImg from '../assets/images/spa.webp';
 import financeImg from '../assets/images/finance-service.webp';
-import academiesImg from '../assets/images/academies.webp';
+import academicsImg from '../assets/images/academies.webp';
 import coachingImg from '../assets/images/coaching centers.webp';
 import crackersImg from '../assets/images/crackers.webp';
 import restaurantImg from '../assets/images/restaurant.webp';
@@ -866,10 +866,10 @@ export const industryData = {
     ]
   },
   'academy': {
-    title: 'Digital Marketing for Academies',
+    title: 'Digital Marketing for Academics',
     subtitle: 'Empower Your Academy to Reach More Students with Digital Marketing',
-    image: academiesImg,
-    description: "Every student begins their learning journey with an online search. Whether they're looking for a coaching center, language institute, skill development program, or competitive exam training, your academy needs a strong digital presence to stand out. We provide digital marketing services for academies that help you attract more student enquiries, increase admissions, build your reputation, and grow your educational brand.",
+    image: academicsImg,
+    description: "Every student begins their learning journey with an online search. Whether they're looking for a coaching center, language institute, skill development program, or competitive exam training, your academy needs a strong digital presence to stand out. We provide digital marketing services for academics that help you attract more student enquiries, increase admissions, build your reputation, and grow your educational brand.",
     stats: [
       { label: 'Student Enquiries', value: '6,200+' },
       { label: 'Course Admissions', value: '+50%' },
@@ -912,11 +912,11 @@ export const industryData = {
     whoWeWorkWith: [
       'Coaching & Tuition Centers',
       'NEET & JEE Coaching Institutes',
-      'Competitive Exam Academies',
+      'Competitive Exam Academics',
       'Spoken English & Language Hubs',
       'Computer & Software Centers',
       'Skill Development Institutes',
-      'Music, Dance & Art Academies',
+      'Music, Dance & Art Academics',
       'Professional Certification Hubs'
     ],
     customProcessTitle: 'Our Process',

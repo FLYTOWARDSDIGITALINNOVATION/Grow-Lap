@@ -8,8 +8,6 @@ import {
   FaBullseye, FaAngleDoubleRight, FaArrowRight, FaPenNib, FaBuilding
 } from 'react-icons/fa';
 import './AboutPage.css';
-import './SeoPage.css'; // For SEO FAQ styles
-import '../components/HubAndSpoke.css'; // For the What We Do Hub and Spoke design
 
 // Local Image Imports for Bento Box Grid
 import schoolImg from '../assets/images/school.webp';
@@ -25,6 +23,7 @@ import card1Img from '../assets/images/card1.webp';
 import card2Img from '../assets/images/card2.webp';
 import card3Img from '../assets/images/card3.webp';
 import card4Img from '../assets/images/card4.webp';
+import SEO from '../components/SEO';
 
 const AboutPage = () => {
   const [isMissionVisible, setIsMissionVisible] = useState(false);
@@ -36,7 +35,6 @@ const AboutPage = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "About Us | Fly Towards Digital Innovation";
   }, []);
 
   useEffect(() => {
@@ -116,6 +114,11 @@ const AboutPage = () => {
 
   return (
     <div className="about-page-wrapper" style={{ minHeight: '100vh', backgroundColor: 'var(--bg-dark)' }}>
+      <SEO 
+        title="About Us | Grow Lap - Digital Marketing & Branding Agency"
+        description="Learn about Grow Lap's mission, values, and expert team helping businesses scale with top-tier digital marketing and branding."
+        keywords="about grow lap, digital marketing agency about us, grow lap team, branding agency Tamil Nadu"
+      />
       
       {/* 1. Hero / Intro Section */}
       <div className="container" style={{ paddingBottom: '3rem' }}>
@@ -322,7 +325,7 @@ const AboutPage = () => {
             
             {/* Sticky Left Column */}
             <div style={{ position: 'sticky', top: '120px' }}>
-              <p className="section-subtitle text-accent" style={{ margin: 0, letterSpacing: '2px', fontWeight: 'bold' }}>THE FLY TOWARDS DIFFERENCE</p>
+              <p className="section-subtitle text-accent" style={{ margin: 0, letterSpacing: '2px', fontWeight: 'bold' }}>THE GROW LAP DIFFERENCE</p>
               <h2 style={{ fontSize: '4rem', marginTop: '1rem', marginBottom: '1.5rem', lineHeight: 1.1 }}>Why<br/>Choose Us?</h2>
               <p style={{ color: 'var(--text-muted)', fontSize: '1.2rem', lineHeight: '1.8', maxWidth: '400px' }}>
                 We combine creativity, technology, and data to deliver exceptional digital experiences that elevate your brand and drive measurable growth.

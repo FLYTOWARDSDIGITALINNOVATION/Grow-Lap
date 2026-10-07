@@ -38,7 +38,7 @@ const industryCategories = [
     items: [
       { name: 'Schools', slug: 'schools' },
       { name: 'Colleges', slug: 'colleges' },
-      { name: 'Academies', slug: 'academy' },
+      { name: 'Academics', slug: 'academy' },
       { name: 'Coaching Centres', slug: 'coaching-center' },
       { name: 'Hotels', slug: 'hotels' },
       { name: 'Resorts', slug: 'resorts' },

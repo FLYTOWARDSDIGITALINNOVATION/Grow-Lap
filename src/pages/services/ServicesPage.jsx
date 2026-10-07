@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa';
-import { servicesData } from '../data/servicesData';
+import { servicesData } from '../../data/servicesData';
+import SEO from '../../components/SEO';
 import './ServicesPage.css';
 
 const badges = ['MARKETING', 'POST-PRODUCTION', 'PRODUCTION'];
@@ -14,6 +15,11 @@ const customImages = [
 const ServicesPage = () => {
   return (
     <div className="services-page-container">
+      <SEO 
+        title="Our Services | Grow Lap - Digital Marketing, Video Editing & Shoots"
+        description="Explore Grow Lap's full range of services: SEO, Meta Ads, Google Ads, Graphic Design, Video Editing, Product Shoots, and Personal Branding."
+        keywords="digital marketing services, video editing services, branding services, SEO company, Grow Lap"
+      />
       {/* Intro Content */}
       <div className="container sp-intro">
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
@@ -22,7 +28,7 @@ const ServicesPage = () => {
             Elevate Your Brand with Our <span className="text-accent">Digital Marketing</span> Services
           </h1>
           <p className="sp-intro-desc">
-            At Fly Towards Digital Innovation, we don't just provide services; we deliver growth. 
+            At Grow Lap, we don't just provide services; we deliver growth. 
             The categories listed below highlight our core areas of expertise, but our true strength lies in offering a massive, fully customized range of 360-degree digital solutions. 
             From advanced SEO and complex ad campaigns to high-end professional shoots and complete brand identity, we provide absolutely everything your brand needs to dominate the digital landscape.
           </p>

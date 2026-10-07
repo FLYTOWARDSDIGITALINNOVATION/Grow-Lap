@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../../components/SEO';
 import { 
   FaSearch, FaChartLine, FaCogs, FaRocket, FaGlobe, FaBullhorn, 
   FaMobileAlt, FaBuilding, FaStore, FaBriefcase, FaGraduationCap, 
@@ -28,15 +29,6 @@ const SeoPage = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "SEO Services | Search Engine Optimization Company for Higher Google Rankings";
-    
-    let metaDesc = document.querySelector('meta[name="description"]');
-    if (!metaDesc) {
-      metaDesc = document.createElement('meta');
-      metaDesc.name = "description";
-      document.head.appendChild(metaDesc);
-    }
-    metaDesc.content = "Improve your Google rankings with our professional SEO services. We offer keyword research, on-page SEO, technical SEO, local SEO, link building, and content optimization to grow your organic traffic and generate more leads.";
   }, []);
 
   const seoServices = [
@@ -105,6 +97,11 @@ const SeoPage = () => {
 
   return (
     <div className="seo-page-container">
+      <SEO 
+        title="SEO Services | Search Engine Optimization Agency - Grow Lap"
+        description="Improve your Google rankings with Grow Lap's professional SEO services. Keyword research, on-page SEO, technical SEO, local SEO, and link building."
+        keywords="SEO services, Google ranking, search engine optimization, local SEO, technical SEO, Grow Lap"
+      />
       {/* Hero Section */}
       <section className="seo-hero">
         <div className="container">
