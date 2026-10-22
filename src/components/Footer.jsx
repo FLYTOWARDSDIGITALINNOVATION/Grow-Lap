@@ -45,6 +45,8 @@ const Footer = () => {
               <li><Link to="/industry">Industries</Link></li>
               <li><Link to="/blog">Blog</Link></li>
               <li><Link to="/contact">Contact Us</Link></li>
+              <li><Link to="/terms">Terms & Conditions</Link></li>
+              <li><Link to="/privacy">Privacy Policy</Link></li>
             </ul>
           </div>
 
@@ -86,7 +88,7 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="footer-mono-bottom">
-          <p>© 2026 Grow Lap Digital Innovation. All Rights Reserved.</p>
+          <p>© 2026 Grow Lap Digital Innovation. All Rights Reserved. &nbsp;|&nbsp; <Link to="/privacy" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>Privacy Policy</Link> &nbsp;|&nbsp; <Link to="/terms" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>Terms &amp; Conditions</Link></p>
         </div>
       </div>
     </footer>

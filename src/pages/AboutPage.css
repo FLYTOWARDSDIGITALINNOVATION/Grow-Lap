@@ -1433,3 +1433,711 @@
   }
 }
 
+
+/* ==========================================================================
+   UPDATED ABOUT PAGE STYLING (7 SECTIONS)
+   ========================================================================== */
+
+/* Section 1: Hero */
+.about-hero-section {
+  padding-top: 1.5rem !important;
+  padding-bottom: 4rem;
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-dark);
+}
+
+.about-hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 3.5rem;
+}
+
+.about-hero-btn-group {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  margin-top: 2.2rem;
+}
+
+.about-hero-btn-group .btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 14px 28px;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.about-hero-btn-group .btn-secondary:hover {
+  background: rgba(255, 94, 0, 0.12);
+  border-color: var(--accent-orange);
+  color: var(--accent-orange);
+  transform: translateY(-2px);
+}
+
+.about-hero-visual-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-hero-glow {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(255, 94, 0, 0.25) 0%, transparent 70%);
+  filter: blur(60px);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.about-hero-img-frame {
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 94, 0, 0.25);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7),
+              0 0 35px rgba(255, 94, 0, 0.15);
+  z-index: 2;
+  transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+  width: 100%;
+  max-width: 540px;
+  background: #000000;
+}
+
+.about-hero-img-frame:hover {
+  transform: translateY(-6px) scale(1.02);
+  border-color: rgba(255, 107, 0, 0.6);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8),
+              0 0 50px rgba(255, 107, 0, 0.3);
+}
+
+.about-hero-visual-img {
+  width: 100%;
+  height: auto;
+  max-height: 420px;
+  object-fit: contain;
+  display: block;
+}
+
+.about-hero-badge {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  background: rgba(15, 15, 18, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.about-hero-badge .badge-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent-orange);
+  box-shadow: 0 0 10px var(--accent-orange);
+  flex-shrink: 0;
+}
+
+/* Section 2: Who We Are */
+.about-who-section {
+  padding: 5rem 0;
+  background: var(--bg-dark);
+  position: relative;
+}
+
+.about-who-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-who-title {
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  line-height: 1.2;
+  margin: 0.5rem 0 1.5rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.about-quote-box {
+  padding: 1rem 1.4rem;
+  border-left: 4px solid var(--accent-orange);
+  background: linear-gradient(90deg, rgba(255, 94, 0, 0.08) 0%, transparent 100%);
+  border-radius: 0 10px 10px 0;
+  margin-bottom: 1.5rem;
+}
+
+.about-quote-box p {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #fff;
+  margin: 0;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.about-who-p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 1.2rem;
+}
+
+.about-who-visuals {
+  position: relative;
+}
+
+.about-who-img-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.about-who-img-main {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.about-who-sub-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+
+.about-who-img-sub {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Stats Row */
+.about-stats-container {
+  margin-top: 4.5rem;
+}
+
+.about-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.about-stat-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 18px;
+  padding: 2.2rem 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.35s ease;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-stat-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  background: radial-gradient(circle at center, rgba(255, 94, 0, 0.15), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.about-stat-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 94, 0, 0.4);
+  box-shadow: 0 15px 35px rgba(255, 94, 0, 0.15);
+}
+
+.about-stat-card:hover::before {
+  opacity: 1;
+}
+
+.about-stat-icon {
+  font-size: 2rem;
+  color: var(--accent-orange);
+  margin-bottom: 0.8rem;
+  filter: drop-shadow(0 0 10px rgba(255, 94, 0, 0.4));
+}
+
+.about-stat-value {
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 0.4rem;
+}
+
+.about-stat-label {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Section 3: What We Do Section wrapper */
+.about-what-we-do-section {
+  padding: 6rem 0;
+  background: var(--bg-dark);
+}
+
+/* Section 4: Why Choose Grow Lap (9 Cards Grid) */
+.about-why-growlap-section {
+  padding: 6.5rem 0;
+  background: var(--bg-dark);
+  position: relative;
+}
+
+.why-growlap-header-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 3.5rem;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+.why-growlap-title {
+  font-size: clamp(2rem, 3.2vw, 2.7rem);
+  line-height: 1.25;
+  margin: 0.6rem 0 1.2rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.why-growlap-desc {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.why-growlap-banner-card {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+.why-growlap-banner-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.9);
+}
+
+.why-banner-tag-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
+  padding: 1.5rem 1.2rem 1rem;
+}
+
+.why-banner-tag-overlay span {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--accent-orange);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.why-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.8rem;
+}
+
+.why-card-item {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 18px;
+  padding: 2.2rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.why-card-item:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 94, 0, 0.4);
+  background: rgba(255, 94, 0, 0.03);
+  box-shadow: 0 15px 35px rgba(255, 94, 0, 0.12);
+}
+
+.why-card-icon-box {
+  width: 55px;
+  height: 55px;
+  border-radius: 14px;
+  background: rgba(255, 94, 0, 0.1);
+  border: 1px solid rgba(255, 94, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.45rem;
+  color: var(--accent-orange);
+  margin-bottom: 1.4rem;
+  transition: all 0.3s ease;
+}
+
+.why-card-item:hover .why-card-icon-box {
+  background: var(--accent-orange);
+  color: #fff;
+  transform: scale(1.08);
+  box-shadow: 0 0 20px rgba(255, 94, 0, 0.4);
+}
+
+.why-card-title {
+  font-size: 1.22rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.6rem;
+  line-height: 1.35;
+}
+
+.why-card-desc {
+  font-size: 0.95rem;
+  color: #bbb;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Section 5: Our Mission & Vision */
+.about-mission-section {
+  padding: 6.5rem 0;
+  background: var(--bg-dark);
+}
+
+.mission-vision-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+.mission-card-new {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 22px;
+  padding: 3rem 2.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.mission-card-new:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 94, 0, 0.35);
+  box-shadow: 0 20px 45px rgba(255, 94, 0, 0.12);
+}
+
+.mission-card-glow {
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(255, 94, 0, 0.2), transparent 70%);
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+.mission-card-header {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.mission-icon-circle {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: rgba(255, 94, 0, 0.12);
+  border: 2px solid rgba(255, 94, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 0 20px rgba(255, 94, 0, 0.2);
+}
+
+.mission-svg-icon {
+  font-size: 1.8rem;
+  color: var(--accent-orange);
+}
+
+.mission-card-header h3 {
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 0;
+}
+
+.mission-card-body {
+  font-size: 1.05rem;
+  color: #ccc;
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* Section 6: How We Work */
+.about-process-section {
+  padding: 6.5rem 0;
+  background: var(--bg-dark);
+}
+
+.about-process-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about-process-step-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 2.2rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-left: 4px solid var(--accent-orange);
+  padding: 2.2rem 2.5rem;
+  border-radius: 16px;
+  transition: all 0.35s ease;
+}
+
+.about-process-step-box:hover {
+  transform: translateX(10px);
+  background: rgba(255, 94, 0, 0.03);
+  border-color: rgba(255, 94, 0, 0.3);
+  box-shadow: 0 10px 30px rgba(255, 94, 0, 0.1);
+}
+
+.about-process-number {
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: var(--accent-orange);
+  line-height: 1;
+  opacity: 0.9;
+  flex-shrink: 0;
+  font-family: 'Outfit', sans-serif;
+}
+
+.about-process-step-title {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.about-process-step-box:hover .about-process-step-title {
+  color: var(--accent-orange);
+}
+
+.about-process-step-desc {
+  font-size: 1.02rem;
+  color: #bbb;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* Section 7: Final CTA */
+.about-final-cta-section {
+  padding: 7rem 0;
+  background: var(--bg-dark);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-final-cta-heading {
+  font-size: clamp(2.2rem, 4.2vw, 3.5rem);
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 1.2rem;
+  line-height: 1.2;
+}
+
+.about-final-cta-desc {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.7;
+}
+
+/* Responsive Overrides */
+@media (max-width: 992px) {
+  .about-hero-grid,
+  .about-who-grid,
+  .why-growlap-header-grid,
+  .mission-vision-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .about-hero-text {
+    text-align: center;
+  }
+  .about-hero-btn-group {
+    justify-content: center;
+  }
+  .about-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .why-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .about-stats-grid,
+  .why-cards-grid {
+    grid-template-columns: 1fr;
+  }
+  .about-process-step-box {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.8rem;
+  }
+}
+
+
+/* ==========================================================================
+   SECTION LINE & FAQ STYLES
+   ========================================================================== */
+
+.section-line {
+  width: 60px;
+  height: 3px;
+  background-color: var(--accent-orange);
+  margin: 1rem auto 0 auto !important;
+  border-radius: 2px;
+  display: block;
+}
+
+.text-center .section-line {
+  margin: 1rem auto 0 auto !important;
+}
+
+/* Section 8: FAQ Section */
+.about-faq-section {
+  padding: 6rem 0;
+  background: var(--bg-dark);
+}
+
+.about-faq-section .section-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.about-faqs-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.about-faq-item {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  animation: none !important;
+  margin: 0 auto !important;
+  background: #111115;
+  border: 1px solid rgba(255, 94, 0, 0.45);
+  box-shadow: 0 0 15px rgba(255, 94, 0, 0.12);
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  transition: all 0.35s ease;
+  cursor: pointer;
+  width: 100%;
+  display: block;
+}
+
+.about-faq-item:hover {
+  border-color: var(--accent-orange);
+  box-shadow: 0 0 25px rgba(255, 94, 0, 0.35);
+  transform: translateY(-2px);
+}
+
+.about-faq-item summary {
+  font-weight: 700;
+  font-size: 1.15rem;
+  cursor: pointer;
+  outline: none;
+  color: #ffffff;
+  list-style: none;
+  position: relative;
+  padding-left: 2rem;
+  user-select: none;
+  display: block;
+}
+
+.about-faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.about-faq-item summary::before {
+  content: '▶';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.85rem;
+  color: var(--accent-orange);
+  transition: transform 0.3s ease;
+}
+
+.about-faq-item[open] summary::before {
+  transform: translateY(-50%) rotate(90deg);
+}
+
+.about-faq-item p {
+  margin-top: 1.2rem;
+  padding-left: 2rem;
+  color: #cccccc;
+  line-height: 1.75;
+  font-size: 1rem;
+}

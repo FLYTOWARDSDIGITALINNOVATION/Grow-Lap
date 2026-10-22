@@ -46,6 +46,8 @@ import IndustryDetail from './pages/industry/IndustryDetail';
 const BlogPage = lazy(() => import('./pages/BlogPage'));
 const BlogDetail = lazy(() => import('./pages/BlogDetail'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
+const TermsPage = lazy(() => import('./pages/TermsPage'));
+const PrivacyPage = lazy(() => import('./pages/PrivacyPage'));
 const AdminLogin = lazy(() => import('./pages/admin/AdminLogin'));
 const AdminDashboard = lazy(() => import('./pages/admin/AdminDashboard'));
 
@@ -124,6 +126,10 @@ function App() {
               <Route path="/blog" element={<BlogPage />} />
               <Route path="/blog/:blogId" element={<BlogDetail />} />
               <Route path="/contact" element={<ContactPage />} />
+              <Route path="/terms" element={<TermsPage />} />
+              <Route path="/terms-and-conditions" element={<TermsPage />} />
+              <Route path="/privacy" element={<PrivacyPage />} />
+              <Route path="/privacy-policy" element={<PrivacyPage />} />
               
               {/* Admin Routes */}
               <Route path="/admin" element={<AdminLogin />} />

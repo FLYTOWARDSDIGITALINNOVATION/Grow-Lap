@@ -8,21 +8,23 @@ const IndustryPage = () => {
   return (
     <div className="industry-page-wrapper" style={{ minHeight: '80vh', paddingTop: '140px' }}>
       <SEO 
-        title="Industries We Serve | Grow Lap" 
-        description="Explore the tailored digital marketing, web development, and shoot services provided by Grow Lap across various industries."
+        title="Industry-Specific Digital Marketing Services | Grow Lap" 
+        description="Explore industry-specific digital marketing services from Grow Lap. We help businesses reach the right audience, build their brand, and grow online."
+        keywords="Industry-Specific Digital Marketing Services"
+        canonical="https://www.growlap.com/industry"
+        ogImage="https://www.growlap.com/Grow%20Lap.webp"
+        ogImageAlt="Industry"
+        robots="index,follow"
       />
       {/* Intro Content */}
       <div className="container" style={{ marginBottom: '3rem' }}>
-        <div className="text-center" style={{ maxWidth: '800px', margin: '0 auto' }}>
+        <div className="text-center" style={{ maxWidth: '850px', margin: '0 auto' }}>
           <p className="section-subtitle text-accent">OUR EXPERTISE ACROSS SECTORS</p>
-          <h1 style={{ fontSize: '2.5rem', marginBottom: '1.5rem' }}>
-            Empowering Every <span className="text-accent">Industry</span> With Digital Growth
+          <h1 className="industry-hero-title" style={{ fontSize: 'clamp(2.2rem, 4vw, 3.2rem)', fontWeight: 800, marginBottom: '1.5rem', lineHeight: '1.25', color: '#fff' }}>
+            Industry-Specific Digital Marketing Services for <span className="text-accent">Business Growth</span>
           </h1>
-          <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)' }}>
-            Every industry has unique challenges and audiences. At Grow Lap, 
-            we tailor our digital marketing, content creation, and shooting services to meet the 
-            exact needs of your sector. Whether you run a hospital, a clothing brand, or a real-estate 
-            company, our strategies ensure you stand out in a competitive market.
+          <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: '1.7' }}>
+            Every industry has different goals, challenges, and customers. Grow Lap provides industry-specific digital marketing services to help businesses improve online visibility, reach the right audience, and attract more potential customers through tailored marketing solutions.
           </p>
         </div>
       </div>

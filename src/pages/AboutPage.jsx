@@ -1,36 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { 
-  FaRocket, FaLightbulb, FaCheckCircle, FaSearch, FaHashtag, FaAd, 
-  FaLaptopCode, FaPaintBrush, FaVideo, FaCamera, FaMicrophone, FaEnvelope, 
-  FaWhatsapp, FaTrophy, FaUsers, FaChartLine, FaStore, FaHospital, 
-  FaGraduationCap, FaHome, FaUtensils, FaPlane, FaPiggyBank, FaIndustry,
-  FaBullseye, FaAngleDoubleRight, FaArrowRight, FaPenNib, FaBuilding
+  FaPaperPlane, FaArrowRight, FaRegSmile, FaRegFileAlt, FaUsers, FaGlobe,
+  FaSearch, FaHashtag, FaLaptopCode, FaVideo, FaCamera, FaMicrophone, FaBullseye,
+  FaUserTie, FaLightbulb, FaComments, FaChartLine, FaTag, FaRegClock, FaHeadset, 
+  FaTrophy, FaRocket, FaEye, FaCompass, FaCheckCircle
 } from 'react-icons/fa';
+import SEO from '../components/SEO';
 import './AboutPage.css';
 
-// Local Image Imports for Bento Box Grid
-import schoolImg from '../assets/images/school.webp';
-import hospitalImg from '../assets/images/hospital.webp';
-import realEstateImg from '../assets/images/real-estate.webp';
-import restaurantImg from '../assets/images/restaurant.webp';
-import boutiqueImg from '../assets/images/boutique.webp';
-import manufacturingImg from '../assets/images/manufacturing.webp';
-import financeImg from '../assets/images/finance-service.webp';
-import retailImg from '../assets/images/retail-shop.webp';
-import resortsImg from '../assets/images/resorts.webp';
-import card1Img from '../assets/images/card1.webp';
-import card2Img from '../assets/images/card2.webp';
-import card3Img from '../assets/images/card3.webp';
-import card4Img from '../assets/images/card4.webp';
-import SEO from '../components/SEO';
-
 const AboutPage = () => {
-  const [isMissionVisible, setIsMissionVisible] = useState(false);
-  const [isWhoWeAreVisible, setIsWhoWeAreVisible] = useState(false);
   const [isFaqVisible, setIsFaqVisible] = useState(false);
-  const missionRef = useRef(null);
-  const whoWeAreRef = useRef(null);
   const faqRef = useRef(null);
 
   useEffect(() => {
@@ -38,469 +18,502 @@ const AboutPage = () => {
   }, []);
 
   useEffect(() => {
-    const observerOptions = { threshold: 0.2, rootMargin: '0px 0px -50px 0px' };
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setIsFaqVisible(true);
+      },
+      { threshold: 0.15 }
+    );
 
-    const missionObserver = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) setIsMissionVisible(true);
-    }, observerOptions);
-
-    const whoWeAreObserver = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) setIsWhoWeAreVisible(true);
-    }, observerOptions);
-
-    const faqObserver = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) setIsFaqVisible(true);
-    }, observerOptions);
-
-    if (missionRef.current) missionObserver.observe(missionRef.current);
-    if (whoWeAreRef.current) whoWeAreObserver.observe(whoWeAreRef.current);
-    if (faqRef.current) faqObserver.observe(faqRef.current);
-
-    return () => {
-      missionObserver.disconnect();
-      whoWeAreObserver.disconnect();
-      faqObserver.disconnect();
-    };
+    if (faqRef.current) observer.observe(faqRef.current);
+    return () => observer.disconnect();
   }, []);
 
-  const whatWeDo = [
-    { title: "Search Engine Optimization (SEO)", icon: <FaSearch /> },
-    { title: "Social Media Marketing (SMM)", icon: <FaHashtag /> },
-    { title: "Google Ads & Pay-Per-Click (PPC)", icon: <FaAd /> },
-    { title: "Meta Ads (Facebook & Instagram)", icon: <FaAd /> },
-    { title: "Website Design & Development", icon: <FaLaptopCode /> },
-    { title: "Branding & Graphic Design", icon: <FaPaintBrush /> },
-    { title: "Logo Design", icon: <FaPenNib /> },
-    { title: "Poster & Flex Banner Design", icon: <FaPaintBrush /> },
-    { title: "Professional Video Editing", icon: <FaVideo /> },
-    { title: "Reels Editing & Content Creation", icon: <FaVideo /> },
-    { title: "Animation & Motion Graphics", icon: <FaVideo /> },
-    { title: "Product Photography & Videography", icon: <FaCamera /> },
-    { title: "DSLR Camera Shoots", icon: <FaCamera /> },
-    { title: "Drone Photography & Videography", icon: <FaCamera /> },
-    { title: "Podcast Production", icon: <FaMicrophone /> },
-    { title: "Personal Branding", icon: <FaUsers /> },
-    { title: "Content Marketing", icon: <FaPenNib /> },
-    { title: "Email Marketing", icon: <FaEnvelope /> },
-    { title: "WhatsApp Marketing", icon: <FaWhatsapp /> }
+  // Section 2: Stats
+  const stats = [
+    { value: '25+', label: 'Happy Clients', icon: <FaRegSmile /> },
+    { value: '25+', label: 'Projects Completed', icon: <FaRegFileAlt /> },
+    { value: '10+', label: 'Team Members', icon: <FaUsers /> },
+    { value: '3+', label: 'Global Services', icon: <FaGlobe /> }
   ];
 
-  const whyChooseUs = [
-    "Experienced Digital Marketing Experts",
-    "Customized Marketing Strategies",
-    "Creative & Innovative Solutions",
-    "Transparent Communication",
-    "Data-Driven Campaigns",
-    "Affordable Pricing",
-    "On-Time Project Delivery",
-    "Dedicated Customer Support",
-    "Proven Results Across Multiple Industries"
+  // Section 4: Why Choose Grow Lap (9 Core Features)
+  const whyFeatures = [
+    {
+      title: 'Experienced Digital Marketing Experts',
+      desc: 'Skilled professionals who understand what works and how to get results.',
+      icon: <FaUserTie />
+    },
+    {
+      title: 'Customized Marketing Strategies',
+      desc: 'Plans built around your goals, audience, and industry.',
+      icon: <FaBullseye />
+    },
+    {
+      title: 'Creative & Innovative Solutions',
+      desc: 'Fresh ideas and creative content that help your brand stand out.',
+      icon: <FaLightbulb />
+    },
+    {
+      title: 'Transparent Communication',
+      desc: 'Clear updates, honest discussions, and no hidden surprises.',
+      icon: <FaComments />
+    },
+    {
+      title: 'Data-Driven Campaigns',
+      desc: 'Real insights, better decisions, stronger results.',
+      icon: <FaChartLine />
+    },
+    {
+      title: 'Affordable Pricing',
+      desc: 'Quality services that fit your budget and give you value.',
+      icon: <FaTag />
+    },
+    {
+      title: 'On-Time Project Delivery',
+      desc: 'We respect your time and keep your projects on track.',
+      icon: <FaRegClock />
+    },
+    {
+      title: 'Dedicated Customer Support',
+      desc: 'A team that’s always here to help you.',
+      icon: <FaHeadset />
+    },
+    {
+      title: 'Proven Results Across Multiple Industries',
+      desc: 'Experience working with businesses from different sectors and sizes.',
+      icon: <FaTrophy />
+    }
   ];
 
-  const ourProcess = [
-    { step: 1, title: "Discover", desc: "We understand your business, goals, competitors, and target audience." },
-    { step: 2, title: "Strategize", desc: "Our experts create a customized digital marketing and branding strategy tailored to your business objectives." },
-    { step: 3, title: "Create", desc: "We design engaging content, develop creative assets, and build high-performing marketing campaigns." },
-    { step: 4, title: "Launch", desc: "We execute campaigns across the most effective digital platforms to maximize reach and engagement." },
-    { step: 5, title: "Optimize", desc: "We continuously monitor performance, analyze data, and optimize campaigns to improve results and maximize ROI." }
-  ];
-
-  const industries = [
-    "E-commerce", "Healthcare", "Education", "Real Estate", 
-    "Restaurants & Cafés", "Fashion & Beauty", "Technology", 
-    "Manufacturing", "Travel & Tourism", "Finance", 
-    "Corporate Businesses", "Startups & Entrepreneurs"
+  // Section 6: How We Work (5-Step Process)
+  const processSteps = [
+    {
+      step: '01',
+      title: 'Discover',
+      desc: 'We understand your business, goals, competitors, and target audience.'
+    },
+    {
+      step: '02',
+      title: 'Strategize',
+      desc: 'Our experts create a customized digital marketing and branding strategy tailored to your business objectives.'
+    },
+    {
+      step: '03',
+      title: 'Create',
+      desc: 'We design engaging content, develop creative assets, and build high-performing marketing campaigns.'
+    },
+    {
+      step: '04',
+      title: 'Launch',
+      desc: 'We execute campaigns across the most effective digital platforms to maximize reach and engagement.'
+    },
+    {
+      step: '05',
+      title: 'Optimize',
+      desc: 'We continuously monitor performance, analyze data, and optimize campaigns to improve results and maximize ROI.'
+    }
   ];
 
   return (
-    <div className="about-page-wrapper" style={{ minHeight: '100vh', backgroundColor: 'var(--bg-dark)' }}>
+    <div className="about-page-wrapper">
       <SEO 
-        title="About Us | Grow Lap - Digital Marketing & Branding Agency"
-        description="Learn about Grow Lap's mission, values, and expert team helping businesses scale with top-tier digital marketing and branding."
-        keywords="about grow lap, digital marketing agency about us, grow lap team, branding agency Tamil Nadu"
+        title="About Us | The Story Behind GrowLap"
+        description="Get to know Grow Lap, where we help businesses grow through digital marketing, professional shoots, and creative editing to build a strong brand."
+        keywords="about us, about us grow lap, grow lap about us"
+        canonical="https://www.growlap.com/about"
+        ogImage="https://www.growlap.com/Grow%20Lap.webp"
+        ogImageAlt="Grow Lap About Us"
+        robots="index,follow"
       />
-      
-      {/* 1. Hero / Intro Section */}
-      <div className="container" style={{ paddingBottom: '3rem' }}>
-        <div className="grid-2 about-hero-grid" style={{ alignItems: 'center', gap: '2rem' }}>
-          <div className="about-hero-text">
-            <p className="section-subtitle text-accent" style={{ margin: 0, marginBottom: '1rem', fontSize: '1.1rem', textTransform: 'uppercase', letterSpacing: '2px', fontWeight: '800' }}>ABOUT US</p>
-            <h1 className="about-hero-title">
-              Your Trusted Digital Marketing & <br className="hide-mobile" />
-              <span className="text-accent">Creative Growth Partner</span>
-            </h1>
-            <p className="about-hero-desc">
-              Welcome to <strong>Grow Lap</strong>, where creativity meets strategy. We are a results-driven <strong>Digital Marketing Agency</strong> dedicated to helping businesses grow their online presence, generate quality leads, and increase sales through innovative marketing solutions.
-            </p>
-            <p className="about-hero-desc">
-              Our team of digital marketers, designers, photographers, videographers, and content creators work together to build powerful brand experiences that connect with your audience. Whether you're a startup, small business, or established enterprise, we provide customized digital marketing strategies designed to achieve measurable success.
-            </p>
-          </div>
-          <div className="about-hero-image-wrapper" style={{ position: 'relative', textAlign: 'center' }}>
-            <img src="/about-hero-new.webp" alt="About Us" className="about-hero-image" style={{ width: '85%', maxWidth: '450px', position: 'relative', zIndex: 2, mixBlendMode: 'lighten', margin: '0 auto' }} />
-          </div>
-        </div>
-      </div>
 
-      {/* 2. Who We Are - Bento Box Model */}
-      <div className="container" style={{ paddingTop: '3rem', paddingBottom: '3rem' }}>
-        <div className="grid-2" style={{ alignItems: 'center', gap: '3rem' }}>
-          
-          {/* Text Side (Left) */}
-          <div className="about-who-text">
-            <p className="section-subtitle text-accent" style={{ margin: 0, marginBottom: '1rem', fontSize: '1.1rem', letterSpacing: '2px', fontWeight: '700' }}>WHO WE ARE</p>
-            <h2 className="about-who-title" style={{ marginTop: 0, marginBottom: '1.5rem', lineHeight: 1.2 }}>
-              Passionate&nbsp;About <br/><span style={{ color: 'var(--accent-orange)' }}>Your Growth</span>
-            </h2>
-            
-            <div style={{ paddingLeft: '1rem', borderLeft: '4px solid var(--accent-orange)', marginBottom: '1.5rem', background: 'linear-gradient(90deg, rgba(255, 94, 0, 0.05) 0%, transparent 100%)', padding: '1rem 1rem 1rem 1.2rem', borderRadius: '0 8px 8px 0' }}>
-              <p style={{ fontSize: '1.05rem', color: '#fff', margin: 0, lineHeight: '1.6', fontStyle: 'italic', fontWeight: '500' }}>
-                "We don't just execute campaigns; we architect digital growth."
+      {/* ==========================================================================
+          SECTION 1: HERO SECTION
+          ========================================================================== */}
+      <section className="about-hero-section">
+        <div className="container">
+          <div className="about-hero-grid">
+            <div className="about-hero-text">
+              <p className="section-subtitle text-accent">ABOUT GROW LAP</p>
+              <h1 className="about-hero-title">
+                We Build Brands. <br className="hide-mobile" />
+                We Create Impact. <br />
+                <span className="text-accent">We Drive Growth.</span>
+              </h1>
+              <p className="about-hero-desc">
+                At <strong>Grow Lap</strong>, we help businesses grow through digital marketing, creative content, and professional production. We bring your ideas to life and help your brand reach more people and make your business stand out online.
               </p>
-            </div>
-            
-            <p style={{ fontSize: '1rem', color: 'var(--text-muted)', marginBottom: '1.2rem', lineHeight: '1.7' }}>
-              We are passionate about helping businesses thrive in the digital world. By combining creativity, technology, and data-driven marketing, we deliver solutions that strengthen your brand and maximize your return on investment (ROI).
-            </p>
-            <p style={{ fontSize: '1rem', color: 'var(--text-muted)', marginBottom: '2rem', lineHeight: '1.7' }}>
-              From building engaging websites to creating viral social media campaigns, we focus on delivering results that help your business grow faster and smarter.
-            </p>
-          </div>
-
-          {/* Image Grid Side (Right) */}
-          <div className="about-who-image-grid">
-             {/* Decorative Background Blob */}
-             <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '300px', height: '300px', background: 'var(--accent-orange)', filter: 'blur(100px)', opacity: 0.15, zIndex: 0 }}></div>
-             <img src="/about-who-we-are.webp" alt="Team" className="about-who-img-main" />
-             <img src="/bg-team.webp" alt="Collaboration" className="about-who-img-sub" />
-             <img src="/bg-projects.webp" alt="Success" className="about-who-img-sub" />
-          </div>
-
-        </div>
-      </div>
-
-      {/* 3. Mission & Vision */}
-      <div style={{ backgroundColor: 'var(--bg-dark)', padding: '5rem 0' }}>
-        <div ref={missionRef} className="container grid-2" style={{ gap: '3rem', overflow: 'hidden' }}>
-          <div className={`mission-vision-card ${isMissionVisible ? 'about-slide-in-left' : 'about-hidden-left'}`} style={{ 
-            backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.75)), url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800")',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            padding: '3rem', 
-            borderRadius: '15px', 
-            border: '1px solid rgba(255, 94, 0, 0.3)', 
-            boxShadow: '0 10px 30px rgba(0,0,0,0.5)' 
-          }}>
-            <FaRocket style={{ fontSize: '3rem', color: 'var(--accent-orange)', marginBottom: '1.5rem', filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.5))' }} />
-            <h3 style={{ fontSize: '2.2rem', marginBottom: '1rem', color: '#fff', textShadow: '0 2px 10px rgba(0,0,0,0.8)' }}>Our Mission</h3>
-            <p style={{ color: '#ffffff', fontSize: '1.1rem', lineHeight: '1.6', textShadow: '0 2px 4px rgba(0,0,0,0.8)', fontWeight: '500' }}>
-              Our mission is to empower businesses with innovative digital marketing and creative services that increase visibility, build customer trust, and drive sustainable business growth.
-            </p>
-          </div>
-          <div className={`mission-vision-card ${isMissionVisible ? 'about-slide-in-right' : 'about-hidden-right'}`} style={{ 
-            backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.75)), url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=800")',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            padding: '3rem', 
-            borderRadius: '15px', 
-            border: '1px solid rgba(255, 94, 0, 0.3)', 
-            boxShadow: '0 10px 30px rgba(0,0,0,0.5)' 
-          }}>
-            <FaLightbulb style={{ fontSize: '3rem', color: 'var(--accent-orange)', marginBottom: '1.5rem', filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.5))' }} />
-            <h3 style={{ fontSize: '2.2rem', marginBottom: '1rem', color: '#fff', textShadow: '0 2px 10px rgba(0,0,0,0.8)' }}>Our Vision</h3>
-            <p style={{ color: '#ffffff', fontSize: '1.1rem', lineHeight: '1.6', textShadow: '0 2px 4px rgba(0,0,0,0.8)', fontWeight: '500' }}>
-              To become a leading digital marketing agency recognized for creativity, innovation, customer satisfaction, and measurable marketing success.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* 4. What We Do (Hub and Spoke Design) */}
-      <div className="container" style={{ paddingTop: '5rem', paddingBottom: '5rem' }}>
-        <div className="has-header text-center" style={{ marginBottom: '4rem' }}>
-          <p className="section-subtitle text-accent" style={{ margin: 0 }}>OUR SERVICES</p>
-          <h2 className="has-title" style={{ fontSize: '2.5rem', marginTop: '0.5rem' }}>What We Do</h2>
-          <p className="has-subtitle" style={{ color: 'var(--text-muted)', maxWidth: '600px', margin: '1rem auto 0' }}>We offer complete digital marketing and creative solutions tailored for your brand.</p>
-        </div>
-
-        <div className="has-layout">
-          {/* Left Column - Spokes */}
-          <div className="has-col has-col-left">
-            <div className="has-spoke has-spoke-left">
-              <div className="has-spoke-border"></div>
-              <div className="has-spoke-icon-wrapper">
-                <div className="has-spoke-icon"><FaSearch /></div>
-              </div>
-              <div className="has-spoke-content">
-                <h4>Search & Paid Ads</h4>
-                <p>Search Engine Optimization (SEO), Google Ads & PPC, Meta Ads (Facebook & Instagram).</p>
-              </div>
-              <div className="has-connection has-conn-left-1"></div>
-            </div>
-
-            <div className="has-spoke has-spoke-left">
-              <div className="has-spoke-border"></div>
-              <div className="has-spoke-icon-wrapper">
-                <div className="has-spoke-icon"><FaHashtag /></div>
-              </div>
-              <div className="has-spoke-content">
-                <h4>Social & Marketing</h4>
-                <p>Social Media Marketing (SMM), Content Marketing, Email Marketing, and WhatsApp Marketing.</p>
-              </div>
-              <div className="has-connection has-conn-left-2"></div>
-            </div>
-
-            <div className="has-spoke has-spoke-left">
-              <div className="has-spoke-border"></div>
-              <div className="has-spoke-icon-wrapper">
-                <div className="has-spoke-icon"><FaLaptopCode /></div>
-              </div>
-              <div className="has-spoke-content">
-                <h4>Web & Brand Identity</h4>
-                <p>Website Design & Development, Branding & Graphic Design, and Logo Design.</p>
-              </div>
-              <div className="has-connection has-conn-left-3"></div>
-            </div>
-          </div>
-
-          {/* Center Hub */}
-          <div className="has-col has-col-center">
-            <div className="has-hub">
-              <div className="has-hub-dashed"></div>
-              <div className="has-hub-inner">
-                <FaBullseye className="has-hub-icon" />
-                <h3>Digital Solutions</h3>
-                <h3 className="has-hub-accent">That Deliver</h3>
-                <h3>Results</h3>
-                <div className="has-hub-dot"></div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column - Spokes */}
-          <div className="has-col has-col-right">
-            <div className="has-spoke has-spoke-right">
-              <div className="has-spoke-border"></div>
-              <div className="has-connection has-conn-right-1"></div>
-              <div className="has-spoke-icon-wrapper">
-                <div className="has-spoke-icon"><FaVideo /></div>
-              </div>
-              <div className="has-spoke-content">
-                <h4>Video & Animation</h4>
-                <p>Professional Video Editing, Reels Editing & Content Creation, Animation & Motion Graphics.</p>
+              <div className="about-hero-btn-group">
+                <Link to="/contact" className="btn-primary">
+                  <FaPaperPlane className="btn-icon" /> Let's Work Together
+                </Link>
+                <a href="#who-we-are" className="btn-secondary">
+                  Explore Our Story &darr;
+                </a>
               </div>
             </div>
 
-            <div className="has-spoke has-spoke-right">
-              <div className="has-spoke-border"></div>
-              <div className="has-connection has-conn-right-2"></div>
-              <div className="has-spoke-icon-wrapper">
-                <div className="has-spoke-icon"><FaCamera /></div>
-              </div>
-              <div className="has-spoke-content">
-                <h4>Photography & Shoots</h4>
-                <p>Product Photography & Videography, DSLR Camera Shoots, Drone Photography & Videography.</p>
-              </div>
-            </div>
-
-            <div className="has-spoke has-spoke-right">
-              <div className="has-spoke-border"></div>
-              <div className="has-connection has-conn-right-3"></div>
-              <div className="has-spoke-icon-wrapper">
-                <div className="has-spoke-icon"><FaMicrophone /></div>
-              </div>
-              <div className="has-spoke-content">
-                <h4>Creative Services</h4>
-                <p>Podcast Production, Personal Branding, and Poster & Flex Banner Design.</p>
+            <div className="about-hero-visual-wrapper">
+              <div className="about-hero-glow"></div>
+              <div className="about-hero-img-frame">
+                <img 
+                  src="/about-hero-funnel.png" 
+                  alt="Grow Lap Digital Marketing & Growth Funnel" 
+                  className="about-hero-visual-img"
+                />
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* 5. Why Choose Us - Sticky List Model (No Image, Original Content) */}
-      <div style={{ backgroundColor: 'var(--bg-dark)', padding: '8rem 0', position: 'relative' }}>
-        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <div className="why-sticky-grid">
-            
-            {/* Sticky Left Column */}
-            <div style={{ position: 'sticky', top: '120px' }}>
-              <p className="section-subtitle text-accent" style={{ margin: 0, letterSpacing: '2px', fontWeight: 'bold' }}>THE GROW LAP DIFFERENCE</p>
-              <h2 style={{ fontSize: '4rem', marginTop: '1rem', marginBottom: '1.5rem', lineHeight: 1.1 }}>Why<br/>Choose Us?</h2>
-              <p style={{ color: 'var(--text-muted)', fontSize: '1.2rem', lineHeight: '1.8', maxWidth: '400px' }}>
-                We combine creativity, technology, and data to deliver exceptional digital experiences that elevate your brand and drive measurable growth.
+      {/* ==========================================================================
+          SECTION 2: WHO WE ARE
+          ========================================================================== */}
+      <section id="who-we-are" className="about-who-section section-padding">
+        <div className="container">
+          <div className="about-who-grid">
+            {/* Text Side (Left) */}
+            <div className="about-who-text">
+              <p className="section-subtitle text-accent">WHO WE ARE</p>
+              <h2 className="about-who-title">
+                One Team for Marketing, <br />
+                <span className="text-accent">Creativity, and Growth</span>
+              </h2>
+
+              <div className="about-quote-box">
+                <p>
+                  "We don't just execute campaigns; we architect digital growth."
+                </p>
+              </div>
+
+              <p className="about-who-p">
+                Grow Lap is a digital marketing company that helps businesses connect with the right people and build a strong online presence.
+              </p>
+              <p className="about-who-p">
+                From SEO and digital advertising to professional photoshoots and video editing, we bring everything together to help your brand get noticed and make a lasting impression.
+              </p>
+              <p className="about-who-p">
+                We get to know your business, understand what you need, and help you reach more people. From marketing your services to creating photos and videos, we show people what your brand is all about.
               </p>
             </div>
 
-            {/* Scrolling Right Column (List) */}
-            <div style={{ display: 'flex', flexDirection: 'column' }}>
-              {whyChooseUs.map((reason, idx) => (
-                <div key={idx} className="why-row-item" style={{ 
-                  display: 'flex', 
-                  alignItems: 'center', 
-                  padding: '2.5rem 0', 
-                  borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
-                  transition: 'all 0.3s ease',
-                  cursor: 'default'
-                }}>
-                  <div style={{ fontSize: '1.5rem', fontWeight: '800', color: 'var(--accent-orange)', width: '60px', flexShrink: 0, opacity: 0.8 }}>
-                    0{idx + 1}
-                  </div>
-                  <h4 style={{ margin: 0, fontSize: '1.4rem', fontWeight: '600', color: '#fff', flexGrow: 1, transition: 'color 0.3s ease' }}>
-                    {reason}
-                  </h4>
-                  <div className="why-row-icon" style={{ color: 'var(--accent-orange)', fontSize: '1.5rem', opacity: 0, transform: 'translateX(-20px)', transition: 'all 0.3s ease' }}>
-                    <FaArrowRight />
-                  </div>
+            {/* Visual Images Side (Right) */}
+            <div className="about-who-visuals">
+              <div className="about-who-img-container">
+                <img src="/about-creative-team-4.jpg" alt="Grow Lap Team Collaboration" className="about-who-img-main" />
+                <div className="about-who-sub-images">
+                  <img src="/bg-team.webp" alt="Creative Production" className="about-who-img-sub" />
+                  <img src="/bg-projects.webp" alt="Client Success" className="about-who-img-sub" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Stats Row */}
+          <div className="about-stats-container">
+            <div className="about-stats-grid">
+              {stats.map((item, idx) => (
+                <div key={idx} className="about-stat-card">
+                  <div className="about-stat-icon">{item.icon}</div>
+                  <div className="about-stat-value">{item.value}</div>
+                  <div className="about-stat-label">{item.label}</div>
                 </div>
               ))}
             </div>
-
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* 6. Our Process */}
-      <div className="container" style={{ padding: '5rem 0' }}>
-        <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-          <p className="section-subtitle text-accent" style={{ margin: 0 }}>HOW WE WORK</p>
-          <h2 style={{ fontSize: '2.5rem', marginTop: '0.5rem' }}>Our Process</h2>
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', maxWidth: '800px', margin: '0 auto' }}>
-          {ourProcess.map((step, idx) => (
-            <div key={idx} className="process-box" style={{ display: 'flex', gap: '2rem', alignItems: 'flex-start', background: 'rgba(255,255,255,0.02)', padding: '2rem', borderRadius: '12px', borderLeft: '4px solid var(--accent-orange)' }}>
-              <div style={{ fontSize: '3rem', fontWeight: '900', color: 'rgba(255,94,0,0.2)', lineHeight: '1' }}>
-                0{step.step}
+      {/* ==========================================================================
+          SECTION 3: WHAT WE DO (Hub & Spoke Architecture)
+          ========================================================================== */}
+      <section className="about-what-we-do-section section-padding">
+        <div className="container">
+          <div className="has-header text-center" style={{ marginBottom: '4rem' }}>
+            <p className="section-subtitle text-accent">WHAT WE DO</p>
+            <h2 className="has-title" style={{ fontSize: '2.5rem', marginTop: '0.5rem' }}>
+              Everything Your Brand Needs to Grow
+            </h2>
+            <p className="has-subtitle" style={{ color: 'var(--text-muted)', maxWidth: '650px', margin: '1rem auto 0' }}>
+              From reaching more people online to creating content that makes your brand stand out, we bring marketing and creativity together under one roof.
+            </p>
+          </div>
+
+          {/* Hub & Spoke Layout */}
+          <div className="has-layout">
+            {/* Left Column - Spokes */}
+            <div className="has-col has-col-left">
+              <div className="has-spoke has-spoke-left">
+                <div className="has-spoke-border"></div>
+                <div className="has-spoke-icon-wrapper">
+                  <div className="has-spoke-icon"><FaSearch /></div>
+                </div>
+                <div className="has-spoke-content">
+                  <h4>Search & Paid Ads</h4>
+                  <p>Search Engine Optimization (SEO), Google Ads & PPC, Meta Ads (Facebook & Instagram).</p>
+                </div>
+                <div className="has-connection has-conn-left-1"></div>
               </div>
-              <div>
-                <h3 style={{ fontSize: '1.5rem', marginBottom: '0.5rem', color: 'var(--accent-orange)' }}>{step.title}</h3>
-                <p style={{ color: '#ffffff', margin: 0 }}>{step.desc}</p>
+
+              <div className="has-spoke has-spoke-left">
+                <div className="has-spoke-border"></div>
+                <div className="has-spoke-icon-wrapper">
+                  <div className="has-spoke-icon"><FaHashtag /></div>
+                </div>
+                <div className="has-spoke-content">
+                  <h4>Social & Marketing</h4>
+                  <p>Social Media Marketing (SMM), Content Marketing, Email Marketing, and WhatsApp Marketing.</p>
+                </div>
+                <div className="has-connection has-conn-left-2"></div>
+              </div>
+
+              <div className="has-spoke has-spoke-left">
+                <div className="has-spoke-border"></div>
+                <div className="has-spoke-icon-wrapper">
+                  <div className="has-spoke-icon"><FaLaptopCode /></div>
+                </div>
+                <div className="has-spoke-content">
+                  <h4>Web & Brand Identity</h4>
+                  <p>Website Design & Development, Branding & Graphic Design, and Logo Design.</p>
+                </div>
+                <div className="has-connection has-conn-left-3"></div>
               </div>
             </div>
-          ))}
-        </div>
-      </div>
 
-      {/* 7. Industries We Serve - Bento Box Grid Model */}
-      <div style={{ backgroundColor: 'var(--bg-dark)', padding: '8rem 0', position: 'relative' }}>
-        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
-            <p className="section-subtitle text-accent" style={{ margin: 0, letterSpacing: '2px', fontWeight: 'bold' }}>WHO WE HELP</p>
-            <h2 style={{ fontSize: '3.5rem', marginTop: '0.5rem', marginBottom: '1rem' }}>Industries We Serve</h2>
-            <p style={{ color: 'var(--text-muted)', maxWidth: '600px', margin: '0 auto', fontSize: '1.1rem' }}>We provide tailored digital marketing strategies that drive growth for businesses across various sectors.</p>
+            {/* Center Hub */}
+            <div className="has-col has-col-center">
+              <div className="has-hub">
+                <div className="has-hub-dashed"></div>
+                <div className="has-hub-inner">
+                  <FaBullseye className="has-hub-icon" />
+                  <h3>Digital Solutions</h3>
+                  <h3 className="has-hub-accent">That Deliver</h3>
+                  <h3>Results</h3>
+                  <div className="has-hub-dot"></div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column - Spokes */}
+            <div className="has-col has-col-right">
+              <div className="has-spoke has-spoke-right">
+                <div className="has-spoke-border"></div>
+                <div className="has-connection has-conn-right-1"></div>
+                <div className="has-spoke-icon-wrapper">
+                  <div className="has-spoke-icon"><FaVideo /></div>
+                </div>
+                <div className="has-spoke-content">
+                  <h4>Video & Animation</h4>
+                  <p>Professional Video Editing, Reels Editing & Content Creation, Animation & Motion Graphics.</p>
+                </div>
+              </div>
+
+              <div className="has-spoke has-spoke-right">
+                <div className="has-spoke-border"></div>
+                <div className="has-connection has-conn-right-2"></div>
+                <div className="has-spoke-icon-wrapper">
+                  <div className="has-spoke-icon"><FaCamera /></div>
+                </div>
+                <div className="has-spoke-content">
+                  <h4>Photography & Shoots</h4>
+                  <p>Product Photography & Videography, DSLR Camera Shoots, Drone Photography & Videography.</p>
+                </div>
+              </div>
+
+              <div className="has-spoke has-spoke-right">
+                <div className="has-spoke-border"></div>
+                <div className="has-connection has-conn-right-3"></div>
+                <div className="has-spoke-icon-wrapper">
+                  <div className="has-spoke-icon"><FaMicrophone /></div>
+                </div>
+                <div className="has-spoke-content">
+                  <h4>Creative Services</h4>
+                  <p>Podcast Production, Personal Branding, and Poster & Flex Banner Design.</p>
+                </div>
+              </div>
+            </div>
           </div>
-          
-          <div className="bento-grid">
-            {[
-              { name: "E-commerce", icon: <FaStore />, type: 'large', img: retailImg, desc: "Boost online sales and maximize conversions with targeted product campaigns and CRO." },
-              { name: "Healthcare", icon: <FaHospital />, type: '', img: hospitalImg, desc: "HIPAA-compliant marketing to build patient trust and grow your practice." },
-              { name: "Education", icon: <FaGraduationCap />, type: '', img: schoolImg, desc: "Drive student enrollments and enhance your institution's online presence." },
-              { name: "Real Estate", icon: <FaHome />, type: 'tall', img: realEstateImg, desc: "Generate high-quality leads and showcase properties to the right buyers." },
-              { name: "Restaurants", icon: <FaUtensils />, type: '', img: restaurantImg, desc: "Fill your tables and increase online orders with local SEO and social media." },
-              { name: "Fashion", icon: <FaTrophy />, type: 'wide', img: boutiqueImg, desc: "Build a highly engaged audience and drive brand loyalty with stunning visual campaigns." },
-              { name: "Technology", icon: <FaLaptopCode />, type: 'large', img: card2Img, desc: "Market innovative software and SaaS products to B2B and B2C audiences." },
-              { name: "Manufacturing", icon: <FaIndustry />, type: '', img: manufacturingImg, desc: "Generate qualified B2B leads and establish industry authority." },
-              { name: "Travel & Tourism", icon: <FaPlane />, type: 'tall', img: resortsImg, desc: "Attract more tourists and increase bookings with captivating destination marketing." },
-              { name: "Finance", icon: <FaPiggyBank />, type: '', img: financeImg, desc: "Build authority and trust with data-driven marketing for financial services." },
-              { name: "Corporate", icon: <FaBuilding />, type: 'wide', img: card3Img, desc: "Enhance your corporate identity and streamline your B2B lead generation." },
-              { name: "Startups", icon: <FaRocket />, type: '', img: card4Img, desc: "Scale rapidly with growth-hacking strategies tailored for new ventures." }
-            ].map((item, idx) => (
-              <div className={`bento-flip-container ${item.type}`} key={idx}>
-                <div className="bento-flip-inner">
-                  {/* Front Side */}
-                  <div className="bento-flip-front" style={{ backgroundImage: `url(${item.img})` }}>
-                    <div className="bento-icon">{item.icon}</div>
-                    <h4 className="bento-title">{item.name}</h4>
-                  </div>
-                  {/* Back Side */}
-                  <div className="bento-flip-back">
-                    <p>{item.desc}</p>
-                  </div>
+
+          <div className="text-center" style={{ marginTop: '3.5rem' }}>
+            <Link to="/services" className="btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.6rem' }}>
+              Explore Our Services <FaArrowRight />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ==========================================================================
+          SECTION 4: WHY CHOOSE GROW LAP?
+          ========================================================================== */}
+      <section className="about-why-growlap-section section-padding">
+        <div className="container">
+          {/* Top Heading + Banner Visual */}
+          <div className="why-growlap-header-grid">
+            <div className="why-growlap-header-text">
+              <p className="section-subtitle text-accent">WHY CHOOSE GROW LAP</p>
+              <h2 className="why-growlap-title">
+                Good Ideas Matter. <br />
+                <span className="text-accent">The Right Execution Makes the Difference.</span>
+              </h2>
+              <p className="why-growlap-desc">
+                We understand that every business has different goals. Our approach combines clear planning, creative thinking, and consistent communication to help you make the most of your marketing efforts.
+              </p>
+            </div>
+
+            <div className="why-growlap-banner-visual">
+              <div className="why-growlap-banner-card">
+                <img 
+                  src="/service_shoots_new.webp" 
+                  alt="Grow Lap Studio & Creative Space" 
+                  className="why-growlap-banner-img"
+                />
+                <div className="why-banner-tag-overlay">
+                  <span>Strategy • Marketing • Creative • Growth</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* 9 Features Grid (3x3) */}
+          <div className="why-cards-grid">
+            {whyFeatures.map((item, idx) => (
+              <div key={idx} className="why-card-item">
+                <div className="why-card-icon-box">
+                  {item.icon}
+                </div>
+                <h3 className="why-card-title">{item.title}</h3>
+                <p className="why-card-desc">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ==========================================================================
+          SECTION 5: OUR MISSION & VISION
+          ========================================================================== */}
+      <section className="about-mission-section section-padding">
+        <div className="container">
+          <div className="text-center" style={{ marginBottom: '4rem' }}>
+            <p className="section-subtitle text-accent">OUR MISSION & VISION</p>
+            <h2 className="section-title">Driven by Purpose. Built for What's Next.</h2>
+            <div className="section-line"></div>
+          </div>
+
+          <div className="mission-vision-grid">
+            {/* Mission Card */}
+            <div className="mission-card-new">
+              <div className="mission-card-glow"></div>
+              <div className="mission-card-header">
+                <div className="mission-icon-circle">
+                  <FaRocket className="mission-svg-icon" />
+                </div>
+                <h3>Our Mission</h3>
+              </div>
+              <p className="mission-card-body">
+                Our mission is to help businesses get noticed, reach the right people, and grow through marketing and creative work that suits their needs. We empower businesses with practical digital marketing strategies and creative content that connects with people and builds lasting brand value.
+              </p>
+            </div>
+
+            {/* Vision Card */}
+            <div className="mission-card-new">
+              <div className="mission-card-glow"></div>
+              <div className="mission-card-header">
+                <div className="mission-icon-circle">
+                  <FaEye className="mission-svg-icon" />
+                </div>
+                <h3>Our Vision</h3>
+              </div>
+              <p className="mission-card-body">
+                Our vision is to become a digital marketing company that businesses trust for fresh ideas, quality work, and support they can count on. We strive to be a trusted growth partner by bringing marketing, technology, and creativity together to create meaningful, measurable results.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ==========================================================================
+          SECTION 6: HOW WE WORK (Our Process)
+          ========================================================================== */}
+      <section className="about-process-section section-padding">
+        <div className="container">
+          <div className="text-center" style={{ marginBottom: '4rem' }}>
+            <p className="section-subtitle text-accent">HOW WE WORK</p>
+            <h2 className="section-title">From Your Ideas to a Clear Growth Plan</h2>
+            <div className="section-line"></div>
+            <p style={{ color: 'var(--text-muted)', maxWidth: '650px', margin: '1rem auto 0', fontSize: '1.05rem' }}>
+              We follow a straightforward process to understand your needs, get the work done, and improve along the way.
+            </p>
+          </div>
+
+          <div className="about-process-list">
+            {processSteps.map((step, idx) => (
+              <div key={idx} className="about-process-step-box">
+                <div className="about-process-number">{step.step}</div>
+                <div className="about-process-content">
+                  <h3 className="about-process-step-title">{step.title}</h3>
+                  <p className="about-process-step-desc">{step.desc}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* 8. Why Digital Marketing Matters */}
-      <div style={{ backgroundColor: 'var(--accent-orange)', padding: '6rem 0', position: 'relative', overflow: 'hidden' }}>
-        <div className="container why-marketing-grid">
-          {/* Left Image */}
-          <div className="why-marketing-img-container" style={{ display: 'flex', justifyContent: 'flex-end' }}>
-             <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=400" alt="Digital Marketing Graph" className="why-marketing-image" style={{ transform: 'rotate(-5deg)' }} />
-          </div>
-
-          {/* Center Content */}
-          <div style={{ textAlign: 'center' }}>
-            <h2 style={{ fontSize: 'clamp(1.5rem, 5vw, 2.2rem)', marginBottom: '1.5rem', color: '#fff', fontFamily: '"Outfit", sans-serif', fontWeight: '800' }}>Why Digital Marketing Matters</h2>
-            <p style={{ fontSize: 'clamp(0.95rem, 3.5vw, 1.25rem)', color: '#fff', margin: '0 auto', lineHeight: '1.7', fontWeight: '500', fontStyle: 'italic' }}>
-              "Digital marketing helps businesses reach the right audience, build brand awareness, generate qualified leads, and increase revenue. With the right strategy, your business can stay ahead of the competition and achieve long-term online success."
-            </p>
-          </div>
-
-          {/* Right Image */}
-          <div className="why-marketing-img-container" style={{ display: 'flex', justifyContent: 'flex-start' }}>
-             <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=400" alt="Data Analytics" className="why-marketing-image" style={{ transform: 'rotate(5deg)' }} />
-          </div>
+      {/* ==========================================================================
+          SECTION 7: FINAL CALL TO ACTION
+          ========================================================================== */}
+      <section className="about-final-cta-section section-padding">
+        <div className="container text-center">
+          <p className="section-subtitle text-accent" style={{ marginBottom: '0.8rem' }}>
+            YOUR NEXT CHAPTER STARTS HERE
+          </p>
+          <h2 className="about-final-cta-heading">
+            Let's Turn Your Ideas into <span className="text-accent">Growth.</span>
+          </h2>
+          <p className="about-final-cta-desc">
+            Looking to improve your online presence, reach the right customers, or create content that represents your brand? Let's talk about your business and find the right way forward together.
+          </p>
+          <Link to="/contact" className="btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.8rem', padding: '16px 36px', fontSize: '1.1rem' }}>
+            Contact Us <FaArrowRight />
+          </Link>
         </div>
-      </div>
+      </section>
 
-      {/* 9. FAQ Section */}
-      <div style={{ backgroundColor: 'var(--bg-dark)', padding: '5rem 0' }} ref={faqRef}>
+      {/* ==========================================================================
+          SECTION 8: FAQ SECTION
+          ========================================================================== */}
+      <section className="about-faq-section section-padding" ref={faqRef}>
         <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-            <h2 style={{ fontSize: '2.5rem' }}>Frequently Asked Questions</h2>
+          <div className="section-header text-center" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '3.5rem' }}>
+            <h2 className="section-title">Frequently Asked Questions</h2>
+            <div className="section-line" style={{ width: '60px', height: '3px', backgroundColor: 'var(--accent-orange)', margin: '1rem auto 0 auto', borderRadius: '2px' }}></div>
           </div>
-          <div className="seo-faqs" style={{ maxWidth: '800px', margin: '0 auto', overflow: 'hidden' }}>
-            {/* Box 1 - Left */}
-            <details className={`seo-faq-item slide-transition ${isFaqVisible ? 'slide-in-active' : 'slide-hidden-left'}`} style={{ transitionDelay: '0.1s' }}>
+          <div className="about-faqs-container">
+            {/* Box 1 */}
+            <details className={`about-faq-item ${isFaqVisible ? 'animate-show' : ''}`}>
               <summary>What industries do you work with?</summary>
               <p>We work with startups, local businesses, e-commerce brands, educational institutions, healthcare providers, real estate companies, restaurants, and enterprises across multiple industries.</p>
             </details>
-            {/* Box 2 - Right */}
-            <details className={`seo-faq-item slide-transition ${isFaqVisible ? 'slide-in-active' : 'slide-hidden-right'}`} style={{ transitionDelay: '0.2s' }}>
+            {/* Box 2 */}
+            <details className={`about-faq-item ${isFaqVisible ? 'animate-show' : ''}`}>
               <summary>Do you offer customized digital marketing packages?</summary>
               <p>Yes. Every business has unique goals, so we create personalized marketing strategies and service packages based on your budget and objectives.</p>
             </details>
-            {/* Box 3 - Left */}
-            <details className={`seo-faq-item slide-transition ${isFaqVisible ? 'slide-in-active' : 'slide-hidden-left'}`} style={{ transitionDelay: '0.3s' }}>
+            {/* Box 3 */}
+            <details className={`about-faq-item ${isFaqVisible ? 'animate-show' : ''}`}>
               <summary>How long does it take to see results?</summary>
               <p>The timeline depends on the service. SEO typically delivers long-term results, while paid advertising and social media campaigns can generate traffic and leads much more quickly.</p>
             </details>
-            {/* Box 4 - Right */}
-            <details className={`seo-faq-item slide-transition ${isFaqVisible ? 'slide-in-active' : 'slide-hidden-right'}`} style={{ transitionDelay: '0.4s' }}>
+            {/* Box 4 */}
+            <details className={`about-faq-item ${isFaqVisible ? 'animate-show' : ''}`}>
               <summary>Do you provide creative services along with marketing?</summary>
               <p>Absolutely. We offer graphic design, branding, logo design, video editing, photography, animation, content creation, and other creative services to support your marketing efforts.</p>
             </details>
           </div>
         </div>
-      </div>
-
-      {/* 10. CTA Section - Cinematic Parallax Model */}
-      <div className="cta-cinematic-section">
-        <div className="cta-cinematic-overlay"></div>
-        <div className="container" style={{ position: 'relative', zIndex: 2, textAlign: 'center' }}>
-          <h2 className="cta-cinematic-heading" style={{ fontSize: '3.5rem' }}>Let's Grow Your Business Together</h2>
-          
-          <p className="cta-cinematic-paragraph" style={{ fontSize: '1.2rem', marginBottom: '1.5rem', fontWeight: '400', fontFamily: 'Inter, sans-serif' }}>
-            At <strong>Grow Lap</strong>, we believe every business deserves a strong digital presence. Our mission is to help you attract more customers, build a trusted brand, and achieve sustainable growth through innovative digital marketing and creative solutions.
-          </p>
-          
-          <p className="cta-cinematic-paragraph" style={{ fontSize: '1.2rem', marginBottom: '2.5rem', fontWeight: '400', fontFamily: 'Inter, sans-serif' }}>
-            Whether you're looking to improve your search engine rankings, run high-performing advertising campaigns, create engaging content, or build a memorable brand identity, our team is ready to help.
-          </p>
-          
-          <p className="cta-cinematic-paragraph" style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '2.5rem', color: '#fff' }}>
-            Contact us today and let's transform your ideas into measurable digital success.
-          </p>
-          
-          <Link to="/contact" className="btn-primary cta-cinematic-btn" style={{ display: 'inline-flex', alignItems: 'center', gap: '10px' }}>
-            Get a Free Consultation <FaArrowRight />
-          </Link>
-        </div>
-      </div>
-
+      </section>
     </div>
   );
 };

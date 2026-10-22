@@ -7,7 +7,9 @@ const SEO = ({
   keywords = "digital marketing, SEO services, social media marketing, video editing, branding, Grow Lap",
   ogImage = "https://growlap.com/Grow%20Lap.webp",
   canonical = "",
-  schema = null
+  schema = null,
+  robots = "index, follow",
+  ogImageAlt = ""
 }) => {
   const location = useLocation();
   const currentUrl = canonical || `https://growlap.com${location.pathname}`;
@@ -31,6 +33,7 @@ const SEO = ({
     setMetaTag('meta[name="title"]', 'name', 'title', title);
     setMetaTag('meta[name="description"]', 'name', 'description', description);
     setMetaTag('meta[name="keywords"]', 'name', 'keywords', keywords);
+    setMetaTag('meta[name="robots"]', 'name', 'robots', robots);
 
     // Open Graph Tags
     setMetaTag('meta[property="og:locale"]', 'property', 'og:locale', 'en_US');
@@ -41,7 +44,7 @@ const SEO = ({
     setMetaTag('meta[property="og:url"]', 'property', 'og:url', currentUrl);
     setMetaTag('meta[property="og:image"]', 'property', 'og:image', ogImage);
     setMetaTag('meta[property="og:image:secure_url"]', 'property', 'og:image:secure_url', ogImage);
-    setMetaTag('meta[property="og:image:alt"]', 'property', 'og:image:alt', `${title} - Grow Lap`);
+    setMetaTag('meta[property="og:image:alt"]', 'property', 'og:image:alt', ogImageAlt || `${title} - Grow Lap`);
 
     // Twitter Tags
     setMetaTag('meta[name="twitter:title"]', 'name', 'twitter:title', title);

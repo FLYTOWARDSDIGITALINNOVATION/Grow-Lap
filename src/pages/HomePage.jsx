@@ -5,11 +5,11 @@ import {
   FaChartLine, FaEye, FaUserTie, FaCog, FaCheckCircle, FaSearch,
   FaBullseye, FaRocket, FaQuoteLeft, FaGlobe, FaArrowRight, FaArrowLeft, FaCheck,
   FaEnvelope, FaPhoneAlt, FaRegCalendarAlt, FaCalendarAlt, FaRegClock,
-  FaChevronDown, FaChevronLeft, FaChevronRight
+  FaChevronDown, FaChevronLeft, FaChevronRight,
+  FaBuilding, FaHome, FaIndustry, FaCar, FaGem, FaGraduationCap
 } from 'react-icons/fa';
 import SEO from '../components/SEO';
 import { servicesData } from '../data/servicesData';
-import { industries } from '../data/industries';
 import './HomePage.css';
 
 /* ==========================================================================
@@ -293,50 +293,296 @@ const WhyDifferentSection = () => {
 };
 
 /* ==========================================================================
-   5. INDUSTRY SECTION COMPONENT
+   5. INDUSTRY SECTION COMPONENT (Hub & Spoke Architecture)
    ========================================================================== */
-const IndustrySection = ({ limit }) => {
-  const displayedIndustries = limit ? industries.slice(0, limit) : industries;
+const hubIndustriesLeft = [
+  {
+    name: 'Construction',
+    slug: 'construction',
+    icon: <FaBuilding />,
+    desc: 'Project portfolios, active site drone shoots & high-intent commercial building leads.',
+    connClass: 'has-conn-left-1'
+  },
+  {
+    name: 'Real Estate',
+    slug: 'real-estate',
+    icon: <FaHome />,
+    desc: 'Targeted property buyer campaigns, Meta lead funnels & luxury video walkthroughs.',
+    connClass: 'has-conn-left-2'
+  },
+  {
+    name: 'Manufacturing',
+    slug: 'manufacturing',
+    icon: <FaIndustry />,
+    desc: 'B2B Google search ads, industrial supply queries & corporate LinkedIn marketing.',
+    connClass: 'has-conn-left-3'
+  }
+];
+
+const hubIndustriesRight = [
+  {
+    name: 'Automobile',
+    slug: 'automobile',
+    icon: <FaCar />,
+    desc: 'Vehicle showcase shoots, launch video editing & high-converting showroom ads.',
+    connClass: 'has-conn-right-1'
+  },
+  {
+    name: 'Jewelry & Retail',
+    slug: 'jewelry',
+    icon: <FaGem />,
+    desc: 'Macro luxury product shoots, visual brand storytelling & high-ROI shopping ads.',
+    connClass: 'has-conn-right-2'
+  },
+  {
+    name: 'Education',
+    slug: 'schools',
+    icon: <FaGraduationCap />,
+    desc: 'State-wide admission lead campaigns, campus drone tours & enrollment growth.',
+    connClass: 'has-conn-right-3'
+  }
+];
+
+const IndustrySection = () => {
+  const containerRef = useRef(null);
+  const hubRef = useRef(null);
+  const cardLeftRefs = useRef([]);
+  const cardRightRefs = useRef([]);
+  const [paths, setPaths] = useState([]);
+
+  useEffect(() => {
+    const updatePaths = () => {
+      if (!containerRef.current || !hubRef.current) return;
+      const cRect = containerRef.current.getBoundingClientRect();
+      const hRect = hubRef.current.getBoundingClientRect();
+
+      const hubCenterX = hRect.left + hRect.width / 2 - cRect.left;
+      const hubCenterY = hRect.top + hRect.height / 2 - cRect.top;
+      const radius = (hRect.width / 2) - 4;
+
+      const items = [
+        // 1. Automobile (Top-Right)
+        { el: cardRightRefs.current[0], angleDeg: -38, delay: 0.92, side: 'right', pulseId: 'auto' },
+        // 2. Jewelry (Mid-Right)
+        { el: cardRightRefs.current[1], angleDeg: 0, delay: 1.50, side: 'right', pulseId: 'jewel' },
+        // 3. Education (Bottom-Right)
+        { el: cardRightRefs.current[2], angleDeg: 38, delay: 2.08, side: 'right', pulseId: 'edu' },
+        // 4. Manufacturing (Bottom-Left)
+        { el: cardLeftRefs.current[2], angleDeg: 142, delay: 3.92, side: 'left', pulseId: 'mfg' },
+        // 5. Real Estate (Mid-Left)
+        { el: cardLeftRefs.current[1], angleDeg: 180, delay: 4.50, side: 'left', pulseId: 're' },
+        // 6. Construction (Top-Left)
+        { el: cardLeftRefs.current[0], angleDeg: -142, delay: 5.08, side: 'left', pulseId: 'const' },
+      ];
+
+      const computed = [];
+      items.forEach((item) => {
+        if (!item.el) return;
+        const cardRect = item.el.getBoundingClientRect();
+        const rad = (item.angleDeg * Math.PI) / 180;
+        const hx = hubCenterX + radius * Math.cos(rad);
+        const hy = hubCenterY + radius * Math.sin(rad);
+
+        let cx, cy;
+        if (item.side === 'right') {
+          cx = cardRect.left - cRect.left;
+          cy = cardRect.top + cardRect.height / 2 - cRect.top;
+        } else {
+          cx = cardRect.right - cRect.left;
+          cy = cardRect.top + cardRect.height / 2 - cRect.top;
+        }
+
+        const midX = (hx + cx) / 2;
+        const d = `M ${hx.toFixed(1)} ${hy.toFixed(1)} C ${midX.toFixed(1)} ${hy.toFixed(1)}, ${midX.toFixed(1)} ${cy.toFixed(1)}, ${cx.toFixed(1)} ${cy.toFixed(1)}`;
+        computed.push({ d, delay: item.delay, pulseId: item.pulseId });
+      });
+
+      setPaths(computed);
+    };
+
+    updatePaths();
+
+    let ro;
+    if (window.ResizeObserver && containerRef.current) {
+      ro = new ResizeObserver(() => updatePaths());
+      ro.observe(containerRef.current);
+    }
+    window.addEventListener('resize', updatePaths);
+
+    return () => {
+      if (ro) ro.disconnect();
+      window.removeEventListener('resize', updatePaths);
+    };
+  }, []);
 
   return (
     <section id="industry" className="industry-section section-padding">
       <div className="container">
-        {limit && (
-          <div className="section-header text-center">
-            <p className="section-subtitle text-accent">WHO WE SERVE</p>
-            <h2 className="section-title">Industries We Dominate</h2>
-            <div className="section-line"></div>
-          </div>
-        )}
-
-        <div className={`industry-img-grid ${limit ? 'home-industry-grid' : ''}`}>
-          {displayedIndustries.map((item, index) => (
-            <div key={index} className="industry-img-card">
-              <div className="industry-card-img" style={{ backgroundImage: `url(${item.image})` }}></div>
-              <div className="industry-card-body">
-                <span className="industry-card-tag">{item.tag}</span>
-                <h3 className="industry-card-title">{item.name}</h3>
-                <ul className="industry-card-lines">
-                  {item.lines.map((line, i) => (
-                    <li key={i} className="industry-line-item">
-                      <FaCheckCircle className="industry-line-icon" />
-                      <span>{line}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Link to={`/industry/${item.slug}`} className="industry-explore-link">
-                  Explore Service &rarr;
-                </Link>
-              </div>
-            </div>
-          ))}
+        <div className="section-header text-center" style={{ marginBottom: '4rem' }}>
+          <p className="section-subtitle text-accent">WHO WE SERVE</p>
+          <h2 className="section-title">Industries We Dominate</h2>
+          <div className="section-line"></div>
+          <p style={{ color: 'var(--text-muted)', maxWidth: '650px', margin: '1rem auto 0', fontSize: '1.05rem', lineHeight: '1.6' }}>
+            Tailored digital marketing, professional shoots, and growth systems engineered specifically for your sector.
+          </p>
         </div>
 
-        {limit && (
-          <div className="text-center" style={{ marginTop: '3rem' }}>
-            <Link to="/industry" className="btn-primary">View All Industries &rarr;</Link>
+        {/* Hub & Spoke Layout */}
+        <div className="has-layout home-industry-has-layout" ref={containerRef} style={{ position: 'relative' }}>
+          {/* SVG Overlay: Smooth connecting lines & synchronized traveling pulses */}
+          <svg className="industry-svg-overlay" aria-hidden="true">
+            <defs>
+              <filter id="hubEnergyGlow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="glow1" />
+                <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="glow2" />
+                <feMerge>
+                  <feMergeNode in="glow2" />
+                  <feMergeNode in="glow1" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
+
+            {paths.map((p, idx) => (
+              <g key={idx}>
+                {/* Base dashed connecting line */}
+                <path
+                  d={p.d}
+                  className="industry-conn-path"
+                />
+
+                {/* Bright white laser energy core */}
+                <circle r="4.5" fill="#ffffff" filter="url(#hubEnergyGlow)">
+                  <animateMotion
+                    path={p.d}
+                    dur="6s"
+                    repeatCount="indefinite"
+                    begin={`${p.delay}s`}
+                    keyPoints="0;1;1"
+                    keyTimes="0;0.12;1"
+                    calcMode="linear"
+                  />
+                  <animate
+                    attributeName="opacity"
+                    dur="6s"
+                    repeatCount="indefinite"
+                    begin={`${p.delay}s`}
+                    values="0;1;1;0;0"
+                    keyTimes="0;0.01;0.11;0.13;1"
+                  />
+                </circle>
+
+                {/* Outer orange radiant aura */}
+                <circle r="8" fill="#ff6b00" opacity="0.6" filter="url(#hubEnergyGlow)">
+                  <animateMotion
+                    path={p.d}
+                    dur="6s"
+                    repeatCount="indefinite"
+                    begin={`${p.delay}s`}
+                    keyPoints="0;1;1"
+                    keyTimes="0;0.12;1"
+                    calcMode="linear"
+                  />
+                  <animate
+                    attributeName="opacity"
+                    dur="6s"
+                    repeatCount="indefinite"
+                    begin={`${p.delay}s`}
+                    values="0;0.8;0.8;0;0"
+                    keyTimes="0;0.01;0.11;0.13;1"
+                  />
+                </circle>
+
+                {/* Trailing comet spark */}
+                <circle r="3" fill="#ffaa00" opacity="0.8">
+                  <animateMotion
+                    path={p.d}
+                    dur="6s"
+                    repeatCount="indefinite"
+                    begin={`${p.delay + 0.03}s`}
+                    keyPoints="0;1;1"
+                    keyTimes="0;0.12;1"
+                    calcMode="linear"
+                  />
+                  <animate
+                    attributeName="opacity"
+                    dur="6s"
+                    repeatCount="indefinite"
+                    begin={`${p.delay + 0.03}s`}
+                    values="0;0.7;0.7;0;0"
+                    keyTimes="0;0.01;0.11;0.13;1"
+                  />
+                </circle>
+              </g>
+            ))}
+          </svg>
+
+          {/* Left Column - 3 Spokes */}
+          <div className="has-col has-col-left">
+            {hubIndustriesLeft.map((item, idx) => (
+              <Link 
+                key={idx} 
+                ref={(el) => (cardLeftRefs.current[idx] = el)}
+                to={`/industry/${item.slug}`} 
+                className={`has-spoke has-spoke-left industry-spoke-link card-arrival-pulse-${idx}`}
+              >
+                <div className="has-spoke-border"></div>
+                <div className="has-spoke-icon-wrapper">
+                  <div className="has-spoke-icon">{item.icon}</div>
+                </div>
+                <div className="has-spoke-content">
+                  <h4>{item.name}</h4>
+                  <p>{item.desc}</p>
+                </div>
+              </Link>
+            ))}
           </div>
-        )}
+
+          {/* Center Hub */}
+          <div className="has-col has-col-center">
+            <div className="has-hub" ref={hubRef}>
+              <div className="has-hub-dashed"></div>
+              {/* Rotating glowing beacon at the head of the spinning neon beam */}
+              <div className="has-hub-beacon">
+                <div className="has-hub-beacon-dot"></div>
+              </div>
+              <div className="has-hub-inner">
+                <FaBullseye className="has-hub-icon" />
+                <h3>Industries</h3>
+                <h3 className="has-hub-accent">We Dominate</h3>
+                <span className="hub-sub-badge">Across All Sectors</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column - 3 Spokes */}
+          <div className="has-col has-col-right">
+            {hubIndustriesRight.map((item, idx) => (
+              <Link 
+                key={idx} 
+                ref={(el) => (cardRightRefs.current[idx] = el)}
+                to={`/industry/${item.slug}`} 
+                className={`has-spoke has-spoke-right industry-spoke-link card-arrival-pulse-${idx + 3}`}
+              >
+                <div className="has-spoke-border"></div>
+                <div className="has-spoke-icon-wrapper">
+                  <div className="has-spoke-icon">{item.icon}</div>
+                </div>
+                <div className="has-spoke-content">
+                  <h4>{item.name}</h4>
+                  <p>{item.desc}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom CTA to explore all industries */}
+        <div className="text-center" style={{ marginTop: '4rem' }}>
+          <Link to="/industry" className="btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.6rem' }}>
+            Explore All Industries <FaArrowRight />
+          </Link>
+        </div>
       </div>
     </section>
   );
@@ -1148,7 +1394,7 @@ const HomePage = () => {
       <StatsSection />
       <ServicesSection limit={6} />
       <WhyDifferentSection />
-      <IndustrySection limit={4} />
+      <IndustrySection />
       <ProcessSection />
       <TestimonialsSection />
       <LetsTalkSection />
