@@ -40,9 +40,10 @@ const ContactPage = () => {
   return (
     <div className="contact-page-wrapper">
       <SEO 
-        title="Contact Us | Grow Lap - Digital Marketing Agency"
-        description="Get in touch with Grow Lap for expert digital marketing, SEO, social media ads, and branding consultations. Let's scale your business."
-        keywords="contact grow lap, digital marketing agency contact, SEO consultation, grow lap address"
+        title="Contact Grow Lap | Let's Discuss Your Ideas"
+        description="Contact Grow Lap to discuss your ideas and business needs. Our team is ready to help with digital marketing, professional shoots, and creative editing."
+        keywords="Contact Grow Lap, digital marketing agency contact, creative editing, professional shoots, business needs"
+        canonical="https://www.growlap.com/contact"
       />
       <div className="contact-bg-accents"></div>
       

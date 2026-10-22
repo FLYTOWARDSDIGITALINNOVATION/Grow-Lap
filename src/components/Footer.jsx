@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaInstagram } from 'react-icons/fa';
-import { servicesData } from '../data/servicesData';
+import { FaInstagram, FaLinkedin, FaYoutube, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa';
 import './Footer.css';
 
 const Footer = () => {
@@ -10,9 +9,7 @@ const Footer = () => {
       {/* SVG Wave */}
       <div className="footer-wave">
         <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-          {/* Fill the bottom part with footer color */}
           <path d="M0,120 V60 Q300,120 600,60 T1200,60 V120 Z" fill="#050505" />
-          {/* Draw the orange line exactly on the curve */}
           <path d="M0,60 Q300,120 600,60 T1200,60" fill="none" stroke="var(--accent-orange)" strokeWidth="4" />
         </svg>
       </div>
@@ -20,7 +17,7 @@ const Footer = () => {
       <div className="container" style={{ maxWidth: '1400px' }}>
         <div className="footer-grid-mono">
           
-          {/* Column 1: Logo & Socials */}
+          {/* Column 1: Logo & Company Contact Details */}
           <div className="footer-col-mono">
             <Link to="/" className="footer-brand">
               <img src="/Grow Lap.webp" alt="Grow Lap Logo" className="footer-logo-image" />
@@ -29,18 +26,12 @@ const Footer = () => {
               </div>
             </Link>
             <p className="footer-mono-desc">
-              We help businesses grow with creative digital solutions, powerful technology and result-driven strategies. Grow with us.
+              We solve your business challenges with creative ideas, engaging content, and smart digital solutions. Let’s grow together!
             </p>
-            <div className="mono-social-links">
-              <a 
-                href="https://www.instagram.com/growlap_?igsh=c3JjbG5zeHczY2hm" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="instagram-badge-link"
-              >
-                <div className="social-in"><FaInstagram /></div>
-                <span className="instagram-handle">@growlap_</span>
-              </a>
+            <div className="footer-contact-details">
+              <p><FaMapMarkerAlt style={{ color: 'var(--accent-orange)', marginRight: '8px', flexShrink: 0 }} /> <span><strong>Visit Us:</strong> Sankarankovil, TamilNadu, India</span></p>
+              <p><FaEnvelope style={{ color: 'var(--accent-orange)', marginRight: '8px', flexShrink: 0 }} /> <span><strong>Email ID:</strong> <a href="mailto:growlapmarketing@gmail.com">growlapmarketing@gmail.com</a></span></p>
+              <p><FaPhoneAlt style={{ color: 'var(--accent-orange)', marginRight: '8px', flexShrink: 0 }} /> <span><strong>Call / Whatsapp:</strong> <a href="tel:+916383246378">+91 63832 46378</a></span></p>
             </div>
           </div>
 
@@ -48,55 +39,44 @@ const Footer = () => {
           <div className="footer-col-mono">
             <h4 className="mono-title">Company Info</h4>
             <ul className="mono-links">
-              <li><Link to="/">- Home</Link></li>
-              <li><Link to="/about">- About Us</Link></li>
-              <li><Link to="/services">- Services</Link></li>
-              <li><Link to="/industry">- Industries</Link></li>
-              <li><Link to="/blog">- Blog</Link></li>
-              <li><Link to="/contact">- Contact Us</Link></li>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/about">About Us</Link></li>
+              <li><Link to="/services">Services</Link></li>
+              <li><Link to="/industry">Industries</Link></li>
+              <li><Link to="/blog">Blog</Link></li>
+              <li><Link to="/contact">Contact Us</Link></li>
             </ul>
           </div>
 
-          {/* Column 3: Main Services */}
+          {/* Column 3: All Our Services */}
           <div className="footer-col-mono">
-            <h4 className="mono-title">Services</h4>
+            <h4 className="mono-title">All Our Services</h4>
             <ul className="mono-links">
-              <li><Link to="/services/digital-marketing/seo">- SEO (Search Engine Optimization)</Link></li>
-              <li><Link to="/services/digital-marketing/meta-ad">- Meta Ads</Link></li>
-              <li><Link to="/services/digital-marketing/google-ad">- Google Ads</Link></li>
-              <li><Link to="/services/video-editing/editing">- Professional Video Editing</Link></li>
-              <li><Link to="/services/video-editing/logo-design">- Logo & Graphic Design</Link></li>
-              <li><Link to="/services/shoot/product-shoot">- Product & DSLR Shoots</Link></li>
-              <li><Link to="/services" className="highlight-link">- View All Services</Link></li>
+              <li><Link to="/services">Digital marketing</Link></li>
+              <li><Link to="/services/digital-marketing/seo">SEO</Link></li>
+              <li><Link to="/services/digital-marketing/meta-ad">Meta ads</Link></li>
+              <li><Link to="/services/digital-marketing/google-ad">Google ads</Link></li>
+              <li><Link to="/services/video-editing/editing">shoot and editing</Link></li>
             </ul>
           </div>
 
-          {/* Column 4: Industries */}
+          {/* Column 4: Follow Us */}
           <div className="footer-col-mono">
-            <h4 className="mono-title">Industries</h4>
-            <ul className="mono-links">
-              <li><Link to="/industry">- Real Estate</Link></li>
-              <li><Link to="/industry">- Clothing Brands</Link></li>
-              <li><Link to="/industry">- Hospitals & Clinics</Link></li>
-              <li><Link to="/industry">- Schools & Colleges</Link></li>
-              <li><Link to="/industry">- Construction</Link></li>
-              <li><Link to="/industry">- Hotels & Showrooms</Link></li>
-              <li><Link to="/industry" className="highlight-link">- Various Industries</Link></li>
-            </ul>
-          </div>
-
-          {/* Column 5: Contact */}
-          <div className="footer-col-mono">
-            <h4 className="mono-title">Contact Us</h4>
-            <ul className="mono-links">
+            <h4 className="mono-title">Follow Us</h4>
+            <ul className="mono-links social-mono-links">
               <li>
-                <a href="tel:+916383246378" style={{ color: '#fff' }}>
-                  📞 +91 63832 46378
+                <a href="https://www.instagram.com/growlap_?igsh=c3JjbG5zeHczY2hm" target="_blank" rel="noopener noreferrer">
+                  <FaInstagram style={{ color: '#E1306C', marginRight: '12px', fontSize: '1.55rem', flexShrink: 0 }} /> Instagram
                 </a>
               </li>
-              <li style={{ marginTop: '0.8rem' }}>
-                <a href="mailto:growlapmarketing@gmail.com" style={{ color: '#fff', wordBreak: 'break-all', fontSize: '0.85rem' }}>
-                  ✉️ growlapmarketing@gmail.com
+              <li>
+                <a href="https://www.linkedin.com/company/growlap-bdm/" target="_blank" rel="noopener noreferrer">
+                  <FaLinkedin style={{ color: '#0077B5', marginRight: '12px', fontSize: '1.55rem', flexShrink: 0 }} /> Linkedin
+                </a>
+              </li>
+              <li>
+                <a href="https://youtube.com/@grow_lap?si=9VGuafhDGwK4q9XQ" target="_blank" rel="noopener noreferrer">
+                  <FaYoutube style={{ color: '#FF0000', marginRight: '12px', fontSize: '1.55rem', flexShrink: 0 }} /> You Tube
                 </a>
               </li>
             </ul>
@@ -109,10 +89,6 @@ const Footer = () => {
           <p>© 2026 Grow Lap Digital Innovation. All Rights Reserved.</p>
         </div>
       </div>
-      
-      <button onClick={() => window.scrollTo(0, 0)} className="mono-scroll-top">
-        ^
-      </button>
     </footer>
   );
 };

@@ -201,7 +201,6 @@ const Navbar = () => {
           </li>
           
           <li><Link to="/blog" className={location.pathname === '/blog' ? 'active' : ''} onClick={handleLinkClick}>Blog</Link></li>
-          <li><Link to="/contact" className={location.pathname === '/contact' ? 'active' : ''} onClick={handleLinkClick}>Contact Us</Link></li>
         </ul>
         
         <Link to="/contact" className="nav-cta">GET FREE CONSULTATION</Link>

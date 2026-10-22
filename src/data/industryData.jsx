@@ -1777,5 +1777,41 @@ export const industryData = {
       { question: 'What ads work best for mobile shops?', answer: 'Hyper-local Instagram reels showing in-stock premium models (like iPhone, Samsung S-series) with direct map links for instant purchase.' },
       { question: 'Do you design promotional banners for the shop?', answer: 'Yes, we provide matching digital ads and print-ready banner designs for your showroom\'s physical displays.' }
     ]
-  }
+  },
+  'automobile': {
+    title: 'Automobile Marketing & Production Services',
+    subtitle: 'Where Automotive Meets Creativity',
+    image: 'https://images.unsplash.com/photo-1563720223185-11003d516935?w=1200&q=80',
+    description: 'Professional car and bike shoots to showcase vehicle designs, features, and performance. Creative video editing and reels to highlight new launches, offers, and customer experiences. Digital ad campaigns using engaging vehicle photos and videos to attract buyers and generate enquiries.',
+    stats: [
+      { label: 'Test Drive Bookings', value: '+140%' },
+      { label: 'Cost Per Lead', value: '₹180 - ₹350' },
+      { label: 'Showroom Walk-ins', value: '3x Boost' }
+    ],
+    deliverables: [
+      {
+        title: 'Cinematic Vehicle Walkarounds',
+        desc: 'DSLR cinematic shoots with slow-motion pans, lighting highlights, and revving sound design to capture every angle of new arrivals.',
+        image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&q=80'
+      },
+      {
+        title: 'Geo-Targeted Local Lead Ads',
+        desc: 'Social media and Google Search ads targeting high-income buyers within a 15-20 km radius of the showroom.',
+        image: 'https://images.unsplash.com/photo-1562577309-4932fdd64cd1?w=600&q=80'
+      },
+      {
+        title: 'Test-Drive Booking Funnels',
+        desc: 'Interactive landing pages where customers can select a car, check availability, and book test drives directly integrated with WhatsApp.',
+        image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80'
+      },
+      {
+        title: 'Showroom Launch & Festival Campaigns',
+        desc: 'Promoting new model launches, open house weekends, and festive discounts (e.g., Diwali/New Year offers) to drive mass crowds.',
+        image: 'https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=600&q=80'
+      }
+    ],
+    faqs: [
+      { question: 'How do you target high-intent vehicle buyers?', answer: 'We target ads using detailed demographics such as interest in premium car/bike brands, luxury lifestyle behaviors, auto enthusiast forums, and localized zip codes.' }
+    ]
+  },
 };

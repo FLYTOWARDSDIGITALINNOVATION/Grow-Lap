@@ -95,7 +95,7 @@ const WeddingEditingPage = () => {
       {/* Hero Section */}
       <section className="wedding-editing-hero">
         <div className="container" style={{ paddingTop: '2rem' }}>
-          <Link to="/services/video-editing" style={{ color: 'var(--accent-orange)', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', textDecoration: 'none', fontWeight: 'bold', fontSize: '1.1rem' }}>
+          <Link to="/services/editing" style={{ color: 'var(--accent-orange)', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', textDecoration: 'none', fontWeight: 'bold', fontSize: '1.1rem' }}>
             <span>←</span> Back to Video Editing
           </Link>
         </div>

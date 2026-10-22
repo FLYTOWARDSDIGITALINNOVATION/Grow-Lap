@@ -9,7 +9,10 @@ import './SubServiceDetail.css';
 const SubServiceDetail = () => {
   const { categorySlug, subServiceSlug } = useParams();
   
-  const parentService = servicesData.find(s => s.slug === categorySlug);
+  const parentService = servicesData.find(s => s.slug === categorySlug || 
+    (categorySlug === 'video-editing' && s.slug === 'editing') ||
+    (categorySlug === 'shoot' && s.slug === 'shooting')
+  );
   const subService = parentService?.benefits.find(b => b.slug === subServiceSlug);
   const [isSubmitted, setIsSubmitted] = useState(false);
 

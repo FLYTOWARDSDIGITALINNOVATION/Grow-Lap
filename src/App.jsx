@@ -80,6 +80,18 @@ function App() {
               <Route path="/services/digital-marketing/content-creation" element={<ContentCreationPage />} />
               <Route path="/services/digital-marketing/personal-branding" element={<PersonalBrandingPage />} />
               <Route path="/services/digital-marketing/script-writing" element={<ScriptWritingPage />} />
+              {/* Editing routes */}
+              <Route path="/services/editing/editing" element={<VideoEditingPage />} />
+              <Route path="/services/editing/reels-editing" element={<ReelsEditingPage />} />
+              <Route path="/services/editing/vlog-editing" element={<VlogEditingPage />} />
+              <Route path="/services/editing/wedding-editing" element={<WeddingEditingPage />} />
+              <Route path="/services/editing/photo-editing" element={<PhotoEditingPage />} />
+              <Route path="/services/editing/logo-design" element={<LogoDesignPage />} />
+              <Route path="/services/editing/poster-design" element={<PosterDesignPage />} />
+              <Route path="/services/editing/flex-design" element={<FlexDesignPage />} />
+              <Route path="/services/editing/graphics-design" element={<GraphicsDesignPage />} />
+              <Route path="/services/editing/animation" element={<AnimationPage />} />
+
               <Route path="/services/video-editing/editing" element={<VideoEditingPage />} />
               <Route path="/services/video-editing/reels-editing" element={<ReelsEditingPage />} />
               <Route path="/services/video-editing/vlog-editing" element={<VlogEditingPage />} />
@@ -90,6 +102,15 @@ function App() {
               <Route path="/services/video-editing/flex-design" element={<FlexDesignPage />} />
               <Route path="/services/video-editing/graphics-design" element={<GraphicsDesignPage />} />
               <Route path="/services/video-editing/animation" element={<AnimationPage />} />
+
+              {/* Shooting routes */}
+              <Route path="/services/shooting/dslr-shoot" element={<DslrShootPage />} />
+              <Route path="/services/shooting/product-shoot" element={<ProductShootPage />} />
+              <Route path="/services/shooting/mobile-shoot" element={<MobileShootPage />} />
+              <Route path="/services/shooting/drone-shoot" element={<DroneShootPage />} />
+              <Route path="/services/shooting/reels-shoot" element={<ReelsShootPage />} />
+              <Route path="/services/shooting/podcast-shoot" element={<PodcastShootPage />} />
+
               <Route path="/services/shoot/dslr-shoot" element={<DslrShootPage />} />
               <Route path="/services/shoot/product-shoot" element={<ProductShootPage />} />
               <Route path="/services/shoot/mobile-shoot" element={<MobileShootPage />} />
@@ -112,7 +133,6 @@ function App() {
         </main>
         <Footer />
         <WhatsAppButton />
-        <Chatbot />
       </div>
     </Router>
   );

@@ -52,7 +52,7 @@ export const servicesData = [
     ]
   },
   { 
-    slug: 'video-editing',
+    slug: 'editing',
     icon: <FiVideo />, 
     image: '/photo-1574717024653-61fd2cf4d44d.webp', 
     title: 'Editing', 
@@ -76,7 +76,7 @@ export const servicesData = [
     ]
   },
   { 
-    slug: 'shoot',
+    slug: 'shooting',
     icon: <FiCamera />, 
     image: '/service_shoots_new.webp', 
     title: 'Shooting', 

@@ -7,7 +7,10 @@ import './ServiceDetail.css';
 
 const ServiceDetail = () => {
   const { categorySlug } = useParams();
-  const service = servicesData.find(s => s.slug === categorySlug);
+  const service = servicesData.find(s => s.slug === categorySlug || 
+    (categorySlug === 'video-editing' && s.slug === 'editing') ||
+    (categorySlug === 'shoot' && s.slug === 'shooting')
+  );
   const [activeFaq, setActiveFaq] = useState(0);
   const [isSubmitted, setIsSubmitted] = useState(false);
 

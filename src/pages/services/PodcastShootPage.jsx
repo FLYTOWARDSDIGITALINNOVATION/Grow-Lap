@@ -101,7 +101,7 @@ const PodcastShootPage = () => {
       {/* Hero Section */}
       <section className="podcast-shoot-hero">
         <div className="container" style={{ paddingTop: '2rem' }}>
-          <Link to="/services/shoot" style={{ color: 'var(--accent-orange)', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', textDecoration: 'none', fontWeight: 'bold', fontSize: '1.1rem' }}>
+          <Link to="/services/shooting" style={{ color: 'var(--accent-orange)', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', textDecoration: 'none', fontWeight: 'bold', fontSize: '1.1rem' }}>
             <span>←</span> Back to Shoot Services
           </Link>
         </div>

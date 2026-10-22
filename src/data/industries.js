@@ -33,6 +33,39 @@ export const industries = [
     ]
   },
 {
+    name: 'REAL ESTATE',
+    slug: 'real-estate',
+    tag: 'DOMINATE PROPERTY SEARCHES',
+    image: realEstate,
+    lines: [
+      'Property promotion reaches the right buyers through targeted digital campaigns.',
+      'Lead generation generates quality enquiries through Meta Ads.',
+      'Social media marketing grows with engaging reels and videos.'
+    ]
+  },
+{
+    name: 'MANUFACTURING',
+    slug: 'manufacturing',
+    tag: 'B2B DOMINANCE',
+    image: manufacturing,
+    lines: [
+      'B2B search campaigns to rank industrial products on Google',
+      'Google PMax & search ads targeting bulk supply queries',
+      'LinkedIn advertising & factory tours for corporate buyers'
+    ]
+  },
+{
+    name: 'AUTOMOBILE',
+    slug: 'automobile',
+    tag: 'WHERE AUTOMOTIVE MEETS CREATIVITY',
+    image: showrooms,
+    lines: [
+      'Professional car and bike shoots to showcase vehicle designs, features, and performance.',
+      'Creative video editing and reels to highlight new launches, offers, and customer experiences.',
+      'Digital ad campaigns using engaging vehicle photos and videos to attract buyers and generate enquiries.'
+    ]
+  },
+{
     name: 'JEWELRY',
     slug: 'jewelry',
     tag: 'LUXURY MEETS DIGITAL',
@@ -65,28 +98,8 @@ export const industries = [
       'Course-specific Google Search and Display ads driving applications'
     ]
   },
-{
-    name: 'MANUFACTURING',
-    slug: 'manufacturing',
-    tag: 'B2B DOMINANCE',
-    image: manufacturing,
-    lines: [
-      'B2B search campaigns to rank industrial products on Google',
-      'Google PMax & search ads targeting bulk supply queries',
-      'LinkedIn advertising & factory tours for corporate buyers'
-    ]
-  },
-{
-    name: 'REAL ESTATE',
-    slug: 'real-estate',
-    tag: 'DOMINATE PROPERTY SEARCHES',
-    image: realEstate,
-    lines: [
-      'SEO campaigns to rank higher on Google search results',
-      'Local SEO & Google Maps optimization for local buyers',
-      'High-converting project landing pages & content guides'
-    ]
-  },
+
+
 {
     name: 'CLOTHING BRANDS',
     slug: 'clothing-brands',
