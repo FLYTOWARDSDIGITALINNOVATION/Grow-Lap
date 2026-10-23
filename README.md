@@ -1,4 +1,4 @@
-# Grow Lap - Digital Marketing & Creative Agency
+# Grow Lap - Digital Marketing
 
 Grow Lap is a high-performance, modern digital marketing and creative agency website built with **React**, **Vite**, and **React Router**. It features complete SEO optimization, responsive modular architecture, dynamic blog management, and dedicated industry & service pages.
 
