@@ -765,11 +765,78 @@ const LetsTalkSection = () => {
     challengeOther: '',
     email: '',
     phone: '',
+    preferredDate: '',
+    preferredTime: '',
     agreeTerms: false,
+    receiveUpdates: false,
     consentContact: false
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
+
+  // Step 5 Interactive Date & Time Picker states
+  const [showDatePicker, setShowDatePicker] = useState(false);
+  const [showTimePicker, setShowTimePicker] = useState(false);
+  const [calendarDate, setCalendarDate] = useState(() => new Date());
+  const datePickerRef = useRef(null);
+  const timePickerRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (datePickerRef.current && !datePickerRef.current.contains(e.target)) {
+        setShowDatePicker(false);
+      }
+      if (timePickerRef.current && !timePickerRef.current.contains(e.target)) {
+        setShowTimePicker(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const monthNames = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+
+  const getDaysInMonth = (year, month) => new Date(year, month + 1, 0).getDate();
+  const getFirstDayOfMonth = (year, month) => new Date(year, month, 1).getDay();
+
+  const handlePrevMonth = (e) => {
+    e.stopPropagation();
+    setCalendarDate(new Date(calendarDate.getFullYear(), calendarDate.getMonth() - 1, 1));
+  };
+
+  const handleNextMonth = (e) => {
+    e.stopPropagation();
+    setCalendarDate(new Date(calendarDate.getFullYear(), calendarDate.getMonth() + 1, 1));
+  };
+
+  const handleSelectDate = (day) => {
+    const month = monthNames[calendarDate.getMonth()];
+    const year = calendarDate.getFullYear();
+    const formatted = `${day} ${month.slice(0, 3)} ${year}`;
+    setFormData(prev => ({ ...prev, preferredDate: formatted }));
+    setShowDatePicker(false);
+    setErrorMsg('');
+  };
+
+  const timeSlots = [
+    '09:00 AM - 10:00 AM',
+    '10:00 AM - 11:00 AM',
+    '11:00 AM - 12:00 PM',
+    '01:00 PM - 02:00 PM',
+    '02:00 PM - 03:00 PM',
+    '03:00 PM - 04:00 PM',
+    '04:00 PM - 05:00 PM',
+    '05:00 PM - 06:00 PM'
+  ];
+
+  const handleSelectTime = (time) => {
+    setFormData(prev => ({ ...prev, preferredTime: time }));
+    setShowTimePicker(false);
+    setErrorMsg('');
+  };
 
   const handleNextFromStep1 = (e) => {
     e.preventDefault();
@@ -863,8 +930,14 @@ const LetsTalkSection = () => {
     submissionData.append('Business Challenges', challengesCombined.join(', '));
     submissionData.append('Email Address', formData.email);
     submissionData.append('Phone Number', formData.phone);
+    if (formData.preferredDate) {
+      submissionData.append('Preferred Date', formData.preferredDate);
+    }
+    if (formData.preferredTime) {
+      submissionData.append('Preferred Time', formData.preferredTime);
+    }
     submissionData.append('Agreed to Terms & Privacy', formData.agreeTerms ? 'Yes' : 'No');
-    submissionData.append('Consent to Contact', formData.consentContact ? 'Yes' : 'No');
+    submissionData.append('Consent to Contact / Updates', (formData.receiveUpdates || formData.consentContact) ? 'Yes' : 'No');
 
     fetch('https://formsubmit.co/ajax/growlapmarketing@gmail.com', {
       method: 'POST',
@@ -892,6 +965,9 @@ const LetsTalkSection = () => {
         
         {/* Left Column */}
         <div className="lets-talk-text">
+          <p className="section-subtitle text-accent" style={{ letterSpacing: '2px', fontWeight: 700, marginBottom: '0.8rem', fontSize: '0.85rem' }}>
+            CTA LET'S TALK!
+          </p>
           <h2 className="lets-talk-heading-new">
             Got a Business Challenge? <br />
             <span className="text-orange">Let’s Solve It Together.</span>
@@ -1123,12 +1199,12 @@ const LetsTalkSection = () => {
           {/* STEP 5: Your Contact Details */}
           {step === 5 && (
             <form onSubmit={handleSubmit} className="step-panel step5-panel animate-fade">
-              <div className="step-badge">Step 5 – Your Contact Details</div>
+              <span className="step5-counter-tag">Step 5 of 5</span>
               <h3 className="step5-heading">
                 Your <span className="text-orange">Contact Details</span>
               </h3>
               <p className="step5-subheading-text">
-                We will get in touch with you soon
+                Share your details and choose a convenient time to discuss your business needs with our team.
               </p>
 
               {/* Email Address with left icon */}
@@ -1148,7 +1224,7 @@ const LetsTalkSection = () => {
               </div>
 
               {/* Phone Number with left icon */}
-              <div className="step5-input-container" style={{ marginTop: '1rem' }}>
+              <div className="step5-input-container">
                 <FaPhoneAlt className="step5-icon-left" />
                 <input 
                   type="tel" 
@@ -1163,16 +1239,109 @@ const LetsTalkSection = () => {
                 />
               </div>
 
-              {/* Terms and Conditions Block */}
-              <div className="step5-terms-header" style={{ marginTop: '1.2rem', marginBottom: '0.6rem' }}>
-                <h4 style={{ fontSize: '1rem', color: '#fff', fontWeight: 600, marginBottom: '0.25rem' }}>
-                  Terms and Conditions
-                </h4>
-                <p style={{ fontSize: '0.82rem', color: '#999', margin: 0 }}>
-                  Please review and accept our Terms and Conditions before submitting your enquiry.
-                </p>
+              {/* Preferred Date & Time Selection (Optional) */}
+              <div className="step5-datetime-section">
+                <label className="step5-section-label">Select Preferred Date & Time (Optional)</label>
+                <div className="step5-datetime-grid">
+                  {/* Preferred Date Box */}
+                  <div className="step5-picker-relative" ref={datePickerRef}>
+                    <div 
+                      className={`step5-custom-picker-box ${showDatePicker ? 'focused' : ''} ${formData.preferredDate ? 'has-value' : ''}`}
+                      onClick={() => {
+                        setShowDatePicker(!showDatePicker);
+                        setShowTimePicker(false);
+                      }}
+                    >
+                      <FaRegCalendarAlt className="step5-picker-icon" />
+                      <div className="step5-picker-texts">
+                        <span className="step5-picker-sublabel">Preferred Date</span>
+                        <span className="step5-picker-value">{formData.preferredDate || 'Select date'}</span>
+                      </div>
+                      <FaCalendarAlt className="step5-picker-arrow-icon" />
+                    </div>
+
+                    {/* Interactive Calendar Dropdown */}
+                    {showDatePicker && (
+                      <div className="step5-calendar-popup animate-fade">
+                        <div className="calendar-header-nav">
+                          <button type="button" onClick={handlePrevMonth} className="calendar-nav-btn">
+                            <FaChevronLeft />
+                          </button>
+                          <span className="calendar-month-title">
+                            {monthNames[calendarDate.getMonth()]} {calendarDate.getFullYear()}
+                          </span>
+                          <button type="button" onClick={handleNextMonth} className="calendar-nav-btn">
+                            <FaChevronRight />
+                          </button>
+                        </div>
+
+                        <div className="calendar-days-week-row">
+                          <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+                        </div>
+
+                        <div className="calendar-days-grid">
+                          {Array.from({ length: getFirstDayOfMonth(calendarDate.getFullYear(), calendarDate.getMonth()) }).map((_, i) => (
+                            <div key={`empty-${i}`} className="calendar-day-cell empty"></div>
+                          ))}
+                          {Array.from({ length: getDaysInMonth(calendarDate.getFullYear(), calendarDate.getMonth()) }).map((_, i) => {
+                            const d = i + 1;
+                            const isSelected = formData.preferredDate.startsWith(`${d} `) && formData.preferredDate.includes(calendarDate.getFullYear().toString());
+                            return (
+                              <button
+                                key={`day-${d}`}
+                                type="button"
+                                className={`calendar-day-cell ${isSelected ? 'selected' : ''}`}
+                                onClick={() => handleSelectDate(d)}
+                              >
+                                {d}
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Preferred Time Box */}
+                  <div className="step5-picker-relative" ref={timePickerRef}>
+                    <div 
+                      className={`step5-custom-picker-box ${showTimePicker ? 'focused' : ''} ${formData.preferredTime ? 'has-value' : ''}`}
+                      onClick={() => {
+                        setShowTimePicker(!showTimePicker);
+                        setShowDatePicker(false);
+                      }}
+                    >
+                      <FaRegClock className="step5-picker-icon" />
+                      <div className="step5-picker-texts">
+                        <span className="step5-picker-sublabel">Preferred Time</span>
+                        <span className="step5-picker-value">{formData.preferredTime || 'Select time'}</span>
+                      </div>
+                      <FaChevronDown className="step5-picker-arrow-icon" />
+                    </div>
+
+                    {/* Interactive Time Dropdown */}
+                    {showTimePicker && (
+                      <div className="step5-time-popup animate-fade">
+                        <div className="time-slots-list">
+                          {timeSlots.map((slot, index) => (
+                            <button
+                              key={index}
+                              type="button"
+                              className={`time-slot-btn ${formData.preferredTime === slot ? 'active' : ''}`}
+                              onClick={() => handleSelectTime(slot)}
+                            >
+                              <FaRegClock style={{ fontSize: '0.85rem', marginRight: '6px' }} />
+                              {slot}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
               </div>
 
+              {/* Terms and Privacy Checkboxes */}
               <div className="step5-terms-group">
                 <label className="step5-checkbox-wrapper">
                   <input 
@@ -1185,32 +1354,28 @@ const LetsTalkSection = () => {
                     required
                   />
                   <span>
-                    I agree to the <Link to="/terms" target="_blank" className="orange-highlight-link">Terms and Conditions</Link> and acknowledge the <Link to="/privacy" target="_blank" className="orange-highlight-link">Privacy Policy</Link>.
+                    I agree to the <Link to="/terms" target="_blank" className="orange-highlight-link">Terms and Conditions</Link> and <Link to="/privacy" target="_blank" className="orange-highlight-link">Privacy Policy</Link>
                   </span>
                 </label>
 
                 <label className="step5-checkbox-wrapper">
                   <input 
                     type="checkbox" 
-                    checked={formData.consentContact}
+                    checked={formData.receiveUpdates}
                     onChange={(e) => {
-                      setFormData({ ...formData, consentContact: e.target.checked });
+                      setFormData({ ...formData, receiveUpdates: e.target.checked });
                     }}
                   />
-                  <span>I consent to Grow Lap contacting me regarding my enquiry and requested services.</span>
+                  <span>I'd like to receive marketing updates from Grow Lap (Optional)</span>
                 </label>
               </div>
-
-              <p style={{ fontSize: '0.84rem', color: '#aaa', margin: '0.4rem 0 1.2rem', lineHeight: '1.4' }}>
-                Please enter your email address and Phone Number so our team can contact you.
-              </p>
 
               {/* Submit CTA Button & Back Option */}
               <div className="step5-actions-row">
                 <button type="submit" className="step5-cta-submit-btn" disabled={isSubmitting}>
                   {isSubmitting ? "Submitting..." : (
                     <>
-                      <span>Submit</span> <FaArrowRight />
+                      <span>Submit Enquiry</span> <FaArrowRight />
                     </>
                   )}
                 </button>
@@ -1249,7 +1414,10 @@ const LetsTalkSection = () => {
                     challengeOther: '',
                     email: '',
                     phone: '',
+                    preferredDate: '',
+                    preferredTime: '',
                     agreeTerms: false,
+                    receiveUpdates: false,
                     consentContact: false
                   });
                   setStep(1);
@@ -1273,9 +1441,11 @@ const HomePage = () => {
   return (
     <div className="capitalize-content">
       <SEO 
-        title="Grow Lap | Digital Marketing & Creative Agency"
-        description="Grow Lap is a top-tier Digital Marketing Agency offering high-ROI SEO, Meta Ads, Graphic Design, Video Editing, and Branding services."
-        keywords="digital marketing agency, SEO services, Meta Ads, video editing, branding, Grow Lap"
+        title="Grow Lap: Digital Marketing Company for Business Growth"
+        description="Grow Lap is a digital marketing company helping businesses grow with SEO, social media, paid ads, professional shooting, and creative editing services."
+        keywords="Digital Marketing Company, Digital Advertising,Digital Marketing Company in Sankarankovil"
+        canonical="https://www.growlap.com/"
+        ogImageAlt="Grow Lap-"
       />
       <HeroSection />
       <StatsSection />

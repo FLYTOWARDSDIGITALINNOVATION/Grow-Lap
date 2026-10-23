@@ -66,9 +66,13 @@ const ServicesPage = () => {
   return (
     <div className="services-page-container">
       <SEO 
-        title="Our Services | Grow Lap - Digital Marketing, Video Editing & Shoots"
-        description="Explore Grow Lap's full range of services: SEO, Meta Ads, Google Ads, Graphic Design, Video Editing, Product Shoots, and Personal Branding."
-        keywords="digital marketing services, video editing services, branding services, SEO company, Grow Lap"
+        title="Digital Marketing Services for Your Business | Grow Lap"
+        description="Explore digital marketing, SEO, social media, paid ads, video editing and photography services from Grow Lap to reach more customers and grow your business"
+        keywords="digital marketing services for your business"
+        canonical="https://www.growlap.com/services"
+        ogImage="https://www.growlap.com/Grow%20Lap.webp"
+        ogImageAlt="Grow Lap Services"
+        robots="index,follow"
       />
 
       {/* Section 1: Intro Header */}

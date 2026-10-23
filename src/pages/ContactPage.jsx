@@ -95,6 +95,7 @@ const ContactPage = () => {
         keywords="Contact Grow Lap"
         canonical="https://www.growlap.com/contact"
         robots="index,follow"
+        ogImage="https://www.growlap.com/Grow%20Lap.webp"
         ogImageAlt="Grow Lap Contact Us-"
       />
       <div className="contact-bg-accents"></div>
