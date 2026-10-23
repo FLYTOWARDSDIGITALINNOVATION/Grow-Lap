@@ -66,7 +66,7 @@ export const industries = [
     ]
   },
 {
-    name: 'JEWELRY',
+    name: 'JEWELLERY',
     slug: 'jewelry',
     tag: 'LUXURY MEETS DIGITAL',
     image: jewelry,
@@ -77,7 +77,7 @@ export const industries = [
     ]
   },
 {
-    name: 'SCHOOLS',
+    name: 'SCHOOL',
     slug: 'schools',
     tag: 'BUILD TRUST WITH PARENTS',
     image: school,
@@ -277,3 +277,5 @@ export const industries = [
     ]
   }
 ];
+
+

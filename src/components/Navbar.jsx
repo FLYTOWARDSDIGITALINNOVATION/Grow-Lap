@@ -18,7 +18,7 @@ const industryCategories = [
       { name: 'Showrooms', slug: 'showrooms' },
       { name: 'Retail Shops', slug: 'retail-shops' },
       { name: 'Cracker Brands', slug: 'crackers' },
-      { name: 'Jewelry', slug: 'jewelry' }
+      { name: 'Jewellery', slug: 'jewelry' }
     ]
   },
   {
@@ -36,7 +36,7 @@ const industryCategories = [
     icon: <FiBookOpen />,
     slug: 'education-lifestyle',
     items: [
-      { name: 'Schools', slug: 'schools' },
+      { name: 'School', slug: 'schools' },
       { name: 'Colleges', slug: 'colleges' },
       { name: 'Academics', slug: 'academy' },
       { name: 'Coaching Centres', slug: 'coaching-center' },
@@ -203,7 +203,7 @@ const Navbar = () => {
           <li><Link to="/blog" className={location.pathname === '/blog' ? 'active' : ''} onClick={handleLinkClick}>Blog</Link></li>
         </ul>
         
-        <Link to="/contact" className="nav-cta">GET FREE CONSULTATION</Link>
+        <Link to="/contact" className="nav-cta">Contact Us</Link>
       </div>
     </nav>
   );

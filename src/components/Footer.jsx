@@ -58,7 +58,7 @@ const Footer = () => {
               <li><Link to="/services/digital-marketing/seo">SEO</Link></li>
               <li><Link to="/services/digital-marketing/meta-ad">Meta ads</Link></li>
               <li><Link to="/services/digital-marketing/google-ad">Google ads</Link></li>
-              <li><Link to="/services/video-editing/editing">shoot and editing</Link></li>
+              <li><Link to="/services/editing/video-editing">shoot and editing</Link></li>
             </ul>
           </div>
 

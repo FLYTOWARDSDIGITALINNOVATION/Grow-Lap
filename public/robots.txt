@@ -1,5 +1,7 @@
+
 User-agent: *
 Allow: /
 
-# Sitemap Location
-Sitemap: https://growlap.com/sitemap.xml
+Sitemap: https://www.growlap.com/sitemap.xml
+
+

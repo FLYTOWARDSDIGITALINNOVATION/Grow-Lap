@@ -59,7 +59,7 @@ export const servicesData = [
     description: 'Professional editing for videos, photos, and creative designs.',
     longDescription: 'Our post-production experts take your raw footage and turn it into masterpieces. From snappy Instagram Reels and engaging YouTube vlogs to cinematic wedding films and flawless photo retouching.',
     benefits: [
-      { slug: 'editing', title: 'Video Editing', desc: 'Professional video editing for all types of content.', image: '/photo-1574717024653-61fd2cf4d44d.webp' },
+      { slug: 'video-editing', title: 'Video Editing', desc: 'Professional video editing for all types of content.', image: '/photo-1574717024653-61fd2cf4d44d.webp' },
       { slug: 'reels-editing', title: 'Reels Editing', desc: 'Trendy, fast-paced edits with captions designed to go viral.', image: '/Reels Editing.webp' },
       { slug: 'vlog-editing', title: 'Full Vlog Editing', desc: 'Engaging, well-paced vlog editing with sound design and B-roll.', image: '/Full Vlog Editing.webp' },
       { slug: 'wedding-editing', title: 'Wedding Editing', desc: 'Beautifully crafted highlight reels and full-length edits.', image: '/Wedding Editing.webp' },

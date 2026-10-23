@@ -73,7 +73,7 @@ const SEO = ({
     } else if (schemaScript) {
       schemaScript.remove();
     }
-  }, [title, description, keywords, ogImage, currentUrl, schema]);
+  }, [title, description, keywords, ogImage, currentUrl, schema, robots, ogImageAlt]);
 
   return null;
 };

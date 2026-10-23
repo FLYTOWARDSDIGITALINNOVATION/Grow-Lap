@@ -35,7 +35,7 @@ const serviceTree = [
     tag: 'EDITING',
     icon: <FaPenSquare />,
     items: [
-      { title: 'Video Editing', slug: 'editing', icon: <FaVideo /> },
+      { title: 'Video Editing', slug: 'video-editing', icon: <FaVideo /> },
       { title: 'Reels Editing', slug: 'reels-editing', icon: <FaFilm /> },
       { title: 'Logo Design', slug: 'logo-design', icon: <FaPaintBrush /> },
       { title: 'Poster Design', slug: 'poster-design', icon: <FaImage /> },
@@ -173,10 +173,6 @@ const ServicesPage = () => {
 
           {/* Section 3: Bottom CTA Banner */}
           <div className="services-bottom-cta">
-            <div className="services-cta-left">
-              <span className="cta-script-font">Let's Create Together</span>
-            </div>
-            
             <div className="services-cta-center">
               <span className="cta-kicker text-accent">GET STARTED</span>
               <h3 className="cta-banner-title">
@@ -188,7 +184,7 @@ const ServicesPage = () => {
             </div>
 
             <div className="services-cta-right">
-              <Link to="/contact" className="cta-action-button">
+              <Link to="/#lets-talk" className="cta-action-button">
                 Get in Touch <FaArrowRight style={{ marginLeft: '6px' }} />
               </Link>
             </div>

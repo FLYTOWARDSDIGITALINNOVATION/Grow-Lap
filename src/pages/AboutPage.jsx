@@ -379,10 +379,12 @@ const AboutPage = () => {
           <div className="why-cards-grid">
             {whyFeatures.map((item, idx) => (
               <div key={idx} className="why-card-item">
-                <div className="why-card-icon-box">
-                  {item.icon}
+                <div className="why-card-top-row">
+                  <div className="why-card-icon-box">
+                    {item.icon}
+                  </div>
+                  <h3 className="why-card-title">{item.title}</h3>
                 </div>
-                <h3 className="why-card-title">{item.title}</h3>
                 <p className="why-card-desc">{item.desc}</p>
               </div>
             ))}

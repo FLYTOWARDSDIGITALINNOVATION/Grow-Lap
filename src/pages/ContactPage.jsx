@@ -1,14 +1,63 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './ContactPage.css';
-import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaClock } from 'react-icons/fa';
+import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaClock, FaCheck, FaPaperPlane } from 'react-icons/fa';
 import SEO from '../components/SEO';
+
+const industryOptions = [
+  "Real Estate",
+  "Construction",
+  "Manufacturing",
+  "Automobile",
+  "Education / Academies",
+  "Retail",
+  "Furniture Stores",
+  "Jewelry Shops",
+  "Other"
+];
+
+const serviceOptions = [
+  "SEO",
+  "Meta Ads (Facebook & Instagram)",
+  "Google Ads",
+  "Social Media Marketing",
+  "Email Marketing",
+  "Content Marketing",
+  "Photography & Videography",
+  "Video & Reels Editing",
+  "Logo & Poster Design"
+];
 
 const ContactPage = () => {
   const [result, setResult] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [selectedServices, setSelectedServices] = useState([]);
+  const [serviceError, setServiceError] = useState(false);
+
+  const toggleService = (service) => {
+    setSelectedServices(prev => {
+      const updated = prev.includes(service)
+        ? prev.filter(s => s !== service)
+        : [...prev, service];
+      if (updated.length > 0) {
+        setServiceError(false);
+      }
+      return updated;
+    });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (selectedServices.length === 0) {
+      setServiceError(true);
+      const servicesEl = document.getElementById('services-section-selector');
+      if (servicesEl) {
+        servicesEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      return;
+    }
+
     setIsSubmitting(true);
     setResult("Sending...");
     
@@ -24,16 +73,17 @@ const ContactPage = () => {
     })
     .then(response => response.json())
     .then(data => {
-      setResult("Message sent successfully!");
+      setResult("Message sent successfully! Our team will contact you soon.");
       form.reset();
+      setSelectedServices([]);
       setIsSubmitting(false);
-      setTimeout(() => setResult(""), 5000);
+      setTimeout(() => setResult(""), 6000);
     })
     .catch(error => {
       console.error('Submission failed', error);
-      setResult("Failed to send message. Please try again.");
+      setResult("Failed to send message. Please try again or reach us via WhatsApp.");
       setIsSubmitting(false);
-      setTimeout(() => setResult(""), 5000);
+      setTimeout(() => setResult(""), 6000);
     });
   };
 
@@ -42,8 +92,10 @@ const ContactPage = () => {
       <SEO 
         title="Contact Grow Lap | Let's Discuss Your Ideas"
         description="Contact Grow Lap to discuss your ideas and business needs. Our team is ready to help with digital marketing, professional shoots, and creative editing."
-        keywords="Contact Grow Lap, digital marketing agency contact, creative editing, professional shoots, business needs"
+        keywords="Contact Grow Lap"
         canonical="https://www.growlap.com/contact"
+        robots="index,follow"
+        ogImageAlt="Grow Lap Contact Us-"
       />
       <div className="contact-bg-accents"></div>
       
@@ -51,8 +103,12 @@ const ContactPage = () => {
       <div className="contact-hero-banner" style={{ paddingTop: '2.5rem', paddingBottom: '1.5rem', textAlign: 'center' }}>
         <div className="container">
           <p className="contact-hero-badge text-accent" style={{ fontSize: '0.85rem', fontWeight: 700, letterSpacing: '2px', marginBottom: '0.5rem' }}>CONTACT US</p>
-          <h1 className="contact-hero-title" style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)', fontWeight: 800, color: '#fff', marginBottom: '0.8rem', fontFamily: 'Outfit, sans-serif' }}>Get In Touch With <span className="text-gradient-orange">Grow Lap</span></h1>
-          <p className="contact-hero-subtitle" style={{ fontSize: 'clamp(0.95rem, 1.8vw, 1.15rem)', color: '#aaa', maxWidth: '650px', margin: '0 auto', lineHeight: '1.6' }}>Have questions or ready to launch your next digital marketing campaign? We are here to help you scale.</p>
+          <h1 className="contact-hero-title" style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)', fontWeight: 800, color: '#fff', marginBottom: '0.8rem', fontFamily: 'Outfit, sans-serif' }}>
+            Get In Touch With <span className="text-gradient-orange">Grow Lap</span>
+          </h1>
+          <p className="contact-hero-subtitle" style={{ fontSize: 'clamp(0.95rem, 1.8vw, 1.15rem)', color: '#aaa', maxWidth: '650px', margin: '0 auto', lineHeight: '1.6' }}>
+            Have questions or ready to launch your next digital marketing campaign? We are here to help you scale.
+          </p>
         </div>
       </div>
 
@@ -63,25 +119,143 @@ const ContactPage = () => {
           <div className="contact-form-section">
             <p className="contact-subtitle text-accent" style={{ fontSize: '0.9rem', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '0.4rem' }}>GET IN TOUCH</p>
             <h1 className="contact-title" style={{ textTransform: 'uppercase' }}>LET'S WORK <span className="contact-title-accent">TOGETHER</span></h1>
-            <p className="contact-desc" style={{ fontSize: '1rem', color: '#ccc', marginBottom: '0.8rem', lineHeight: '1.5' }}>Ready to grow your business? Let's build your brand strategy together.</p>
+            <p className="contact-desc" style={{ fontSize: '1rem', color: '#ccc', marginBottom: '0.8rem', lineHeight: '1.5' }}>
+              Ready to grow your business? Let's build your brand strategy together.
+            </p>
             <div className="contact-title-line"></div>
             
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="contact-form-main">
               {/* Hidden fields for FormSubmit configuration */}
-              <input type="hidden" name="_subject" value="New Contact Form Submission - Grow Lap" />
+              <input type="hidden" name="_subject" value="New Business Enquiry - Grow Lap" />
               <input type="hidden" name="_captcha" value="false" />
               <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="Services Interested" value={selectedServices.join(', ')} />
               
               <div className="contact-form-grid">
-                <input type="text" name="Name" className="contact-input full-width" placeholder="Name" required />
-                <input type="text" name="Company Name" className="contact-input" placeholder="Company Name" required />
-                <input type="tel" name="Phone Number" className="contact-input" placeholder="Phone number" required />
-                <textarea name="Message" className="contact-textarea" placeholder="Message" required></textarea>
+                {/* 1. Full Name */}
+                <div className="contact-field-group">
+                  <label className="contact-field-label">
+                    Full Name <span className="req-star">*</span>
+                  </label>
+                  <input 
+                    type="text" 
+                    name="Full Name" 
+                    className="contact-input" 
+                    required 
+                  />
+                </div>
+
+                {/* 2. Business Name */}
+                <div className="contact-field-group">
+                  <label className="contact-field-label">
+                    Business Name <span className="req-star">*</span>
+                  </label>
+                  <input 
+                    type="text" 
+                    name="Business Name" 
+                    className="contact-input" 
+                    required 
+                  />
+                </div>
+
+                {/* 3. Email Address */}
+                <div className="contact-field-group">
+                  <label className="contact-field-label">
+                    Email Address <span className="req-star">*</span>
+                  </label>
+                  <input 
+                    type="email" 
+                    name="Email Address" 
+                    className="contact-input" 
+                    required 
+                  />
+                </div>
+
+                {/* 4. Phone Number */}
+                <div className="contact-field-group">
+                  <label className="contact-field-label">
+                    Phone Number <span className="req-star">*</span>
+                  </label>
+                  <input 
+                    type="tel" 
+                    name="Phone Number" 
+                    className="contact-input" 
+                    required 
+                  />
+                </div>
+
+                {/* 5. Industry Selection */}
+                <div className="contact-field-group full-width">
+                  <label className="contact-field-label">
+                    Which industry does your business belong to? <span className="req-star">*</span>
+                  </label>
+                  <div className="contact-select-wrap">
+                    <select 
+                      name="Industry" 
+                      className="contact-input contact-select" 
+                      required 
+                      defaultValue=""
+                    >
+                      <option value="" disabled>Select your industry</option>
+                      {industryOptions.map((ind, idx) => (
+                        <option key={idx} value={ind}>{ind}</option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+
+                {/* 6. Services Selection (Chips) */}
+                <div className="contact-field-group full-width" id="services-section-selector">
+                  <div className="services-label-row">
+                    <label className="contact-field-label">
+                      Which services are you interested in? <span className="req-star">*</span>
+                    </label>
+                    <span className="services-hint-badge">Select all that apply</span>
+                  </div>
+
+                  <div className="services-chips-grid">
+                    {serviceOptions.map((service, idx) => {
+                      const isSelected = selectedServices.includes(service);
+                      return (
+                        <button
+                          type="button"
+                          key={idx}
+                          className={`service-chip ${isSelected ? 'active' : ''}`}
+                          onClick={() => toggleService(service)}
+                        >
+                          <span className="chip-indicator">
+                            {isSelected ? <FaCheck /> : '+'}
+                          </span>
+                          <span className="chip-text">{service}</span>
+                        </button>
+                      );
+                    })}
+                  </div>
+
+                  {serviceError && (
+                    <p className="service-error-text">
+                      Please select at least one service you are interested in.
+                    </p>
+                  )}
+                </div>
+
+                {/* 7. Requirements */}
+                <div className="contact-field-group full-width">
+                  <label className="contact-field-label">
+                    Tell Us About Your Requirements
+                  </label>
+                  <textarea 
+                    name="Requirements" 
+                    className="contact-textarea"
+                  ></textarea>
+                </div>
               </div>
               
               <div className="contact-checkbox-group">
                 <input type="checkbox" id="terms" name="Agreed_To_Terms" value="Yes" required />
-                <label htmlFor="terms">I agree <a href="#">Privacy Terms and Conditions</a></label>
+                <label htmlFor="terms">
+                  I agree to the <Link to="/privacy">Privacy Policy</Link> and <Link to="/terms">Terms &amp; Conditions</Link>
+                </label>
               </div>
               
               <button type="submit" className="btn-contact-submit" disabled={isSubmitting}>
@@ -89,7 +263,7 @@ const ContactPage = () => {
               </button>
 
               {result && (
-                <p style={{ color: result.includes('successfully') ? '#4caf50' : '#ff9800', marginTop: '1rem', textAlign: 'center' }}>
+                <p className={`contact-result-msg ${result.includes('successfully') ? 'success' : 'error'}`}>
                   {result}
                 </p>
               )}
@@ -145,19 +319,19 @@ const ContactPage = () => {
           </div>
         </div>
       
-      {/* Map Location */}
-      <div id="map-location" style={{ marginTop: '1rem', marginBottom: '4rem', scrollMarginTop: '100px' }}>
-        <h3 style={{ marginBottom: '1.5rem', textAlign: 'center' }}>Find Us Here</h3>
-        <iframe 
-          title="Location Map"
-          width="100%" 
-          height="400" 
-          style={{ border: 0, borderRadius: '8px', filter: 'invert(90%) hue-rotate(180deg)' }} 
-          loading="lazy" 
-          allowFullScreen 
-          src="https://maps.google.com/maps?q=Sankarankovil,%20Tamil%20Nadu,%20India&t=&z=13&ie=UTF8&iwloc=&output=embed"
-        ></iframe>
-      </div>
+        {/* Map Location */}
+        <div id="map-location" style={{ marginTop: '1rem', marginBottom: '4rem', scrollMarginTop: '100px' }}>
+          <h3 style={{ marginBottom: '1.5rem', textAlign: 'center' }}>Find Us Here</h3>
+          <iframe 
+            title="Location Map"
+            width="100%" 
+            height="400" 
+            style={{ border: 0, borderRadius: '8px', filter: 'invert(90%) hue-rotate(180deg)' }} 
+            loading="lazy" 
+            allowFullScreen 
+            src="https://maps.google.com/maps?q=Sankarankovil,%20Tamil%20Nadu,%20India&t=&z=13&ie=UTF8&iwloc=&output=embed"
+          ></iframe>
+        </div>
       </div>
     </div>
   );

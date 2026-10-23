@@ -485,10 +485,11 @@
 }
 
 .sub-card-extra {
-  font-size: 0.68rem;
-  color: #8c93a6;
+  font-size: 0.72rem;
+  color: #ffffff;
   margin-top: 0.35rem;
   line-height: 1.25;
+  font-weight: 500;
 }
 
 /* ==========================================================================
@@ -524,7 +525,7 @@
 
 .services-cta-center {
   flex: 1;
-  padding: 0 1.5rem;
+  padding: 0;
 }
 
 .cta-kicker {

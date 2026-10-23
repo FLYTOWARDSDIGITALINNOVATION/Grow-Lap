@@ -83,6 +83,7 @@ function App() {
               <Route path="/services/digital-marketing/personal-branding" element={<PersonalBrandingPage />} />
               <Route path="/services/digital-marketing/script-writing" element={<ScriptWritingPage />} />
               {/* Editing routes */}
+              <Route path="/services/editing/video-editing" element={<VideoEditingPage />} />
               <Route path="/services/editing/editing" element={<VideoEditingPage />} />
               <Route path="/services/editing/reels-editing" element={<ReelsEditingPage />} />
               <Route path="/services/editing/vlog-editing" element={<VlogEditingPage />} />
@@ -94,6 +95,7 @@ function App() {
               <Route path="/services/editing/graphics-design" element={<GraphicsDesignPage />} />
               <Route path="/services/editing/animation" element={<AnimationPage />} />
 
+              <Route path="/services/video-editing/video-editing" element={<VideoEditingPage />} />
               <Route path="/services/video-editing/editing" element={<VideoEditingPage />} />
               <Route path="/services/video-editing/reels-editing" element={<ReelsEditingPage />} />
               <Route path="/services/video-editing/vlog-editing" element={<VlogEditingPage />} />
