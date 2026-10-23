@@ -524,11 +524,12 @@
   margin-bottom: 0.6rem;
 }
 
-.csc-content-box h3 {
-  font-size: 2.2rem;
+.csc-content-box h3,
+.csc-content-box h4 {
+  font-size: 1.7rem;
   color: #ffffff;
   font-weight: 800;
-  margin-bottom: 1rem;
+  margin-bottom: 0.85rem;
   text-transform: none;
   letter-spacing: -0.5px;
 }
@@ -613,6 +614,10 @@
   }
   .csc-content-box {
     padding: 1.8rem 1.4rem;
+  }
+  .csc-content-box h3,
+  .csc-content-box h4 {
+    font-size: 1.4rem;
   }
 }
 

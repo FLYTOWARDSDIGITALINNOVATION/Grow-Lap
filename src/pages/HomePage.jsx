@@ -189,7 +189,7 @@ const ServicesSection = () => {
               </div>
               <div className="csc-content-box">
                 <span className="csc-number">{category.id} — CATEGORY</span>
-                <h3>{category.title}</h3>
+                <h4>{category.title}</h4>
                 <p className="csc-desc">{category.description}</p>
 
                 <div className="csc-subservices">
