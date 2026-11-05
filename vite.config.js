@@ -16,6 +16,8 @@ const multiPageDevPlugin = () => ({
 
       if (pathname === '/contact' || pathname === '/contact/') {
         req.url = '/contact/index.html' + query;
+      } else if (pathname === '/industry/real-estate' || pathname === '/industry/real-estate/') {
+        req.url = '/industry/real-estate/index.html' + query;
       } else if (pathname === '/industry' || pathname === '/industry/') {
         req.url = '/industry/index.html' + query;
       } else if (pathname === '/about' || pathname === '/about/') {
@@ -37,6 +39,7 @@ export default defineConfig({
         main: resolve(__dirname, 'index.html'),
         contact: resolve(__dirname, 'contact/index.html'),
         industry: resolve(__dirname, 'industry/index.html'),
+        'industry-real-estate': resolve(__dirname, 'industry/real-estate/index.html'),
         about: resolve(__dirname, 'about/index.html'),
         services: resolve(__dirname, 'services/index.html'),
       },

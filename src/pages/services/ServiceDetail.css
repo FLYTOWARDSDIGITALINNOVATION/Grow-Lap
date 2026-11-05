@@ -310,59 +310,161 @@
 }
 
 .sd-faq-item {
-  background-color: #fff;
-  border-radius: 8px;
+  background: rgba(18, 18, 24, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
   overflow: hidden;
   transition: all 0.3s ease;
   cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
   opacity: 1 !important;
   animation: none !important;
 }
 
+.sd-faq-item:hover {
+  border-color: rgba(255, 94, 0, 0.35);
+  background: rgba(255, 94, 0, 0.03);
+}
+
 .sd-faq-item.active {
-  background-color: #1a1a24;
+  background-color: rgba(26, 26, 36, 0.95);
+  border-color: var(--accent-orange, #ff5e00);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 94, 0, 0.1);
 }
 
 .sd-faq-header {
-  padding: 1.2rem 1.5rem;
+  padding: 1.25rem 1.6rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: #222;
+  color: #ffffff;
 }
 
 .sd-faq-item.active .sd-faq-header {
-  color: #fff;
+  color: #ffffff;
 }
 
 .sd-faq-icon {
-  width: 30px;
-  height: 30px;
-  background-color: #222;
-  color: #fff;
+  width: 32px;
+  height: 32px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: bold;
   flex-shrink: 0;
+  transition: all 0.3s ease;
 }
 
 .sd-faq-item.active .sd-faq-icon {
-  background-color: #fff;
-  color: #1a1a24;
+  background-color: var(--accent-orange, #ff5e00);
+  border-color: var(--accent-orange, #ff5e00);
+  color: #ffffff;
+  box-shadow: 0 0 12px rgba(255, 94, 0, 0.4);
 }
 
 .sd-faq-body {
-  padding: 0 1.5rem 1.5rem 1.5rem;
+  padding: 0 1.6rem 1.5rem 1.6rem;
   animation: fadeIn 0.3s ease;
+}
+
+.sd-faq-body p {
+  color: #b0b0b8 !important;
+  line-height: 1.7;
+  font-size: 0.98rem;
 }
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-5px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* Section 2: Industry Overview / What Is Digital Marketing Section */
+.industry-overview-section {
+  padding: 5.5rem 0;
+  background-color: rgba(255, 255, 255, 0.015);
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  position: relative;
+}
+
+.industry-overview-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 4.5rem;
+  align-items: center;
+}
+
+.industry-overview-title {
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  line-height: 1.25;
+  margin: 0.5rem 0 1.5rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.industry-quote-box {
+  border-left: 4px solid var(--accent-orange);
+  padding: 1.2rem 1.5rem;
+  background-color: rgba(255, 94, 0, 0.05);
+  border-radius: 0 12px 12px 0;
+  margin-bottom: 1.8rem;
+  border-top: 1px solid rgba(255, 94, 0, 0.1);
+  border-right: 1px solid rgba(255, 94, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 94, 0, 0.1);
+}
+
+.industry-quote-box p {
+  color: #fff;
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin: 0;
+  font-weight: 500;
+}
+
+.industry-overview-p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 1.2rem;
+}
+
+.industry-overview-visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.industry-overview-img-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 35px rgba(255, 94, 0, 0.12);
+  border: 1px solid rgba(255, 94, 0, 0.25);
+  background: #0d1015;
+}
+
+.industry-overview-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  max-height: 460px;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 992px) {
+  .industry-overview-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
 }
 
 /* Sub-Services Grid Section */
@@ -759,3 +861,960 @@
 }
 
 
+
+/* ==========================================================================
+   Industry Section 4: Interactive Strategy Tabs Model
+   ========================================================================== */
+.industry-strategies-section {
+  padding: 5.5rem 0;
+  background: radial-gradient(circle at 50% 15%, rgba(255, 94, 0, 0.04) 0%, transparent 65%), #0a0a0a;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* Tabs Navigation Bar */
+.strategy-tabs-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2.8rem;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.strategy-tab-btn {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #c0c0c0;
+  padding: 10px 20px;
+  border-radius: 40px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+  backdrop-filter: blur(8px);
+}
+
+.strategy-tab-btn:hover {
+  background: rgba(255, 94, 0, 0.12);
+  border-color: rgba(255, 94, 0, 0.4);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.strategy-tab-btn.active {
+  background: var(--accent-orange, #ff5e00);
+  border-color: var(--accent-orange, #ff5e00);
+  color: #ffffff;
+  box-shadow: 0 6px 20px rgba(255, 94, 0, 0.45);
+  transform: translateY(-2px);
+}
+
+.strategy-tab-btn .tab-num {
+  font-weight: 800;
+  color: #ffffff;
+  opacity: 0.9;
+}
+
+.strategy-tab-btn:not(.active) .tab-num {
+  color: var(--accent-orange, #ff5e00);
+}
+
+/* Strategy Tab Box (Compact Split View) */
+.strategy-tab-box {
+  max-width: 1080px;
+  margin: 0 auto;
+  background: rgba(18, 18, 22, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+  display: grid;
+  grid-template-columns: 0.95fr 1.15fr;
+  gap: 2.2rem;
+  padding: 1.8rem;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(12px);
+  align-items: stretch;
+  animation: fadeIn 0.35s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.strategy-tab-visual {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #000;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.strategy-tab-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.strategy-tab-box:hover .strategy-tab-visual img {
+  transform: scale(1.03);
+}
+
+.strategy-tab-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(10, 10, 10, 0.82);
+  color: var(--accent-orange, #ff5e00);
+  border: 1px solid rgba(255, 94, 0, 0.35);
+  font-size: 0.82rem;
+  font-weight: 800;
+  padding: 5px 12px;
+  border-radius: 20px;
+  backdrop-filter: blur(8px);
+  letter-spacing: 1px;
+}
+
+/* Strategy Content Column */
+.strategy-tab-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.5rem 0.5rem 0.5rem 0;
+}
+
+.strategy-tab-kicker {
+  color: var(--accent-orange, #ff5e00);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  margin-bottom: 0.5rem;
+}
+
+.strategy-tab-title {
+  font-size: clamp(1.3rem, 2vw, 1.65rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.9rem;
+  line-height: 1.3;
+}
+
+.strategy-tab-intro {
+  color: #cccccc;
+  font-size: 0.96rem;
+  line-height: 1.65;
+  margin-bottom: 1.1rem;
+}
+
+.strategy-tab-example {
+  background: rgba(255, 94, 0, 0.06);
+  border-left: 3px solid var(--accent-orange, #ff5e00);
+  padding: 0.8rem 1rem;
+  border-radius: 0 8px 8px 0;
+  margin-bottom: 1.1rem;
+}
+
+.strategy-tab-example p {
+  color: #e5e5e5;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.strategy-tab-list-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+}
+
+.strategy-tab-bullets {
+  list-style: none;
+  padding-left: 0;
+  margin: 0 0 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.strategy-tab-bullets li {
+  position: relative;
+  padding-left: 1.5rem;
+  color: #cccccc;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.strategy-tab-bullets li strong {
+  color: #ffffff;
+}
+
+.strategy-tab-bullets li::before {
+  content: '•';
+  position: absolute;
+  left: 0.35rem;
+  top: -1px;
+  color: var(--accent-orange, #ff5e00);
+  font-size: 1.3rem;
+  line-height: 1;
+}
+
+.strategy-tab-closing-note {
+  color: #aaaaaa;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-top: 0.8rem;
+  padding-top: 0.8rem;
+  border-top: 1px dashed rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 900px) {
+  .strategy-tab-box {
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+    padding: 1.4rem;
+  }
+  .strategy-tab-visual {
+    height: 230px;
+    min-height: auto;
+  }
+  .strategy-tab-btn {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+  }
+}
+
+/* ==========================================================================
+   Industry Section 5: Why Choose Grow Lap (Process Cards Grid)
+   ========================================================================== */
+.industry-why-section {
+  padding: 6rem 0;
+  background: radial-gradient(circle at 50% 20%, rgba(255, 94, 0, 0.03) 0%, transparent 65%), #0c0c0e;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.industry-why-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.industry-why-card {
+  display: flex;
+  background: #141417;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+  min-height: 200px;
+}
+
+.industry-why-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7), 0 0 25px rgba(255, 94, 0, 0.2);
+  border-color: rgba(255, 94, 0, 0.45);
+}
+
+.industry-why-card-left {
+  width: 32%;
+  background: #0d0d10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  gap: 0.9rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.industry-why-card-left::after {
+  content: '';
+  position: absolute;
+  right: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid #0d0d10;
+  z-index: 5;
+}
+
+.industry-why-icon-circle {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: #1a1a20;
+  color: var(--accent-orange, #ff5e00);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+  transition: all 0.3s ease;
+}
+
+.industry-why-card:hover .industry-why-icon-circle {
+  background: rgba(255, 94, 0, 0.15);
+  box-shadow: 0 0 20px rgba(255, 94, 0, 0.35);
+  transform: scale(1.08);
+}
+
+.industry-why-step-tag {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--accent-orange, #ff5e00);
+  letter-spacing: 1.5px;
+}
+
+.industry-why-card-right {
+  width: 68%;
+  padding: 2.2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.industry-why-card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+  line-height: 1.35;
+}
+
+.industry-why-card-desc {
+  font-size: 0.95rem;
+  color: #aaaaaa;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.industry-why-closing-box {
+  max-width: 900px;
+  margin: 3.5rem auto 0 auto;
+  text-align: center;
+  background: rgba(255, 94, 0, 0.04);
+  border: 1px dashed rgba(255, 94, 0, 0.25);
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
+}
+
+.industry-why-closing-box p {
+  color: #dddddd;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .industry-why-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .industry-why-card {
+    min-height: auto;
+  }
+  .industry-why-card-left {
+    width: 28%;
+    padding: 1.5rem 0.8rem;
+  }
+  .industry-why-card-right {
+    width: 72%;
+    padding: 1.5rem;
+  }
+  .industry-why-card-title {
+    font-size: 1.15rem;
+  }
+}
+
+@media (max-width: 580px) {
+  .industry-why-card {
+    flex-direction: column;
+  }
+  .industry-why-card-left {
+    width: 100%;
+    flex-direction: row;
+    padding: 1.2rem;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  .industry-why-card-left::after {
+    display: none;
+  }
+  .industry-why-card-right {
+    width: 100%;
+    padding: 1.2rem;
+  }
+}
+
+/* ==========================================================================
+   Industry Section 6: Step-by-Step Guide (Balanced 2-Column Grid)
+   ========================================================================== */
+.industry-guide-section {
+  padding: 6.5rem 0;
+  background: #08080a;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.industry-guide-balanced-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.8rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.industry-guide-step-item {
+  background: rgba(18, 18, 22, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 2rem 2.2rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.industry-guide-step-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 0;
+  background: var(--accent-orange, #ff5e00);
+  transition: height 0.3s ease;
+}
+
+.industry-guide-step-item:hover {
+  border-color: rgba(255, 94, 0, 0.4);
+  background: rgba(255, 94, 0, 0.025);
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 94, 0, 0.08);
+}
+
+.industry-guide-step-item:hover::before {
+  height: 100%;
+}
+
+.guide-step-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.2rem;
+}
+
+.guide-step-icon-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(255, 94, 0, 0.12);
+  border: 1px solid rgba(255, 94, 0, 0.25);
+  color: var(--accent-orange, #ff5e00);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  transition: all 0.3s ease;
+}
+
+.industry-guide-step-item:hover .guide-step-icon-wrap {
+  transform: scale(1.08);
+  background: var(--accent-orange, #ff5e00);
+  color: #ffffff;
+  box-shadow: 0 0 18px rgba(255, 94, 0, 0.4);
+}
+
+.guide-step-number-pill {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: 1.5px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.industry-guide-step-item:hover .guide-step-number-pill {
+  color: var(--accent-orange, #ff5e00);
+  border-color: rgba(255, 94, 0, 0.3);
+  background: rgba(255, 94, 0, 0.08);
+}
+
+.industry-guide-step-item .guide-step-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+  line-height: 1.35;
+}
+
+.industry-guide-step-item .guide-step-desc {
+  font-size: 0.98rem;
+  color: #b0b0b8;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* 8th Slot: Featured CTA Action Card */
+.industry-guide-cta-card {
+  background: linear-gradient(145deg, rgba(255, 94, 0, 0.12) 0%, rgba(18, 18, 24, 0.92) 100%);
+  border: 1px solid rgba(255, 94, 0, 0.35);
+  border-radius: 18px;
+  padding: 2.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 25px rgba(255, 94, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.industry-guide-cta-card:hover {
+  border-color: rgba(255, 94, 0, 0.6);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.6), 0 0 35px rgba(255, 94, 0, 0.2);
+}
+
+.guide-cta-top {
+  margin-bottom: 1rem;
+}
+
+.guide-cta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: var(--accent-orange, #ff5e00);
+  background: rgba(255, 94, 0, 0.12);
+  border: 1px solid rgba(255, 94, 0, 0.3);
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+
+.guide-cta-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+.guide-cta-desc {
+  font-size: 0.98rem;
+  color: #cccccc;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.guide-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 26px;
+  font-size: 0.98rem;
+  font-weight: 700;
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(255, 94, 0, 0.35);
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+@media (max-width: 900px) {
+  .industry-guide-balanced-grid {
+    grid-template-columns: 1fr;
+    gap: 1.4rem;
+  }
+}
+
+/* ==========================================================================
+   Industry Section 7: Bottom CTA Banner (Reference Match)
+   ========================================================================== */
+.industry-cta-banner-section {
+  padding: 5rem 0 6rem 0;
+  background: #08080a;
+  position: relative;
+}
+
+.industry-cta-banner-box {
+  background: #0c0d12;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(255, 94, 0, 0.08);
+  min-height: 290px;
+}
+
+/* Background warm ambient orange glow behind building */
+.industry-cta-banner-box::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 15%;
+  transform: translateY(-50%);
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255, 94, 0, 0.28) 0%, rgba(255, 94, 0, 0.08) 50%, transparent 70%);
+  filter: blur(45px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.industry-cta-banner-content {
+  flex: 1;
+  max-width: 620px;
+  padding: 3.5rem 3.5rem;
+  z-index: 3;
+  position: relative;
+}
+
+.industry-cta-banner-title {
+  font-size: clamp(2rem, 3.2vw, 2.85rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.18;
+  letter-spacing: -0.5px;
+  margin-bottom: 1.1rem;
+}
+
+.industry-cta-banner-desc {
+  font-size: 1.02rem;
+  color: #a0a0aa;
+  line-height: 1.65;
+  margin-bottom: 2rem;
+  max-width: 500px;
+}
+
+.industry-cta-banner-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--accent-orange, #ff5e00);
+  color: #ffffff;
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-size: 1.02rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 8px 25px rgba(255, 94, 0, 0.45);
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.industry-cta-banner-btn:hover {
+  background: #ff7524;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 14px 35px rgba(255, 94, 0, 0.65);
+  color: #ffffff;
+}
+
+.industry-cta-banner-btn svg {
+  transition: transform 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.industry-cta-banner-btn:hover svg {
+  transform: translateX(4px);
+}
+
+.industry-cta-banner-visual {
+  width: 44%;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+.industry-cta-banner-visual::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 25%;
+  background: linear-gradient(to right, #0c0d12 0%, rgba(12, 13, 18, 0.6) 50%, transparent 100%);
+  z-index: 3;
+  pointer-events: none;
+}
+
+.industry-cta-banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right center;
+  display: block;
+}
+
+@media (max-width: 960px) {
+  .industry-cta-banner-box {
+    flex-direction: column;
+    min-height: auto;
+  }
+  .industry-cta-banner-content {
+    max-width: 100%;
+    padding: 2.8rem 2rem 2rem 2rem;
+  }
+  .industry-cta-banner-visual {
+    position: relative;
+    width: 100%;
+    height: 240px;
+  }
+  .industry-cta-banner-visual::before {
+    width: 100%;
+    height: 35%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: auto;
+    background: linear-gradient(to bottom, #0c0d12 0%, transparent 100%);
+  }
+}
+
+/* ==========================================================================
+   Industry FAQ: Centered Luxury Layout (Zero Empty Side Space)
+   ========================================================================== */
+.industry-faq-centered-section {
+  padding: 6.5rem 0;
+  background: #08080a;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  position: relative;
+}
+
+.industry-faq-header {
+  text-align: center;
+  max-width: 820px;
+  margin: 0 auto 3.5rem auto;
+}
+
+.industry-faq-title {
+  font-size: clamp(2rem, 3.5vw, 2.85rem);
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  letter-spacing: -0.5px;
+}
+
+.industry-faq-desc {
+  font-size: 1.05rem;
+  color: #a0a0aa;
+  line-height: 1.7;
+  margin: 0 auto;
+}
+
+.industry-faq-accordion-wrap {
+  max-width: 920px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.industry-faq-card {
+  background: rgba(18, 18, 24, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.industry-faq-card:hover {
+  border-color: rgba(255, 94, 0, 0.35);
+  background: rgba(255, 94, 0, 0.02);
+  transform: translateY(-2px);
+}
+
+.industry-faq-card.active {
+  background: rgba(22, 22, 30, 0.95);
+  border-color: var(--accent-orange, #ff5e00);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 25px rgba(255, 94, 0, 0.12);
+}
+
+.industry-faq-card-header {
+  padding: 1.35rem 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  user-select: none;
+}
+
+.industry-faq-num-pill {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--accent-orange, #ff5e00);
+  background: rgba(255, 94, 0, 0.1);
+  border: 1px solid rgba(255, 94, 0, 0.25);
+  padding: 4px 10px;
+  border-radius: 8px;
+  flex-shrink: 0;
+  letter-spacing: 1px;
+}
+
+.industry-faq-q-text {
+  flex: 1;
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.industry-faq-icon-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.industry-faq-card.active .industry-faq-icon-btn {
+  background: var(--accent-orange, #ff5e00);
+  border-color: var(--accent-orange, #ff5e00);
+  color: #ffffff;
+  box-shadow: 0 0 14px rgba(255, 94, 0, 0.45);
+}
+
+.industry-faq-card-body {
+  padding: 0 1.8rem 1.6rem 4.5rem;
+  animation: faqFadeIn 0.3s ease;
+}
+
+.industry-faq-card-body p {
+  color: #b0b0bc;
+  font-size: 1rem;
+  line-height: 1.75;
+  margin: 0;
+}
+
+@keyframes faqFadeIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Bottom Centered Contact Bar */
+.industry-faq-contact-bar {
+  max-width: 920px;
+  margin: 3.5rem auto 0 auto;
+  background: linear-gradient(135deg, rgba(255, 94, 0, 0.08) 0%, rgba(18, 18, 24, 0.85) 100%);
+  border: 1px solid rgba(255, 94, 0, 0.25);
+  border-radius: 20px;
+  padding: 2rem 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.faq-contact-left h4 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.4rem;
+}
+
+.faq-contact-left p {
+  font-size: 0.95rem;
+  color: #aaaaaa;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.faq-contact-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.faq-call-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.faq-call-pill:hover {
+  background: rgba(255, 94, 0, 0.15);
+  border-color: rgba(255, 94, 0, 0.4);
+  color: var(--accent-orange, #ff5e00);
+}
+
+.faq-quote-btn {
+  padding: 11px 22px;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+@media (max-width: 820px) {
+  .industry-faq-card-body {
+    padding-left: 1.8rem;
+  }
+  .industry-faq-contact-bar {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 1.5rem;
+  }
+  .faq-contact-right {
+    flex-direction: column;
+    width: 100%;
+  }
+  .faq-call-pill, .faq-quote-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

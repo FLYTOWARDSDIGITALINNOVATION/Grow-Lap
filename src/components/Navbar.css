@@ -104,6 +104,7 @@
 
 .dropdown-icon {
   font-size: 0.8rem;
+  margin-left: 0.45rem;
   transition: transform 0.3s ease;
 }
 

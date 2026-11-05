@@ -965,9 +965,6 @@ const LetsTalkSection = () => {
         
         {/* Left Column */}
         <div className="lets-talk-text">
-          <p className="section-subtitle text-accent" style={{ letterSpacing: '2px', fontWeight: 700, marginBottom: '0.8rem', fontSize: '0.85rem' }}>
-            CTA LET'S TALK!
-          </p>
           <h2 className="lets-talk-heading-new">
             Got a Business Challenge? <br />
             <span className="text-orange">Let’s Solve It Together.</span>

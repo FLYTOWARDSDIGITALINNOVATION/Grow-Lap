@@ -5,11 +5,12 @@ const SEO = ({
   title = "Grow Lap | Digital Marketing & Creative Agency",
   description = "Grow Lap is a leading digital marketing agency offering SEO, Meta Ads, Graphic Design, Video Editing, and Branding services.",
   keywords = "digital marketing, SEO services, social media marketing, video editing, branding, Grow Lap",
-  ogImage = "https://growlap.com/Grow%20Lap.webp",
+  ogImage = "https://www.growlap.com/Grow%20Lap.webp",
   canonical = "",
   schema = null,
   robots = "index, follow",
-  ogImageAlt = ""
+  ogImageAlt = "",
+  siteName = "GrowLap"
 }) => {
   const location = useLocation();
   const currentUrl = canonical || `https://growlap.com${location.pathname}`;
@@ -38,7 +39,7 @@ const SEO = ({
     // Open Graph Tags
     setMetaTag('meta[property="og:locale"]', 'property', 'og:locale', 'en_US');
     setMetaTag('meta[property="og:type"]', 'property', 'og:type', 'website');
-    setMetaTag('meta[property="og:site_name"]', 'property', 'og:site_name', 'Grow Lap');
+    setMetaTag('meta[property="og:site_name"]', 'property', 'og:site_name', siteName);
     setMetaTag('meta[property="og:title"]', 'property', 'og:title', title);
     setMetaTag('meta[property="og:description"]', 'property', 'og:description', description);
     setMetaTag('meta[property="og:url"]', 'property', 'og:url', currentUrl);
@@ -73,7 +74,7 @@ const SEO = ({
     } else if (schemaScript) {
       schemaScript.remove();
     }
-  }, [title, description, keywords, ogImage, currentUrl, schema, robots, ogImageAlt]);
+  }, [title, description, keywords, ogImage, currentUrl, schema, robots, ogImageAlt, siteName]);
 
   return null;
 };
