@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -50,6 +50,7 @@ const TermsPage = lazy(() => import('./pages/TermsPage'));
 const PrivacyPage = lazy(() => import('./pages/PrivacyPage'));
 const AdminLogin = lazy(() => import('./pages/admin/AdminLogin'));
 const AdminDashboard = lazy(() => import('./pages/admin/AdminDashboard'));
+const CardPage = lazy(() => import('./pages/CardPage'));
 
 const PageLoader = () => (
   <div style={{ padding: '100px 20px', textAlign: 'center', minHeight: '60vh', backgroundColor: 'var(--bg-dark)', color: '#fff' }}>
@@ -58,15 +59,17 @@ const PageLoader = () => (
   </div>
 );
 
-function App() {
+function AppContent() {
+  const location = useLocation();
+  const isCardPage = location.pathname === '/card' || location.pathname === '/card/';
+
   return (
-    <Router>
-      <ScrollToTop />
-      <div className="app">
-        <Navbar />
-        <main>
-          <Suspense fallback={<PageLoader />}>
-            <Routes>
+    <div className="app">
+      {!isCardPage && <Navbar />}
+      <main>
+        <Suspense fallback={<PageLoader />}>
+          <Routes>
+            <Route path="/card" element={<CardPage />} />
               <Route path="/" element={<HomePage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/services" element={<ServicesPage />} />
@@ -139,9 +142,17 @@ function App() {
             </Routes>
           </Suspense>
         </main>
-        <Footer />
-        <WhatsAppButton />
+        {!isCardPage && <Footer />}
+        {!isCardPage && <WhatsAppButton />}
       </div>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <ScrollToTop />
+      <AppContent />
     </Router>
   );
 }

@@ -668,7 +668,7 @@ const testimonials = [
     name: "EToSM Technology", 
     role: "", 
     content: "Grow Lap helped us with our website design and SEO. Their team understood our requirements and worked with us to improve our website and online presence. We appreciate their clear communication and support.", 
-    image: 'https://picsum.photos/seed/etosm/100/100' 
+    image: '/etosm-logo.webp' 
   },
   { 
     name: "High Grip Socks", 
