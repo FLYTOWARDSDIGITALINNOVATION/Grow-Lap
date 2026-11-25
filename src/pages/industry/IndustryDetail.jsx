@@ -40,8 +40,13 @@ import card3 from '../../assets/images/card3.webp';
 import card4 from '../../assets/images/card4.webp';
 import realEstateBanner from '../../assets/images/real-estate-banner.png';
 import realEstateCtaBuilding from '../../assets/images/real-estate-cta-building-isolated.webp';
+import realEstateStrategy1 from '../../assets/images/real-estate-strategy-1.webp';
+import realEstateImg from '../../assets/images/real-estate.webp';
+import realEstateBlueprintLand from '../../assets/images/real-estate-blueprint-land.jpg';
+import villasImg from '../../assets/images/villas.webp';
 
 const cardBgImages = [card1, card2, card3, card4];
+const realEstateCardBgImages = [realEstateStrategy1, villasImg, realEstateImg, realEstateBanner];
 
 // Helper to return relevant icon based on deliverable title
 const getSection5Icon = (iconType) => {
@@ -84,12 +89,30 @@ const IndustryDetail = () => {
   const actualSlug = showroomType ? `showrooms-${showroomType}` : industrySlug;
   const industry = industryData[actualSlug];
   const [activeFaq, setActiveFaq] = useState(0);
-  const [activeStrategyTab, setActiveStrategyTab] = useState(0);
 
   // Scroll to top when mounted or slug changes
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [industrySlug, showroomType]);
+
+  const renderStrategyBullet = (text) => {
+    if (typeof text !== 'string') return text;
+    if (text.includes('<')) {
+      return <span dangerouslySetInnerHTML={{ __html: text }} />;
+    }
+    const colonIdx = text.indexOf(': ');
+    if (colonIdx > 0 && colonIdx <= 40 && !text.slice(0, colonIdx).includes('.')) {
+      const label = text.slice(0, colonIdx + 1);
+      const rest = text.slice(colonIdx + 1);
+      return (
+        <>
+          <strong>{label}</strong>
+          {rest}
+        </>
+      );
+    }
+    return text;
+  };
 
   if (!industry) {
     return (
@@ -161,23 +184,29 @@ const IndustryDetail = () => {
             </p>
             
             {/* Custom Metrics/Stats Row */}
-            <div className="sd-stats-row">
-              {industry.stats.map((stat, i) => (
-                <div key={i} className="sd-stat-box">
-                  <div className="sd-stat-val">{stat.value}</div>
-                  <div className="sd-stat-lbl">{stat.label}</div>
-                </div>
-              ))}
-            </div>
+            {industry.stats && industry.stats.length > 0 && (
+              <div className="sd-stats-row">
+                {industry.stats.map((stat, i) => (
+                  <div key={i} className="sd-stat-box">
+                    <div className="sd-stat-val">{stat.value}</div>
+                    <div className="sd-stat-lbl">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
+            )}
             
             <div className="sd-hero-buttons">
               <Link to="/contact" className="btn-primary sd-btn" style={{ padding: '12px 24px' }}>
                 <FaPaperPlane /> {industry.ctaText || 'Get Started'}
               </Link>
-              <div className="sd-btn-or">OR</div>
-              <a href="tel:+917695883647" className="btn-secondary sd-btn" style={{ padding: '12px 24px' }}>
-                <FaPhoneAlt /> Call Now
-              </a>
+              {actualSlug !== 'real-estate' && !industry.hideCallNow && (
+                <>
+                  <div className="sd-btn-or">OR</div>
+                  <a href="tel:+917695883647" className="btn-secondary sd-btn" style={{ padding: '12px 24px' }}>
+                    <FaPhoneAlt /> Call Now
+                  </a>
+                </>
+              )}
             </div>
           </div>
           
@@ -383,7 +412,7 @@ const IndustryDetail = () => {
           
           <div className="id-grid">
             {(industry.section3?.items || industry.deliverables).map((item, i) => {
-              const bgImg = cardBgImages[i % cardBgImages.length];
+              const bgImg = item.bgImage || item.image || (actualSlug === 'real-estate' ? realEstateCardBgImages[i % realEstateCardBgImages.length] : cardBgImages[i % cardBgImages.length]);
               
               return (
                 <div 
@@ -426,12 +455,12 @@ const IndustryDetail = () => {
         </div>
       </section>
 
-      {/* Section 4: Key Digital Marketing Strategies - Interactive Tabs Model */}
+      {/* Section 4: Key Digital Marketing Strategies - Clean Editorial Showcase Cards */}
       {industry.section4 && (
         <section className="industry-strategies-section">
           <div className="container">
             {/* Header */}
-            <div className="sd-section-header" style={{ maxWidth: '850px', margin: '0 auto 2.5rem auto', textAlign: 'center' }}>
+            <div className="sd-section-header" style={{ maxWidth: '850px', margin: '0 auto 3rem auto', textAlign: 'center' }}>
               {industry.section4.kicker && (
                 <p className="section-subtitle text-accent" style={{ letterSpacing: '2px', fontWeight: 700, marginBottom: '0.8rem', fontSize: '0.85rem' }}>
                   {industry.section4.kicker}
@@ -453,78 +482,54 @@ const IndustryDetail = () => {
               ))}
             </div>
 
-            {/* Horizontal Tabs Navigation */}
-            <div className="strategy-tabs-nav">
-              {industry.section4.strategies.map((strat, idx) => {
-                const shortTitle = strat.title
-                  .replace(' for Real Estate Websites', '')
-                  .replace(' for Real Estate', '');
-                
+            {/* Clean 2-Column Editorial Cards Stack */}
+            <div className="strategy-showcase-list">
+              {(industry.section4.strategies || []).map((strat, idx) => {
+                const numLabel = strat.num ? strat.num.replace('.', '') : `0${idx + 1}`;
                 return (
-                  <button
-                    key={idx}
-                    type="button"
-                    className={`strategy-tab-btn ${activeStrategyTab === idx ? 'active' : ''}`}
-                    onClick={() => setActiveStrategyTab(idx)}
-                  >
-                    <span className="tab-num">{strat.num}</span>
-                    <span className="tab-label">{shortTitle}</span>
-                  </button>
+                  <article key={idx} className="strategy-showcase-card">
+                    <div className="strategy-showcase-header">
+                      <div className="strategy-showcase-heading-group">
+                        <span className="strategy-showcase-num">{numLabel}</span>
+                        <h3 className="strategy-showcase-title">{strat.title}</h3>
+                      </div>
+                      <span className="strategy-showcase-pill">STRATEGY {numLabel}</span>
+                    </div>
+
+                    <div className="strategy-showcase-body">
+                      <div className="strategy-showcase-narrative">
+                        {strat.intro && (
+                          <p className="strategy-tab-intro">{strat.intro}</p>
+                        )}
+
+                        {strat.example && (
+                          <p className="strategy-tab-intro">{strat.example}</p>
+                        )}
+
+                        {strat.closingNote && (
+                          <p className="strategy-tab-closing-note">{strat.closingNote}</p>
+                        )}
+                      </div>
+
+                      {((strat.bullets && strat.bullets.length > 0) || strat.listTitle) && (
+                        <div className="strategy-showcase-points">
+                          {strat.listTitle && (
+                            <h4 className="strategy-tab-list-title">{strat.listTitle}</h4>
+                          )}
+                          {strat.bullets && strat.bullets.length > 0 && (
+                            <ul className="strategy-tab-bullets">
+                              {strat.bullets.map((b, bIdx) => (
+                                <li key={bIdx}>{renderStrategyBullet(b)}</li>
+                              ))}
+                            </ul>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  </article>
                 );
               })}
             </div>
-
-            {/* Active Strategy Display Box */}
-            {(() => {
-              const currentStrat = industry.section4.strategies[activeStrategyTab] || industry.section4.strategies[0];
-              if (!currentStrat) return null;
-
-              return (
-                <div className="strategy-tab-box">
-                  {/* Left Column: Visual Banner */}
-                  <div className="strategy-tab-visual">
-                    <img 
-                      src={currentStrat.image} 
-                      alt={currentStrat.title} 
-                      className="strategy-tab-img"
-                    />
-                    <div className="strategy-tab-badge">STRATEGY {currentStrat.num}</div>
-                  </div>
-
-                  {/* Right Column: Content Body */}
-                  <div className="strategy-tab-content">
-                    <div className="strategy-tab-kicker">STRATEGY {currentStrat.num}</div>
-                    <h3 className="strategy-tab-title">{currentStrat.title}</h3>
-
-                    {currentStrat.intro && (
-                      <p className="strategy-tab-intro">{currentStrat.intro}</p>
-                    )}
-
-                    {currentStrat.example && (
-                      <div className="strategy-tab-example">
-                        <p>{currentStrat.example}</p>
-                      </div>
-                    )}
-
-                    {currentStrat.listTitle && (
-                      <h4 className="strategy-tab-list-title">{currentStrat.listTitle}</h4>
-                    )}
-
-                    {currentStrat.bullets && currentStrat.bullets.length > 0 && (
-                      <ul className="strategy-tab-bullets">
-                        {currentStrat.bullets.map((b, bIdx) => (
-                          <li key={bIdx} dangerouslySetInnerHTML={{ __html: b }} />
-                        ))}
-                      </ul>
-                    )}
-
-                    {currentStrat.closingNote && (
-                      <p className="strategy-tab-closing-note">{currentStrat.closingNote}</p>
-                    )}
-                  </div>
-                </div>
-              );
-            })()}
 
             {/* Section 4 Bottom CTA */}
             {industry.section4.cta && (
@@ -549,8 +554,8 @@ const IndustryDetail = () => {
         </section>
       )}
 
-      {/* Section 5: Why Choose Grow Lap (Reference Process Grid Model) */}
-      {industry.section5 && (
+      {/* Section 5: Why Choose Grow Lap (Real Estate) */}
+      {actualSlug === 'real-estate' && industry.section5 && (
         <section className="industry-why-section">
           <div className="container">
             {/* Header */}
@@ -601,67 +606,83 @@ const IndustryDetail = () => {
         </section>
       )}
 
-      {/* Section 6: Step-by-Step Guide (Balanced 2-Column Grid) */}
-      {industry.section6 && (
+      {/* Section 6: Step-by-Step Guide (Real Estate) */}
+      {actualSlug === 'real-estate' && industry.section6 && (
         <section className="industry-guide-section">
           <div className="container">
-            {/* Header: Centered & Full Width */}
-            <div className="sd-section-header" style={{ maxWidth: '850px', margin: '0 auto 3.5rem auto', textAlign: 'center' }}>
-              {industry.section6.kicker && (
-                <p className="section-subtitle text-accent" style={{ letterSpacing: '2px', fontWeight: 700, marginBottom: '0.8rem', fontSize: '0.85rem' }}>
-                  {industry.section6.kicker}
-                </p>
-              )}
-              <h2 style={{ fontSize: 'clamp(2rem, 3.5vw, 2.8rem)', color: '#fff', marginBottom: '1.2rem', fontWeight: '800' }}>
-                How to Use Digital Marketing for <span style={{ color: 'var(--accent-orange)' }}>Real Estate:</span> A Step-by-Step Guide
-              </h2>
-              {industry.section6.intro && (
-                <p style={{ color: '#ccc', fontSize: '1.05rem', lineHeight: '1.7', margin: '0 auto' }}>
-                  {industry.section6.intro}
-                </p>
-              )}
-            </div>
+            <div className="industry-guide-split">
+              {/* Left Column: Header + Stacked Horizontal Step Cards */}
+              <div className="industry-guide-left">
+                <div className="industry-guide-left-header">
+                  {industry.section6.kicker && (
+                    <p className="section-subtitle text-accent" style={{ letterSpacing: '2px', fontWeight: 700, marginBottom: '0.7rem', fontSize: '0.85rem' }}>
+                      {industry.section6.kicker}
+                    </p>
+                  )}
+                  <h2 className="industry-guide-main-title">
+                    How to Use Digital Marketing for <span style={{ color: 'var(--accent-orange)' }}>Real Estate:</span> A Step-by-Step Guide
+                  </h2>
+                  {industry.section6.intro && (
+                    <p className="industry-guide-intro">
+                      {industry.section6.intro}
+                    </p>
+                  )}
+                </div>
 
-            {/* Balanced 2-Column Grid: 7 Steps + 1 Actionable CTA Card */}
-            <div className="industry-guide-balanced-grid">
-              {industry.section6.steps.map((st, i) => (
-                <div key={i} className="industry-guide-step-item">
-                  <div className="guide-step-top">
-                    <div className="guide-step-icon-wrap">
-                      {st.iconType === 'target' && <FaBullseye />}
-                      {st.iconType === 'users' && <FaUsers />}
-                      {st.iconType === 'camera' && <FaCamera />}
-                      {st.iconType === 'web' && <FaLaptopCode />}
-                      {st.iconType === 'bullhorn' && <FaBullhorn />}
-                      {st.iconType === 'phone' && <FaPhoneAlt />}
-                      {st.iconType === 'chart' && <FaChartLine />}
+                <div className="industry-guide-steps-stack">
+                  {industry.section6.steps.map((st, i) => (
+                    <div key={i} className="industry-guide-step-row">
+                      <div className="guide-step-icon-wrap">
+                        {st.iconType === 'target' && <FaBullseye />}
+                        {st.iconType === 'users' && <FaUsers />}
+                        {st.iconType === 'camera' && <FaCamera />}
+                        {st.iconType === 'web' && <FaLaptopCode />}
+                        {st.iconType === 'bullhorn' && <FaBullhorn />}
+                        {st.iconType === 'phone' && <FaPhoneAlt />}
+                        {st.iconType === 'chart' && <FaChartLine />}
+                      </div>
+                      <div className="guide-step-row-body">
+                        <h3 className="guide-step-title">{st.title}</h3>
+                        <p className="guide-step-desc">{st.desc}</p>
+                      </div>
                     </div>
-                    <span className="guide-step-number-pill">STEP 0{i + 1}</span>
-                  </div>
-                  <h3 className="guide-step-title">{st.title}</h3>
-                  <p className="guide-step-desc">{st.desc}</p>
+                  ))}
                 </div>
-              ))}
+              </div>
 
-              {/* 8th Slot: High-Conversion CTA Action Card */}
-              <div className="industry-guide-cta-card">
-                <div className="guide-cta-top">
-                  <span className="guide-cta-badge">
-                    <FaRocket /> {industry.section6.sidebarCard?.badge || 'PROPERTY GROWTH ENGINE'}
-                  </span>
+              {/* Right Column: Sticky Visual + Action Card */}
+              <div className="industry-guide-right">
+                <div className="industry-guide-sticky">
+                  <div className="industry-guide-visual-card">
+                    <img
+                      src={industry.section6.image || realEstateBlueprintLand}
+                      alt="Step-by-Step Real Estate Digital Marketing Blueprint"
+                      className="industry-guide-visual-img"
+                    />
+                  </div>
+
+                  {industry.section6.sidebarCard && (
+                    <div className="industry-guide-cta-card">
+                      <div className="guide-cta-top">
+                        <span className="guide-cta-badge">
+                          <FaRocket /> {industry.section6.sidebarCard.badge || 'PROPERTY GROWTH ENGINE'}
+                        </span>
+                      </div>
+                      <h3 className="guide-cta-title">
+                        {industry.section6.sidebarCard.title || 'Ready to Put This Guide into Action?'}
+                      </h3>
+                      <p className="guide-cta-desc">
+                        {industry.section6.sidebarCard.desc || 'Our real estate marketing experts manage everything for you — from property shoots and SEO to Meta & Google Ads campaigns.'}
+                      </p>
+                      <Link
+                        to={industry.section6.sidebarCard.ctaLink || '/contact'}
+                        className="btn-primary sd-btn guide-cta-btn"
+                      >
+                        <FaPaperPlane /> {industry.section6.sidebarCard.ctaText || 'Get Started with Grow Lap'}
+                      </Link>
+                    </div>
+                  )}
                 </div>
-                <h3 className="guide-cta-title">
-                  {industry.section6.sidebarCard?.title || 'Ready to Put This Guide into Action?'}
-                </h3>
-                <p className="guide-cta-desc">
-                  {industry.section6.sidebarCard?.desc || 'Our real estate marketing experts manage everything for you — from property shoots and SEO to Meta & Google Ads campaigns.'}
-                </p>
-                <Link 
-                  to="/contact" 
-                  className="btn-primary sd-btn guide-cta-btn"
-                >
-                  <FaPaperPlane /> {industry.section6.sidebarCard?.ctaText || 'Get Started with Grow Lap'}
-                </Link>
               </div>
             </div>
           </div>
@@ -699,7 +720,7 @@ const IndustryDetail = () => {
       )}
 
       {/* Additional Custom Details (if present) */}
-      {(industry.whyChoose || industry.whoWeWorkWith || industry.seoProcess || industry.customProcess) && (
+      {actualSlug !== 'real-estate' && (industry.whyChoose || industry.whoWeWorkWith || industry.seoProcess || industry.customProcess) && (
         <section className="sd-seo-details-section" style={{ padding: '5rem 0', backgroundColor: 'rgba(255, 255, 255, 0.01)', borderTop: '1px solid rgba(255, 255, 255, 0.03)', borderBottom: '1px solid rgba(255, 255, 255, 0.03)' }}>
           <div className="container">
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '3rem' }}>
@@ -776,7 +797,7 @@ const IndustryDetail = () => {
       </div>
 
       {/* FAQ Accordion Section */}
-      {industry.section5 ? (
+      {actualSlug === 'real-estate' && industry.section5 ? (
         <section className="industry-faq-centered-section">
           <div className="container">
             {/* Centered Header */}

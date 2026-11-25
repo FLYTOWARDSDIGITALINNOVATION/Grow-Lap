@@ -1,5 +1,6 @@
 import realEstateStrategy1 from '../assets/images/real-estate-strategy-1.webp';
 import realEstateBanner from '../assets/images/real-estate-banner.png';
+import realEstateHeroLand from '../assets/images/real-estate-hero-land.jpg';
 import realEstateImg from '../assets/images/real-estate.webp';
 import clothingBrandImg from '../assets/images/clothing-brand.webp';
 import manufacturingImg from '../assets/images/manufacturing.webp';
@@ -28,7 +29,8 @@ export const industryData = {
     title: 'Digital Marketing for Real Estate',
     h1: 'Digital Marketing for Real Estate to Reach More Buyers',
     kicker: 'REAL ESTATE DIGITAL MARKETING',
-    image: realEstateBanner,
+    image: realEstateHeroLand,
+    hideCallNow: true,
     subtitle: '',
     description: 'Want more people to see your properties online? Digital marketing for real estate helps you reach potential buyers, share property details and get more enquires from people looking to buy a home, apartment, or land.',
     ctaText: 'Get Started with Grow Lap',
@@ -68,12 +70,12 @@ export const industryData = {
     section2: {
       kicker: 'REAL ESTATE DIGITAL MARKETING',
       title: 'What Is Digital Marketing for Real Estate?',
-      quote: 'Digital marketing for real estate is the process of promoting properties online through Google, social media and websites helping real estate agents, builders and property dealers showcase their properties to the right audience.',
       paragraphs: [
+        'Digital marketing for real estate is the process of promoting properties online through Google, social media and websites helping real estate agents, builders and property dealers showcase their properties to the right audience.',
         'For example you can share property photos and videos on social media, list available properties on your website, and run online ads to reach buyers in your target areas, while providing details about each property’s price, facilities and location.',
         'These online platforms help buyers find your properties, learn more about your business and contact you when they are interested.'
       ],
-      image: '/about-creative-team-4.jpg'
+      image: realEstateImg
     },
     section3: {
       kicker: 'KEY ADVANTAGES & IMPORTANCE',
@@ -82,19 +84,23 @@ export const industryData = {
       items: [
         {
           title: 'Reach a Wide Audience',
-          desc: 'You can show your properties to people in different cities and areas through social media, Google, and online advertisements helping more people learn about your available properties.'
+          desc: 'You can show your properties to people in different cities and areas through social media, Google, and online advertisements helping more people learn about your available properties.',
+          bgImage: realEstateStrategy1
         },
         {
           title: 'Target the Right Customers',
-          desc: 'You can focus your marketing on people looking for properties in specific locations. For example if you sell apartments in Chennai and you can promote them to people interested in buying a home in that area.'
+          desc: 'You can focus your marketing on people looking for properties in specific locations. For example if you sell apartments in Chennai and you can promote them to people interested in buying a home in that area.',
+          bgImage: villasImg
         },
         {
           title: 'Cost Effective Marketing',
-          desc: 'You can start online advertising with a budget that suits your business. You can also check how many people click on your ads and contact you helping you decide where to spend your money.'
+          desc: 'You can start online advertising with a budget that suits your business. You can also check how many people click on your ads and contact you helping you decide where to spend your money.',
+          bgImage: realEstateImg
         },
         {
           title: 'SEO for Real Estate',
-          desc: 'SEO helps people find your real estate website through Google searches. Using keywords such as "flats for sale in Chennai" and providing clear property details can help your website reach people searching for properties in those areas.'
+          desc: 'SEO helps people find your real estate website through Google searches. Using keywords such as "flats for sale in Chennai" and providing clear property details can help your website reach people searching for properties in those areas.',
+          bgImage: realEstateBanner
         }
       ],
       cta: "Let's Turn Your Marketing Plans into Real Results."
@@ -187,11 +193,7 @@ export const industryData = {
       ],
       cta: 'Need the Right Digital Marketing Strategy for Real Estate?'
     },
-    stats: [
-      { label: 'Property Leads', value: '10k+' },
-      { label: 'Avg ROAS Boost', value: '3.8x' },
-      { label: 'Cost Per Lead', value: 'Reduced 35%' }
-    ],
+    stats: [],
     deliverables: [
       {
         title: 'Real Estate SEO Services',
@@ -313,36 +315,6 @@ export const industryData = {
       ctaText: 'Get Started with Grow Lap',
       ctaLink: '/contact'
     },
-    whyChooseTitle: 'Why Choose Us?',
-    whyChoose: [
-      'Real estate digital marketing specialists',
-      'Data-driven, conversion-focused strategy',
-      'High-quality property lead generation focus',
-      'ROI-focused search and social ads',
-      'Professional graphic and ad design support',
-      '100% transparent performance reports',
-      'Affordable property marketing packages',
-      'Dedicated daily account support team'
-    ],
-    whoWeWorkWithTitle: 'Who We Work With',
-    whoWeWorkWith: [
-      'Real Estate Developers',
-      'Builders & Contractors',
-      'Property Consultants',
-      'Real Estate Agencies',
-      'Independent Brokers',
-      'Luxury Property Brands',
-      'Commercial Property Firms',
-      'Residential Projects'
-    ],
-    customProcessTitle: 'Our Process',
-    customProcess: [
-      'Business & Market Analysis (We understand your project, target audience, and competitors)',
-      'Marketing Strategy (We develop a customized digital marketing plan based on your goals)',
-      'Campaign Launch (We launch SEO, social media, and paid advertising campaigns)',
-      'Campaign Optimization (We monitor and optimize campaigns to improve lead quality and reduce cost)',
-      'Scale Your Sales (Generate more qualified inquiries, increase site visits, and close deals)'
-    ],
     benefits: [
       'Generate high-quality property leads, increase sales velocity, and build regional brand awareness.',
       'Boost organic search traffic and capture high-intent buyers looking for homes on Google.',
@@ -3460,11 +3432,7 @@ export const industryData = {
     subtitle: 'Build a Strong Digital Presence That Wins More Projects',
     image: constructionImg,
     description: "The construction industry has become more competitive than ever. Today, clients, property owners, architects, and businesses search online before selecting a construction company. A professional digital presence helps establish credibility, showcase completed projects, and generate high-quality business enquiries. Our Digital Marketing Services for Construction Companies are designed to help construction firms, civil contractors, builders, infrastructure companies, residential and commercial contractors, interior contractors, and engineering firms attract more clients and grow their business.",
-    stats: [
-      { label: 'Project Leads', value: '450+ / Yr' },
-      { label: 'Portfolio Views', value: '4.8x Lift' },
-      { label: 'Contract Lead Value', value: 'High Ticket' }
-    ],
+    stats: [],
     deliverables: [
       {
         title: 'Construction SEO',
@@ -3487,98 +3455,6 @@ export const industryData = {
         image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80'
       }
     ],
-    section5: {
-      kicker: 'WHY CHOOSE GROW LAP',
-      title: 'Why Choose Grow Lap as Your Digital Marketing Company for Real Estate?',
-      intro: 'Every property business has its own way of working. Some want to promote a new project while others want to build their name in the local market or get more customer enquiries. At Grow Lap, we take time to understand what your business needs before planning how to promote it.',
-      items: [
-        {
-          id: '01',
-          tag: 'STEP 01',
-          iconType: 'layers',
-          title: 'Marketing and Creative Work Under One Roof',
-          desc: "You don't have to look for separate people to handle your marketing and visual work. Grow Lap brings digital marketing, photography, videography, and editing together."
-        },
-        {
-          id: '02',
-          tag: 'STEP 02',
-          iconType: 'camera',
-          title: 'Content That Shows Your Properties Clearly',
-          desc: 'Buyers want to see what they are paying for. We help present your projects through property photos, videos, reels, and edited visuals that show the details of your work.'
-        },
-        {
-          id: '03',
-          tag: 'STEP 03',
-          iconType: 'target',
-          title: 'A Plan Based on Your Business Goals',
-          desc: 'Whether you are a property dealer, builder or real estate agent, we consider the type of properties you handle and the customers you want to reach before planning your marketing activities.'
-        },
-        {
-          id: '04',
-          tag: 'STEP 04',
-          iconType: 'growth',
-          title: 'Support as Your Business Grows',
-          desc: 'Your marketing needs may change when you launch a new project or add more properties. We can help you adjust your marketing activities as your business needs change.'
-        }
-      ],
-      closingNote: 'At Grow Lap, we aim to make it easier for real estate businesses to manage their online promotion and present their properties to potential buyers.'
-    },
-    section6: {
-      kicker: 'STEP-BY-STEP BLUEPRINT',
-      title: 'How to Use Digital Marketing for Real Estate: A Step-by-Step Guide',
-      intro: "Getting started with digital marketing doesn't have to be difficult. You can begin with a few basic steps and improve your marketing as your business grows.",
-      steps: [
-        {
-          num: '01',
-          iconType: 'target',
-          title: 'Step 1: Decide What You Want to Achieve',
-          desc: 'First, decide what you need from your marketing. You may want to sell more properties, promote a new project, get more enquiries, or make more people aware of your business.'
-        },
-        {
-          num: '02',
-          iconType: 'users',
-          title: 'Step 2: Know Which Buyers You Want to Reach',
-          desc: 'Think about the people who may be interested in your properties. Consider their preferred location, budget, and the type of property they are looking for.'
-        },
-        {
-          num: '03',
-          iconType: 'camera',
-          title: 'Step 3: Prepare Your Property Details',
-          desc: 'Collect clear photos, videos, prices, location details, and information about the facilities. Make sure everything is correct before sharing it online.'
-        },
-        {
-          num: '04',
-          iconType: 'web',
-          title: 'Step 4: Set Up Your Online Presence',
-          desc: 'Create a website and business social media pages where people can view your properties and find your contact details. Keep the information updated whenever you have new listings or project changes.'
-        },
-        {
-          num: '05',
-          iconType: 'bullhorn',
-          title: 'Step 5: Start Promoting Your Properties',
-          desc: 'Choose suitable marketing methods to share your property details. You can use Google, social media, and online advertisements to reach people interested in buying.'
-        },
-        {
-          num: '06',
-          iconType: 'phone',
-          title: 'Step 6: Follow Up with Interested Buyers',
-          desc: 'When someone contacts you, respond to their questions and share the information they need. Arrange a property visit if they are interested.'
-        },
-        {
-          num: '07',
-          iconType: 'chart',
-          title: 'Step 7: Check Your Marketing Results',
-          desc: 'Check how many enquiries you receive, which properties get more attention, and how much you spend on advertising. Use these details to decide what needs to change.'
-        }
-      ],
-      sidebarCard: {
-        badge: 'PROPERTY GROWTH ENGINE',
-        title: 'Ready to Put This Guide into Action?',
-        desc: 'Our real estate marketing experts manage everything for you — from property shoots and SEO to Meta & Google Ads campaigns.',
-        ctaText: 'Get Started with Grow Lap',
-        ctaLink: '/contact'
-      }
-    },
     whyChooseTitle: 'Why Choose Us?',
     whyChoose: [
       'Construction industry marketing specialists',
